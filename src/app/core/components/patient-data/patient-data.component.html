@@ -1,0 +1,10 @@
+
+
+<app-add-patient-one [patientOneModel]="patientOne" (submitFirst)="firstPageSelected($event)" *ngIf="firstPage"></app-add-patient-one>
+
+<app-add-patient-two [patientTwoModel]="patientOne" (submitSecond)="secondPageSubmit($event)" *ngIf="secondPage"></app-add-patient-two>
+
+<app-add-patient-three [patientThreeModel]="patientOne" (submitThird)="thirdPageSubmit($event)" *ngIf="thirdPage"></app-add-patient-three>
+
+
+<p *ngIf="finishPage">Thank you to submit your medical record.</p>

@@ -1,0 +1,351 @@
+
+  <div class="container py-3">
+
+    <form #pageOne="ngForm" (ngSubmit)="submitOne(pageOne)" class="row g-3">
+      <div class="col-md-6">
+        <label for="fullName" class="form-label">Full Name</label>
+        <input [(ngModel)]="patientOneModel.fullName" name="fullName" #fullName="ngModel" type="text" class="form-control" id="fullName">
+      </div>
+      <div class="col-md-6">
+        <label for="dateOfBirth" class="form-label">Date of Birth</label>
+        <input [(ngModel)]="patientOneModel.dateOfBirth" name="dateOfBirth" #dateOfBirth="ngModel" 
+        type="date" class="form-control" id="dateOfBirth">
+      </div>
+      <div class="col-12">
+        <label for="inputAddress" class="form-label">Address</label>
+        <input [(ngModel)]="patientOneModel.inputAddress" name="inputAddress" #inputAddress="ngModel"
+        type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+      </div>
+      <div class="col-md-3">
+        <label for="age" class="form-label">Age</label>
+        <input [(ngModel)]="patientOneModel.age" name="age" #age="ngModel"
+        type="number" class="form-control" id="age">
+      </div>
+      <div class="col-md-3">
+        <label for="apt" class="form-label">APT</label>
+        <input [(ngModel)]="patientOneModel.apt" name="apt" #apt="ngModel" 
+        type="text" class="form-control" id="apt">
+      </div>
+      <div class="col-md-3">
+        <label for="city" class="form-label">City</label>
+        <input [(ngModel)]="patientOneModel.city" name="city" #city="ngModel"
+        type="text" class="form-control" id="city">
+      </div>
+      <div class="col-md-3">
+        <label for="race" class="form-label">Race</label>
+        <input [(ngModel)]="patientOneModel.race" name="race" #race="ngModel"
+        type="text" class="form-control" id="race">
+      </div>
+
+      <div class="col-md-4">
+        <label for="state" class="form-label">State</label>
+        <input [(ngModel)]="patientOneModel.state" name="state" #state="ngModel" 
+        type="text" class="form-control" id="state">
+      </div>
+      <div class="col-md-4">
+        <label for="zipCode" class="form-label">Zip</label>
+        <input [(ngModel)]="patientOneModel.zipCode" name="zipCode" #zipCode="ngModel"
+        type="text" class="form-control" id="zipCode">
+      </div>
+      <div class="col-12">
+        <div class="form-check">
+          <input class="form-check-input"  type="radio" name="gender" id="genderRadioMale" value="Male" [(ngModel)]="patientOneModel.gender">
+          <label class="form-check-label" for="genderRadioMale">
+            Male
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="gender" id="genderRadioFemale" value="Female" [(ngModel)]="patientOneModel.gender">
+          <label class="form-check-label" for="genderRadioFemale">
+            Female
+          </label>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <label for="maritalStatus" class="form-label">Marital Status</label>
+        <input [(ngModel)]="patientOneModel.maritalStatus" name="maritalStatus" #maritalStatus="ngModel" 
+        type="text" class="form-control" id="maritalStatus">
+      </div>
+      <div class="col-md-6">
+        <label for="occupation" class="form-label">Occupation</label>
+        <input [(ngModel)]="patientOneModel.occupation" name="occupation" #occupation="ngModel"
+        type="text" class="form-control" id="occupation">
+      </div>
+      <div class="col-md-6">
+        <label for="mobilePhoneNo" class="form-label">Mobile Phone No</label>
+        <input [(ngModel)]="patientOneModel.mobilePhoneNo" name="mobilePhoneNo" #mobilePhoneNo="ngModel" 
+        type="number" class="form-control" id="mobilePhoneNo">
+      </div>
+      <div class="col-md-6">
+        <label for="dayTimePhoneNo" class="form-label">DayTime Phone No</label>
+        <input [(ngModel)]="patientOneModel.dayTimePhoneNo" name="dayTimePhoneNo" #dayTimePhoneNo="ngModel" 
+        type="number" class="form-control" id="dayTimePhoneNo">
+      </div>
+      <div class="col-md-6">
+        <label for="ssn" class="form-label">SSN</label>
+        <input [(ngModel)]="patientOneModel.ssn" name="ssn" #ssn="ngModel" 
+        type="number" class="form-control" id="ssn">
+      </div>
+      <div class="col-md-6">
+        <label for="email" class="form-label">Email</label>
+        <input [(ngModel)]="patientOneModel.email" name="email" #email="ngModel"
+        type="email" class="form-control" id="email">
+      </div>
+      <div class="col-md-6">
+        <label for="ssn" class="form-label">HAVE YOU HAD ANY SURGERIES IN THE PAST? </label>
+      </div>
+      <div class="col-md-6">
+        <div class="form-check">
+            <input class="form-check-input" [(ngModel)]="patientOneModel.surgery" type="radio" name="surgery" id="surgeryRadioYes" value="Yes">
+            <label class="form-check-label" for="surgeryRadioYes">
+              Yes
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" [(ngModel)]="patientOneModel.surgery" type="radio" name="surgery" id="surgeryRadioNo" value="No">
+            <label class="form-check-label" for="surgeryRadioNo">
+              No
+            </label>
+          </div>
+      </div>
+      <div class="col-12" *ngIf="patientOneModel.surgery == 'Yes'" >
+        <label for="surgeryExplain" class="form-label">Explain</label>
+        <input [(ngModel)]="patientOneModel.surgeryExplain" name="surgeryExplain" #surgeryExplain="ngModel"
+        type="text" class="form-control" id="surgeryExplain">
+      </div>
+      <div class="col-md-6">
+        <label for="ssn" class="form-label">ARE YOU ALLERGIC TO ANY MEDICATIONS? </label>
+      </div>
+      <div class="col-md-6">
+        <div class="form-check">
+            <input class="form-check-input" [(ngModel)]="patientOneModel.alergic" type="radio" name="alergic" id="alergicRadioYes" value="Yes">
+            <label class="form-check-label" for="alergicRadioYes">
+              Yes
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" [(ngModel)]="patientOneModel.alergic" type="radio" name="alergic" id="alergicRadioNo" value="No">
+            <label class="form-check-label" for="alergicRadioNo">
+              No
+            </label>
+          </div>
+      </div>
+      <div class="col-12" *ngIf="patientOneModel.alergic == 'Yes'">
+        <label for="alergicExplain" class="form-label">Explain</label>
+        <input [(ngModel)]="patientOneModel.alergicExplain" name="alergicExplain" #alergicExplain="ngModel"
+        type="text" class="form-control" id="alergicExplain">
+      </div>
+      <div class="col-md-6">
+        <label for="ssn" class="form-label">DO YOU HAVE ANY ONGOING MEDICAL PROBLEMS? </label>
+      </div>
+      <div class="col-md-6">
+        <div class="form-check">
+            <input class="form-check-input" [(ngModel)]="patientOneModel.medicalProblem" type="radio" name="medicalProblem" id="medicalProblemYes" value="Yes">
+            <label class="form-check-label" for="medicalProblemYes">
+              Yes
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" [(ngModel)]="patientOneModel.medicalProblem" type="radio" name="medicalProblem" id="medicalProblemNo" value="No">
+            <label class="form-check-label" for="medicalProblemNo">
+              No
+            </label>
+          </div>
+      </div>
+      <div class="col-12" *ngIf="patientOneModel.medicalProblem == 'Yes'">
+        <label for="medicalProblem" class="form-label">Explain</label>
+        <input [(ngModel)]="patientOneModel.medicalProblemExplain" name="medicalProblemExplain" #medicalProblemExplain="ngModel"
+        type="text" class="form-control" id="medicalProblemExplain">
+      </div>
+      <div class="col-12">
+        <label for="medicationList" class="form-label">LIST HERE ANY MEDICATIONS YOU ARE CURRENTLY TAKING: </label>
+        <input [(ngModel)]="patientOneModel.medicationList" name="medicationList" #medicationList="ngModel" 
+        type="text" class="form-control" id="medicationList">
+      </div>
+      <div class="col-md-4">
+        <label for="ssn" class="form-label">DO YOU SMOKE? </label>
+        <div class="form-check">
+            <input class="form-check-input" [(ngModel)]="patientOneModel.smoke" type="radio" name="smoke" id="smokeRadioYes" value="Yes">
+            <label class="form-check-label" for="smokeRadioYes">
+              Yes
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" [(ngModel)]="patientOneModel.smoke" type="radio" name="smoke" id="smokeRadioNo" value="No">
+            <label class="form-check-label" for="smokeRadioNo">
+              No
+            </label>
+          </div>
+      </div>
+      <div class="col-md-8" *ngIf="patientOneModel.smoke == 'Yes'">
+        <label for="smokeExplain" class="form-label">HOW MUCH: </label>
+        <input [(ngModel)]="patientOneModel.smokeExplain" name="smokeExplain" #smokeExplain="ngModel"  
+        type="text" class="form-control" id="smokeExplain">
+      </div>
+      <div class="col-md-4">
+        <label for="ssn" class="form-label">CHEW TOBACCO? </label>
+        <div class="form-check">
+            <input class="form-check-input" [(ngModel)]="patientOneModel.tobacco" type="radio" name="tobacco" id="tobaccoRadioYes" value="Yes">
+            <label class="form-check-label" for="tobaccoRadioYes">
+              Yes
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" [(ngModel)]="patientOneModel.tobacco" type="radio" name="tobacco" id="tobaccoRadioNo" value="No">
+            <label class="form-check-label" for="tobaccoRadioNo">
+              No
+            </label>
+          </div>
+      </div>
+      <div class="col-md-8" *ngIf="patientOneModel.tobacco == 'Yes'">
+        <label for="tobaccoExplain" class="form-label">HOW MUCH: </label>
+        <input [(ngModel)]="patientOneModel.tobaccoExplain" name="tobaccoExplain" #tobaccoExplain="ngModel"
+        type="text" class="form-control" id="tobaccoExplain">
+      </div>
+      <div class="col-md-4">
+        <label for="ssn" class="form-label">DO YOU DRINK ALCOHOL?</label>
+        <div class="form-check">
+            <input class="form-check-input" [(ngModel)]="patientOneModel.alcohol" type="radio" name="alcohol" id="alcoholRadioYes" value="Yes">
+            <label class="form-check-label" for="alcoholRadioYes">
+              Yes
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" [(ngModel)]="patientOneModel.alcohol" type="radio" name="alcohol" id="alcoholRadioNo" value="No">
+            <label class="form-check-label" for="alcoholRadioNo">
+              No
+            </label>
+          </div>
+      </div>
+      <div class="col-md-8" *ngIf="patientOneModel.alcohol == 'Yes'">
+        <label for="alcoholExplain" class="form-label">HOW MUCH: </label>
+        <input [(ngModel)]="patientOneModel.alcoholExplain" name="alcoholExplain" #alcoholExplain="ngModel"
+        type="text" class="form-control" id="alcoholExplain">
+      </div>
+      <div class="col-md-4">
+        <label for="ssn" class="form-label">DO YOU USE DRUGS?</label>
+        <div class="form-check">
+            <input class="form-check-input" [(ngModel)]="patientOneModel.drugs" type="radio" name="drugs" id="drugsRadioYes" value="Yes">
+            <label class="form-check-label" for="drugsRadioYes">
+              Yes
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" [(ngModel)]="patientOneModel.drugs" type="radio" name="drugs" id="drugsRadioNo" value="No">
+            <label class="form-check-label" for="drugsRadioNo">
+              No
+            </label>
+          </div>
+      </div>
+      <div class="col-md-8" *ngIf="patientOneModel.drugs == 'Yes'">
+        <label for="drugsExplain" class="form-label">WHICH ONES: </label>
+        <input [(ngModel)]="patientOneModel.drugsExplain" name="drugsExplain" #drugsExplain="ngModel"
+        type="text" class="form-control" id="drugsExplain">
+      </div>
+      <div class="col-12">
+        <label for="visitReason" class="form-label">REASON FOR VISIT TODAY:</label>
+        <input [(ngModel)]="patientOneModel.visitReason" name="visitReason" #visitReason="ngModel" 
+        type="text" class="form-control" id="visitReason">
+      </div>
+      <div class="col-12">
+        <label for="ssn" class="form-label">DID YOU HAVE YEARLY PHYSICAL THIS YEAR?</label>
+        <div class="form-check">
+            <input class="form-check-input" [(ngModel)]="patientOneModel.yearlyPhysical" type="radio" name="yearlyPhysical" id="yearlyPhysicalRadioYes" value="Yes">
+            <label class="form-check-label" for="yearlyPhysicalYes">
+              Yes
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" [(ngModel)]="patientOneModel.yearlyPhysical" type="radio" name="yearlyPhysical" id="yearlyPhysicalNo" value="No">
+            <label class="form-check-label" for="yearlyPhysicalNo">
+              No
+            </label>
+          </div>
+      </div>
+      <div class="col-12">
+        <label for="ssn" class="form-label">HAVE YOU BEEN EXPOSED TO COVID?</label>
+        <div class="form-check">
+            <input class="form-check-input" [(ngModel)]="patientOneModel.covid" type="radio" name="covid" id="covidRadioYes" value="Yes">
+            <label class="form-check-label" for="covidRadioYes">
+              Yes
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" [(ngModel)]="patientOneModel.covid" type="radio" name="covid" id="covidRadioNo" value="No">
+            <label class="form-check-label" for="covidRadioNo">
+              No
+            </label>
+          </div>
+      </div>
+      <div class="col-12">
+        <label for="ssn" class="form-label">DO YOU HAVE ANY COUGH , CONGESTION OR SORE THROAT?</label>
+        <div class="form-check">
+            <input class="form-check-input" [(ngModel)]="patientOneModel.coughCongestion" type="radio" name="coughCongestion" id="congestionRadioYes" value="Yes">
+            <label class="form-check-label" for="congestionRadioYes">
+              Yes
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" [(ngModel)]="patientOneModel.coughCongestion" type="radio" name="coughCongestion" id="congestionRadioNo" value="No">
+            <label class="form-check-label" for="congestionRadioNo">
+              No
+            </label>
+          </div>
+      </div>
+      <div class="col-12">
+        <label for="ssn" class="form-label">ARE YOU HAVING SHORTNESS OF BREATH?</label>
+        <div class="form-check">
+            <input class="form-check-input" [(ngModel)]="patientOneModel.breathShortness" type="radio" name="breathShortness" id="breathRadioYes" value="Yes">
+            <label class="form-check-label" for="breathRadioYes">
+              Yes
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" [(ngModel)]="patientOneModel.breathShortness" type="radio" name="breathShortness" id="breathRadioNo" value="No">
+            <label class="form-check-label" for="breathRadioNo">
+              No
+            </label>
+          </div>
+      </div>
+      <div class="col-12">
+        <label for="ssn" class="form-label">DO YOU HAVE FEVER?</label>
+        <div class="form-check">
+            <input class="form-check-input" [(ngModel)]="patientOneModel.fever" type="radio" name="fever" id="feverRadioYes" value="Yes">
+            <label class="form-check-label" for="feverRadioYes">
+              Yes
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" [(ngModel)]="patientOneModel.fever" type="radio" name="fever" id="feverRadioNo" value="No">
+            <label class="form-check-label" for="feverRadioNo">
+              No
+            </label>
+          </div>
+      </div>
+      <div class="col-12">
+        <label for="pharmacyName" class="form-label">NAME OF YOUR PHARMACY:</label>
+        <input [(ngModel)]="patientOneModel.pharmacyName" name="pharmacyName" #pharmacyName="ngModel" 
+        type="text" class="form-control" id="pharmacyName">
+      </div>
+      <div class="col-12">
+        <label for="streetPharmacy" class="form-label">STREET OF PHARMACY :</label>
+        <input [(ngModel)]="patientOneModel.crossIntersectin" name="streetPharmacy" #streetPharmacy="ngModel" 
+        type="text" class="form-control" id="streetPharmacy">
+      </div>
+      <div class="col-12">
+        <label for="crossIntersectin" class="form-label">CROSS INTERSECTION:</label>
+        <input [(ngModel)]="patientOneModel.crossIntersectin" name="crossIntersectin" #crossIntersectin="ngModel" 
+        type="text" class="form-control" id="crossIntersectin">
+      </div>
+      <div class="col-12">
+        <label for="zipcodePharmacy" class="form-label">ZIP CODE OF PHARMACY:</label>
+        <input [(ngModel)]="patientOneModel.zipcodePharmacy" name="zipcodePharmacy" #zipcodePharmacy="ngModel" 
+        type="text" class="form-control" id="zipcodePharmacy">
+      </div>
+      <div class="col-md-4">
+        <button type="submit" class="btn btn-primary">Next</button>
+      </div>
+    </form>
+
+
+</div>

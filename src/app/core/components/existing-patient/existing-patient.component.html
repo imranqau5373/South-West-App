@@ -1,0 +1,185 @@
+<div class="container py-3">
+    <h1 class="display-6">Existing Patient Form</h1>
+    <br>
+    <form #patient="ngForm" (ngSubmit)="submit(patient)" class="row g-3">
+    <div class="col-md-6">
+        <label for="addressChange" class="form-label">HAS YOUR ADDRESS OR PHONE NUMBER CHANGED SINCE YOUR LAST VISIT? </label>
+    </div>
+    <div class="col-md-6">
+        <div class="form-check">
+            <input class="form-check-input" [(ngModel)]="patientOneModel.addressChange" type="radio" name="addressChange" id="addressChangeYes" value="Yes">
+            <label class="form-check-label" for="addressChangeYes">
+                Yes
+            </label>
+            </div>
+            <div class="form-check">
+            <input class="form-check-input" [(ngModel)]="patientOneModel.addressChange" type="radio" name="addressChange" id="addressChangeNo" value="No">
+            <label class="form-check-label" for="addressChangeNo">
+                No
+            </label>
+            </div>
+        </div>
+    <div class="col-6" *ngIf="patientOneModel.addressChange == 'Yes'" >
+    <label for="address" class="form-label">Address</label>
+    <input [(ngModel)]="patientOneModel.address" name="address" #address="ngModel"
+    type="text" class="form-control" id="address">
+    </div>
+    <div class="col-6" *ngIf="patientOneModel.addressChange == 'Yes'" >
+        <label for="phoneNumber" class="form-label">Phone Number</label>
+        <input [(ngModel)]="patientOneModel.phoneNumber" name="phoneNumber" #phoneNumber="ngModel"
+        type="number" class="form-control" id="phoneNumber">
+    </div>
+      <div class="col-md-4">
+        <label for="firstName" class="form-label">First Name</label>
+        <input [(ngModel)]="patientOneModel.firstName" name="firstName" #firstName="ngModel" type="text" class="form-control" id="firstName">
+      </div>
+      <div class="col-md-4">
+        <label for="lastName" class="form-label">Last Name</label>
+        <input [(ngModel)]="patientOneModel.lastName" name="lastName" #lastName="ngModel" type="text" class="form-control" id="lastName">
+      </div>
+      <div class="col-md-4">
+        <label for="dateOfBirth" class="form-label">Date of Birth</label>
+        <input [(ngModel)]="patientOneModel.dateOfBirth" name="dateOfBirth" #dateOfBirth="ngModel" 
+        type="date" class="form-control" id="dateOfBirth">
+      </div>
+      <div class="col-md-6">
+        <label for="reasonForVisit" class="form-label">Reason For Visit</label>
+        <input [(ngModel)]="patientOneModel.reasonForVisit" name="reasonForVisit" #reasonForVisit="ngModel" 
+        type="text" class="form-control" id="reasonForVisit">
+      </div>
+      <div class="col-md-6">
+        <label for="zipCode" class="form-label">ZipCode</label>
+        <input [(ngModel)]="patientOneModel.zipCode" name="zipCode" #zipCode="ngModel"
+        type="text" class="form-control" id="zipCode">
+      </div>
+      <div class="col-12">
+        <label for="ssn" class="form-label">DO YOU HAVE IF YOU WERE EXPOSED TO COVID 19 WITHIN LAST 10 DAYS?</label>
+        <div class="form-check">
+            <input class="form-check-input" [(ngModel)]="patientOneModel.covid" type="radio" name="covid" id="covidRadioYes" value="Yes">
+            <label class="form-check-label" for="covidRadioYes">
+              Yes
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" [(ngModel)]="patientOneModel.covid" type="radio" name="covid" id="covidRadioNo" value="No">
+            <label class="form-check-label" for="covidRadioNo">
+              No
+            </label>
+          </div>
+      </div>
+      <div class="col-12">
+        <label for="ssn" class="form-label">DO YOU HAVE FEVER?</label>
+        <div class="form-check">
+            <input class="form-check-input" [(ngModel)]="patientOneModel.fever" type="radio" name="fever" id="feverRadioYes" value="Yes">
+            <label class="form-check-label" for="feverRadioYes">
+              Yes
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" [(ngModel)]="patientOneModel.fever" type="radio" name="fever" id="feverRadioNo" value="No">
+            <label class="form-check-label" for="feverRadioNo">
+              No
+            </label>
+          </div>
+      </div>
+      <div class="col-12">
+        <label for="ssn" class="form-label">DO YOU HAVE SORE OR ITCHY  THROAT, COUGH OR CONGESTION, RUNNY NOSE?</label>
+        <div class="form-check">
+            <input class="form-check-input" [(ngModel)]="patientOneModel.coughCongestion" type="radio" name="coughCongestion" id="congestionRadioYes" value="Yes">
+            <label class="form-check-label" for="congestionRadioYes">
+              Yes
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" [(ngModel)]="patientOneModel.coughCongestion" type="radio" name="coughCongestion" id="congestionRadioNo" value="No">
+            <label class="form-check-label" for="congestionRadioNo">
+              No
+            </label>
+          </div>
+      </div>
+      <div class="col-12">
+        <label for="ssn" class="form-label">ARE YOU HAVING SHORTNESS OF BREATH?</label>
+        <div class="form-check">
+            <input class="form-check-input" [(ngModel)]="patientOneModel.breathShortness" type="radio" name="breathShortness" id="breathRadioYes" value="Yes">
+            <label class="form-check-label" for="breathRadioYes">
+              Yes
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" [(ngModel)]="patientOneModel.breathShortness" type="radio" name="breathShortness" id="breathRadioNo" value="No">
+            <label class="form-check-label" for="breathRadioNo">
+              No
+            </label>
+          </div>
+      </div>
+      <div class="col-12">
+        <label for="vaccinations" class="form-label">HAVE YOU COMPLETED YOUR COVID 19 VACCINATIONS?</label>
+        <div class="form-check">
+            <input class="form-check-input" [(ngModel)]="patientOneModel.vaccinations" type="radio" name="vaccinations" id="vaccinationsYes" value="Yes">
+            <label class="form-check-label" for="vaccinationsYes">
+              Yes
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" [(ngModel)]="patientOneModel.vaccinations" type="radio" name="vaccinations" id="vaccinationsNo" value="No">
+            <label class="form-check-label" for="vaccinationsNo">
+              No
+            </label>
+          </div>
+      </div>
+      <div class="col-12">
+        <label for="insurance" class="form-label">DO YOU HAVE INSURANCE?</label>
+        <div class="form-check">
+            <input class="form-check-input" [(ngModel)]="patientOneModel.insurance" type="radio" name="insurance" id="insuranceYes" value="Yes">
+            <label class="form-check-label" for="insuranceYes">
+              Yes
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" [(ngModel)]="patientOneModel.insurance" type="radio" name="insurance" id="insuranceNo" value="No">
+            <label class="form-check-label" for="insuranceNo">
+              No
+            </label>
+          </div>
+      </div>
+      <div class="col-6" *ngIf="patientOneModel.insurance == 'Yes'" >
+        <label for="insuranceFront" class="form-label">UPLOAD FRONT PICITURE OF INSURANCE CARD</label>
+        <input [(ngModel)]="patientOneModel.insuranceFront" name="insuranceFront" #insuranceFront="ngModel"
+        type="file" class="form-control" id="insuranceFront">
+      </div>
+      <div class="col-6" *ngIf="patientOneModel.insurance == 'Yes'" >
+        <label for="insuranceBack" class="form-label">UPLOAD BACK PICITURE OF INSURANCE CARD</label>
+        <input [(ngModel)]="patientOneModel.insuranceBack" name="insuranceBack" #insuranceBack="ngModel"
+        type="file" class="form-control" id="insuranceBack">
+      </div>
+      <div class="col-12">
+        <label for="adult" class="form-label">IS THE PATIENT 18 YEARS OF AGE OR OLDER?</label>
+        <div class="form-check">
+            <input class="form-check-input" [(ngModel)]="patientOneModel.adult" type="radio" name="adult" id="adultYes" value="Yes">
+            <label class="form-check-label" for="adultYes">
+              Yes
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" [(ngModel)]="patientOneModel.adult" type="radio" name="adult" id="adultNo" value="No">
+            <label class="form-check-label" for="adultNo">
+              No
+            </label>
+          </div>
+      </div>
+      <div class="col-4">
+        <label for="visitReason" class="form-label">REASON FOR VISIT</label>
+        <select class="form-select" id="visitReason" required>
+          <option value="">Choose...</option>
+          <option>IMMIGRATION PHYSICAL</option>
+          <option>DOT PHYSICAL</option>
+          <option>COVID TESTING</option>
+        </select>
+      </div>
+      <div class="col-12">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </form>
+
+
+</div>
