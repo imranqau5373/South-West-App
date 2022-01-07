@@ -8,6 +8,7 @@ import { PatientService } from 'src/app/shared/service/patient-service';
 })
 export class ExistingPatientComponent implements OnInit {
   patientOneModel : any = {};
+  finishPage = false;
   constructor(private patientService : PatientService) { }
 
   ngOnInit(): void {
@@ -24,6 +25,7 @@ export class ExistingPatientComponent implements OnInit {
   
   submit($patient:any){
     this.patientOneModel = $patient.value;
+    this.finishPage = true;
     this.patientService.createExistingPatientDocument(this.patientOneModel)
     .subscribe(result => console.log(result));
 

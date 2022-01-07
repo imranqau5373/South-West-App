@@ -3,6 +3,9 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
+import { AdminModule } from './admin/admin.module';
+import { GetAllExistingpatientsComponent } from './admin/components/get-all-existingpatients/get-all-existingpatients.component';
+import { GetAllNewpatientsComponent } from './admin/components/get-all-newpatients/get-all-newpatients.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AddPatientOneComponent } from './core/components/add-patient-one/add-patient-one.component';
@@ -21,6 +24,7 @@ import { SharedModule } from './shared/shared.module';
   imports: [
     BrowserModule,
     CoreModule,
+    AdminModule,
     AppRoutingModule,
     SharedModule,
     RouterModule.forChild([
@@ -43,6 +47,14 @@ import { SharedModule } from './shared/shared.module';
       {
         path:'existing-patient',
         component : ExistingPatientComponent
+      },
+      {
+        path:'admin/all-new-patients',
+        component : GetAllNewpatientsComponent
+      },
+      {
+        path:'admin/all-existing-patients',
+        component : GetAllExistingpatientsComponent
       },
 
     ])
