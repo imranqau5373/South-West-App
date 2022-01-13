@@ -30,14 +30,14 @@ export class GetAllNewpatientsComponent implements OnInit {
     .subscribe(result => {
       for (let i = 0; i < result.length; i++) {
         if(result[i].filePath && result[i].filePath != null){
-          result[i].filePath = "http://localhost:3000/"+result[i].filePath.replace('./public/','') ;
+          result[i].filePath = "http://209.126.105.94:3000/"+result[i].filePath.replace('./public/','') ;
         }
         else{
           result[i].filePath = null;
         }
         
         if(result[i].adult == "Yes"){
-          result[i].consentPath = "http://localhost:3000/"+result[i].consentPath.replace('./public/','') ;
+          result[i].consentPath = "http://209.126.105.94:3000/"+result[i].consentPath.replace('./public/','') ;
         }
         else{
           result[i].consentPath = null;

@@ -5,7 +5,7 @@ import { Observable } from "rxjs";
 @Injectable()
 export class PatientService {
 
-  BaseURL = 'http://localhost:3000/patient';
+  BaseURL = 'http://209.126.105.94:3000/patient';
   constructor(private http: HttpClient) { }
 
   getPatientData():Observable<any> { 
