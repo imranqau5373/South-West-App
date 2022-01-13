@@ -50,6 +50,7 @@ export class GetAllNewpatientsComponent implements OnInit {
   downloadFile(filePath:any){
     if(filePath == null){
       alert('File Not Exist.');
+      return;
     }
     window.open( 
       filePath, "_blank");
@@ -58,6 +59,7 @@ export class GetAllNewpatientsComponent implements OnInit {
   downloadConsent(filePath : any){
     if(filePath == null){
       alert('Patient Age is great than 18.');
+      return;
     }
     else{
       window.open( 
