@@ -63,13 +63,19 @@ export class ExistingPatientComponent implements OnInit {
 
   
   submit($patient:any){
-    const formData = new FormData();
-    this.addressChange(formData);
-    this.otherFields(formData);
-    this.setInsuranceData(formData);
-    this.finishPage = true;
-    this.patientService.createExistingPatientDocument(formData)
-    .subscribe(result => console.log(result));
+    if(this.patientOneModel.idCardPicture && this.patientOneModel.idCardPicture.name && this.patientOneModel.idCardPicture.name.length > 0){
+      const formData = new FormData();
+      this.addressChange(formData);
+      this.otherFields(formData);
+      this.setInsuranceData(formData);
+      this.finishPage = true;
+      this.patientService.createExistingPatientDocument(formData)
+      .subscribe(result => console.log(result));
+    }
+    else{
+      alert('Must attached the ID Card Picture');
+    }
+
 
   }
 
