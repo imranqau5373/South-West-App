@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { debug } from 'console';
 import { PatientService } from 'src/app/shared/service/patient-service';
 
 @Component({
@@ -28,7 +29,31 @@ export class GetAllExistingpatientsComponent implements OnInit {
   getAllExistingPatients(){
     this.patientService.getAllExistingPatientDocuments()
     .subscribe(result => {
+      for (let i = 0; i < result.length; i++) {
+        result[i].filePath = "http://localhost:3000/"+result[i].filePath.replace('./public/','') ;
+        if(result[i].adult == "Yes"){
+          result[i].consentPath = "http://localhost:3000/"+result[i].consentPath.replace('./public/','') ;
+        }
+        else{
+          result[i].consentPath = null;
+        }
+      }
       this.patients = result;
     });
+  }
+
+  downloadFile(filePath:any){
+    window.open( 
+      filePath, "_blank");
+  }
+
+  downloadConsent(filePath : any){
+    if(filePath == null){
+      alert('Patient Age is great than 18.');
+    }
+    else{
+      window.open( 
+        filePath, "_blank");
+    }
   }
 }

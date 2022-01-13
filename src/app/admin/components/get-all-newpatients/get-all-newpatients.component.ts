@@ -28,8 +28,41 @@ export class GetAllNewpatientsComponent implements OnInit {
   getAllNewPatients(){
     this.patientService.getAllNewPatientDocuments()
     .subscribe(result => {
+      for (let i = 0; i < result.length; i++) {
+        if(result[i].filePath && result[i].filePath != null){
+          result[i].filePath = "http://localhost:3000/"+result[i].filePath.replace('./public/','') ;
+        }
+        else{
+          result[i].filePath = null;
+        }
+        
+        if(result[i].adult == "Yes"){
+          result[i].consentPath = "http://localhost:3000/"+result[i].consentPath.replace('./public/','') ;
+        }
+        else{
+          result[i].consentPath = null;
+        }
+      }
       this.patients = result;
     });
+  }
+
+  downloadFile(filePath:any){
+    if(filePath == null){
+      alert('File Not Exist.');
+    }
+    window.open( 
+      filePath, "_blank");
+  }
+
+  downloadConsent(filePath : any){
+    if(filePath == null){
+      alert('Patient Age is great than 18.');
+    }
+    else{
+      window.open( 
+        filePath, "_blank");
+    }
   }
 
 }

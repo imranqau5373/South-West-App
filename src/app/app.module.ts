@@ -5,6 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { SignaturePadModule } from 'angular2-signaturepad';
 import { AdminModule } from './admin/admin.module';
+import { AdminDashboardComponent } from './admin/components/admin-dashboard/admin-dashboard.component';
 import { GetAllExistingpatientsComponent } from './admin/components/get-all-existingpatients/get-all-existingpatients.component';
 import { GetAllNewpatientsComponent } from './admin/components/get-all-newpatients/get-all-newpatients.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -33,6 +34,10 @@ import { SharedModule } from './shared/shared.module';
       {
         path:'',
         component : HomeComponent
+      },
+      {
+        path:'admin',
+        component : AdminDashboardComponent
       },
       {
         path:'add-patient-one',

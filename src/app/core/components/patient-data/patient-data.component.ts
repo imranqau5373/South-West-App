@@ -24,7 +24,6 @@ export class PatientDataComponent implements OnInit {
   }
 
   firstPageSelected($event:any){
-    debugger;
     this.firstPage = false;
     this.secondPage = true;
     this.thirdPage = false;
@@ -36,12 +35,10 @@ export class PatientDataComponent implements OnInit {
     this.secondPage = false;
     this.thirdPage = true;
     this.finishPage = false;
-    debugger;
     console.log($event);
   }
 
   thirdPageSubmit($event:any){
-    debugger;
     const formData = new FormData();
     this.firstPage = false;
     this.secondPage = false;
@@ -124,7 +121,6 @@ export class PatientDataComponent implements OnInit {
   }
 
   setInsuranceData(formData : FormData){
-    debugger;
     formData.append("idCardPicturePath", this.patientOne.idCardPicture.name+'-'+Date.now());
     formData.append("idCardPictureName", this.patientOne.idCardPicture.name);
     if(this.patientOne.insurance == "Yes"){

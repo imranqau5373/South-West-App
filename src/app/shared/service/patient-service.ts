@@ -13,6 +13,14 @@ export class PatientService {
 
   }
 
+  getConsentFile(filePath:any):Observable<any> { 
+    return this.http.post<any>(this.BaseURL+'/downloadConsentFile',filePath);
+  }
+
+  getPatientFile(filePath:any):Observable<any> { 
+    return this.http.get<any>(this.BaseURL+'/downloadPatientData');
+  }
+
   createNewPatientDocument(patientData:any):Observable<any> { 
     return this.http.post<any>(this.BaseURL+'/addNewPatient',patientData);
   }
