@@ -6,6 +6,7 @@ import { BrowserModule } from "@angular/platform-browser";
 import { SwNavbarComponent } from "../core/components/nav-bar/sw-navbar.component";
 import { GetAllNewpatientsComponent } from './components/get-all-newpatients/get-all-newpatients.component';
 import { GetAllExistingpatientsComponent } from './components/get-all-existingpatients/get-all-existingpatients.component';
+import { DataTablesModule } from "angular-datatables";
 
 
 @NgModule({
@@ -13,6 +14,7 @@ import { GetAllExistingpatientsComponent } from './components/get-all-existingpa
       FormsModule,
       CommonModule,
       BrowserModule, 
+      DataTablesModule,
       RouterModule.forChild([])
     ],
     declarations: [  

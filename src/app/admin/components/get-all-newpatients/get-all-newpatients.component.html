@@ -1,7 +1,29 @@
-
-<p>
-    <a routerLink="/admin/products/new" class="btn btn-primary">New Product</a>
-  </p>
+<div class="container py-3">
+  <h2>List of All New Patients Records</h2>
+  <br>
+  <table datatable [dtOptions]="dtOptions" class="row-border hover">
+    <thead>
+      <tr>
+        <th>Full Name</th>
+        <th>City</th>
+        <th>State</th>
+        <th>ZipCode</th>
+        <th>ZipCode</th>
+        <th>Address</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let patient of patients">
+        <td>{{ patient.fullName }}</td>
+        <td>{{ patient.city }}</td>
+        <td>{{ patient.state }}</td>
+        <td>{{ patient.zipCode }}</td>
+        <td>{{ patient.mobilePhoneNo }}</td>
+        <td>{{ patient.inputAddress }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
 
   

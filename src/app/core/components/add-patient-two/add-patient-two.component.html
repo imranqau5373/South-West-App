@@ -1,7 +1,7 @@
 
 <div class="container py-3">
 
-    <form #pageTwo="ngForm" (ngSubmit)="submitTwo()" class="row g-3">
+    <form #pageTwo="ngForm" (ngSubmit)="submitTwo(pageTwo)" class="row g-3">
       <div class="col-12">
         <a href="/add-patient-one">Back To Previous</a>
       </div>
@@ -65,7 +65,8 @@
 
       <div class="col-12">
         <label for="aboutUs" class="form-label">How did you hear about us?</label>
-        <input type="text" class="form-control" id="aboutUs">
+        <input [(ngModel)]="patientTwoModel.hearAboutUs" name="hearAboutUs" #hearAboutUs="ngModel"
+        type="text" class="form-control" id="hearAboutUs">
         <p style="font-size:x-small;">FINANCIAL POLICY WE ACCEPT CASH AND MAJOR CREDIT CARDS. FULL PAYMENT IS DUE AT THE TIME OF SERVICE. I AUTHORIZE SOUTHWEST URGENT CARE & FAMILY PRACTICE TO TREAT ME. IM ALSO AWARE THAT I AM RESPONSIBLE FOR ANY PAYMENT THAT IS DUE FOR MY TREATMENT. I HAVE READ & UNDERSTAND THE ABOVE FINANCIAL POLICY. BY SIGNING BELOW, I ACKNOWLEDGE RESPONSIBILITY & AGREE TO THE TERMS WRITTEN ABOVE.</p>
       </div>
       <div class="col-12">

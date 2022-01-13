@@ -1,4 +1,6 @@
+import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
+import { dateTimeValue } from 'docx';
 import { PatientService } from 'src/app/shared/service/patient-service';
 
 @Component({
@@ -8,10 +10,14 @@ import { PatientService } from 'src/app/shared/service/patient-service';
 })
 export class ExistingPatientComponent implements OnInit {
   patientOneModel : any = {};
+  insuranceFrontPicture : File | undefined;
+  insuranceBackPicture : File | undefined;
+  
   finishPage = false;
   constructor(private patientService : PatientService) { }
 
   ngOnInit(): void {
+    this.patientOneModel = {};
     this.patientOneModel.addressChange = "No";
     this.patientOneModel.covid = "No";
     this.patientOneModel.coughCongestion = "No";
@@ -20,14 +26,78 @@ export class ExistingPatientComponent implements OnInit {
     this.patientOneModel.vaccinations = "No";
     this.patientOneModel.insurance = "No";
     this.patientOneModel.adult = "No";
+    this.patientOneModel.covidSymptons = "No";
+    
+    
+  }
+
+  onChangeInsFrontPic($event : any) {
+    this.patientOneModel.insuranceFront = $event.target.files[0];
   }
 
   
+  onChangeIdCardPic($event : any) {
+    this.patientOneModel.idCardPicture = $event.target.files[0];
+  }
+
+  onChangeInsBacktPic($event : any) {
+    this.patientOneModel.insuranceBack = $event.target.files[0];
+  }
+
+
+  
   submit($patient:any){
-    this.patientOneModel = $patient.value;
+    const formData = new FormData();
+    this.addressChange(formData);
+    this.otherFields(formData);
+    this.setInsuranceData(formData);
     this.finishPage = true;
-    this.patientService.createExistingPatientDocument(this.patientOneModel)
+    this.patientService.createExistingPatientDocument(formData)
     .subscribe(result => console.log(result));
+
+  }
+
+  setInsuranceData(formData : FormData){
+    formData.append("idCardPicturePath", this.patientOneModel.idCardPicture.name+'-'+Date.now());
+    formData.append("idCardPictureName", this.patientOneModel.idCardPicture.name);
+    if(this.patientOneModel.insurance == "Yes"){
+      formData.append("insuranceBackPath", this.patientOneModel.insuranceBack.name+'-'+Date.now());
+      formData.append("insuranceFrontFileName", this.patientOneModel.insuranceFront.name);
+      formData.append("insuranceBackFileName", this.patientOneModel.insuranceBack.name);
+      formData.append("insuranceForntPath", this.patientOneModel.insuranceFront.name+'-'+Date.now());
+      formData.append("file", this.patientOneModel.insuranceFront, this.patientOneModel.insuranceFront.name);
+      formData.append("file", this.patientOneModel.insuranceBack, this.patientOneModel.insuranceBack.name);  
+    }
+    formData.append("file", this.patientOneModel.idCardPicture, this.patientOneModel.idCardPicture.name);
+
+
+  }
+
+  addressChange(formData : FormData){
+    formData.append("addressChange",this.patientOneModel.addressChange );
+    if(this.patientOneModel.addressChange == "Yes"){
+      formData.append("address",this.patientOneModel.address);
+      formData.append("phoneNumber",this.patientOneModel.phoneNumber);
+    }
+  }
+
+  otherFields(formData : FormData){
+    formData.append("firstName", this.patientOneModel.firstName);
+    formData.append("lastName", this.patientOneModel.lastName);
+    formData.append("dateOfBirth", this.patientOneModel.dateOfBirth);
+    formData.append("reasonForVisit", this.patientOneModel.reasonForVisit);
+    formData.append("zipCode", this.patientOneModel.zipCode);
+    formData.append("covid", this.patientOneModel.covid);
+    formData.append("fever", this.patientOneModel.fever);
+    formData.append("coughCongestion", this.patientOneModel.coughCongestion);
+    formData.append("breathShortness", this.patientOneModel.breathShortness);
+    formData.append("vaccinations", this.patientOneModel.vaccinations);
+    formData.append("insurance", this.patientOneModel.insurance);
+    formData.append("covidSymptons", this.patientOneModel.covidSymptons);
+    formData.append("covidTesting", this.patientOneModel.covidTesting);
+    formData.append("adult", this.patientOneModel.adult);
+    formData.append("witnessName", this.patientOneModel.witnessName);
+    formData.append("guardianName", this.patientOneModel.guardianName);
 
   }
 

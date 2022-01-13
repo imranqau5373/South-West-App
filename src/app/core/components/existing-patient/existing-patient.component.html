@@ -17,8 +17,8 @@
             <label class="form-check-label" for="addressChangeNo">
                 No
             </label>
-            </div>
         </div>
+      </div>
     <div class="col-6" *ngIf="patientOneModel.addressChange == 'Yes'" >
     <label for="address" class="form-label">Address</label>
     <input [(ngModel)]="patientOneModel.address" name="address" #address="ngModel"
@@ -144,13 +144,13 @@
       </div>
       <div class="col-6" *ngIf="patientOneModel.insurance == 'Yes'" >
         <label for="insuranceFront" class="form-label">UPLOAD FRONT PICITURE OF INSURANCE CARD</label>
-        <input [(ngModel)]="patientOneModel.insuranceFront" name="insuranceFront" #insuranceFront="ngModel"
-        type="file" class="form-control" id="insuranceFront">
+        <input name="insuranceFront"
+        type="file" class="form-control" id="insuranceFront" (change)="onChangeInsFrontPic($event)">
       </div>
       <div class="col-6" *ngIf="patientOneModel.insurance == 'Yes'" >
         <label for="insuranceBack" class="form-label">UPLOAD BACK PICITURE OF INSURANCE CARD</label>
-        <input [(ngModel)]="patientOneModel.insuranceBack" name="insuranceBack" #insuranceBack="ngModel"
-        type="file" class="form-control" id="insuranceBack">
+        <input name="insuranceBack"
+        type="file" class="form-control" id="insuranceBack" (change)="onChangeInsBacktPic($event)">
       </div>
       <div class="col-12">
         <label for="adult" class="form-label">IS THE PATIENT 18 YEARS OF AGE OR OLDER?</label>
@@ -166,6 +166,51 @@
               No
             </label>
           </div>
+      </div>
+      <div class="col-6" *ngIf="patientOneModel.adult == 'Yes'" >
+        <label for="guardianName" class="form-label">Guardian Name</label>
+        <input [(ngModel)]="patientOneModel.guardianName" name="guardianName" #guardianName="ngModel"
+        type="text" class="form-control" id="guardianName">
+        </div>
+        <div class="col-6" *ngIf="patientOneModel.adult == 'Yes'" >
+            <label for="witnessName" class="form-label">Witness Name</label>
+            <input [(ngModel)]="patientOneModel.witnessName" name="witnessName" #witnessName="ngModel"
+            type="text" class="form-control" id="witnessName">
+        </div>
+      <div class="col-12">
+        <label for="covidSymptons" class="form-label">ARE YOU HAVING COVID 19 SYMPTOMS?</label>
+        <div class="form-check">
+            <input class="form-check-input" [(ngModel)]="patientOneModel.covidSymptons" type="radio" name="covidSymptons" id="covidSymptonsYes" value="Yes">
+            <label class="form-check-label" for="vaccinationsYes">
+              Yes
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" [(ngModel)]="patientOneModel.covidSymptons" type="radio" name="covidSymptons" id="covidSymptonsNo" value="No">
+            <label class="form-check-label" for="covidSymptonsNo">
+              No
+            </label>
+          </div>
+      </div>
+      <div class="col-12">
+        <label for="covidTesting" class="form-label">ARE YOU NEEDING</label>
+        <div class="form-check">
+            <input class="form-check-input" [(ngModel)]="patientOneModel.covidTesting" type="radio" name="covidTesting" id="pcrTesting" value="">
+            <label class="form-check-label" for="vaccinationsYes">
+              RAPID  RT-PCR TEST FOR TRAVELING  
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" [(ngModel)]="patientOneModel.covidTesting" type="radio" name="covidTesting" id="antigenTesting" value="No">
+            <label class="form-check-label" for="covidSymptonsNo">
+              RAPID ANTIGEN TEST  
+            </label>
+          </div>
+      </div>
+      <div class="col-6" >
+        <label for="idCardPicture" class="form-label">UPLOAD ID CARD PICTURE</label>
+        <input name="idCardPicture"
+        type="file" class="form-control" id="idCardPicture" (change)="onChangeIdCardPic($event)">
       </div>
       <div class="col-4">
         <label for="visitReason" class="form-label">REASON FOR VISIT</label>

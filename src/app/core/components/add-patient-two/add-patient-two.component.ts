@@ -14,13 +14,15 @@ export class AddPatientTwoComponent implements OnInit {
   constructor(    private router: Router ) { }
 
   ngOnInit(): void {
+    this.patientTwoModel.medicalRecord = "No";
   }
 
   nextClick(){
     this.router.navigate(['/add-patient-three']);
   }
 
-  submitTwo(){
+  submitTwo(pageTwo : any){
+    this.patientTwoModel = pageTwo.value;
     this.submitSecond.emit(this.patientTwoModel);
   }
 

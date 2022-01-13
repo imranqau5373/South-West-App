@@ -14,7 +14,7 @@ export class PatientService {
   }
 
   createNewPatientDocument(patientData:any):Observable<any> { 
-    return this.http.post<any>(this.BaseURL+'/addNewPatient',{data:patientData});
+    return this.http.post<any>(this.BaseURL+'/addNewPatient',patientData);
   }
   getAllNewPatientDocuments():Observable<any> { 
     return this.http.get<any>(this.BaseURL+'/getAllNewPatients');
@@ -23,7 +23,7 @@ export class PatientService {
     return this.http.get<any>(this.BaseURL+'/getAllExistingPatients');
   }
   createExistingPatientDocument(patientData:any):Observable<any> { 
-    return this.http.post<any>(this.BaseURL+'/addExistingPatient',{data:patientData});
+    return this.http.post<any>(this.BaseURL+'/addExistingPatient',patientData);
 
   }
 }

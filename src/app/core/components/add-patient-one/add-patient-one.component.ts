@@ -30,14 +30,30 @@ export class AddPatientOneComponent implements OnInit {
     this.patientOneModel.coughCongestion = "No";
     this.patientOneModel.breathShortness = "No";
     this.patientOneModel.fever = "No";
+    this.patientOneModel.covidSymptons = "No";
+    this.patientOneModel.insurance = "No";
+    this.patientOneModel.adult = "No";
   }
 
   nextClick(){
     this.router.navigate(['/add-patient-two']);
   }
 
+  
+  onChangeInsFrontPic($event : any) {
+    this.patientOneModel.insuranceFront = $event.target.files[0];
+  }
+
+  
+  onChangeIdCardPic($event : any) {
+    this.patientOneModel.idCardPicture = $event.target.files[0];
+  }
+
+  onChangeInsBacktPic($event : any) {
+    this.patientOneModel.insuranceBack = $event.target.files[0];
+  }
+
   submitOne(pageOne : any){
-    console.log(pageOne.value);
     this.patientOneModel = pageOne.value;
     this.submitFirst.emit(this.patientOneModel);
 
