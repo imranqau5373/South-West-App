@@ -41,12 +41,12 @@ export class PatientDataComponent implements OnInit {
   }
 
   thirdPageSubmit($event:any){
+    debugger;
     const formData = new FormData();
     this.firstPage = false;
     this.secondPage = false;
     this.thirdPage = false;
     this.finishPage = true;
-    this.patientThree = $event;
     this.setFormDataPatientOne(formData);
     this.setInsuranceData(formData);
     this.setFormDataPatientSecond(formData);
@@ -104,8 +104,8 @@ export class PatientDataComponent implements OnInit {
     formData.append("adult", this.patientOne.adult);
     formData.append("witnessName", this.patientOne.witnessName);
     formData.append("guardianName", this.patientOne.guardianName);
+    formData.append("signatureImg", this.patientOne.signatureImg);
 
-    
   }
 
   setFormDataPatientSecond(formData :FormData ){

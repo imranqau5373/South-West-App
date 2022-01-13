@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
+import { SignaturePadModule } from 'angular2-signaturepad';
 import { AdminModule } from './admin/admin.module';
 import { GetAllExistingpatientsComponent } from './admin/components/get-all-existingpatients/get-all-existingpatients.component';
 import { GetAllNewpatientsComponent } from './admin/components/get-all-newpatients/get-all-newpatients.component';
@@ -27,6 +28,7 @@ import { SharedModule } from './shared/shared.module';
     AdminModule,
     AppRoutingModule,
     SharedModule,
+
     RouterModule.forChild([
       {
         path:'',

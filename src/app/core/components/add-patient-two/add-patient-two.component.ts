@@ -1,5 +1,6 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { SignaturePad } from 'angular2-signaturepad';
 
 @Component({
   selector: 'app-add-patient-two',
@@ -11,6 +12,8 @@ export class AddPatientTwoComponent implements OnInit {
   patientTwoModel : any = {};
   @Output()
   submitSecond = new EventEmitter<any>();
+
+
   constructor(    private router: Router ) { }
 
   ngOnInit(): void {
@@ -23,7 +26,12 @@ export class AddPatientTwoComponent implements OnInit {
 
   submitTwo(pageTwo : any){
     this.patientTwoModel = pageTwo.value;
+
     this.submitSecond.emit(this.patientTwoModel);
   }
+
+
+
+
 
 }

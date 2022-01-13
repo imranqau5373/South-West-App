@@ -10,12 +10,14 @@ import { FormsModule } from "@angular/forms";
 import { CommonModule } from "@angular/common";
 import { BrowserModule } from "@angular/platform-browser";
 import { PatientDataComponent } from './components/patient-data/patient-data.component';
+import { SignaturePadModule } from "angular2-signaturepad";
 
 @NgModule({
     imports: [
       FormsModule,
       CommonModule,
       BrowserModule, 
+      SignaturePadModule,
       RouterModule.forChild([])
     ],
     declarations: [  

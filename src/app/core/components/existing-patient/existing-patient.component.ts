@@ -1,5 +1,6 @@
 import { ThisReceiver } from '@angular/compiler';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { SignaturePad } from 'angular2-signaturepad';
 import { dateTimeValue } from 'docx';
 import { PatientService } from 'src/app/shared/service/patient-service';
 
@@ -14,9 +15,20 @@ export class ExistingPatientComponent implements OnInit {
   insuranceBackPicture : File | undefined;
   
   finishPage = false;
+  signatureImg = "";
+  @ViewChild(SignaturePad)
+  signaturePad!: SignaturePad;
+
+  signaturePadOptions: Object = { 
+    'minWidth': 2,
+    'canvasWidth': 700,
+    'canvasHeight': 300
+  };
   constructor(private patientService : PatientService) { }
 
   ngOnInit(): void {
+
+
     this.patientOneModel = {};
     this.patientOneModel.addressChange = "No";
     this.patientOneModel.covid = "No";
@@ -29,6 +41,10 @@ export class ExistingPatientComponent implements OnInit {
     this.patientOneModel.covidSymptons = "No";
     
     
+  }
+  ngAfterViewInit() {
+    this.signaturePad.set('minWidth', 2);
+    this.signaturePad.clear();  
   }
 
   onChangeInsFrontPic($event : any) {
@@ -70,7 +86,6 @@ export class ExistingPatientComponent implements OnInit {
     }
     formData.append("file", this.patientOneModel.idCardPicture, this.patientOneModel.idCardPicture.name);
 
-
   }
 
   addressChange(formData : FormData){
@@ -98,7 +113,25 @@ export class ExistingPatientComponent implements OnInit {
     formData.append("adult", this.patientOneModel.adult);
     formData.append("witnessName", this.patientOneModel.witnessName);
     formData.append("guardianName", this.patientOneModel.guardianName);
+    formData.append("signatureImg", this.signatureImg);
 
+  }
+
+  drawComplete() {
+    console.log(this.signaturePad.toDataURL());
+  }
+
+  drawStart() {
+    console.log('begin drawing');
+  }
+
+  clearSignature() {
+    this.signaturePad.clear();
+  }
+
+  savePad() {
+    const base64Data = this.signaturePad.toDataURL();
+    this.signatureImg = base64Data;
   }
 
 }
