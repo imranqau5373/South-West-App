@@ -1,6 +1,7 @@
 
   <div class="container py-3">
-
+    <h1 class="display-6">New Patient Form</h1>
+    <br>
     <form #pageOne="ngForm" (ngSubmit)="submitOne(pageOne)" class="row g-3">
       <div class="col-md-6">
         <label for="fullName" class="form-label">Full Name</label>
@@ -10,6 +11,31 @@
         <label for="dateOfBirth" class="form-label">Date of Birth</label>
         <input [(ngModel)]="patientOneModel.dateOfBirth" name="dateOfBirth" #dateOfBirth="ngModel" 
         type="date" class="form-control" id="dateOfBirth">
+      </div>
+      <div class="col-12">
+        <label for="adult" class="form-label">IS THE PATIENT 18 YEARS OF AGE OR OLDER?</label>
+        <div class="form-check">
+            <input class="form-check-input" [(ngModel)]="patientOneModel.adult" type="radio" name="adult" id="adultYes" value="Yes">
+            <label class="form-check-label" for="adultYes">
+              Yes
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" [(ngModel)]="patientOneModel.adult" type="radio" name="adult" id="adultNo" value="No">
+            <label class="form-check-label" for="adultNo">
+              No
+            </label>
+          </div>
+      </div>
+      <div class="col-6" *ngIf="patientOneModel.adult == 'Yes'" >
+        <label for="guardianName" class="form-label">Guardian Name</label>
+        <input [(ngModel)]="patientOneModel.guardianName" name="guardianName" #guardianName="ngModel"
+        type="text" class="form-control" id="guardianName">
+      </div>
+      <div class="col-6" *ngIf="patientOneModel.adult == 'Yes'" >
+          <label for="witnessName" class="form-label">Witness Name</label>
+          <input [(ngModel)]="patientOneModel.witnessName" name="witnessName" #witnessName="ngModel"
+          type="text" class="form-control" id="witnessName">
       </div>
       <div class="col-12">
         <label for="inputAddress" class="form-label">Address</label>
@@ -92,31 +118,8 @@
         <input name="insuranceBack"
         type="file" class="form-control" id="insuranceBack" (change)="onChangeInsBacktPic($event)">
       </div>
-      <div class="col-12">
-        <label for="adult" class="form-label">IS THE PATIENT 18 YEARS OF AGE OR OLDER?</label>
-        <div class="form-check">
-            <input class="form-check-input" [(ngModel)]="patientOneModel.adult" type="radio" name="adult" id="adultYes" value="Yes">
-            <label class="form-check-label" for="adultYes">
-              Yes
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" [(ngModel)]="patientOneModel.adult" type="radio" name="adult" id="adultNo" value="No">
-            <label class="form-check-label" for="adultNo">
-              No
-            </label>
-          </div>
-      </div>
-      <div class="col-6" *ngIf="patientOneModel.adult == 'Yes'" >
-        <label for="guardianName" class="form-label">Guardian Name</label>
-        <input [(ngModel)]="patientOneModel.guardianName" name="guardianName" #guardianName="ngModel"
-        type="text" class="form-control" id="guardianName">
-        </div>
-        <div class="col-6" *ngIf="patientOneModel.adult == 'Yes'" >
-            <label for="witnessName" class="form-label">Witness Name</label>
-            <input [(ngModel)]="patientOneModel.witnessName" name="witnessName" #witnessName="ngModel"
-            type="text" class="form-control" id="witnessName">
-        </div>
+
+
       <div class="col-md-6">
         <label for="maritalStatus" class="form-label">Marital Status</label>
         <input [(ngModel)]="patientOneModel.maritalStatus" name="maritalStatus" #maritalStatus="ngModel" 

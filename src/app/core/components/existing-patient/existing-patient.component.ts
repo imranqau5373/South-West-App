@@ -19,6 +19,11 @@ export class ExistingPatientComponent implements OnInit {
   @ViewChild(SignaturePad)
   signaturePad!: SignaturePad;
 
+
+  parentSignatureImg = "";
+  @ViewChild(SignaturePad)
+  parentSignaturePad!: SignaturePad;
+
   signaturePadOptions: Object = { 
     'minWidth': 2,
     'canvasWidth': 700,
@@ -73,7 +78,7 @@ export class ExistingPatientComponent implements OnInit {
       .subscribe(result => console.log(result));
     }
     else{
-      alert('Must attached the ID Card Picture');
+      alert('Must attached the ID Card Picture')
     }
 
 
@@ -127,17 +132,29 @@ export class ExistingPatientComponent implements OnInit {
     console.log(this.signaturePad.toDataURL());
   }
 
+
   drawStart() {
     console.log('begin drawing');
   }
 
   clearSignature() {
+    debugger;
     this.signaturePad.clear();
+  }
+
+  clearParentSignature() {
+    debugger;
+    this.parentSignaturePad.clear();
   }
 
   savePad() {
     const base64Data = this.signaturePad.toDataURL();
     this.signatureImg = base64Data;
+  }
+
+  saveParentPad() {
+    const base64Data = this.signaturePad.toDataURL();
+    this.parentSignatureImg = base64Data;
   }
 
 }

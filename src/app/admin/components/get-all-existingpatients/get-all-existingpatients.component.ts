@@ -29,6 +29,7 @@ export class GetAllExistingpatientsComponent implements OnInit {
   getAllExistingPatients(){
     this.patientService.getAllExistingPatientDocuments()
     .subscribe(result => {
+      debugger;
       for (let i = 0; i < result.length; i++) {
         if(result[i].filePath && result[i].filePath != null){
           result[i].filePath = "http://209.126.105.94:3000/"+result[i].filePath.replace('./public/','') ;

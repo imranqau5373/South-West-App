@@ -42,6 +42,47 @@
         <input [(ngModel)]="patientOneModel.dateOfBirth" name="dateOfBirth" #dateOfBirth="ngModel" 
         type="date" class="form-control" id="dateOfBirth">
       </div>
+      <div class="col-12">
+        <label for="adult" class="form-label">IS THE PATIENT 18 YEARS OF AGE OR OLDER?</label>
+        <div class="form-check">
+            <input class="form-check-input" [(ngModel)]="patientOneModel.adult" type="radio" name="adult" id="adultYes" value="Yes">
+            <label class="form-check-label" for="adultYes">
+              Yes
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" [(ngModel)]="patientOneModel.adult" type="radio" name="adult" id="adultNo" value="No">
+            <label class="form-check-label" for="adultNo">
+              No
+            </label>
+          </div>
+      </div>
+      <div class="col-6" *ngIf="patientOneModel.adult == 'Yes'" >
+        <label for="guardianName" class="form-label">Guardian Name</label>
+        <input [(ngModel)]="patientOneModel.guardianName" name="guardianName" #guardianName="ngModel"
+        type="text" class="form-control" id="guardianName">
+      </div>
+      <div class="col-10" *ngIf="patientOneModel.adult == 'Yes'"> 
+        <label for="visitReason" class="form-label">Guardian / Parent Signature</label>
+        <div class="signature-container">
+          <signature-pad [options]="signaturePadOptions" (onBeginEvent)="drawStart()" (onEndEvent)="drawComplete()"></signature-pad>
+        </div>
+      </div>
+      <div class="col-12" *ngIf="patientOneModel.adult == 'Yes'">
+        <div class="row">
+          <div class="col-2">
+            <button type="button" class="btn btn-primary" (click)="clearParentSignature()">Clear signature</button>
+          </div>
+          <div class="col-2">
+            <button type="button"  class="btn btn-primary" (click)="saveParentPad()">Save signature</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-6" *ngIf="patientOneModel.adult == 'Yes'" >
+          <label for="witnessName" class="form-label">Witness Name</label>
+          <input [(ngModel)]="patientOneModel.witnessName" name="witnessName" #witnessName="ngModel"
+          type="text" class="form-control" id="witnessName">
+      </div>
       <div class="col-md-6">
         <label for="reasonForVisit" class="form-label">Reason For Visit</label>
         <input [(ngModel)]="patientOneModel.reasonForVisit" name="reasonForVisit" #reasonForVisit="ngModel" 
@@ -152,31 +193,7 @@
         <input name="insuranceBack"
         type="file" class="form-control" id="insuranceBack" (change)="onChangeInsBacktPic($event)">
       </div>
-      <div class="col-12">
-        <label for="adult" class="form-label">IS THE PATIENT 18 YEARS OF AGE OR OLDER?</label>
-        <div class="form-check">
-            <input class="form-check-input" [(ngModel)]="patientOneModel.adult" type="radio" name="adult" id="adultYes" value="Yes">
-            <label class="form-check-label" for="adultYes">
-              Yes
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" [(ngModel)]="patientOneModel.adult" type="radio" name="adult" id="adultNo" value="No">
-            <label class="form-check-label" for="adultNo">
-              No
-            </label>
-          </div>
-      </div>
-      <div class="col-6" *ngIf="patientOneModel.adult == 'Yes'" >
-        <label for="guardianName" class="form-label">Guardian Name</label>
-        <input [(ngModel)]="patientOneModel.guardianName" name="guardianName" #guardianName="ngModel"
-        type="text" class="form-control" id="guardianName">
-        </div>
-        <div class="col-6" *ngIf="patientOneModel.adult == 'Yes'" >
-            <label for="witnessName" class="form-label">Witness Name</label>
-            <input [(ngModel)]="patientOneModel.witnessName" name="witnessName" #witnessName="ngModel"
-            type="text" class="form-control" id="witnessName">
-        </div>
+
       <div class="col-12">
         <label for="covidSymptons" class="form-label">ARE YOU HAVING COVID 19 SYMPTOMS?</label>
         <div class="form-check">
