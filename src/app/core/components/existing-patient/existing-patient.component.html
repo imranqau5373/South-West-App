@@ -19,79 +19,35 @@
             </label>
         </div>
       </div>
-    <div class="col-6" *ngIf="patientOneModel.addressChange == 'Yes'" >
+    <div class="col-4" *ngIf="patientOneModel.addressChange == 'Yes'" >
     <label for="address" class="form-label">Address</label>
     <input [(ngModel)]="patientOneModel.address" name="address" #address="ngModel"
     type="text" class="form-control" id="address">
     </div>
-    <div class="col-6" *ngIf="patientOneModel.addressChange == 'Yes'" >
+    <div class="col-4" *ngIf="patientOneModel.addressChange == 'Yes'" >
         <label for="phoneNumber" class="form-label">Phone Number</label>
         <input [(ngModel)]="patientOneModel.phoneNumber" name="phoneNumber" #phoneNumber="ngModel"
         type="number" class="form-control" id="phoneNumber">
     </div>
-      <div class="col-md-4">
-        <label for="firstName" class="form-label">First Name</label>
-        <input [(ngModel)]="patientOneModel.firstName" name="firstName" #firstName="ngModel" type="text" class="form-control" id="firstName">
-      </div>
-      <div class="col-md-4">
-        <label for="lastName" class="form-label">Last Name</label>
-        <input [(ngModel)]="patientOneModel.lastName" name="lastName" #lastName="ngModel" type="text" class="form-control" id="lastName">
-      </div>
-      <div class="col-md-4">
-        <label for="dateOfBirth" class="form-label">Date of Birth</label>
-        <input [(ngModel)]="patientOneModel.dateOfBirth" name="dateOfBirth" #dateOfBirth="ngModel" 
-        type="date" class="form-control" id="dateOfBirth">
+      <div class="col-md-4" *ngIf="patientOneModel.addressChange == 'Yes'">
+        <label for="zipCode" class="form-label">ZipCode</label>
+        <input [(ngModel)]="patientOneModel.zipCode" name="zipCode" #zipCode="ngModel"
+        type="text" class="form-control" id="zipCode">
       </div>
       <div class="col-12">
-        <label for="adult" class="form-label">IS THE PATIENT 18 YEARS OF AGE OR OLDER?</label>
+        <label for="covidSymptons" class="form-label">ARE YOU HAVING COVID 19 SYMPTOMS?</label>
         <div class="form-check">
-            <input class="form-check-input" [(ngModel)]="patientOneModel.adult" type="radio" name="adult" id="adultYes" value="Yes">
-            <label class="form-check-label" for="adultYes">
+            <input class="form-check-input" [(ngModel)]="patientOneModel.covidSymptons" type="radio" name="covidSymptons" id="covidSymptonsYes" value="Yes">
+            <label class="form-check-label" for="vaccinationsYes">
               Yes
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" [(ngModel)]="patientOneModel.adult" type="radio" name="adult" id="adultNo" value="No">
-            <label class="form-check-label" for="adultNo">
+            <input class="form-check-input" [(ngModel)]="patientOneModel.covidSymptons" type="radio" name="covidSymptons" id="covidSymptonsNo" value="No">
+            <label class="form-check-label" for="covidSymptonsNo">
               No
             </label>
           </div>
-      </div>
-      <div class="col-6" *ngIf="patientOneModel.adult == 'Yes'" >
-        <label for="guardianName" class="form-label">Guardian Name</label>
-        <input [(ngModel)]="patientOneModel.guardianName" name="guardianName" #guardianName="ngModel"
-        type="text" class="form-control" id="guardianName">
-      </div>
-      <div class="col-10" *ngIf="patientOneModel.adult == 'Yes'"> 
-        <label for="visitReason" class="form-label">Guardian / Parent Signature</label>
-        <div class="signature-container">
-          <signature-pad [options]="signaturePadOptions" (onBeginEvent)="drawStart()" (onEndEvent)="drawComplete()"></signature-pad>
-        </div>
-      </div>
-      <div class="col-12" *ngIf="patientOneModel.adult == 'Yes'">
-        <div class="row">
-          <div class="col-2">
-            <button type="button" class="btn btn-primary" (click)="clearParentSignature()">Clear signature</button>
-          </div>
-          <div class="col-2">
-            <button type="button"  class="btn btn-primary" (click)="saveParentPad()">Save signature</button>
-          </div>
-        </div>
-      </div>
-      <div class="col-6" *ngIf="patientOneModel.adult == 'Yes'" >
-          <label for="witnessName" class="form-label">Witness Name</label>
-          <input [(ngModel)]="patientOneModel.witnessName" name="witnessName" #witnessName="ngModel"
-          type="text" class="form-control" id="witnessName">
-      </div>
-      <div class="col-md-6">
-        <label for="reasonForVisit" class="form-label">Reason For Visit</label>
-        <input [(ngModel)]="patientOneModel.reasonForVisit" name="reasonForVisit" #reasonForVisit="ngModel" 
-        type="text" class="form-control" id="reasonForVisit">
-      </div>
-      <div class="col-md-6">
-        <label for="zipCode" class="form-label">ZipCode</label>
-        <input [(ngModel)]="patientOneModel.zipCode" name="zipCode" #zipCode="ngModel"
-        type="text" class="form-control" id="zipCode">
       </div>
       <div class="col-12">
         <label for="ssn" class="form-label">DO YOU HAVE IF YOU WERE EXPOSED TO COVID 19 WITHIN LAST 10 DAYS?</label>
@@ -168,75 +124,12 @@
             </label>
           </div>
       </div>
-      <div class="col-12">
-        <label for="insurance" class="form-label">DO YOU HAVE INSURANCE?</label>
-        <div class="form-check">
-            <input class="form-check-input" [(ngModel)]="patientOneModel.insurance" type="radio" name="insurance" id="insuranceYes" value="Yes">
-            <label class="form-check-label" for="insuranceYes">
-              Yes
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" [(ngModel)]="patientOneModel.insurance" type="radio" name="insurance" id="insuranceNo" value="No">
-            <label class="form-check-label" for="insuranceNo">
-              No
-            </label>
-          </div>
-      </div>
-      <div class="col-6" *ngIf="patientOneModel.insurance == 'Yes'" >
-        <label for="insuranceFront" class="form-label">UPLOAD FRONT PICITURE OF INSURANCE CARD</label>
-        <input name="insuranceFront"
-        type="file" class="form-control" id="insuranceFront" (change)="onChangeInsFrontPic($event)">
-      </div>
-      <div class="col-6" *ngIf="patientOneModel.insurance == 'Yes'" >
-        <label for="insuranceBack" class="form-label">UPLOAD BACK PICITURE OF INSURANCE CARD</label>
-        <input name="insuranceBack"
-        type="file" class="form-control" id="insuranceBack" (change)="onChangeInsBacktPic($event)">
-      </div>
 
-      <div class="col-12">
-        <label for="covidSymptons" class="form-label">ARE YOU HAVING COVID 19 SYMPTOMS?</label>
-        <div class="form-check">
-            <input class="form-check-input" [(ngModel)]="patientOneModel.covidSymptons" type="radio" name="covidSymptons" id="covidSymptonsYes" value="Yes">
-            <label class="form-check-label" for="vaccinationsYes">
-              Yes
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" [(ngModel)]="patientOneModel.covidSymptons" type="radio" name="covidSymptons" id="covidSymptonsNo" value="No">
-            <label class="form-check-label" for="covidSymptonsNo">
-              No
-            </label>
-          </div>
-      </div>
-      <div class="col-12">
-        <label for="covidTesting" class="form-label">ARE YOU NEEDING</label>
-        <div class="form-check">
-            <input class="form-check-input" [(ngModel)]="patientOneModel.covidTesting" type="radio" name="covidTesting" id="pcrTesting" value="">
-            <label class="form-check-label" for="vaccinationsYes">
-              RAPID  RT-PCR TEST FOR TRAVELING  
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" [(ngModel)]="patientOneModel.covidTesting" type="radio" name="covidTesting" id="antigenTesting" value="No">
-            <label class="form-check-label" for="covidSymptonsNo">
-              RAPID ANTIGEN TEST  
-            </label>
-          </div>
-      </div>
-      <div class="col-6" >
+
+      <div class="col-6" *ngIf="patientOneModel.insurance == 'No'" >
         <label for="idCardPicture" class="form-label">UPLOAD ID CARD PICTURE</label>
         <input name="idCardPicture"
         type="file" class="form-control" id="idCardPicture" (change)="onChangeIdCardPic($event)">
-      </div>
-      <div class="col-4">
-        <label for="visitReason" class="form-label">REASON FOR VISIT</label>
-        <select class="form-select" id="visitReason" required>
-          <option value="">Choose...</option>
-          <option>IMMIGRATION PHYSICAL</option>
-          <option>DOT PHYSICAL</option>
-          <option>COVID TESTING</option>
-        </select>
       </div>
       <div class="col-10">
         <label for="visitReason" class="form-label">Patient Signature</label>
@@ -256,7 +149,7 @@
       </div>
 
       <div class="col-12">
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Finish</button>
       </div>
     </form>
 

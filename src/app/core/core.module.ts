@@ -11,6 +11,10 @@ import { CommonModule } from "@angular/common";
 import { BrowserModule } from "@angular/platform-browser";
 import { PatientDataComponent } from './components/patient-data/patient-data.component';
 import { SignaturePadModule } from "angular2-signaturepad";
+import { MainPatientComponent } from './components/main-patient/main-patient.component';
+import { ExistingPatientDataComponent } from './components/existing-patient-data/existing-patient-data.component';
+import { NewMainPatientComponent } from './components/new-main-patient/new-main-patient.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 @NgModule({
     imports: [
@@ -21,7 +25,14 @@ import { SignaturePadModule } from "angular2-signaturepad";
       RouterModule.forChild([])
     ],
     declarations: [  
-    SwNavbarComponent, AddPatientOneComponent, AddPatientTwoComponent, AddPatientThreeComponent, HomeComponent, ExistingPatientComponent, PatientDataComponent
+    SwNavbarComponent,
+    AddPatientOneComponent,
+    AddPatientTwoComponent, 
+    AddPatientThreeComponent, 
+    HomeComponent, 
+    ExistingPatientComponent, 
+    PatientDataComponent, MainPatientComponent, ExistingPatientDataComponent, NewMainPatientComponent, PageNotFoundComponent
+
   ],
     exports: [
         SwNavbarComponent

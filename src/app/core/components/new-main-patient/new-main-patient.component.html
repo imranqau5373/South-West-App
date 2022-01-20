@@ -1,0 +1,101 @@
+<div class="container py-3" >
+    <h1 class="display-6">Patient Details</h1>
+    <br>
+    <form #patient="ngForm" (ngSubmit)="submit(patient)" class="row g-3">
+        <div class="col-md-4">
+            <label for="firstName" class="form-label">First Name</label>
+            <input [(ngModel)]="patientMainModel.firstName" name="firstName" #firstName="ngModel" type="text" class="form-control" id="firstName">
+          </div>
+          <div class="col-md-4">
+            <label for="lastName" class="form-label">Last Name</label>
+            <input [(ngModel)]="patientMainModel.lastName" name="lastName" #lastName="ngModel" type="text" class="form-control" id="lastName">
+          </div>
+          <div class="col-md-4">
+            <label for="dateOfBirth" class="form-label">Date of Birth</label>
+            <input [(ngModel)]="patientMainModel.dateOfBirth" name="dateOfBirth" (change)="dateChange($event)" #dateOfBirth="ngModel" 
+            type="date" class="form-control" id="dateOfBirth">
+          </div>
+          <div class="col-4" *ngIf="patientMainModel.adult == 'Yes'"  >
+            <label for="guardianIdCardPicture" class="form-label">Upload Guardian ID Card Picture</label>
+            <input name="guardianIdCardPicture"
+            type="file" class="form-control" id="guardianIdCardPicture" (change)="onChangeGuardianCardPic($event)">
+          </div>
+          <div class="col-4" *ngIf="patientMainModel.adult == 'Yes'" >
+            <label for="guardianName" class="form-label">Guardian Name</label>
+            <input [(ngModel)]="patientMainModel.guardianName" name="guardianName" #guardianName="ngModel"
+            type="text" class="form-control" id="guardianName">
+          </div>
+          <div class="col-4" *ngIf="patientMainModel.adult == 'Yes'" >
+            
+            <label for="guardianName" class="form-label">Relationship With Patient</label>
+            <input [(ngModel)]="patientMainModel.guardianRelation" name="guardianRelation" #guardianRelation="ngModel"
+            type="text" class="form-control" id="guardianRelation">
+          </div>
+          <div class="col-12">
+            <label for="insurance" class="form-label">DO YOU HAVE INSURANCE?</label>
+            <div class="form-check">
+                <input class="form-check-input" [(ngModel)]="patientMainModel.insurance" type="radio" name="insurance" id="insuranceYes" value="Yes">
+                <label class="form-check-label" for="insuranceYes">
+                  Yes
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" [(ngModel)]="patientMainModel.insurance" type="radio" name="insurance" id="insuranceNo" value="No">
+                <label class="form-check-label" for="insuranceNo">
+                  No
+                </label>
+              </div>
+          </div>
+          <div class="col-4" *ngIf="patientMainModel.insurance == 'Yes'" >
+            <label for="insuranceFront" class="form-label">UPLOAD FRONT PICITURE OF INSURANCE CARD</label>
+            <input name="insuranceFront"
+            type="file" class="form-control" id="insuranceFront" (change)="onChangeInsFrontPic($event)">
+          </div>
+          <div class="col-4" *ngIf="patientMainModel.insurance == 'Yes'" >
+            <label for="insuranceBack" class="form-label">UPLOAD BACK PICITURE OF INSURANCE CARD</label>
+            <input name="insuranceBack"
+            type="file" class="form-control" id="insuranceBack" (change)="onChangeInsBacktPic($event)">
+          </div>
+          <div class="col-4" *ngIf="patientMainModel.insurance == 'Yes'" >
+            <label for="idCardPicture" class="form-label">UPLOAD ID CARD PICTURE</label>
+            <input name="idCardPicture"
+            type="file" class="form-control" id="idCardPicture" (change)="onChangeIdCardPic($event)">
+          </div>
+
+          <div class="col-md-6">
+            <label for="reasonForVisit" class="form-label">Reason for Visit</label>
+            <select class="form-select" [(ngModel)]="patientMainModel.reasonForVisit" name="reasonForVisit" 
+            (change)= "changeReasonForVisit($event)" #reasonForVisit="ngModel" aria-label="Default select example">
+              <option selected>Select</option>
+              <option value="Covid">Covid</option>
+              <option value="Consultation / Medicine Refill">Consultation /Medicine Refill</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <div class="col-md-6" *ngIf="patientMainModel.reasonForVisit == 'Other'" >
+            <label for="idCardPicture" class="form-label">Explain</label>
+            <input [(ngModel)]="patientMainModel.reasonForVisitOther" name="reasonForVisitOther" #reasonForVisitOther="ngModel"
+            type="text" class="form-control" id="reasonForVisitOther">
+          </div>
+          <div class="col-12" *ngIf="patientMainModel.reasonForVisit == 'Covid'">
+            <label for="covidTesting" class="form-label">ARE YOU NEEDING</label>
+            <div class="form-check">
+                <input class="form-check-input" [(ngModel)]="patientMainModel.covidTesting" type="radio" name="covidTesting" id="pcrTesting" value="RapidPCR">
+                <label class="form-check-label" for="vaccinationsYes">
+                  RAPID  RT-PCR TEST FOR TRAVELING  
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" [(ngModel)]="patientMainModel.covidTesting" type="radio" name="covidTesting" id="antigenTesting" value="RapidAntigen">
+                <label class="form-check-label" for="covidSymptonsNo">
+                  RAPID ANTIGEN TEST  
+                </label>
+              </div>
+          </div>
+          <div class="col-12">
+            <button type="submit" class="btn btn-primary">Next</button>
+          </div>
+    </form>
+</div>
+
+

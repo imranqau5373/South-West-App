@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { debug } from 'console';
 import { PatientService } from 'src/app/shared/service/patient-service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-get-all-existingpatients',
@@ -32,13 +33,13 @@ export class GetAllExistingpatientsComponent implements OnInit {
       debugger;
       for (let i = 0; i < result.length; i++) {
         if(result[i].filePath && result[i].filePath != null){
-          result[i].filePath = "http://209.126.105.94:3000/"+result[i].filePath.replace('./public/','') ;
+          result[i].filePath = environment.apiUrl+result[i].filePath.replace('./public/','') ;
         }
         else{
           result[i].filePath = null;
         }
         if(result[i].adult == "Yes"){
-          result[i].consentPath = "http://209.126.105.94:3000/"+result[i].consentPath.replace('./public/','') ;
+          result[i].consentPath = environment.apiUrl+result[i].consentPath.replace('./public/','') ;
         }
         else{
           result[i].consentPath = null;

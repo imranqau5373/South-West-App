@@ -1,0 +1,12 @@
+
+
+
+
+<app-main-patient [patientMainModel]="patientMainModel" (submitMain)="mainPageSubmitted($event)" *ngIf="mainPage"></app-main-patient>
+
+<app-existing-patient [patientOneModel]="patientOneModel" (submitExisting)="existingPageSubmitted($event)" *ngIf="existingPage"></app-existing-patient>
+
+
+<p *ngIf="finishPage">Thank you to submit your medical record.</p>
+
+

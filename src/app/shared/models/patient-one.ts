@@ -1,3 +1,4 @@
 export interface PatientOne {
-    fullName: string;
+    firstName: string;
+    lastName: string;
   }

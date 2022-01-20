@@ -10,17 +10,30 @@ import { PatientService } from 'src/app/shared/service/patient-service';
   styleUrls: ['./patient-data.component.css']
 })
 export class PatientDataComponent implements OnInit {
-  firstPage = true;
+  firstPage = false;
   secondPage = false;
   thirdPage = false;
   finishPage = false;
+  mainPage = true;
   patientOne : any = {};
   patientTwo : any = {};
   patientThree : any = {};
+  patientMainModel : any = {};
   patientData!: Observable<any>;
   constructor(private patientService : PatientService) { }
 
   ngOnInit(): void {
+  }
+
+  mainPageSubmitted($event:any){
+    debugger;
+    this.mainPage = false;
+    this.patientOne.insurance = this.patientMainModel.insurance;
+    this.firstPage = true;
+    this.secondPage = false;
+    this.thirdPage = false;
+    this.finishPage = false;
+    
   }
 
   firstPageSelected($event:any){
@@ -54,7 +67,8 @@ export class PatientDataComponent implements OnInit {
   }
 
   setFormDataPatientOne(formData :FormData ){
-    formData.append("fullName", this.patientOne.fullName);
+    formData.append("firstName", this.patientOne.firstName);
+    formData.append("lastName", this.patientOne.lastName);
     formData.append("dateOfBirth", this.patientOne.dateOfBirth);
     formData.append("inputAddress", this.patientOne.inputAddress);
     formData.append("age", this.patientOne.age);

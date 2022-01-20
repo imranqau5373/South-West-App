@@ -1,5 +1,5 @@
 import { ThisReceiver } from '@angular/compiler';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { SignaturePad } from 'angular2-signaturepad';
 import { dateTimeValue } from 'docx';
 import { PatientService } from 'src/app/shared/service/patient-service';
@@ -10,12 +10,14 @@ import { PatientService } from 'src/app/shared/service/patient-service';
   styleUrls: ['./existing-patient.component.css']
 })
 export class ExistingPatientComponent implements OnInit {
-  patientOneModel : any = {};
   insuranceFrontPicture : File | undefined;
   insuranceBackPicture : File | undefined;
-  
+  @Input()
+  patientOneModel : any = {};
+  @Output()
+  submitExisting = new EventEmitter<any>();
   finishPage = false;
-  signatureImg = "";
+
   @ViewChild(SignaturePad)
   signaturePad!: SignaturePad;
 
@@ -29,19 +31,20 @@ export class ExistingPatientComponent implements OnInit {
     'canvasWidth': 700,
     'canvasHeight': 300
   };
-  constructor(private patientService : PatientService) { }
+  constructor(private patientService : PatientService) { 
+    this.patientOneModel.signatureImg = "";
+  }
 
   ngOnInit(): void {
 
 
-    this.patientOneModel = {};
+
     this.patientOneModel.addressChange = "No";
     this.patientOneModel.covid = "No";
     this.patientOneModel.coughCongestion = "No";
     this.patientOneModel.breathShortness = "No";
     this.patientOneModel.fever = "No";
     this.patientOneModel.vaccinations = "No";
-    this.patientOneModel.insurance = "No";
     this.patientOneModel.adult = "No";
     this.patientOneModel.covidSymptons = "No";
     
@@ -68,18 +71,19 @@ export class ExistingPatientComponent implements OnInit {
 
   
   submit($patient:any){
-    if(this.patientOneModel.idCardPicture && this.patientOneModel.idCardPicture.name && this.patientOneModel.idCardPicture.name.length > 0){
-      const formData = new FormData();
-      this.addressChange(formData);
-      this.otherFields(formData);
-      this.setInsuranceData(formData);
-      this.finishPage = true;
-      this.patientService.createExistingPatientDocument(formData)
-      .subscribe(result => console.log(result));
-    }
-    else{
-      alert('Must attached the ID Card Picture')
-    }
+    this.submitExisting.emit(this.patientOneModel);
+    //if(this.patientOneModel.idCardPicture && this.patientOneModel.idCardPicture.name && this.patientOneModel.idCardPicture.name.length > 0){
+      // const formData = new FormData();
+      // this.addressChange(formData);
+      // this.otherFields(formData);
+      // this.setInsuranceData(formData);
+      // this.finishPage = true;
+      // this.patientService.createExistingPatientDocument(formData)
+      // .subscribe(result => console.log(result));
+    //}
+    // else{
+    //   alert('Must attached the ID Card Picture')
+    // }
 
 
   }
@@ -124,7 +128,7 @@ export class ExistingPatientComponent implements OnInit {
     formData.append("adult", this.patientOneModel.adult);
     formData.append("witnessName", this.patientOneModel.witnessName);
     formData.append("guardianName", this.patientOneModel.guardianName);
-    formData.append("signatureImg", this.signatureImg);
+    //formData.append("signatureImg", this.signatureImg);
 
   }
 
@@ -149,12 +153,11 @@ export class ExistingPatientComponent implements OnInit {
 
   savePad() {
     const base64Data = this.signaturePad.toDataURL();
-    this.signatureImg = base64Data;
+    this.patientOneModel.signatureImg = base64Data;
   }
 
   saveParentPad() {
     const base64Data = this.signaturePad.toDataURL();
-    this.parentSignatureImg = base64Data;
   }
 
 }

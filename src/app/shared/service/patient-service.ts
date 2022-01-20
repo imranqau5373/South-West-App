@@ -1,11 +1,12 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
+import { environment } from "src/environments/environment";
 
 @Injectable()
 export class PatientService {
 
-  BaseURL = 'http://209.126.105.94:3000/patient';
+  BaseURL = environment.apiUrl+'/patient';
   constructor(private http: HttpClient) { }
 
   getPatientData():Observable<any> { 
@@ -28,6 +29,7 @@ export class PatientService {
     return this.http.get<any>(this.BaseURL+'/getAllNewPatients');
   }
   getAllExistingPatientDocuments():Observable<any> { 
+    debugger;
     return this.http.get<any>(this.BaseURL+'/getAllExistingPatients');
   }
   createExistingPatientDocument(patientData:any):Observable<any> { 

@@ -13,8 +13,11 @@ import { AppComponent } from './app.component';
 import { AddPatientOneComponent } from './core/components/add-patient-one/add-patient-one.component';
 import { AddPatientThreeComponent } from './core/components/add-patient-three/add-patient-three.component';
 import { AddPatientTwoComponent } from './core/components/add-patient-two/add-patient-two.component';
+import { ExistingPatientDataComponent } from './core/components/existing-patient-data/existing-patient-data.component';
 import { ExistingPatientComponent } from './core/components/existing-patient/existing-patient.component';
 import { HomeComponent } from './core/components/home/home.component';
+import { MainPatientComponent } from './core/components/main-patient/main-patient.component';
+import { PageNotFoundComponent } from './core/components/page-not-found/page-not-found.component';
 import { PatientDataComponent } from './core/components/patient-data/patient-data.component';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
@@ -35,6 +38,7 @@ import { SharedModule } from './shared/shared.module';
         path:'',
         component : HomeComponent
       },
+      {path:"**",component: PageNotFoundComponent},
       {
         path:'admin',
         component : AdminDashboardComponent
@@ -54,6 +58,10 @@ import { SharedModule } from './shared/shared.module';
       {
         path:'existing-patient',
         component : ExistingPatientComponent
+      },
+      {
+        path:'main-patient-existing',
+        component : ExistingPatientDataComponent
       },
       {
         path:'admin/all-new-patients',

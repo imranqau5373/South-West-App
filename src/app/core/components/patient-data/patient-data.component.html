@@ -1,5 +1,9 @@
 
 
+
+<app-new-main-patient [patientMainModel]="patientMainModel" (submitMain)="mainPageSubmitted($event)" *ngIf="mainPage"></app-new-main-patient>
+
+
 <app-add-patient-one [patientOneModel]="patientOne" (submitFirst)="firstPageSelected($event)" *ngIf="firstPage"></app-add-patient-one>
 
 <app-add-patient-two [patientTwoModel]="patientOne" (submitSecond)="secondPageSubmit($event)" *ngIf="secondPage"></app-add-patient-two>
