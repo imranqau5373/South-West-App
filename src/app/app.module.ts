@@ -34,11 +34,11 @@ import { SharedModule } from './shared/shared.module';
     SharedModule,
 
     RouterModule.forChild([
+      {path:"**",component: PageNotFoundComponent},
       {
         path:'',
         component : HomeComponent
       },
-      {path:"**",component: PageNotFoundComponent},
       {
         path:'admin',
         component : AdminDashboardComponent
