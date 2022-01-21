@@ -34,7 +34,10 @@ import { SharedModule } from './shared/shared.module';
     SharedModule,
 
     RouterModule.forChild([
-      {path:"*",component: PageNotFoundComponent},
+      {
+        path:"*",
+        component: PageNotFoundComponent
+      },
       {
         path:'',
         component : HomeComponent

@@ -56,13 +56,9 @@ export class AddPatientOneComponent implements OnInit {
   submitOne(pageOne : any){
     debugger;
     console.log(this.patientOneModel.maritalStatus);
-    // if(this.patientOneModel.idCardPicture && this.patientOneModel.idCardPicture.name && this.patientOneModel.idCardPicture.name.length > 0){
-    //   this.patientOneModel = pageOne.value;
-    //   this.submitFirst.emit(this.patientOneModel);
-    // }
-    // else{
-    //   alert('Must attached the ID Card Picture');
-    // }
+    this.patientOneModel = pageOne.value;
+    this.submitFirst.emit(this.patientOneModel);
+    
 
 
   }
