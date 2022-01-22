@@ -23,10 +23,10 @@ export class PatientDataComponent implements OnInit {
   constructor(private patientService : PatientService) { }
 
   ngOnInit(): void {
+
   }
 
   mainPageSubmitted($event:any){
-    debugger;
     this.mainPage = false;
     this.patientOne.insurance = this.patientMainModel.insurance;
     this.firstPage = true;
@@ -57,8 +57,9 @@ export class PatientDataComponent implements OnInit {
     this.secondPage = false;
     this.thirdPage = false;
     this.finishPage = true;
+    this.setMainPatientData(formData);
     this.setFormDataPatientOne(formData);
-    this.setInsuranceData(formData);
+    //this.setInsuranceData(formData);
     this.setFormDataPatientSecond(formData);
     this.setFormDataPatientThrid(formData);
     this.patientData = this.patientService.createNewPatientDocument(formData);
@@ -67,9 +68,6 @@ export class PatientDataComponent implements OnInit {
   }
 
   setFormDataPatientOne(formData :FormData ){
-    formData.append("firstName", this.patientOne.firstName);
-    formData.append("lastName", this.patientOne.lastName);
-    formData.append("dateOfBirth", this.patientOne.dateOfBirth);
     formData.append("inputAddress", this.patientOne.inputAddress);
     formData.append("age", this.patientOne.age);
     formData.append("apt", this.patientOne.apt);
@@ -83,7 +81,6 @@ export class PatientDataComponent implements OnInit {
     formData.append("mobilePhoneNo", this.patientOne.mobilePhoneNo);
     formData.append("dayTimePhoneNo", this.patientOne.dayTimePhoneNo);
     formData.append("ssn", this.patientOne.ssn);
-    formData.append("email", this.patientOne.email);
     formData.append("surgery", this.patientOne.surgery);
     formData.append("surgeryExplain", this.patientOne.surgeryExplain);
     formData.append("alergic", this.patientOne.alergic);
@@ -99,7 +96,6 @@ export class PatientDataComponent implements OnInit {
     formData.append("alcoholExplain", this.patientOne.alcoholExplain);
     formData.append("drugs", this.patientOne.drugs);
     formData.append("drugsExplain", this.patientOne.drugsExplain);
-    formData.append("visitReason", this.patientOne.visitReason);
     formData.append("yearlyPhysical", this.patientOne.yearlyPhysical);
     formData.append("covid", this.patientOne.covid);
     formData.append("coughCongestion", this.patientOne.coughCongestion);
@@ -111,10 +107,7 @@ export class PatientDataComponent implements OnInit {
     formData.append("streetPharmacy", this.patientOne.streetPharmacy);
     formData.append("crossIntersectin", this.patientOne.crossIntersectin);
     formData.append("zipcodePharmacy", this.patientOne.zipcodePharmacy);
-    formData.append("insurance", this.patientOne.insurance);
-    formData.append("adult", this.patientOne.adult);
-    formData.append("witnessName", this.patientOne.witnessName);
-    formData.append("guardianName", this.patientOne.guardianName);
+    formData.append("familyMedicialHistory", this.patientOne.familyMedicialHistory);
     formData.append("signatureImg", this.patientOne.signatureImg);
 
   }
@@ -128,6 +121,47 @@ export class PatientDataComponent implements OnInit {
     formData.append("contactPhone", this.patientTwo.contactPhone);
     formData.append("contactRelation", this.patientTwo.contactRelation);
     formData.append("hearAboutUs", this.patientOne.hearAboutUs);
+  }
+
+  setMainPatientData(formData : FormData){
+ 
+    formData.append("firstName", this.patientMainModel.firstName);
+    formData.append("lastName", this.patientMainModel.lastName);
+    formData.append("dateOfBirth", this.patientMainModel.dateOfBirth);
+    formData.append("reasonForVisit", this.patientMainModel.reasonForVisit);
+    formData.append("adult", this.patientMainModel.adult);
+    formData.append("insurance", this.patientMainModel.insurance);
+    formData.append("email", this.patientMainModel.email);
+    if(this.patientMainModel.insurance == "Yes"){
+      formData.append("insuranceBackPath", this.patientMainModel.insuranceBack.name+'-'+Date.now());
+      formData.append("insuranceFrontFileName", this.patientMainModel.insuranceFront.name);
+      formData.append("insuranceBackFileName", this.patientMainModel.insuranceBack.name);
+      formData.append("insuranceForntPath", this.patientMainModel.insuranceFront.name+'-'+Date.now());
+      formData.append("file", this.patientMainModel.insuranceFront, this.patientMainModel.insuranceFront.name);
+      formData.append("file", this.patientMainModel.insuranceBack, this.patientMainModel.insuranceBack.name);
+      formData.append("idCardPicturePath", this.patientMainModel.idCardPicture.name+'-'+Date.now());
+      formData.append("idCardPictureName", this.patientMainModel.idCardPicture.name); 
+      formData.append("file", this.patientMainModel.idCardPicture, this.patientMainModel.idCardPicture.name); 
+    }
+    else{
+      formData.append("idCardPicturePath", this.patientOne.idCardPicture.name+'-'+Date.now());
+      formData.append("idCardPictureName", this.patientOne.idCardPicture.name); 
+      formData.append("file", this.patientOne.idCardPicture, this.patientOne.idCardPicture.name);
+    }
+    if(this.patientMainModel.adult == "No"){
+      formData.append("guardianIdPath", this.patientMainModel.guardianIdCardPicture.name+'-'+Date.now());
+      formData.append("guardianIdFileName", this.patientMainModel.guardianIdCardPicture.name);
+      formData.append("file", this.patientMainModel.guardianIdCardPicture);
+      formData.append("guardianName", this.patientMainModel.guardianName);
+      formData.append("guardianRelation", this.patientMainModel.guardianRelation);
+    }
+    if(this.patientMainModel.reasonForVisit == "Covid"){
+      formData.append("covidTesting", this.patientMainModel.covidTesting);
+    }
+    else if(this.patientMainModel.Other == "Other"){
+      formData.append("reasonForVisitOther", this.patientMainModel.reasonForVisitOther);
+    }
+
   }
 
   setFormDataPatientThrid(formData :FormData ){

@@ -1,35 +1,72 @@
 <div class="container py-3" >
     <h1 class="display-6">Patient Details</h1>
     <br>
-    <form #patient="ngForm" (ngSubmit)="submit(patient)" class="row g-3">
-        <div class="col-md-4">
+    <form #patient="ngForm" (ngSubmit)="patient.form.valid && submit(patient)" class="row g-3">
+        <div class="col-md-3">
             <label for="firstName" class="form-label">First Name</label>
-            <input [(ngModel)]="patientMainModel.firstName" name="firstName" #firstName="ngModel" type="text" class="form-control" id="firstName">
+            <input [(ngModel)]="patientMainModel.firstName" name="firstName" #firstName="ngModel" 
+            type="text" class="form-control" id="firstName" required
+            [ngClass]="{ 'is-invalid': patient.submitted && firstName.invalid}" >
+            <div class="invalid-feedback" *ngIf="patient.submitted && firstName.invalid">
+              First Name is Required
+            </div>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-3">
             <label for="lastName" class="form-label">Last Name</label>
-            <input [(ngModel)]="patientMainModel.lastName" name="lastName" #lastName="ngModel" type="text" class="form-control" id="lastName">
+            <input [(ngModel)]="patientMainModel.lastName" name="lastName" #lastName="ngModel" 
+            type="text" class="form-control" id="lastName" required
+            [ngClass]="{ 'is-invalid': patient.submitted && lastName.invalid}" >
+            <div class="invalid-feedback" *ngIf="patient.submitted && lastName.invalid">
+              Last Name is Required
+            </div>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-3">
+            <label for="email" class="form-label">Email</label>
+            <input [(ngModel)]="patientMainModel.email" name="email" #email="ngModel"
+            type="email" class="form-control" id="email"
+            [ngClass]="{ 'is-invalid': patient.submitted && email.invalid}"
+             required>
+            <div class="invalid-feedback" *ngIf="patient.submitted && email.invalid">
+              Email is Required
+            </div>
+          </div>
+          <div class="col-md-3">
             <label for="dateOfBirth" class="form-label">Date of Birth</label>
             <input [(ngModel)]="patientMainModel.dateOfBirth" name="dateOfBirth" (change)="dateChange($event)" #dateOfBirth="ngModel" 
-            type="date" class="form-control" id="dateOfBirth">
+            type="date" class="form-control" id="dateOfBirth" required
+            [ngClass]="{ 'is-invalid': patient.submitted && dateOfBirth.invalid}">
+            <div class="invalid-feedback" *ngIf="patient.submitted && dateOfBirth.invalid">
+              Date of Birth is Required
+            </div>
           </div>
-          <div class="col-4" *ngIf="patientMainModel.adult == 'Yes'"  >
+          <div class="col-4" *ngIf="patientMainModel.adult == 'No'"  >
             <label for="guardianIdCardPicture" class="form-label">Upload Guardian ID Card Picture</label>
-            <input name="guardianIdCardPicture"
-            type="file" class="form-control" id="guardianIdCardPicture" (change)="onChangeGuardianCardPic($event)">
+            <input name="guardianIdCardPicture" [(ngModel)]="patientMainModel.guardianIdCardPicture"
+            type="file" class="form-control" #guardianIdCardPicture="ngModel" id="guardianIdCardPicture" (change)="onChangeGuardianCardPic($event)" required
+            [ngClass]="{ 'is-invalid': patient.submitted && guardianIdCardPicture.invalid}">
+            <div class="invalid-feedback" *ngIf="patient.submitted && guardianIdCardPicture.invalid">
+              Guardian ID Card Picture is Required
+            </div>
+
           </div>
-          <div class="col-4" *ngIf="patientMainModel.adult == 'Yes'" >
+          <div class="col-4" *ngIf="patientMainModel.adult == 'No'" >
             <label for="guardianName" class="form-label">Guardian Name</label>
             <input [(ngModel)]="patientMainModel.guardianName" name="guardianName" #guardianName="ngModel"
-            type="text" class="form-control" id="guardianName">
+            type="text" class="form-control" id="guardianName" required
+            [ngClass]="{ 'is-invalid': patient.submitted && guardianName.invalid}">
+            <div class="invalid-feedback" *ngIf="patient.submitted && guardianName.invalid">
+              Guardian Name is Required
+            </div>
           </div>
-          <div class="col-4" *ngIf="patientMainModel.adult == 'Yes'" >
+          <div class="col-4" *ngIf="patientMainModel.adult == 'No'" >
             
             <label for="guardianName" class="form-label">Relationship With Patient</label>
             <input [(ngModel)]="patientMainModel.guardianRelation" name="guardianRelation" #guardianRelation="ngModel"
-            type="text" class="form-control" id="guardianRelation">
+            type="text" class="form-control" id="guardianRelation" required
+            [ngClass]="{ 'is-invalid': patient.submitted && guardianRelation.invalid}">
+            <div class="invalid-feedback" *ngIf="patient.submitted && guardianRelation.invalid">
+              Relationship With Patient is Required
+            </div>
           </div>
           <div class="col-12">
             <label for="insurance" class="form-label">DO YOU HAVE INSURANCE?</label>
@@ -48,30 +85,48 @@
           </div>
           <div class="col-4" *ngIf="patientMainModel.insurance == 'Yes'" >
             <label for="insuranceFront" class="form-label">UPLOAD FRONT PICITURE OF INSURANCE CARD</label>
-            <input name="insuranceFront"
-            type="file" class="form-control" id="insuranceFront" (change)="onChangeInsFrontPic($event)">
+            <input name="insuranceFront" [(ngModel)]="patientMainModel.insuranceFront"  #insuranceFront="ngModel" required 
+            type="file" class="form-control" id="insuranceFront" (change)="onChangeInsFrontPic($event)"
+            [ngClass]="{ 'is-invalid': patient.submitted && insuranceFront.invalid}">
+            <div class="invalid-feedback" *ngIf="patient.submitted && insuranceFront.invalid">
+              Front Piciture Of Insurance Card is Required
+            </div>
           </div>
           <div class="col-4" *ngIf="patientMainModel.insurance == 'Yes'" >
             <label for="insuranceBack" class="form-label">UPLOAD BACK PICITURE OF INSURANCE CARD</label>
-            <input name="insuranceBack"
-            type="file" class="form-control" id="insuranceBack" (change)="onChangeInsBacktPic($event)">
+            <input name="insuranceBack" [(ngModel)]="patientMainModel.insuranceBack"  #insuranceBack="ngModel" required
+            type="file" class="form-control" id="insuranceBack" (change)="onChangeInsBacktPic($event)"
+            [ngClass]="{ 'is-invalid': patient.submitted && insuranceBack.invalid}">
+            <div class="invalid-feedback" *ngIf="patient.submitted && insuranceBack.invalid">
+              Back Piciture Of Insurance Card is Required
+            </div>
           </div>
           <div class="col-4" *ngIf="patientMainModel.insurance == 'Yes'" >
             <label for="idCardPicture" class="form-label">UPLOAD ID CARD PICTURE</label>
-            <input name="idCardPicture"
-            type="file" class="form-control" id="idCardPicture" (change)="onChangeIdCardPic($event)">
+            <input name="idCardPicture" [(ngModel)]="patientMainModel.idCardPicture"  #idCardPicture="ngModel" required
+            type="file" class="form-control" id="idCardPicture" (change)="onChangeIdCardPic($event)"
+            [ngClass]="{ 'is-invalid': patient.submitted && idCardPicture.invalid}">
+            <div class="invalid-feedback" *ngIf="patient.submitted && idCardPicture.invalid">
+              ID Card Piciture is Required
+            </div>
           </div>
 
           <div class="col-md-6">
             <label for="reasonForVisit" class="form-label">Reason for Visit</label>
-            <select class="form-select" [(ngModel)]="patientMainModel.reasonForVisit" name="reasonForVisit" 
-            (change)= "changeReasonForVisit($event)" #reasonForVisit="ngModel" aria-label="Default select example">
+            <select class="form-select" [(ngModel)]="patientMainModel.reasonForVisit" name="reasonForVisit" required
+            (change)= "changeReasonForVisit($event)" #reasonForVisit="ngModel" aria-label="Default select example"
+            [ngClass]="{ 'is-invalid': patient.submitted && reasonForVisit.invalid}">
+
               <option selected>Select</option>
               <option value="Covid">Covid</option>
               <option value="Consultation / Medicine Refill">Consultation /Medicine Refill</option>
               <option value="Other">Other</option>
             </select>
+            <div class="invalid-feedback" *ngIf="patient.submitted && reasonForVisit.invalid">
+              Reason for Visit is Required
+            </div>
           </div>
+
           <div class="col-md-6" *ngIf="patientMainModel.reasonForVisit == 'Other'" >
             <label for="idCardPicture" class="form-label">Explain</label>
             <input [(ngModel)]="patientMainModel.reasonForVisitOther" name="reasonForVisitOther" #reasonForVisitOther="ngModel"

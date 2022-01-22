@@ -14,11 +14,11 @@ export class NewMainPatientComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.patientMainModel.adult = "No";
+    this.patientMainModel.insurance = "No";
+    this.patientMainModel.adult = "Yes";
   }
 
   submit($patient:any){
-    debugger;
     this.submitMain.emit(this.patientMainModel);
 
   }
@@ -34,10 +34,10 @@ export class NewMainPatientComponent implements OnInit {
     age18Date.setDate(age18Date.getDate() - age);
     var setDate = new Date($event.target.value);
     if(setDate >= age18Date){
-      this.patientMainModel.adult = "Yes";
+      this.patientMainModel.adult = "No";
     }
     else{
-      this.patientMainModel.adult = "No";
+      this.patientMainModel.adult = "Yes";
       this.patientMainModel.guardianName = this.patientMainModel.guardianRelation = this.patientMainModel.guardianIdCardPicture = "";
     }
 

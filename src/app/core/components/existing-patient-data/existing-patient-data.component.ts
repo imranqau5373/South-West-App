@@ -19,7 +19,6 @@ export class ExistingPatientDataComponent implements OnInit {
   }
 
   mainPageSubmitted($event:any){
-    debugger;
     this.mainPage = false;
     this.patientOneModel.insurance = this.patientMainModel.insurance;
     this.existingPage = true;
@@ -27,7 +26,6 @@ export class ExistingPatientDataComponent implements OnInit {
   }
 
   existingPageSubmitted($event:any){
-    debugger;
     const formData = new FormData();
     this.existingPage = false;
     this.finishPage = true;
@@ -83,7 +81,6 @@ export class ExistingPatientDataComponent implements OnInit {
   }
 
   otherFields(formData : FormData){
-    debugger;
     formData.append("zipCode", this.patientOneModel.zipCode);
     formData.append("covid", this.patientOneModel.covid);
     formData.append("fever", this.patientOneModel.fever);

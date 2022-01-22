@@ -142,12 +142,10 @@ export class ExistingPatientComponent implements OnInit {
   }
 
   clearSignature() {
-    debugger;
     this.signaturePad.clear();
   }
 
   clearParentSignature() {
-    debugger;
     this.parentSignaturePad.clear();
   }
 

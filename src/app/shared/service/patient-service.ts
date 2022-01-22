@@ -29,7 +29,6 @@ export class PatientService {
     return this.http.get<any>(this.BaseURL+'/getAllNewPatients');
   }
   getAllExistingPatientDocuments():Observable<any> { 
-    debugger;
     return this.http.get<any>(this.BaseURL+'/getAllExistingPatients');
   }
   createExistingPatientDocument(patientData:any):Observable<any> { 

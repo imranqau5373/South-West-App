@@ -31,7 +31,6 @@ export class AddPatientOneComponent implements OnInit {
     this.patientOneModel.breathShortness = "No";
     this.patientOneModel.fever = "No";
     this.patientOneModel.covidSymptons = "No";
-    this.patientOneModel.insurance = "No";
     this.patientOneModel.adult = "No";
   }
 
@@ -54,7 +53,6 @@ export class AddPatientOneComponent implements OnInit {
   }
 
   submitOne(pageOne : any){
-    debugger;
     console.log(this.patientOneModel.maritalStatus);
     this.patientOneModel = pageOne.value;
     this.submitFirst.emit(this.patientOneModel);

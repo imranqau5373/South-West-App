@@ -19,7 +19,6 @@ export class MainPatientComponent implements OnInit {
   }
 
   submit($patient:any){
-    debugger;
     this.submitMain.emit(this.patientMainModel);
 
   }

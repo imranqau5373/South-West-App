@@ -2,7 +2,7 @@
   <div class="container py-3">
     <h1 class="display-6">New Patient Form</h1>
     <br>
-    <form #pageOne="ngForm" (ngSubmit)="submitOne(pageOne)" class="row g-3">
+    <form #pageOne="ngForm" (ngSubmit)="pageOne.form.valid && submitOne(pageOne)" class="row g-3">
 
 
       <div class="col-12">
@@ -32,8 +32,13 @@
       </div>
       <div class="col-4" *ngIf="patientOneModel.insurance == 'No'" >
         <label for="idCardPicture" class="form-label">UPLOAD ID CARD PICTURE</label>
-        <input name="idCardPicture"
-        type="file" class="form-control" id="idCardPicture" (change)="onChangeIdCardPic($event)">
+        <input name="idCardPicture" [(ngModel)]="patientOneModel.idCardPicture" #idCardPicture="ngModel"
+        type="file" class="form-control" id="idCardPicture" required
+        (change)="onChangeIdCardPic($event)"
+        [ngClass]="{ 'is-invalid': pageOne.submitted && idCardPicture.invalid}">
+        <div class="invalid-feedback" *ngIf="pageOne.submitted && idCardPicture.invalid">
+          ID Card Picture is Required
+        </div>
       </div>
       <div class="col-md-4">
         <label for="state" class="form-label">State</label>
@@ -80,26 +85,22 @@
         <input [(ngModel)]="patientOneModel.occupation" name="occupation" #occupation="ngModel"
         type="text" class="form-control" id="occupation">
       </div>
-      <div class="col-md-6">
+      <div class="col-md-4">
         <label for="mobilePhoneNo" class="form-label">Mobile Phone No</label>
         <input [(ngModel)]="patientOneModel.mobilePhoneNo" name="mobilePhoneNo" #mobilePhoneNo="ngModel" 
         type="number" class="form-control" id="mobilePhoneNo">
       </div>
-      <div class="col-md-6">
+      <div class="col-md-4">
         <label for="dayTimePhoneNo" class="form-label">DayTime Phone No</label>
         <input [(ngModel)]="patientOneModel.dayTimePhoneNo" name="dayTimePhoneNo" #dayTimePhoneNo="ngModel" 
         type="number" class="form-control" id="dayTimePhoneNo">
       </div>
-      <div class="col-md-6">
+      <div class="col-md-4">
         <label for="ssn" class="form-label">SSN</label>
         <input [(ngModel)]="patientOneModel.ssn" name="ssn" #ssn="ngModel" 
         type="number" class="form-control" id="ssn">
       </div>
-      <div class="col-md-6">
-        <label for="email" class="form-label">Email</label>
-        <input [(ngModel)]="patientOneModel.email" name="email" #email="ngModel"
-        type="email" class="form-control" id="email">
-      </div>
+
       <div class="col-md-6">
         <label for="ssn" class="form-label">HAVE YOU HAD ANY SURGERIES IN THE PAST? </label>
       </div>
@@ -370,6 +371,11 @@
         <label for="zipcodePharmacy" class="form-label">ZIP CODE OF PHARMACY:</label>
         <input [(ngModel)]="patientOneModel.zipcodePharmacy" name="zipcodePharmacy" #zipcodePharmacy="ngModel" 
         type="text" class="form-control" id="zipcodePharmacy">
+      </div>
+      <div class="col-12">
+        <label for="familyMedicialHistory" class="form-label">FAMILY MEDICIAL HISTORY:</label>
+        <input [(ngModel)]="patientOneModel.familyMedicialHistory" name="familyMedicialHistory" #familyMedicialHistory="ngModel" 
+        type="text" class="form-control" id="familyMedicialHistory">
       </div>
       <div class="col-md-4">
         <button type="submit" class="btn btn-primary">Next</button>
