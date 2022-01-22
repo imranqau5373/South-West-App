@@ -158,7 +158,7 @@ export class PatientDataComponent implements OnInit {
     if(this.patientMainModel.reasonForVisit == "Covid"){
       formData.append("covidTesting", this.patientMainModel.covidTesting);
     }
-    else if(this.patientMainModel.Other == "Other"){
+    else if(this.patientMainModel.reasonForVisit == "Other"){
       formData.append("reasonForVisitOther", this.patientMainModel.reasonForVisitOther);
     }
 

@@ -6,8 +6,9 @@
         <tr>
           <th>First Name</th>
           <th>Last Name</th>
-          <th>Date Of Birth</th>
-          <th>zipCode</th>
+          <th>Email</th>
+          <th>Date of Birth</th>
+          <th>Insurace</th>
           <th>Download Files</th>
         </tr>
       </thead>
@@ -15,8 +16,9 @@
         <tr *ngFor="let patient of patients">
           <td>{{ patient.firstName }}</td>
           <td>{{ patient.lastName }}</td>
+          <td>{{ patient.email }}</td>
           <td>{{ patient.dateOfBirth }}</td>
-          <td>{{ patient.zipCode }}</td>
+          <td>{{ patient.insurance }}</td>
           <td><a href="javascript:void(0)"  (click)="downloadFile(patient.filePath)"  class="link-primary">Patient Data</a> | 
             <a href="javascript:void(0)" (click)="downloadConsent(patient.consentPath)" class="link-primary">Consent File</a></td>
         </tr>

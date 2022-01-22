@@ -32,13 +32,13 @@ export class GetAllExistingpatientsComponent implements OnInit {
     .subscribe(result => {
       for (let i = 0; i < result.length; i++) {
         if(result[i].filePath && result[i].filePath != null){
-          result[i].filePath = environment.apiUrl+result[i].filePath.replace('./public/','') ;
+          result[i].filePath = environment.apiUrl+result[i].filePath.replace('./public/','/') ;
         }
         else{
           result[i].filePath = null;
         }
         if(result[i].adult == "Yes"){
-          result[i].consentPath = environment.apiUrl+result[i].consentPath.replace('./public/','') ;
+          result[i].consentPath = environment.apiUrl+result[i].consentPath.replace('./public/','/') ;
         }
         else{
           result[i].consentPath = null;

@@ -16,6 +16,7 @@ export class MainPatientComponent implements OnInit {
 
   ngOnInit(): void {
     this.patientMainModel.insurance = "No";
+    this.patientMainModel.adult = "Yes";
   }
 
   submit($patient:any){
@@ -34,10 +35,10 @@ export class MainPatientComponent implements OnInit {
     age18Date.setDate(age18Date.getDate() - age);
     var setDate = new Date($event.target.value);
     if(setDate >= age18Date){
-      this.patientMainModel.adult = "Yes";
+      this.patientMainModel.adult = "No";
     }
     else{
-      this.patientMainModel.adult = "No";
+      this.patientMainModel.adult = "Yes";
       this.patientMainModel.guardianName = this.patientMainModel.guardianRelation = this.patientMainModel.guardianIdCardPicture = "";
     }
 

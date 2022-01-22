@@ -26,9 +26,9 @@ export class ExistingPatientDataComponent implements OnInit {
   }
 
   existingPageSubmitted($event:any){
+    debugger;
     const formData = new FormData();
     this.existingPage = false;
-    this.finishPage = true;
 
     this.setMainPatientData(formData);
     this.addressChange(formData);
@@ -43,10 +43,14 @@ export class ExistingPatientDataComponent implements OnInit {
   }
 
   setMainPatientData(formData : FormData){
+    debugger;
     formData.append("firstName", this.patientMainModel.firstName);
     formData.append("lastName", this.patientMainModel.lastName);
     formData.append("dateOfBirth", this.patientMainModel.dateOfBirth);
     formData.append("reasonForVisit", this.patientMainModel.reasonForVisit);
+    formData.append("adult", this.patientMainModel.adult);
+    formData.append("insurance", this.patientMainModel.insurance);
+    formData.append("email", this.patientMainModel.email);
     if(this.patientMainModel.insurance == "Yes"){
       formData.append("insuranceBackPath", this.patientMainModel.insuranceBack.name+'-'+Date.now());
       formData.append("insuranceFrontFileName", this.patientMainModel.insuranceFront.name);
@@ -58,10 +62,17 @@ export class ExistingPatientDataComponent implements OnInit {
       formData.append("idCardPictureName", this.patientMainModel.idCardPicture.name); 
       formData.append("file", this.patientMainModel.idCardPicture, this.patientMainModel.idCardPicture.name); 
     }
-    if(this.patientMainModel.adult == "Yes"){
+    else{
+      formData.append("idCardPicturePath", this.patientOneModel.idCardPicture.name+'-'+Date.now());
+      formData.append("idCardPictureName", this.patientOneModel.idCardPicture.name); 
+      formData.append("file", this.patientOneModel.idCardPicture, this.patientOneModel.idCardPicture.name);
+    }
+    if(this.patientMainModel.adult == "No"){
       formData.append("guardianIdPath", this.patientMainModel.guardianIdCardPicture.name+'-'+Date.now());
       formData.append("guardianIdFileName", this.patientMainModel.guardianIdCardPicture.name);
-      formData.append("file", this.patientMainModel.guardianIdCardPicture.name);
+      formData.append("file", this.patientMainModel.guardianIdCardPicture, this.patientMainModel.guardianIdCardPicture.name);
+      formData.append("guardianName", this.patientMainModel.guardianName);
+      formData.append("guardianRelation", this.patientMainModel.guardianRelation);
     }
     if(this.patientMainModel.reasonForVisit == "Covid"){
       formData.append("covidTesting", this.patientMainModel.covidTesting);

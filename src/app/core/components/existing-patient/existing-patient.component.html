@@ -1,7 +1,7 @@
 <div class="container py-3">
     <h1 class="display-6">Existing Patient Form</h1>
     <br>
-    <form #patient="ngForm" (ngSubmit)="submit(patient)" class="row g-3" *ngIf="!finishPage">
+    <form #patient="ngForm" (ngSubmit)="patient.form.valid && submit(patient)" class="row g-3" *ngIf="!finishPage">
     <div class="col-md-6">
         <label for="addressChange" class="form-label">HAS YOUR ADDRESS OR PHONE NUMBER CHANGED SINCE YOUR LAST VISIT? </label>
     </div>
