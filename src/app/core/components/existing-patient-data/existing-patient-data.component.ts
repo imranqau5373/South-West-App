@@ -26,7 +26,6 @@ export class ExistingPatientDataComponent implements OnInit {
   }
 
   existingPageSubmitted($event:any){
-    debugger;
     const formData = new FormData();
     this.existingPage = false;
 
@@ -43,8 +42,8 @@ export class ExistingPatientDataComponent implements OnInit {
   }
 
   setMainPatientData(formData : FormData){
-    debugger;
     formData.append("firstName", this.patientMainModel.firstName);
+    formData.append("middleName", this.patientMainModel.middleName);
     formData.append("lastName", this.patientMainModel.lastName);
     formData.append("dateOfBirth", this.patientMainModel.dateOfBirth);
     formData.append("reasonForVisit", this.patientMainModel.reasonForVisit);
@@ -95,6 +94,9 @@ export class ExistingPatientDataComponent implements OnInit {
     formData.append("zipCode", this.patientOneModel.zipCode);
     formData.append("covid", this.patientOneModel.covid);
     formData.append("fever", this.patientOneModel.fever);
+    formData.append("headche", this.patientOneModel.headche);
+    formData.append("vomiting", this.patientOneModel.vomiting);
+    formData.append("bodyache", this.patientOneModel.bodyache);
     formData.append("coughCongestion", this.patientOneModel.coughCongestion);
     formData.append("breathShortness", this.patientOneModel.breathShortness);
     formData.append("vaccinations", this.patientOneModel.vaccinations);

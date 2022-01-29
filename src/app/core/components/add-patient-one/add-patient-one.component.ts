@@ -32,6 +32,9 @@ export class AddPatientOneComponent implements OnInit {
     this.patientOneModel.fever = "No";
     this.patientOneModel.covidSymptons = "No";
     this.patientOneModel.adult = "No";
+    this.patientOneModel.headche = "No";
+    this.patientOneModel.vomiting = "No";
+    this.patientOneModel.bodyache = "No";
   }
 
   nextClick(){

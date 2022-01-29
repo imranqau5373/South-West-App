@@ -34,6 +34,16 @@
         <input [(ngModel)]="patientOneModel.zipCode" name="zipCode" #zipCode="ngModel"
         type="text" class="form-control" id="zipCode">
       </div>
+      <div class="col-md-4">
+        <label for="ssn" class="form-label">SSN</label>
+        <input [(ngModel)]="patientOneModel.ssn" name="ssn" #ssn="ngModel" 
+        type="text" class="form-control" id="ssn"  minlength="9" maxlength="9" pattern="^[0-9]*$" required>
+        <div class="form-control-feedback" *ngIf="patient.submitted && ssn.invalid">
+          <div class="text-danger" *ngIf="ssn.errors?.required">SSN is Required</div>
+          <div class="text-danger" *ngIf="ssn.errors?.minlength">Minimum 9 digits</div>
+          <div class="text-danger" *ngIf="ssn.errors?.pattern">Only digits are allowed</div>
+        </div>
+      </div>
       <div class="col-12">
         <label for="covidSymptons" class="form-label">ARE YOU HAVING COVID 19 SYMPTOMS?</label>
         <div class="form-check">
@@ -124,7 +134,51 @@
             </label>
           </div>
       </div>
-
+      <div class="col-12">
+        <label for="headche" class="form-label">DO YOU HAVE HEADCHE?</label>
+        <div class="form-check">
+            <input class="form-check-input" [(ngModel)]="patientOneModel.headche" type="radio" name="headche" id="headcheRadioYes" value="Yes">
+            <label class="form-check-label" for="headcheRadioYes">
+              Yes
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" [(ngModel)]="patientOneModel.headche" type="radio" name="headche" id="headcheRadioNo" value="No">
+            <label class="form-check-label" for="headcheRadioNo">
+              No
+            </label>
+          </div>
+      </div>
+      <div class="col-12">
+        <label for="vomiting" class="form-label">DO YOU HAVE VOMITING?</label>
+        <div class="form-check">
+            <input class="form-check-input" [(ngModel)]="patientOneModel.vomiting" type="radio" name="vomiting" id="vomitingRadioYes" value="Yes">
+            <label class="form-check-label" for="vomitingRadioYes">
+              Yes
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" [(ngModel)]="patientOneModel.vomiting" type="radio" name="vomiting" id="vomitingRadioNo" value="No">
+            <label class="form-check-label" for="vomitingRadioNo">
+              No
+            </label>
+          </div>
+      </div>
+      <div class="col-12">
+        <label for="bodyache" class="form-label">DO YOU HAVE BODYACHE?</label>
+        <div class="form-check">
+            <input class="form-check-input" [(ngModel)]="patientOneModel.bodyache" type="radio" name="bodyache" id="bodyacheRadioYes" value="Yes">
+            <label class="form-check-label" for="bodyacheRadioYes">
+              Yes
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" [(ngModel)]="patientOneModel.bodyache" type="radio" name="bodyache" id="bodyacheRadioNo" value="No">
+            <label class="form-check-label" for="bodyacheRadioNo">
+              No
+            </label>
+          </div>
+      </div>
 
       <div class="col-6" *ngIf="patientOneModel.insurance == 'No'" >
         <label for="idCardPicture" class="form-label">UPLOAD ID CARD PICTURE</label>

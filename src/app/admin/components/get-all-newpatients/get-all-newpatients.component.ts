@@ -36,6 +36,18 @@ export class GetAllNewpatientsComponent implements OnInit {
         else{
           result[i].filePath = null;
         }
+        if(result[i].imigrationFilePath && result[i].imigrationFilePath != null){
+          result[i].imigrationFilePath = environment.apiUrl+result[i].imigrationFilePath.replace('./public/','/') ;
+        }
+        else{
+          result[i].imigrationFilePath = null;
+        }
+        if(result[i].doctorFormPath && result[i].doctorFormPath != null){
+          result[i].doctorFormPath = environment.apiUrl+result[i].doctorFormPath.replace('./public/','/') ;
+        }
+        else{
+          result[i].doctorFormPath = null;
+        }
         
         if(result[i].adult == "No"){
           result[i].consentPath = environment.apiUrl+result[i].consentPath.replace('./public/','/') ;
@@ -56,7 +68,7 @@ export class GetAllNewpatientsComponent implements OnInit {
     window.open( 
       filePath, "_blank");
   }
-
+  
   downloadConsent(filePath : any){
     if(filePath == null){
       alert('Patient Age is great than 18.');
@@ -67,5 +79,6 @@ export class GetAllNewpatientsComponent implements OnInit {
         filePath, "_blank");
     }
   }
+
 
 }

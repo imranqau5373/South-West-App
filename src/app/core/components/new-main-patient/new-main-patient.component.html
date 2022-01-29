@@ -2,7 +2,7 @@
     <h1 class="display-6">Patient Details</h1>
     <br>
     <form #patient="ngForm" (ngSubmit)="patient.form.valid && submit(patient)" class="row g-3">
-        <div class="col-md-3">
+        <div class="col-md-4">
             <label for="firstName" class="form-label">First Name</label>
             <input [(ngModel)]="patientMainModel.firstName" name="firstName" #firstName="ngModel" 
             type="text" class="form-control" id="firstName" required
@@ -11,7 +11,12 @@
               First Name is Required
             </div>
           </div>
-          <div class="col-md-3">
+          <div class="col-md-4">
+            <label for="middleName" class="form-label">Middle Name</label>
+            <input [(ngModel)]="patientMainModel.middleName" name="middleName" #middleName="ngModel" 
+            type="text" class="form-control" id="middleName" >
+          </div>
+          <div class="col-md-4">
             <label for="lastName" class="form-label">Last Name</label>
             <input [(ngModel)]="patientMainModel.lastName" name="lastName" #lastName="ngModel" 
             type="text" class="form-control" id="lastName" required
@@ -20,7 +25,7 @@
               Last Name is Required
             </div>
           </div>
-          <div class="col-md-3">
+          <div class="col-md-6">
             <label for="email" class="form-label">Email</label>
             <input [(ngModel)]="patientMainModel.email" name="email" #email="ngModel"
             type="email" class="form-control" id="email"
@@ -30,7 +35,8 @@
               Email is Required
             </div>
           </div>
-          <div class="col-md-3">
+          
+          <div class="col-md-6">
             <label for="dateOfBirth" class="form-label">Date of Birth</label>
             <input [(ngModel)]="patientMainModel.dateOfBirth" name="dateOfBirth" (change)="dateChange($event)" #dateOfBirth="ngModel" 
             type="date" class="form-control" id="dateOfBirth" required
@@ -39,6 +45,7 @@
               Date of Birth is Required
             </div>
           </div>
+
           <div class="col-4" *ngIf="patientMainModel.adult == 'No'"  >
             <label for="guardianIdCardPicture" class="form-label">Upload Guardian ID Card Picture</label>
             <input name="guardianIdCardPicture" [(ngModel)]="patientMainModel.guardianIdCardPicture"
@@ -119,6 +126,7 @@
 
               <option selected>Select</option>
               <option value="Covid">Covid</option>
+              <option value="CovidConsultation">Covid Test Consultation</option>
               <option value="Consultation / Medicine Refill">Consultation /Medicine Refill</option>
               <option value="Other">Other</option>
             </select>

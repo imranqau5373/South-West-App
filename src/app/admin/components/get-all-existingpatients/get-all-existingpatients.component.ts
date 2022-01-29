@@ -37,7 +37,7 @@ export class GetAllExistingpatientsComponent implements OnInit {
         else{
           result[i].filePath = null;
         }
-        if(result[i].adult == "Yes"){
+        if(result[i].adult == "No"){
           result[i].consentPath = environment.apiUrl+result[i].consentPath.replace('./public/','/') ;
         }
         else{
@@ -66,4 +66,5 @@ export class GetAllExistingpatientsComponent implements OnInit {
         filePath, "_blank");
     }
   }
+
 }

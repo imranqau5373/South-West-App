@@ -19,8 +19,11 @@
           <td>{{ patient.email }}</td>
           <td>{{ patient.dateOfBirth }}</td>
           <td>{{ patient.insurance }}</td>
-          <td><a href="javascript:void(0)"  (click)="downloadFile(patient.filePath)"  class="link-primary">Patient Data</a> | 
-            <a href="javascript:void(0)" (click)="downloadConsent(patient.consentPath)" class="link-primary">Consent File</a></td>
+          <td><a href="javascript:void(0)"  (click)="downloadFile(patient.filePath)"  class="link-primary">Patient</a> | 
+            <a href="javascript:void(0)" (click)="downloadConsent(patient.consentPath)" class="link-primary">Consent</a> |
+            <a href="javascript:void(0)" (click)="downloadFile(patient.imigrationFilePath)" class="link-primary">Imigration</a> |
+            <a href="javascript:void(0)" (click)="downloadFile(patient.doctorFormPath)" class="link-primary">Doctor</a>
+          </td>
         </tr>
       </tbody>
     </table>

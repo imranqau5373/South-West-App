@@ -36,9 +36,6 @@ export class ExistingPatientComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
-
-
     this.patientOneModel.addressChange = "No";
     this.patientOneModel.covid = "No";
     this.patientOneModel.coughCongestion = "No";
@@ -47,8 +44,9 @@ export class ExistingPatientComponent implements OnInit {
     this.patientOneModel.vaccinations = "No";
     this.patientOneModel.adult = "No";
     this.patientOneModel.covidSymptons = "No";
-    
-    
+    this.patientOneModel.headche = "No";
+    this.patientOneModel.vomiting = "No";
+    this.patientOneModel.bodyache = "No";
   }
   ngAfterViewInit() {
     this.signaturePad.set('minWidth', 2);
