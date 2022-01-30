@@ -40,7 +40,7 @@ export class GetAllNewpatientsComponent implements OnInit {
           result[i].imigrationFilePath = environment.apiUrl+result[i].imigrationFilePath.replace('./public/','/') ;
           result[i].cashSuperBillFilePath = null;
         }
-        else{
+        if(result[i].cashSuperBillFilePath && result[i].cashSuperBillFilePath != null){
           result[i].imigrationFilePath = null;
           result[i].cashSuperBillFilePath = environment.apiUrl+result[i].cashSuperBillFilePath.replace('./public/','/') ;
         }
