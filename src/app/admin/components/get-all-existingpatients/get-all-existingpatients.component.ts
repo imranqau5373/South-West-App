@@ -37,6 +37,14 @@ export class GetAllExistingpatientsComponent implements OnInit {
         else{
           result[i].filePath = null;
         }
+        if(result[i].imigrationFilePath && result[i].imigrationFilePath != null){
+          result[i].imigrationFilePath = environment.apiUrl+result[i].imigrationFilePath.replace('./public/','/') ;
+          result[i].cashSuperBillFilePath = null;
+        }
+        else{
+          result[i].imigrationFilePath = null;
+          result[i].cashSuperBillFilePath = environment.apiUrl+result[i].cashSuperBillFilePath.replace('./public/','/') ;
+        }
         if(result[i].adult == "No"){
           result[i].consentPath = environment.apiUrl+result[i].consentPath.replace('./public/','/') ;
         }
