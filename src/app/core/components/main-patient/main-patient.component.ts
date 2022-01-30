@@ -12,11 +12,16 @@ export class MainPatientComponent implements OnInit {
   patientMainModel : any = {};
   @Output()
   submitMain = new EventEmitter<any>();
+  isFemaleAge = false;
+  isMaleAge = false;
   constructor() { }
 
   ngOnInit(): void {
     this.patientMainModel.insurance = "No";
     this.patientMainModel.adult = "Yes";
+    this.patientMainModel.gender = "Male";
+    this.patientMainModel.breastFeeding = "No";
+    this.patientMainModel.pregnant = "No";
   }
 
   submit($patient:any){
@@ -31,15 +36,26 @@ export class MainPatientComponent implements OnInit {
 
   dateChange($event:any){
     var age18Date = new Date();
+    var age50Date = new Date();
     const age = 18 * 365;
+    const age50 = 50 * 365;
     age18Date.setDate(age18Date.getDate() - age);
+    age50Date.setDate(age50Date.getDate() - age50);
     var setDate = new Date($event.target.value);
     if(setDate >= age18Date){
       this.patientMainModel.adult = "No";
+      this.isFemaleAge = true;
     }
     else{
+      this.isFemaleAge = false;
       this.patientMainModel.adult = "Yes";
       this.patientMainModel.guardianName = this.patientMainModel.guardianRelation = this.patientMainModel.guardianIdCardPicture = "";
+    }
+    if(setDate > age50Date){
+      this.isMaleAge = true;
+    }
+    else{
+      this.isMaleAge = false;
     }
 
   }
@@ -57,6 +73,13 @@ export class MainPatientComponent implements OnInit {
   }
 
   changeReasonForVisit($event:any){
+    if($event.target.value != "Other"){
+      this.patientMainModel.reasonForVisitOther = ""; 
+    }
+
+  }
+
+  changeLastmenstrualPeriod($event:any){
     if($event.target.value != "Other"){
       this.patientMainModel.reasonForVisitOther = ""; 
     }

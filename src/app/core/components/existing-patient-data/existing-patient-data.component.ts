@@ -79,6 +79,15 @@ export class ExistingPatientDataComponent implements OnInit {
     else if(this.patientMainModel.Other == "Other"){
       formData.append("reasonForVisitOther", this.patientMainModel.reasonForVisitOther);
     }
+    formData.append("gender", this.patientMainModel.gender);
+    formData.append("ProstateExamDate", this.patientMainModel.ProstateExamDate);
+    formData.append("lastMammogram", this.patientMainModel.lastMammogram);
+    formData.append("lastmenstrualPeriod", this.patientMainModel.lastmenstrualPeriod);
+    formData.append("periodDate", this.patientMainModel.periodDate);
+    formData.append("breastFeeding", this.patientMainModel.breastFeeding);
+    formData.append("pregnant", this.patientMainModel.pregnant);
+    formData.append("pregnantMonths", this.patientMainModel.pregnantMonths);
+
 
   }
 

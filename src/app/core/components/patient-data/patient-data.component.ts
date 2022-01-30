@@ -75,7 +75,7 @@ export class PatientDataComponent implements OnInit {
     formData.append("race", this.patientOne.race);
     formData.append("state", this.patientOne.state);
     formData.append("zipCode", this.patientOne.zipCode);
-    formData.append("gender", this.patientOne.gender);
+    
     formData.append("maritalStatus", this.patientOne.maritalStatus);
     formData.append("occupation", this.patientOne.occupation);
     formData.append("mobilePhoneNo", this.patientOne.mobilePhoneNo);
@@ -136,6 +136,7 @@ export class PatientDataComponent implements OnInit {
     formData.append("adult", this.patientMainModel.adult);
     formData.append("insurance", this.patientMainModel.insurance);
     formData.append("email", this.patientMainModel.email);
+    formData.append("gender", this.patientMainModel.gender);
     if(this.patientMainModel.insurance == "Yes"){
       formData.append("insuranceBackPath", this.patientMainModel.insuranceBack.name+'-'+Date.now());
       formData.append("insuranceFrontFileName", this.patientMainModel.insuranceFront.name);
@@ -165,6 +166,12 @@ export class PatientDataComponent implements OnInit {
     else if(this.patientMainModel.reasonForVisit == "Other"){
       formData.append("reasonForVisitOther", this.patientMainModel.reasonForVisitOther);
     }
+    formData.append("lastMammogram", this.patientMainModel.lastMammogram);
+    formData.append("lastmenstrualPeriod", this.patientMainModel.lastmenstrualPeriod);
+    formData.append("periodDate", this.patientMainModel.periodDate);
+    formData.append("breastFeeding", this.patientMainModel.breastFeeding);
+    formData.append("pregnant", this.patientMainModel.pregnant);
+    formData.append("pregnantMonths", this.patientMainModel.pregnantMonths);
 
   }
 

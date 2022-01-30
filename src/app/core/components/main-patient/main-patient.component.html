@@ -73,6 +73,83 @@
           Relationship With Patient is Required
         </div>
       </div>
+      <div class="col-6">
+        <label for="ssn" class="form-label">Gender </label>
+      </div>
+      <div class="col-12">
+        <div class="form-check">
+          <input class="form-check-input"  type="radio" name="gender" id="genderRadioMale" value="Male" [(ngModel)]="patientMainModel.gender">
+          <label class="form-check-label" for="genderRadioMale">
+            Male
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="gender" id="genderRadioFemale" value="Female" [(ngModel)]="patientMainModel.gender">
+          <label class="form-check-label" for="genderRadioFemale">
+            Female
+          </label>
+        </div>
+      </div>
+      <div class="col-md-4" *ngIf="patientMainModel.gender == 'Male' && isMaleAge" >
+        <label for="ProstateExamDate" class="form-label">When was approximately your last Prostate Exam?</label>
+        <input [(ngModel)]="patientMainModel.ProstateExamDate" name="ProstateExamDate" #ProstateExamDate="ngModel" 
+        type="date" class="form-control" id="ProstateExamDate">
+      </div>
+      <div class="col-md-6" *ngIf="patientMainModel.gender == 'Female' && isFemaleAge">
+        <label for="firstName" class="form-label"> When was approximately your last mammogram ?</label>
+        <input [(ngModel)]="patientMainModel.lastMammogram" name="lastMammogram" #lastMammogram="ngModel" 
+        type="text" class="form-control" id="lastMammogram">
+      </div>
+      <div class="col-md-6" *ngIf="patientMainModel.gender == 'Female' && isFemaleAge">
+        <label for="lastmenstrualPeriod" class="form-label">When was your last menstrual period</label>
+        <select class="form-select" [(ngModel)]="patientMainModel.lastmenstrualPeriod" name="lastmenstrualPeriod" required
+        (change)= "changeLastmenstrualPeriod($event)" #lastmenstrualPeriod="ngModel">
+          <option selected>Select</option>
+          <option value="Date">Date</option>
+          <option value="Menopause">I am in Menopause</option>
+          <option value="NA">Not Applicable</option>
+        </select>
+      </div>
+      <div class="col-md-6" *ngIf="patientMainModel.lastmenstrualPeriod == 'Date' && patientMainModel.gender == 'Female'">
+        <label for="periodDate" class="form-label">Select Date</label>
+        <input [(ngModel)]="patientMainModel.periodDate" name="periodDate" #periodDate="ngModel" 
+        type="date" class="form-control" id="periodDate">
+      </div>
+      <div class="col-12" *ngIf="patientMainModel.gender == 'Female' && isFemaleAge">
+        <label for="insurance" class="form-label">Are you Breast Feeding/Lactating?</label>
+        <div class="form-check">
+            <input class="form-check-input" [(ngModel)]="patientMainModel.breastFeeding" type="radio" name="breastFeeding" id="breastFeedingYes" value="Yes">
+            <label class="form-check-label" for="breastFeedingYes">
+              Yes
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" [(ngModel)]="patientMainModel.breastFeeding" type="radio" name="breastFeeding" id="breastFeedingNo" value="No">
+            <label class="form-check-label" for="breastFeedingNo">
+              No
+            </label>
+          </div>
+      </div>
+      <div class="col-6" *ngIf="patientMainModel.gender == 'Female' && isFemaleAge">
+        <label for="insurance" class="form-label">Are you Pregnant?</label>
+        <div class="form-check">
+            <input class="form-check-input" [(ngModel)]="patientMainModel.pregnant" type="radio" name="pregnant" id="pregnantYes" value="Yes">
+            <label class="form-check-label" for="pregnantYes">
+              Yes
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" [(ngModel)]="patientMainModel.pregnant" type="radio" name="pregnant" id="pregnantNo" value="No">
+            <label class="form-check-label" for="pregnantNo">
+              No
+            </label>
+          </div>
+      </div>
+      <div class="col-6" *ngIf="patientMainModel.pregnant == 'Yes'">
+        <label for="pregnantMonths" class="form-label"> How many months</label>
+        <input [(ngModel)]="patientMainModel.pregnantMonths" name="pregnantMonths" #pregnantMonths="ngModel"
+        type="text" class="form-control" id="pregnantMonths">
+      </div>
       <div class="col-12">
         <label for="insurance" class="form-label">DO YOU HAVE INSURANCE?</label>
         <div class="form-check">
