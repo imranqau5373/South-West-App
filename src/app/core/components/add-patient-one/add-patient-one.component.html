@@ -30,7 +30,7 @@
         <input [(ngModel)]="patientOneModel.race" name="race" #race="ngModel"
         type="text" class="form-control" id="race">
       </div>
-      <div class="col-4" *ngIf="patientOneModel.insurance == 'No'" >
+      <div class="col-4" *ngIf="patientOneModel.insurance == 'No' && patientOneModel.adult == 'Yes'" >
         <label for="idCardPicture" class="form-label">UPLOAD ID CARD PICTURE</label>
         <input name="idCardPicture" [(ngModel)]="patientOneModel.idCardPicture" #idCardPicture="ngModel"
         type="file" class="form-control" id="idCardPicture" required

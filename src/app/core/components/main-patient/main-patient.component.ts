@@ -44,18 +44,18 @@ export class MainPatientComponent implements OnInit {
     var setDate = new Date($event.target.value);
     if(setDate >= age18Date){
       this.patientMainModel.adult = "No";
-      this.isFemaleAge = true;
+      this.isFemaleAge = false;
     }
     else{
-      this.isFemaleAge = false;
+      this.isFemaleAge = true;
       this.patientMainModel.adult = "Yes";
       this.patientMainModel.guardianName = this.patientMainModel.guardianRelation = this.patientMainModel.guardianIdCardPicture = "";
     }
     if(setDate > age50Date){
-      this.isMaleAge = true;
+      this.isMaleAge = false;
     }
     else{
-      this.isMaleAge = false;
+      this.isMaleAge = true;
     }
 
   }

@@ -17,7 +17,7 @@ export class PatientDataComponent implements OnInit {
   mainPage = true;
   patientOne : any = {};
   patientTwo : any = {};
-  patientThree : any = {};
+  patientThreeModel : any = {};
   patientMainModel : any = {};
   patientData!: Observable<any>;
   constructor(private patientService : PatientService) { }
@@ -29,6 +29,7 @@ export class PatientDataComponent implements OnInit {
   mainPageSubmitted($event:any){
     this.mainPage = false;
     this.patientOne.insurance = this.patientMainModel.insurance;
+    this.patientOne.adult = this.patientMainModel.adult;
     this.firstPage = true;
     this.secondPage = false;
     this.thirdPage = false;
@@ -48,7 +49,6 @@ export class PatientDataComponent implements OnInit {
     this.secondPage = false;
     this.thirdPage = true;
     this.finishPage = false;
-    console.log($event);
   }
 
   thirdPageSubmit($event:any){
@@ -127,7 +127,6 @@ export class PatientDataComponent implements OnInit {
   }
 
   setMainPatientData(formData : FormData){
- 
     formData.append("firstName", this.patientMainModel.firstName);
     formData.append("middleName", this.patientMainModel.middleName);
     formData.append("lastName", this.patientMainModel.lastName);
@@ -144,11 +143,18 @@ export class PatientDataComponent implements OnInit {
       formData.append("insuranceForntPath", this.patientMainModel.insuranceFront.name+'-'+Date.now());
       formData.append("file", this.patientMainModel.insuranceFront, this.patientMainModel.insuranceFront.name);
       formData.append("file", this.patientMainModel.insuranceBack, this.patientMainModel.insuranceBack.name);
-      formData.append("idCardPicturePath", this.patientMainModel.idCardPicture.name+'-'+Date.now());
-      formData.append("idCardPictureName", this.patientMainModel.idCardPicture.name); 
-      formData.append("file", this.patientMainModel.idCardPicture, this.patientMainModel.idCardPicture.name); 
+      if(this.patientMainModel.adult == "Yes"){
+        formData.append("idCardPicturePath", this.patientMainModel.idCardPicture.name+'-'+Date.now());
+        formData.append("idCardPictureName", this.patientMainModel.idCardPicture.name); 
+        formData.append("file", this.patientMainModel.idCardPicture, this.patientMainModel.idCardPicture.name); 
+      }
     }
-    else{
+    // else{
+    //   formData.append("idCardPicturePath", this.patientOne.idCardPicture.name+'-'+Date.now());
+    //   formData.append("idCardPictureName", this.patientOne.idCardPicture.name); 
+    //   formData.append("file", this.patientOne.idCardPicture, this.patientOne.idCardPicture.name);
+    // }
+    if(this.patientMainModel.adult == "Yes" && this.patientMainModel.insurance == "No"){
       formData.append("idCardPicturePath", this.patientOne.idCardPicture.name+'-'+Date.now());
       formData.append("idCardPictureName", this.patientOne.idCardPicture.name); 
       formData.append("file", this.patientOne.idCardPicture, this.patientOne.idCardPicture.name);
@@ -176,22 +182,6 @@ export class PatientDataComponent implements OnInit {
   }
 
   setFormDataPatientThrid(formData :FormData ){
-
-  }
-
-  setInsuranceData(formData : FormData){
-    formData.append("idCardPicturePath", this.patientOne.idCardPicture.name+'-'+Date.now());
-    formData.append("idCardPictureName", this.patientOne.idCardPicture.name);
-    if(this.patientOne.insurance == "Yes"){
-      formData.append("insuranceBackPath", this.patientOne.insuranceBack.name+'-'+Date.now());
-      formData.append("insuranceFrontFileName", this.patientOne.insuranceFront.name);
-      formData.append("insuranceBackFileName", this.patientOne.insuranceBack.name);
-      formData.append("insuranceForntPath", this.patientOne.insuranceFront.name+'-'+Date.now());
-      formData.append("file", this.patientOne.insuranceFront, this.patientOne.insuranceFront.name);
-      formData.append("file", this.patientOne.insuranceBack, this.patientOne.insuranceBack.name);  
-    }
-    formData.append("file", this.patientOne.idCardPicture, this.patientOne.idCardPicture.name);
-
 
   }
 

@@ -180,7 +180,7 @@
           </div>
       </div>
 
-      <div class="col-6" *ngIf="patientOneModel.insurance == 'No'" >
+      <div class="col-4" *ngIf="patientOneModel.insurance == 'No' && patientOneModel.adult == 'Yes'" >
         <label for="idCardPicture" class="form-label">UPLOAD ID CARD PICTURE</label>
         <input name="idCardPicture"
         type="file" class="form-control" id="idCardPicture" (change)="onChangeIdCardPic($event)">

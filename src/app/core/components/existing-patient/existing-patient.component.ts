@@ -42,7 +42,6 @@ export class ExistingPatientComponent implements OnInit {
     this.patientOneModel.breathShortness = "No";
     this.patientOneModel.fever = "No";
     this.patientOneModel.vaccinations = "No";
-    this.patientOneModel.adult = "No";
     this.patientOneModel.covidSymptons = "No";
     this.patientOneModel.headche = "No";
     this.patientOneModel.vomiting = "No";

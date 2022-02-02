@@ -23,7 +23,7 @@ export class AddPatientThreeComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-
+    this.patientThreeModel.isAgree = true;
   }
 
   submitThree(){

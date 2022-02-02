@@ -1,7 +1,7 @@
 
 <div class="container py-3">
 
-    <form #pageTwo="ngForm" (ngSubmit)="submitThree()" class="row g-3">
+    <form #pageTwo="ngForm" (ngSubmit)="pageTwo.form.valid && submitThree()" class="row g-3">
       <div class="col-12">
         <a href="/add-patient-two">Back To Previous</a>
       </div>
@@ -26,8 +26,29 @@ I have reviewed SOUTHWEST URGENT CARE & FAMILY PRACTICE Notice of Privacy Practi
 
         </p>
       </div>
+      <div class="col-12" *ngIf="patientThreeModel.adult == 'No'">
+        <span>
+          I, the parent or guardian of {{patientThreeModel.firstName}} {{patientThreeModel.lastName}} authorize the doctor practice staff to perform necessary services for the child named above.    
+          The care provider is authorized to obtain routine medical treatment from appropriate health care providers if symptoms of illness occur (eg fever, coughing, irregular breathing, unusual
+          rashes, swallowing problems, etc.) obtain medical treatment and procedures for the child as may be appropriate in emergency circumstances, including treatment by physician,clinical personnel and other appropriate health care providers.
+          I, new guardian also consent to have {{patientThreeModel.firstName}} {{patientThreeModel.lastName}} comply with clinic guidelines of waiting 15 minutes after an injection.
+          {{patientThreeModel.firstName}} {{patientThreeModel.lastName}} is expected to check with the nurse before leaving the clinic facility.
+        </span>
+        <div class="form-check" >
+          <input class="form-check-input" type="checkbox" [(ngModel)]="patientThreeModel.isAgree"  #isAgree="ngModel"
+          name="isAgree" id="flexCheckChecked" [ngClass]="{ 'is-invalid': pageTwo.submitted && isAgree.invalid }"  required>
+          <label class="form-check-label" for="flexCheckChecked">
+            Agree the terms and condition.
+          </label>
+          <div class="invalid-feedback" *ngIf="pageTwo.submitted && isAgree.invalid">
+            Need to agree the terms and condition.
+          </div>
+        </div>
+
+      </div>
       <div class="col-10">
-        <label for="visitReason" class="form-label">Patient Signature</label>
+        <label for="visitReason" class="form-label" *ngIf="patientThreeModel.adult == 'No'">Guardian Signature</label>
+        <label for="visitReason" class="form-label" *ngIf="patientThreeModel.adult == 'Yes'">Patient Signature</label>
         <div class="signature-container">
           <signature-pad [options]="signaturePadOptions" (onBeginEvent)="drawStart()" (onEndEvent)="drawComplete()"></signature-pad>
         </div>

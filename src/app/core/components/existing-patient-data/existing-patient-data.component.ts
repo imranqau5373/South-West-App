@@ -21,6 +21,7 @@ export class ExistingPatientDataComponent implements OnInit {
   mainPageSubmitted($event:any){
     this.mainPage = false;
     this.patientOneModel.insurance = this.patientMainModel.insurance;
+    this.patientOneModel.adult = this.patientMainModel.adult;
     this.existingPage = true;
     
   }
@@ -57,15 +58,22 @@ export class ExistingPatientDataComponent implements OnInit {
       formData.append("insuranceForntPath", this.patientMainModel.insuranceFront.name+'-'+Date.now());
       formData.append("file", this.patientMainModel.insuranceFront, this.patientMainModel.insuranceFront.name);
       formData.append("file", this.patientMainModel.insuranceBack, this.patientMainModel.insuranceBack.name);
-      formData.append("idCardPicturePath", this.patientMainModel.idCardPicture.name+'-'+Date.now());
-      formData.append("idCardPictureName", this.patientMainModel.idCardPicture.name); 
-      formData.append("file", this.patientMainModel.idCardPicture, this.patientMainModel.idCardPicture.name); 
+      if(this.patientMainModel.adult == "Yes"){
+        formData.append("idCardPicturePath", this.patientMainModel.idCardPicture.name+'-'+Date.now());
+        formData.append("idCardPictureName", this.patientMainModel.idCardPicture.name); 
+        formData.append("file", this.patientMainModel.idCardPicture, this.patientMainModel.idCardPicture.name); 
+      }
     }
-    else{
+    if(this.patientMainModel.adult == "Yes" && this.patientMainModel.insurance == "No"){
       formData.append("idCardPicturePath", this.patientOneModel.idCardPicture.name+'-'+Date.now());
       formData.append("idCardPictureName", this.patientOneModel.idCardPicture.name); 
       formData.append("file", this.patientOneModel.idCardPicture, this.patientOneModel.idCardPicture.name);
     }
+    // else{
+    //   formData.append("idCardPicturePath", this.patientOneModel.idCardPicture.name+'-'+Date.now());
+    //   formData.append("idCardPictureName", this.patientOneModel.idCardPicture.name); 
+    //   formData.append("file", this.patientOneModel.idCardPicture, this.patientOneModel.idCardPicture.name);
+    // }
     if(this.patientMainModel.adult == "No"){
       formData.append("guardianIdPath", this.patientMainModel.guardianIdCardPicture.name+'-'+Date.now());
       formData.append("guardianIdFileName", this.patientMainModel.guardianIdCardPicture.name);

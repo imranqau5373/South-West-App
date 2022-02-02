@@ -8,7 +8,7 @@
 
 <app-add-patient-two [patientTwoModel]="patientOne" (submitSecond)="secondPageSubmit($event)" *ngIf="secondPage"></app-add-patient-two>
 
-<app-add-patient-three [patientThreeModel]="patientOne" (submitThird)="thirdPageSubmit($event)" *ngIf="thirdPage"></app-add-patient-three>
+<app-add-patient-three [patientThreeModel]="patientMainModel" (submitThird)="thirdPageSubmit($event)" *ngIf="thirdPage"></app-add-patient-three>
 
 
 <p *ngIf="finishPage">Thank you to submit your medical record.</p>

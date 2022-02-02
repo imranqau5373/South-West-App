@@ -50,10 +50,10 @@ export class NewMainPatientComponent implements OnInit {
       this.patientMainModel.guardianName = this.patientMainModel.guardianRelation = this.patientMainModel.guardianIdCardPicture = "";
     }
     if(setDate > age15Date){
-      this.isFemaleAge = true;
+      this.isFemaleAge = false;
     }
     else{
-      this.isFemaleAge = false;
+      this.isFemaleAge = true;
     }
 
   }
