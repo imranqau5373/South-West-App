@@ -1,6 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { AddMediciationComponent } from 'src/app/shared/dialogs/add-mediciation/add-mediciation.component';
 import { PatientOne } from 'src/app/shared/models/patient-one';
 
 @Component({
@@ -14,7 +16,8 @@ export class AddPatientOneComponent implements OnInit {
   @Output()
   submitFirst = new EventEmitter<any>();
   showValue : boolean = true;
-  constructor(    private router: Router) { }
+  medicineList = Array();
+  constructor(    private router: Router,private modalService: NgbModal) { }
 
   ngOnInit(): void {
     this.patientOneModel.gender = "Male";
@@ -58,9 +61,26 @@ export class AddPatientOneComponent implements OnInit {
     console.log(this.patientOneModel.maritalStatus);
     this.patientOneModel = pageOne.value;
     this.submitFirst.emit(this.patientOneModel);
-    
+  }
 
+  open() {
+    const modalRef = this.modalService.open(AddMediciationComponent, { size: 'small', backdrop: 'static' });
+    modalRef.result.then((result: any) => {
+      console.log(result);
+    }, (reason) => {
+      console.log(reason);
+      const medicineData = {name : reason.data.name,
+        id : this.medicineList.length + 1,
+        potency :reason.data.potency,
+        usage: reason.data.usage,
+      };
+      this.medicineList.push(medicineData);
+      this.patientOneModel.medicationList = this.medicineList;
+    });
+  }
 
+  deleteMed(id:string){
+    this.medicineList = this.medicineList.filter(x => x.id != id);
   }
 
 }

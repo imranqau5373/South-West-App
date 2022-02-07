@@ -14,6 +14,11 @@ export class PatientService {
 
   }
 
+  getCheckMRNNumber(mrnNmber:String):Observable<any> { 
+    return this.http.get<any>(this.BaseURL+'/checkMRNNumber/'+mrnNmber);
+
+}
+
   getConsentFile(filePath:any):Observable<any> { 
     return this.http.post<any>(this.BaseURL+'/downloadConsentFile',filePath);
   }

@@ -1,5 +1,10 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { debug } from 'console';
+import { AddMediciationComponent } from 'src/app/shared/dialogs/add-mediciation/add-mediciation.component';
+import { PatientService } from 'src/app/shared/service/patient-service';
+import { PatientToastService } from 'src/app/shared/service/patient-toaster-service';
 
 @Component({
   selector: 'app-new-main-patient',
@@ -13,8 +18,11 @@ export class NewMainPatientComponent implements OnInit {
   @Output()
   submitMain = new EventEmitter<any>();
   isFemaleAge = false;
-  constructor() { }
+  constructor(private patientService : PatientService,
+    private toastService : PatientToastService) { }
+  title = 'appBootstrap';
 
+  closeResult: string | undefined;
   ngOnInit(): void {
     this.patientMainModel.insurance = "No";
     this.patientMainModel.adult = "Yes";
@@ -25,7 +33,13 @@ export class NewMainPatientComponent implements OnInit {
   }
 
   submit($patient:any){
-    this.submitMain.emit(this.patientMainModel);
+    this.patientService.getCheckMRNNumber(this.patientMainModel.mrnNumber).subscribe((result => {
+      this.submitMain.emit(this.patientMainModel);
+    }),err => {
+      this.toastService.showError("MRN number already exist.");
+    });
+    
+    
 
   }
 
@@ -81,6 +95,17 @@ export class NewMainPatientComponent implements OnInit {
       this.patientMainModel.reasonForVisitOther = ""; 
     }
 
+  }
+
+  
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return  `with: ${reason}`;
+    }
   }
 
 }

@@ -1,5 +1,5 @@
 <div class="container py-3" >
-    <h1 class="display-6">Patient Details</h1>
+    <h1 class="display-6">New Patient Details</h1>
     <br>
     <form #patient="ngForm" (ngSubmit)="patient.form.valid && submit(patient)" class="row g-3">
         <div class="col-md-4">
@@ -25,7 +25,7 @@
               Last Name is Required
             </div>
           </div>
-          <div class="col-md-6">
+          <div class="col-md-4">
             <label for="email" class="form-label">Email</label>
             <input [(ngModel)]="patientMainModel.email" name="email" #email="ngModel"
             type="email" class="form-control" id="email"
@@ -35,8 +35,16 @@
               Email is Required
             </div>
           </div>
-          
-          <div class="col-md-6">
+          <div class="col-md-4">
+            <label for="mrnNumber" class="form-label">MRN Number</label>
+            <input [(ngModel)]="patientMainModel.mrnNumber" name="mrnNumber" #mrnNumber="ngModel" 
+            type="text" class="form-control" id="mrnNumber" required
+            [ngClass]="{ 'is-invalid': patient.submitted && mrnNumber.invalid}" >
+            <div class="invalid-feedback" *ngIf="patient.submitted && mrnNumber.invalid">
+              MRN Number is Required
+            </div>
+          </div>
+          <div class="col-md-4">
             <label for="dateOfBirth" class="form-label">Date of Birth</label>
             <input [(ngModel)]="patientMainModel.dateOfBirth" name="dateOfBirth" (change)="dateChange($event)" #dateOfBirth="ngModel" 
             type="date" class="form-control" id="dateOfBirth" required
@@ -227,10 +235,13 @@
                 </label>
               </div>
           </div>
+
           <div class="col-12">
             <button type="submit" class="btn btn-primary">Next</button>
           </div>
     </form>
 </div>
+
+
 
 

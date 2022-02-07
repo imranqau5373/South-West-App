@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { SignaturePadModule } from 'angular2-signaturepad';
+import { ToastrModule } from 'ngx-toastr';
 import { AdminModule } from './admin/admin.module';
 import { AdminDashboardComponent } from './admin/components/admin-dashboard/admin-dashboard.component';
 import { GetAllExistingpatientsComponent } from './admin/components/get-all-existingpatients/get-all-existingpatients.component';
@@ -21,7 +22,7 @@ import { PageNotFoundComponent } from './core/components/page-not-found/page-not
 import { PatientDataComponent } from './core/components/patient-data/patient-data.component';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent
@@ -32,7 +33,10 @@ import { SharedModule } from './shared/shared.module';
     AdminModule,
     AppRoutingModule,
     SharedModule,
-
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      positionClass: 'toast-bottom-right'
+    }),
     RouterModule.forChild([
       {
         path:"*",

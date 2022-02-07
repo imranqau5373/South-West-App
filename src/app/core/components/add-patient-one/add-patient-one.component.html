@@ -156,10 +156,43 @@
         <input [(ngModel)]="patientOneModel.medicalProblemExplain" name="medicalProblemExplain" #medicalProblemExplain="ngModel"
         type="text" class="form-control" id="medicalProblemExplain">
       </div>
-      <div class="col-12">
+      <!-- <div class="col-12">
         <label for="medicationList" class="form-label">LIST HERE ANY MEDICATIONS YOU ARE CURRENTLY TAKING: </label>
         <input [(ngModel)]="patientOneModel.medicationList" name="medicationList" #medicationList="ngModel" 
         type="text" class="form-control" id="medicationList">
+      </div> -->
+      <div class="col-12">
+        <div class="row">
+          <div class="col-10">
+            <label for="medicationList" class="form-label">List of Mediciations </label>
+          </div>
+          <div class="col-2">
+            <!-- <button class="btn btn-primary" (click)="open()">Add Medicine</button> -->
+            <a href="javascript:void(0)"  (click)="open()"  class="link-primary">Add Medicine</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-12">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Name</th>
+              <th scope="col">Potency</th>
+              <th scope="col">Usage</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let med of medicineList">
+              <td>{{ med.id }}</td>
+              <td>{{ med.name }}</td>
+              <td>{{ med.potency }}</td>
+              <td>{{ med.usage }}</td>
+              <td><a href="javascript:void(0)"  (click)="deleteMed(med.id)"  class="link-primary">Delete</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
       <div class="col-md-4">
         <label for="ssn" class="form-label">DO YOU SMOKE? </label>

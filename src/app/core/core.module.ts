@@ -15,6 +15,7 @@ import { MainPatientComponent } from './components/main-patient/main-patient.com
 import { ExistingPatientDataComponent } from './components/existing-patient-data/existing-patient-data.component';
 import { NewMainPatientComponent } from './components/new-main-patient/new-main-patient.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 
 @NgModule({
     imports: [
@@ -22,6 +23,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
       CommonModule,
       BrowserModule, 
       SignaturePadModule,
+      NgbModule,
       RouterModule.forChild([])
     ],
     declarations: [  
