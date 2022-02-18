@@ -208,6 +208,7 @@
               <option value="Covid">Covid</option>
               <option value="CovidConsultation">Covid Test Consultation</option>
               <option value="Consultation / Medicine Refill">Consultation /Medicine Refill</option>
+              <option value="Immigration">Immigration</option>
               <option value="Other">Other</option>
             </select>
             <div class="invalid-feedback" *ngIf="patient.submitted && reasonForVisit.invalid">
@@ -234,6 +235,34 @@
                   RAPID ANTIGEN TEST  
                 </label>
               </div>
+          </div>
+          <div class="col-12" *ngIf="patientMainModel.reasonForVisit == 'Immigration'">
+            <div class="row">
+              <div class="col-md-4">
+                <label for="cityOfBirth" class="form-label">City Of Birth</label>
+                <input [(ngModel)]="patientMainModel.cityOfBirth" name="cityOfBirth" #cityOfBirth="ngModel" 
+                type="text" class="form-control" id="cityOfBirth" required
+                [ngClass]="{ 'is-invalid': patient.submitted && cityOfBirth.invalid}" >
+                <div class="invalid-feedback" *ngIf="patient.submitted && cityOfBirth.invalid">
+                  City of Birth is Required
+                </div>
+              </div>
+              <div class="col-md-4">
+                <label for="countryOfBirth" class="form-label">County Of Birth</label>
+                <input [(ngModel)]="patientMainModel.countryOfBirth" name="countryOfBirth" #countryOfBirth="ngModel" 
+                type="text" class="form-control" id="countryOfBirth" >
+              </div>
+              <div class="col-md-4">
+                <label for="imgNumber" class="form-label">Imigration Number</label>
+                <input [(ngModel)]="patientMainModel.imgNumber" name="imgNumber" #imgNumber="ngModel" 
+                type="text" class="form-control" id="imgNumber" required
+                [ngClass]="{ 'is-invalid': patient.submitted && imgNumber.invalid}" >
+                <div class="invalid-feedback" *ngIf="patient.submitted && imgNumber.invalid">
+                  Imigration Number is Required
+                </div>
+              </div>
+              
+          </div>
           </div>
 
           <div class="col-12">

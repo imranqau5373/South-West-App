@@ -33,11 +33,12 @@ export class NewMainPatientComponent implements OnInit {
   }
 
   submit($patient:any){
-    this.patientService.getCheckMRNNumber(this.patientMainModel.mrnNumber).subscribe((result => {
-      this.submitMain.emit(this.patientMainModel);
-    }),err => {
-      this.toastService.showError("MRN number already exist.");
-    });
+    this.submitMain.emit(this.patientMainModel);
+    // this.patientService.getCheckMRNNumber(this.patientMainModel.mrnNumber).subscribe((result => {
+   
+    // }),err => {
+    //   this.toastService.showError("MRN number already exist.");
+    // });
     
     
 

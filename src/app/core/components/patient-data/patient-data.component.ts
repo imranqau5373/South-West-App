@@ -173,6 +173,12 @@ export class PatientDataComponent implements OnInit {
     else if(this.patientMainModel.reasonForVisit == "Other"){
       formData.append("reasonForVisitOther", this.patientMainModel.reasonForVisitOther);
     }
+    else if(this.patientMainModel.reasonForVisit == "Immigration"){
+      formData.append("cityOfBirth", this.patientMainModel.cityOfBirth);
+      formData.append("countryOfBirth", this.patientMainModel.countryOfBirth);
+      formData.append("imgNumber", this.patientMainModel.imgNumber);
+
+    }
     formData.append("lastMammogram", this.patientMainModel.lastMammogram);
     formData.append("lastmenstrualPeriod", this.patientMainModel.lastmenstrualPeriod);
     formData.append("periodDate", this.patientMainModel.periodDate);
