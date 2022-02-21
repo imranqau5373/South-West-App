@@ -16,7 +16,19 @@ import { ExistingPatientDataComponent } from './components/existing-patient-data
 import { NewMainPatientComponent } from './components/new-main-patient/new-main-patient.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
-
+import { MatInputModule } from "@angular/material/input";
+import { MatListModule } from "@angular/material/list";
+import { MatPaginatorModule } from "@angular/material/paginator";
+import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
+import { MatSidenavModule } from "@angular/material/sidenav";
+import { MatSortModule } from "@angular/material/sort";
+import { MatTableModule } from "@angular/material/table";
+import { MatToolbarModule } from "@angular/material/toolbar";
+import {MatMenuModule} from '@angular/material/menu';
+import {MatButtonModule} from '@angular/material/button'
+import {MatIconModule} from '@angular/material/icon';
+import {MatCardModule} from '@angular/material/card';
+import {MatTabsModule} from '@angular/material/tabs';
 @NgModule({
     imports: [
       FormsModule,
@@ -24,6 +36,19 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
       BrowserModule, 
       SignaturePadModule,
       NgbModule,
+      MatMenuModule,
+      MatButtonModule,
+      MatIconModule,
+      MatCardModule,
+      MatTabsModule,
+      MatSidenavModule,
+      MatListModule,
+      MatToolbarModule,
+      MatInputModule,
+      MatTableModule,
+      MatPaginatorModule,
+      MatSortModule,
+      MatProgressSpinnerModule,
       RouterModule.forChild([])
     ],
     declarations: [  

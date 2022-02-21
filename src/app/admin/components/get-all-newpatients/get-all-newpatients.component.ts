@@ -1,4 +1,7 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 import { PatientService } from 'src/app/shared/service/patient-service';
 import { environment } from 'src/environments/environment';
 
@@ -11,6 +14,10 @@ import { environment } from 'src/environments/environment';
 export class GetAllNewpatientsComponent implements OnInit {
   patients: any;
   title = 'datatables';
+  dataSource : any;
+  @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
+  @ViewChild(MatSort) sort: MatSort | undefined;
+  columndefs : any[] = ['firstName','lastName','email','dateOfBirth','insurance','downloadFiles'];
   dtOptions: DataTables.Settings = {};
   constructor(private patientService : PatientService) {
    }
@@ -26,9 +33,15 @@ export class GetAllNewpatientsComponent implements OnInit {
     this.getAllNewPatients();
   }
 
+  ngAfterViewInit(){
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+  }
+
   getAllNewPatients(){
     this.patientService.getAllNewPatientDocuments()
     .subscribe(result => {
+      debugger;
       for (let i = 0; i < result.length; i++) {
         if(result[i].filePath && result[i].filePath != null){
           result[i].filePath = environment.apiUrl+result[i].filePath.replace('./public/','/') ;
@@ -59,6 +72,8 @@ export class GetAllNewpatientsComponent implements OnInit {
         }
       }
       this.patients = result;
+      this.dataSource = new MatTableDataSource(this.patients);
+      this.dataSource.paginator = this.paginator;
     });
   }
 
@@ -69,6 +84,11 @@ export class GetAllNewpatientsComponent implements OnInit {
     }
     window.open( 
       filePath, "_blank");
+  }
+
+  searchPatient(search:any){
+    debugger;
+    this.dataSource.filter = search.toLowerCase().trim();
   }
   
   downloadConsent(filePath : any){

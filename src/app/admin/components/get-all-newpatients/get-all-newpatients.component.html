@@ -1,7 +1,53 @@
 <div class="container py-3">
   <h2>List of All New Patients Records</h2>
   <br>
-  <table datatable [dtOptions]="dtOptions" class="row-border hover">
+  <mat-form-field>
+    <mat-label>Search Patients</mat-label>
+    <input matInput  #input (keyup)="searchPatient(input.value)">
+  </mat-form-field>
+  <mat-table class="mat-elevation-z8" [dataSource]="dataSource">
+    <ng-container matColumnDef="firstName">
+      <mat-header-cell *matHeaderCellDef>First Name</mat-header-cell>
+      <mat-cell *matCellDef="let patient">{{patient.firstName}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="lastName">
+      <mat-header-cell *matHeaderCellDef>Last Name</mat-header-cell>
+      <mat-cell *matCellDef="let patient">{{patient.lastName}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="email">
+      <mat-header-cell *matHeaderCellDef>Email</mat-header-cell>
+      <mat-cell *matCellDef="let patient">{{patient.email}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="dateOfBirth">
+      <mat-header-cell *matHeaderCellDef>Date Of Birth</mat-header-cell>
+      <mat-cell *matCellDef="let patient">{{patient.dateOfBirth}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="insurance">
+      <mat-header-cell *matHeaderCellDef>Insurance</mat-header-cell>
+      <mat-cell *matCellDef="let patient">{{patient.insurance}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="downloadFiles">
+      <mat-header-cell *matHeaderCellDef>Download Files</mat-header-cell>
+      <mat-cell *matCellDef="let patient">
+        <a href="javascript:void(0)"  (click)="downloadFile(patient.filePath)"  class="link-primary">Patient</a> | 
+          <a href="javascript:void(0)" (click)="downloadConsent(patient.consentPath)" class="link-primary">Consent</a> |
+          <a *ngIf="patient.insurance == 'Yes'" href="javascript:void(0)" (click)="downloadFile(patient.insuranceFilePath)" class="link-primary">Insurance</a> 
+          <a *ngIf="patient.insurance == 'No'" href="javascript:void(0)" (click)="downloadFile(patient.cashSuperBillFilePath)" class="link-primary">Cash</a> |
+          <a href="javascript:void(0)" (click)="downloadFile(patient.doctorFormPath)" class="link-primary">Doctor</a>
+      </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="columndefs">
+
+    </mat-header-row>
+    <mat-row *matRowDef="let row; columns:columndefs">  
+    </mat-row>
+  </mat-table>
+  <mat-paginator [length]="patients.length"
+              [pageSize]="1"
+              [pageSizeOptions]="[1,5, 10, 25, 100]"
+              showFirstLastButtons>
+</mat-paginator>
+  <!-- <table datatable [dtOptions]="dtOptions" class="row-border hover">
     <thead>
       <tr>
         <th>First Name</th>
@@ -27,7 +73,7 @@
         </td>
       </tr>
     </tbody>
-  </table>
+  </table> -->
 </div>
 
 
