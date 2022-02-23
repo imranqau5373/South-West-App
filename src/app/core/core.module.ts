@@ -29,6 +29,7 @@ import {MatButtonModule} from '@angular/material/button'
 import {MatIconModule} from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
 import {MatTabsModule} from '@angular/material/tabs';
+import { MatDialogModule } from "@angular/material/dialog";
 @NgModule({
     imports: [
       FormsModule,
@@ -49,6 +50,7 @@ import {MatTabsModule} from '@angular/material/tabs';
       MatPaginatorModule,
       MatSortModule,
       MatProgressSpinnerModule,
+      MatDialogModule,
       RouterModule.forChild([])
     ],
     declarations: [  

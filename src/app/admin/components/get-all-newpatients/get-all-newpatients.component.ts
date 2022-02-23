@@ -1,7 +1,9 @@
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { AddMediciationComponent } from 'src/app/shared/dialogs/add-mediciation/add-mediciation.component';
 import { PatientService } from 'src/app/shared/service/patient-service';
 import { environment } from 'src/environments/environment';
 
@@ -19,7 +21,8 @@ export class GetAllNewpatientsComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort | undefined;
   columndefs : any[] = ['firstName','lastName','email','dateOfBirth','insurance','downloadFiles'];
   dtOptions: DataTables.Settings = {};
-  constructor(private patientService : PatientService) {
+  constructor(private patientService : PatientService,
+    private matDialog: MatDialog) {
    }
 
 
@@ -101,6 +104,18 @@ export class GetAllNewpatientsComponent implements OnInit {
         filePath, "_blank");
     }
   }
+
+  open(){
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.disableClose = true;
+    dialogConfig.data = {
+    };
+
+
+    this.matDialog.open(AddMediciationComponent,dialogConfig);
+  }
+
 
 
 }

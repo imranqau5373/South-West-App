@@ -7,6 +7,8 @@ import { DeleteMediciationComponent } from './dialogs/delete-mediciation/delete-
 import { FormsModule } from "@angular/forms";
 import { BrowserModule } from "@angular/platform-browser";
 import { PatientToastService } from "./service/patient-toaster-service";
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatDialogModule } from "@angular/material/dialog";
 
 
 @NgModule({
@@ -14,6 +16,8 @@ import { PatientToastService } from "./service/patient-toaster-service";
         FormsModule,
         CommonModule,
         BrowserModule, 
+        MatFormFieldModule,
+        MatDialogModule,
         HttpClientModule
     ],
     declarations: [

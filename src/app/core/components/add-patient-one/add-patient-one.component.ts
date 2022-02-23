@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { MatDialog, MatDialogClose, MatDialogConfig } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AddMediciationComponent } from 'src/app/shared/dialogs/add-mediciation/add-mediciation.component';
@@ -17,7 +18,8 @@ export class AddPatientOneComponent implements OnInit {
   submitFirst = new EventEmitter<any>();
   showValue : boolean = true;
   medicineList = Array();
-  constructor(    private router: Router,private modalService: NgbModal) { }
+  constructor(    private router: Router,private modalService: NgbModal,
+    private matDialog: MatDialog) { }
 
   ngOnInit(): void {
     this.patientOneModel.gender = "Male";
@@ -78,6 +80,8 @@ export class AddPatientOneComponent implements OnInit {
       this.patientOneModel.medicationList = this.medicineList;
     });
   }
+
+
 
   deleteMed(id:string){
     this.medicineList = this.medicineList.filter(x => x.id != id);
