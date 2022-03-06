@@ -132,7 +132,7 @@
         <input [(ngModel)]="patientOneModel.dayTimePhoneNo" name="dayTimePhoneNo" #dayTimePhoneNo="ngModel" 
         type="number" class="form-control" id="dayTimePhoneNo">
       </div>
-      <div class="col-md-4">
+      <div class="col-md-4" *ngIf="patientOneModel.insurance == 'Yes'">
         <label for="ssn" class="form-label">SSN</label>
         <input [(ngModel)]="patientOneModel.ssn" name="ssn" #ssn="ngModel" 
         type="text" class="form-control" id="ssn"  minlength="9" maxlength="9" pattern="^[0-9]*$" required>
@@ -423,7 +423,7 @@
           </div>
       </div>
       <div class="col-12">
-        <label for="headche" class="form-label">DO YOU HAVE HEADCHE?</label>
+        <label for="headche" class="form-label">DO YOU HAVE HEADACHE?</label>
         <div class="form-check">
             <input class="form-check-input" [(ngModel)]="patientOneModel.headche" type="radio" name="headche" id="headcheRadioYes" value="Yes">
             <label class="form-check-label" for="headcheRadioYes">

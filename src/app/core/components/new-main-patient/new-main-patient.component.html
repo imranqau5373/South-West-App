@@ -35,7 +35,7 @@
               Email is Required
             </div>
           </div>
-          <div class="col-md-4">
+          <!-- <div class="col-md-4">
             <label for="mrnNumber" class="form-label">MRN Number</label>
             <input [(ngModel)]="patientMainModel.mrnNumber" name="mrnNumber" #mrnNumber="ngModel" 
             type="text" class="form-control" id="mrnNumber" required
@@ -43,7 +43,7 @@
             <div class="invalid-feedback" *ngIf="patient.submitted && mrnNumber.invalid">
               MRN Number is Required
             </div>
-          </div>
+          </div> -->
           <div class="col-md-4">
             <label for="dateOfBirth" class="form-label">Date of Birth</label>
             <input [(ngModel)]="patientMainModel.dateOfBirth" name="dateOfBirth" (change)="dateChange($event)" #dateOfBirth="ngModel" 
@@ -209,6 +209,7 @@
               <option value="CovidConsultation">Covid Test Consultation</option>
               <option value="Consultation / Medicine Refill">Consultation /Medicine Refill</option>
               <option value="Immigration">Immigration</option>
+              <option value="dotPhysical">Dot Physical</option>
               <option value="Other">Other</option>
             </select>
             <div class="invalid-feedback" *ngIf="patient.submitted && reasonForVisit.invalid">
