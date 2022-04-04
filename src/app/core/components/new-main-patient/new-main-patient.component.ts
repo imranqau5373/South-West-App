@@ -33,6 +33,7 @@ export class NewMainPatientComponent implements OnInit {
   }
 
   submit($patient:any){
+    debugger;
     this.submitMain.emit(this.patientMainModel);
     // this.patientService.getCheckMRNNumber(this.patientMainModel.mrnNumber).subscribe((result => {
    
