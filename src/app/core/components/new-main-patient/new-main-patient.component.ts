@@ -1,10 +1,13 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { EmailValidator, FormControl, Validators } from '@angular/forms';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { debug } from 'console';
 import { AddMediciationComponent } from 'src/app/shared/dialogs/add-mediciation/add-mediciation.component';
 import { PatientService } from 'src/app/shared/service/patient-service';
 import { PatientToastService } from 'src/app/shared/service/patient-toaster-service';
+import { resourceLimits } from 'worker_threads';
+import { Router } from '@angular/router';
+import { data } from 'jquery';
 
 @Component({
   selector: 'app-new-main-patient',
@@ -34,12 +37,29 @@ export class NewMainPatientComponent implements OnInit {
 
   submit($patient:any){
     debugger;
-    this.submitMain.emit(this.patientMainModel);
+
+    this.patientService.getCheckEmail(this.patientMainModel.email).subscribe((result => {
+     
+      if (result && result.error){
+      this.toastService.showError("Email already exist.");
+      }
+      else {
+         this.submitMain.emit(this.patientMainModel);
+      }
+      
+     }),err => {
+       debugger;
+      
+      
+     });
+    
+    
     // this.patientService.getCheckMRNNumber(this.patientMainModel.mrnNumber).subscribe((result => {
    
     // }),err => {
     //   this.toastService.showError("MRN number already exist.");
     // });
+    
     
     
 

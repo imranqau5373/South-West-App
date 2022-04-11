@@ -14,6 +14,10 @@ export class PatientService {
 
   }
 
+  getCheckEmail (email:string):Observable<any> {
+    return this.http.get<any>(this.BaseURL+'/checkEmail/'+email);
+  }
+
   getCheckMRNNumber(mrnNmber:String):Observable<any> { 
     return this.http.get<any>(this.BaseURL+'/checkMRNNumber/'+mrnNmber);
 

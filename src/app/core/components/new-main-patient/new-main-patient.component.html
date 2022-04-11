@@ -58,7 +58,7 @@
             <label for="guardianIdCardPicture" class="form-label">Upload Guardian ID Card Picture</label>
             <input name="guardianIdCardPicture" [(ngModel)]="patientMainModel.guardianIdCardPicture"
             type="file" class="form-control" #guardianIdCardPicture="ngModel" id="guardianIdCardPicture" (change)="onChangeGuardianCardPic($event)" required
-            [ngClass]="{ 'is-invalid': patient.submitted && guardianIdCardPicture.invalid}">
+            [ngClass]="{ 'is-invalid': patient.submitted && guardianIdCardPicture.invalid}" accept=".jpg,.jpeg,.png" >
             <div class="invalid-feedback" *ngIf="patient.submitted && guardianIdCardPicture.invalid">
               Guardian ID Card Picture is Required
             </div>
@@ -174,7 +174,8 @@
             <label for="insuranceFront" class="form-label">UPLOAD FRONT PICITURE OF INSURANCE CARD</label>
             <input name="insuranceFront" [(ngModel)]="patientMainModel.insuranceFront"  #insuranceFront="ngModel" required 
             type="file" class="form-control" id="insuranceFront" (change)="onChangeInsFrontPic($event)"
-            [ngClass]="{ 'is-invalid': patient.submitted && insuranceFront.invalid}">
+            [ngClass]="{ 'is-invalid': patient.submitted && insuranceFront.invalid}" 
+            accept=".jpg,.jpeg,.png">
             <div class="invalid-feedback" *ngIf="patient.submitted && insuranceFront.invalid">
               Front Piciture Of Insurance Card is Required
             </div>
@@ -193,7 +194,8 @@
             <label for="idCardPicture" class="form-label">UPLOAD ID CARD PICTURE</label>
             <input name="idCardPicture" [(ngModel)]="patientMainModel.idCardPicture"  #idCardPicture="ngModel" required
             type="file" class="form-control" id="idCardPicture" (change)="onChangeIdCardPic($event)"
-            [ngClass]="{ 'is-invalid': patient.submitted && idCardPicture.invalid}">
+            [ngClass]="{ 'is-invalid': patient.submitted && idCardPicture.invalid}" accept=".jpg,.jpeg,.png"
+            >
             <div class="invalid-feedback" *ngIf="patient.submitted && idCardPicture.invalid">
               ID Card Piciture is Required
             </div>
