@@ -47,9 +47,14 @@
           <label for="contactInfo" class="form-label">IF YES, PLEASE PROVIDE INFORMATION BELOW</label>
         </div>
         <div class="col-md-4">
-          <label for="contactName" class="form-label">Name</label>
-          <input [(ngModel)]="patientTwoModel.contactName" name="contactName" #contactName="ngModel"
-          type="text" class="form-control" id="contactName">
+          <label for="contactFirstName" class="form-label"> First Name</label>
+          <input [(ngModel)]="patientTwoModel.contactFirstName" name="contactFirsttName" #contactFirstName="ngModel"
+          type="text" class="form-control" id="contactFirstName">
+        </div>
+        <div class="col-md-4">
+          <label for="contactLastName" class="form-label">Last Name</label>
+          <input [(ngModel)]="patientTwoModel.contactLastName" name="contactLastName" #contactLastName="ngModel" type="text"
+            class="form-control" id="contactLastName">
         </div>
         <div class="col-md-4">
           <label for="contacRelation" class="form-label">Relationship</label>

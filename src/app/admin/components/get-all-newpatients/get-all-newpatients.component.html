@@ -29,10 +29,10 @@
     <ng-container matColumnDef="downloadFiles">
       <mat-header-cell *matHeaderCellDef>Download Files</mat-header-cell>
       <mat-cell *matCellDef="let patient">
-        <a href="javascript:void(0)"  (click)="downloadFile(patient.filePath)"  class="link-primary">Patient</a> 
-          <a *ngIf="patient.adult == 'Yes'" href="javascript:void(0)" (click)="downloadConsent(patient.consentPath)" class="link-primary">Consent</a> |
-          <a *ngIf="patient.insurance == 'Yes'" href="javascript:void(0)" (click)="downloadFile(patient.insuranceFilePath)" class="link-primary">Insurance</a> 
-          <a *ngIf="patient.insurance == 'No'" href="javascript:void(0)" (click)="downloadFile(patient.cashSuperBillFilePath)" class="link-primary">Cash</a> |
+        <a href="javascript:void(0)"  (click)="downloadFile(patient.filePath)"  class="link-primary">Patient </a>
+          <a *ngIf="patient.adult == 'Yes'" href="javascript:void(0)" (click)="downloadConsent(patient.consentPath)" class="link-primary">Consent</a>|
+          <a *ngIf="patient.insurance == 'Yes'" href="javascript:void(0)" (click)="downloadFile(patient.insuranceFilePath)" class="link-primary">Insurance</a>
+          <a *ngIf="patient.insurance == 'No'" href="javascript:void(0)" (click)="downloadFile(patient.cashSuperBillFilePath)" class="link-primary">Cash</a>|
           <a href="javascript:void(0)" (click)="downloadFile(patient.doctorFormPath)" class="link-primary">Doctor</a>
       </mat-cell>
     </ng-container>
