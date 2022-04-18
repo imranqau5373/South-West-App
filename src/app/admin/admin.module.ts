@@ -12,6 +12,7 @@ import {MatTableModule} from '@angular/material/table'
 import {MatInputModule} from '@angular/material/input';
 import { MatListModule } from "@angular/material/list";
 import { MatPaginatorModule } from "@angular/material/paginator";
+import { CallbackUrlComponent } from './components/callback-url/callback-url.component';
 @NgModule({
     imports: [
       FormsModule,
@@ -27,7 +28,7 @@ import { MatPaginatorModule } from "@angular/material/paginator";
     declarations: [  
 
   
-    GetAllNewpatientsComponent, GetAllExistingpatientsComponent, AdminDashboardComponent
+    GetAllNewpatientsComponent, GetAllExistingpatientsComponent, AdminDashboardComponent, CallbackUrlComponent
   ],
     exports: [
     ]

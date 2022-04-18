@@ -26,6 +26,12 @@
       <mat-header-cell *matHeaderCellDef>Insurance</mat-header-cell>
       <mat-cell *matCellDef="let patient">{{patient.insurance}}</mat-cell>
     </ng-container>
+
+<ng-container matColumnDef="date">
+  <mat-header-cell *matHeaderCellDef>Date</mat-header-cell>
+  <mat-cell *matCellDef="let patient">{{patient.date}}</mat-cell>
+</ng-container>
+
     <ng-container matColumnDef="downloadFiles">
       <mat-header-cell *matHeaderCellDef>Download Files</mat-header-cell>
       <mat-cell *matCellDef="let patient">

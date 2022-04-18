@@ -36,6 +36,7 @@ import {MatButtonModule} from '@angular/material/button'
 import {MatIconModule} from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
 import {MatTabsModule} from '@angular/material/tabs';
+import { CallbackUrlComponent } from './admin/components/callback-url/callback-url.component';
 @NgModule({
   declarations: [
     AppComponent
@@ -103,6 +104,10 @@ import {MatTabsModule} from '@angular/material/tabs';
       {
         path:'admin/all-existing-patients',
         component : GetAllExistingpatientsComponent
+      },
+      {
+        path:'admin/callback-url/:token',
+        component : CallbackUrlComponent
       },
 
     ])
