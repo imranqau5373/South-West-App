@@ -37,7 +37,7 @@ export class NewMainPatientComponent implements OnInit {
 
   submit($patient:any){
     debugger;
-
+    
     this.patientService.getCheckEmail(this.patientMainModel.email).subscribe((result => {
      
       if (result && result.error){
@@ -45,6 +45,7 @@ export class NewMainPatientComponent implements OnInit {
       }
       else {
          this.submitMain.emit(this.patientMainModel);
+          
       }
       
      }),err => {

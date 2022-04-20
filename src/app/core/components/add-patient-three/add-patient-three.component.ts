@@ -25,8 +25,10 @@ export class AddPatientThreeComponent implements OnInit {
   ngOnInit(): void {
     this.patientThreeModel.isAgree = true;
   }
+  
 
   submitThree(){
+    
     this.patientThreeModel.signatureImg = this.signatureImg;
     this.submitThird.emit(this.patientThreeModel);
   }

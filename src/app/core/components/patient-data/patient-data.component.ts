@@ -128,6 +128,7 @@ export class PatientDataComponent implements OnInit {
 
   setMainPatientData(formData : FormData){
     formData.append("firstName", this.patientMainModel.firstName);
+    formData.append("createdDate",  new Date().toString());
     formData.append("middleName", this.patientMainModel.middleName);
     formData.append("lastName", this.patientMainModel.lastName);
     formData.append("mrnNumber", this.patientMainModel.mrnNumber);

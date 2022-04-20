@@ -19,7 +19,7 @@ export class GetAllNewpatientsComponent implements OnInit {
   dataSource : any;
   @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
   @ViewChild(MatSort) sort: MatSort | undefined;
-  columndefs : any[] = ['firstName','lastName','email','dateOfBirth','insurance', 'date', 'downloadFiles'];
+  columndefs : any[] = ['firstName','lastName','email','dateOfBirth','insurance', 'createdDate', 'downloadFiles'];
   dtOptions: DataTables.Settings = {};
   constructor(private patientService : PatientService,
     private matDialog: MatDialog) {
