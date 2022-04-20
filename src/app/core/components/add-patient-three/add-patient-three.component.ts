@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { SignaturePad } from 'angular2-signaturepad';
+import { PatientService } from 'src/app/shared/service/patient-service';
+import { PatientToastService } from 'src/app/shared/service/patient-toaster-service';
 
 @Component({
   selector: 'app-add-patient-three',
@@ -10,6 +12,7 @@ export class AddPatientThreeComponent implements OnInit {
   @Input()
   patientThreeModel : any = {};
   signatureImg = "";
+  isSignature = false;
   @ViewChild(SignaturePad)
   signaturePad!: SignaturePad;
 
@@ -20,7 +23,8 @@ export class AddPatientThreeComponent implements OnInit {
   };
   @Output()
   submitThird = new EventEmitter<any>();
-  constructor() { }
+  constructor(private patientService : PatientService,
+    private toastService : PatientToastService) { }
 
   ngOnInit(): void {
     this.patientThreeModel.isAgree = true;
@@ -28,13 +32,19 @@ export class AddPatientThreeComponent implements OnInit {
   
 
   submitThree(){
-    
-    this.patientThreeModel.signatureImg = this.signatureImg;
+    if (this.isSignature == false)  {
+      this.toastService.showError('Signature is required')
+    }
+    else { 
+      this.savePad();
+      this.patientThreeModel.signatureImg = this.signatureImg;
     this.submitThird.emit(this.patientThreeModel);
+  } 
   }
 
   drawComplete() {
     console.log(this.signaturePad.toDataURL());
+    this.isSignature = true;
   }
 
   drawStart() {
@@ -43,6 +53,7 @@ export class AddPatientThreeComponent implements OnInit {
 
   clearSignature() {
     this.signaturePad.clear();
+    this.isSignature = false
   }
 
   ngAfterViewInit() {
@@ -50,11 +61,9 @@ export class AddPatientThreeComponent implements OnInit {
     this.signaturePad.clear();  
   }
 
-  savePad() {
-    const base64Data = this.signaturePad.toDataURL();
-    this.signatureImg = base64Data;
+  savePad() {   
+const base64Data = this.signaturePad.toDataURL();
+this.signatureImg = base64Data
   }
-
-
-
 }
+
