@@ -61,8 +61,9 @@ export class AddPatientThreeComponent implements OnInit {
     this.signaturePad.clear();  
   }
 
-  savePad() {   
-const base64Data = this.signaturePad.toDataURL();
+  savePad() {  
+  debugger 
+const base64Data = this.signaturePad.toDataURL('image/png', 0.5);
 this.signatureImg = base64Data
   }
 }

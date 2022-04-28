@@ -15,11 +15,55 @@
         <input [(ngModel)]="patientOneModel.age" name="age" #age="ngModel"
         type="number" class="form-control" id="age">
       </div> -->
-      <div class="col-md-4">
+
+<!-- APT -->
+<div class="col-md-4">
+  <label for="apt" class="form-label">APT/SUITE/FLOOR </label>
+</div>
+<div class="col-md-4">
+  <div class="form-check">
+    <input class="form-check-input" [(ngModel)]="patientOneModel.apt" type="radio" name="apt"
+      id="aptApartment" value="Apartment" [checked]="true">
+    <label class="form-check-label" for="aptApartment">
+      Apartment
+    </label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" [(ngModel)]="patientOneModel.apt" type="radio" name="apt"
+      id="aptSuite" value="Suite">
+    <label class="form-check-label" for="aptSuite">
+      Suite
+    </label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" [(ngModel)]="patientOneModel.apt" type="radio" name="apt" id="aptFloor" value="Floor">
+    <label class="form-check-label" for="aptFloor">
+      Floor
+    </label>
+  </div>
+</div>
+<div class="col-md-4" *ngIf="patientOneModel.apt">
+  <label for="apt" class="form-label">Number</label>
+  <input [(ngModel)]="patientOneModel.aptNumber" name="aptNumber" #aptNumber="ngModel" type="text"
+    class="form-control" id="aptNumber">
+</div>
+
+<!-- APT -->
+    <!--   <div class="col-md-4">
         <label for="apt" class="form-label">APT</label>
         <input [(ngModel)]="patientOneModel.apt" name="apt" #apt="ngModel" 
         type="text" class="form-control" id="apt">
-      </div>
+      </div> -->
+<div class="col-4" *ngIf="patientOneModel.insurance == 'No' && patientOneModel.adult == 'Yes'">
+  <label for="idCardPicture" class="form-label">UPLOAD ID CARD PICTURE</label>
+  <input name="idCardPicture" [(ngModel)]="patientOneModel.idCardPicture" #idCardPicture="ngModel" type="file"
+    class="form-control" id="idCardPicture" required (change)="onChangeIdCardPic($event)"
+    [ngClass]="{ 'is-invalid': pageOne.submitted && idCardPicture.invalid}">
+  <div class="invalid-feedback" *ngIf="pageOne.submitted && idCardPicture.invalid">
+    ID Card Picture is Required
+  </div>
+</div>
+
       <div class="col-md-4">
         <label for="city" class="form-label">City</label>
         <input [(ngModel)]="patientOneModel.city" name="city" #city="ngModel"
@@ -30,16 +74,7 @@
         <input [(ngModel)]="patientOneModel.race" name="race" #race="ngModel"
         type="text" class="form-control" id="race">
       </div>
-      <div class="col-4" *ngIf="patientOneModel.insurance == 'No' && patientOneModel.adult == 'Yes'" >
-        <label for="idCardPicture" class="form-label">UPLOAD ID CARD PICTURE</label>
-        <input name="idCardPicture" [(ngModel)]="patientOneModel.idCardPicture" #idCardPicture="ngModel"
-        type="file" class="form-control" id="idCardPicture" required
-        (change)="onChangeIdCardPic($event)"
-        [ngClass]="{ 'is-invalid': pageOne.submitted && idCardPicture.invalid}">
-        <div class="invalid-feedback" *ngIf="pageOne.submitted && idCardPicture.invalid">
-          ID Card Picture is Required
-        </div>
-      </div>
+     
       <div class="col-md-4">
         <label for="state" class="form-label">State</label>
         <select class="form-select" [(ngModel)]="patientOneModel.state" name="state" id="state"

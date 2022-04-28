@@ -5,6 +5,7 @@
     <mat-label>Search Patients</mat-label>
     <input matInput  #input (keyup)="searchPatient(input.value)">
   </mat-form-field>
+
   <mat-table class="mat-elevation-z8" [dataSource]="dataSource">
     <ng-container matColumnDef="firstName">
       <mat-header-cell *matHeaderCellDef>First Name</mat-header-cell>

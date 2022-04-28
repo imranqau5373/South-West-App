@@ -11,6 +11,10 @@ import { AdminDashboardComponent } from './components/admin-dashboard/admin-dash
 import {MatTableModule} from '@angular/material/table'
 import {MatInputModule} from '@angular/material/input';
 import { MatListModule } from "@angular/material/list";
+import { MatFormFieldModule } from "@angular/material/form-field";
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from "@angular/material/core";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MatPaginatorModule } from "@angular/material/paginator";
 import { CallbackUrlComponent } from './components/callback-url/callback-url.component';
 @NgModule({
@@ -22,6 +26,10 @@ import { CallbackUrlComponent } from './components/callback-url/callback-url.com
       MatTableModule,
       MatInputModule,
       MatListModule,
+      MatDatepickerModule,
+      MatNativeDateModule,
+      MatFormFieldModule,
+      BrowserAnimationsModule,
       MatPaginatorModule,
       RouterModule.forChild([])
     ],

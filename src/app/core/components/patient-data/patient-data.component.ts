@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SignaturePad } from 'angular2-signaturepad';
 import { Document, Packer, Paragraph, TextRun } from "docx";
 import * as fs from "fs";
 import { Observable } from 'rxjs';
@@ -71,6 +72,7 @@ export class PatientDataComponent implements OnInit {
     formData.append("inputAddress", this.patientOne.inputAddress);
     formData.append("age", this.patientOne.age);
     formData.append("apt", this.patientOne.apt);
+    formData.append("aptNumber", this.patientOne.aptNumber)
     formData.append("city", this.patientOne.city);
     formData.append("race", this.patientOne.race);
     formData.append("state", this.patientOne.state);
@@ -111,7 +113,7 @@ export class PatientDataComponent implements OnInit {
     formData.append("crossIntersectin", this.patientOne.crossIntersectin);
     formData.append("zipcodePharmacy", this.patientOne.zipcodePharmacy);
     formData.append("familyMedicialHistory", this.patientOne.familyMedicialHistory);
-    formData.append("signatureImg", this.patientOne.signatureImg);
+    formData.append("signatureImg", this.patientMainModel.signatureImg);
 
   }
 
