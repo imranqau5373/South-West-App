@@ -32,6 +32,7 @@ export class NewMainPatientComponent implements OnInit {
     this.patientMainModel.gender = "Male";
     this.patientMainModel.breastFeeding = "No";
     this.patientMainModel.pregnant = "No";
+    this.patientMainModel.interpreter ="No"
     
   }
 

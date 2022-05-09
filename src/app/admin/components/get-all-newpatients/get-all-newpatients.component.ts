@@ -66,7 +66,14 @@ export class GetAllNewpatientsComponent implements OnInit {
         else{
           result[i].doctorFormPath = null;
         }
-        
+        //
+         if(result[i].imigrationFilePath && result[i].imigrationFilePath != null){
+          result[i].imigrationFilePath = environment.apiUrl+result[i].imigrationFilePath.replace('./public/','/') ;
+        }
+        else{
+          result[i].imigrationFilePath = null;
+        }
+        //
         if(result[i].adult == "No"){
           result[i].consentPath = environment.apiUrl+result[i].consentPath.replace('./public/','/') ;
         }

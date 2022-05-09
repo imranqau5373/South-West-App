@@ -1,536 +1,932 @@
-
-  <div class="container py-3">
-    <h1 class="display-6">New Patient Form</h1>
-    <br>
-    <form #pageOne="ngForm" (ngSubmit)="pageOne.form.valid && submitOne(pageOne)" class="row g-3">
-
-
-      <div class="col-12">
-        <label for="inputAddress" class="form-label">Address</label>
-        <input [(ngModel)]="patientOneModel.inputAddress" name="inputAddress" #inputAddress="ngModel"
-        type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-      </div>
-      <!-- <div class="col-md-3">
+<div class="container py-3">
+  <h1 class="display-6">New Patient Form</h1>
+  <br />
+  <form
+    #pageOne="ngForm"
+    (ngSubmit)="pageOne.form.valid && submitOne(pageOne)"
+    class="row g-3"
+  >
+    <div class="col-12">
+      <label for="inputAddress" class="form-label">Address</label>
+      <input
+        [(ngModel)]="patientOneModel.inputAddress"
+        name="inputAddress"
+        #inputAddress="ngModel"
+        type="text"
+        class="form-control"
+        id="inputAddress"
+        placeholder="1234 Main St"
+      />
+    </div>
+    <!-- <div class="col-md-3">
         <label for="age" class="form-label">Age</label>
         <input [(ngModel)]="patientOneModel.age" name="age" #age="ngModel"
         type="number" class="form-control" id="age">
       </div> -->
 
-<!-- APT -->
-<div class="col-md-4">
-  <label for="apt" class="form-label">APT/SUITE/FLOOR </label>
-</div>
-<div class="col-md-4">
-  <div class="form-check">
-    <input class="form-check-input" [(ngModel)]="patientOneModel.apt" type="radio" name="apt"
-      id="aptApartment" value="Apartment" [checked]="true">
-    <label class="form-check-label" for="aptApartment">
-      Apartment
-    </label>
-  </div>
-  <div class="form-check">
-    <input class="form-check-input" [(ngModel)]="patientOneModel.apt" type="radio" name="apt"
-      id="aptSuite" value="Suite">
-    <label class="form-check-label" for="aptSuite">
-      Suite
-    </label>
-  </div>
-  <div class="form-check">
-    <input class="form-check-input" [(ngModel)]="patientOneModel.apt" type="radio" name="apt" id="aptFloor" value="Floor">
-    <label class="form-check-label" for="aptFloor">
-      Floor
-    </label>
-  </div>
-</div>
-<div class="col-md-4" *ngIf="patientOneModel.apt">
-  <label for="apt" class="form-label">Number</label>
-  <input [(ngModel)]="patientOneModel.aptNumber" name="aptNumber" #aptNumber="ngModel" type="text"
-    class="form-control" id="aptNumber">
-</div>
+    <!-- APT -->
+    <div class="col-md-4">
+      <label for="apt" class="form-label">APT/SUITE/FLOOR </label>
+    </div>
+    <div class="col-md-4">
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          [(ngModel)]="patientOneModel.apt"
+          type="radio"
+          name="apt"
+          id="aptApartment"
+          value="Apartment"
+          [checked]="true"
+        />
+        <label class="form-check-label" for="aptApartment"> Apartment </label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          [(ngModel)]="patientOneModel.apt"
+          type="radio"
+          name="apt"
+          id="aptSuite"
+          value="Suite"
+        />
+        <label class="form-check-label" for="aptSuite"> Suite </label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          [(ngModel)]="patientOneModel.apt"
+          type="radio"
+          name="apt"
+          id="aptFloor"
+          value="Floor"
+        />
+        <label class="form-check-label" for="aptFloor"> Floor </label>
+      </div>
+    </div>
+    <div class="col-md-4" *ngIf="patientOneModel.apt">
+      <label for="apt" class="form-label">Number</label>
+      <input
+        [(ngModel)]="patientOneModel.aptNumber"
+        name="aptNumber"
+        #aptNumber="ngModel"
+        type="text"
+        maxlength="6"
+        class="form-control"
+        id="aptNumber"
+      />
+    </div>
 
-<!-- APT -->
+    <!-- APT -->
     <!--   <div class="col-md-4">
         <label for="apt" class="form-label">APT</label>
         <input [(ngModel)]="patientOneModel.apt" name="apt" #apt="ngModel" 
         type="text" class="form-control" id="apt">
       </div> -->
-<div class="col-4" *ngIf="patientOneModel.insurance == 'No' && patientOneModel.adult == 'Yes'">
-  <label for="idCardPicture" class="form-label">UPLOAD ID CARD PICTURE</label>
-  <input name="idCardPicture" [(ngModel)]="patientOneModel.idCardPicture" #idCardPicture="ngModel" type="file"
-    class="form-control" id="idCardPicture" required (change)="onChangeIdCardPic($event)"
-    [ngClass]="{ 'is-invalid': pageOne.submitted && idCardPicture.invalid}">
-  <div class="invalid-feedback" *ngIf="pageOne.submitted && idCardPicture.invalid">
-    ID Card Picture is Required
-  </div>
-</div>
+    <div
+      class="col-4"
+      *ngIf="
+        patientOneModel.insurance == 'No' && patientOneModel.adult == 'Yes'
+      "
+    >
+      <label for="idCardPicture" class="form-label"
+        >UPLOAD ID CARD PICTURE</label
+      >
+      <input
+        name="idCardPicture"
+        [(ngModel)]="patientOneModel.idCardPicture"
+        #idCardPicture="ngModel"
+        type="file"
+        class="form-control"
+        id="idCardPicture"
+        required
+        (change)="onChangeIdCardPic($event)"
+        [ngClass]="{ 'is-invalid': pageOne.submitted && idCardPicture.invalid }"
+      />
+      <div
+        class="invalid-feedback"
+        *ngIf="pageOne.submitted && idCardPicture.invalid"
+      >
+        ID Card Picture is Required
+      </div>
+    </div>
 
-      <div class="col-md-4">
-        <label for="city" class="form-label">City</label>
-        <input [(ngModel)]="patientOneModel.city" name="city" #city="ngModel"
-        type="text" class="form-control" id="city">
-      </div>
-      <div class="col-md-4">
-        <label for="race" class="form-label">Race</label>
-        <input [(ngModel)]="patientOneModel.race" name="race" #race="ngModel"
-        type="text" class="form-control" id="race">
-      </div>
-     
-      <div class="col-md-4">
-        <label for="state" class="form-label">State</label>
-        <select class="form-select" [(ngModel)]="patientOneModel.state" name="state" id="state"
-        #state="ngModel">
-          <option value="" selected="selected">Select a State</option>
-          <option value="AL">Alabama</option>
-          <option value="AK">Alaska</option>
-          <option value="AZ">Arizona</option>
-          <option value="AR">Arkansas</option>
-          <option value="CA">California</option>
-          <option value="CO">Colorado</option>
-          <option value="CT">Connecticut</option>
-          <option value="DE">Delaware</option>
-          <option value="DC">District Of Columbia</option>
-          <option value="FL">Florida</option>
-          <option value="GA">Georgia</option>
-          <option value="HI">Hawaii</option>
-          <option value="ID">Idaho</option>
-          <option value="IL">Illinois</option>
-          <option value="IN">Indiana</option>
-          <option value="IA">Iowa</option>
-          <option value="KS">Kansas</option>
-          <option value="KY">Kentucky</option>
-          <option value="LA">Louisiana</option>
-          <option value="ME">Maine</option>
-          <option value="MD">Maryland</option>
-          <option value="MA">Massachusetts</option>
-          <option value="MI">Michigan</option>
-          <option value="MN">Minnesota</option>
-          <option value="MS">Mississippi</option>
-          <option value="MO">Missouri</option>
-          <option value="MT">Montana</option>
-          <option value="NE">Nebraska</option>
-          <option value="NV">Nevada</option>
-          <option value="NH">New Hampshire</option>
-          <option value="NJ">New Jersey</option>
-          <option value="NM">New Mexico</option>
-          <option value="NY">New York</option>
-          <option value="NC">North Carolina</option>
-          <option value="ND">North Dakota</option>
-          <option value="OH">Ohio</option>
-          <option value="OK">Oklahoma</option>
-          <option value="OR">Oregon</option>
-          <option value="PA">Pennsylvania</option>
-          <option value="RI">Rhode Island</option>
-          <option value="SC">South Carolina</option>
-          <option value="SD">South Dakota</option>
-          <option value="TN">Tennessee</option>
-          <option value="TX">Texas</option>
-          <option value="UT">Utah</option>
-          <option value="VT">Vermont</option>
-          <option value="VA">Virginia</option>
-          <option value="WA">Washington</option>
-          <option value="WV">West Virginia</option>
-          <option value="WI">Wisconsin</option>
-          <option value="WY">Wyoming</option>
-        </select>
-      </div>
-      <div class="col-md-4">
-        <label for="zipCode" class="form-label">Zip</label>
-        <input [(ngModel)]="patientOneModel.zipCode" name="zipCode" #zipCode="ngModel"
-        type="text" class="form-control" id="zipCode" >
-      </div>
+    <div class="col-md-4">
+      <label for="city" class="form-label">City</label>
+      <input
+        [(ngModel)]="patientOneModel.city"
+        name="city"
+        #city="ngModel"
+        type="text"
+        class="form-control"
+        id="city"
+      />
+    </div>
+    <div class="col-md-4">
+      <label for="race" class="form-label">Race</label>
+      <input
+        [(ngModel)]="patientOneModel.race"
+        name="race"
+        #race="ngModel"
+        type="text"
+        class="form-control"
+        id="race"
+      />
+    </div>
 
+    <div class="col-md-4">
+      <label for="state" class="form-label">State</label>
+      <select
+        class="form-select"
+        [(ngModel)]="patientOneModel.state"
+        name="state"
+        id="state"
+        #state="ngModel"
+      >
+        <option value="" selected="selected">Select a State</option>
+        <option value="AL">Alabama</option>
+        <option value="AK">Alaska</option>
+        <option value="AZ">Arizona</option>
+        <option value="AR">Arkansas</option>
+        <option value="CA">California</option>
+        <option value="CO">Colorado</option>
+        <option value="CT">Connecticut</option>
+        <option value="DE">Delaware</option>
+        <option value="DC">District Of Columbia</option>
+        <option value="FL">Florida</option>
+        <option value="GA">Georgia</option>
+        <option value="HI">Hawaii</option>
+        <option value="ID">Idaho</option>
+        <option value="IL">Illinois</option>
+        <option value="IN">Indiana</option>
+        <option value="IA">Iowa</option>
+        <option value="KS">Kansas</option>
+        <option value="KY">Kentucky</option>
+        <option value="LA">Louisiana</option>
+        <option value="ME">Maine</option>
+        <option value="MD">Maryland</option>
+        <option value="MA">Massachusetts</option>
+        <option value="MI">Michigan</option>
+        <option value="MN">Minnesota</option>
+        <option value="MS">Mississippi</option>
+        <option value="MO">Missouri</option>
+        <option value="MT">Montana</option>
+        <option value="NE">Nebraska</option>
+        <option value="NV">Nevada</option>
+        <option value="NH">New Hampshire</option>
+        <option value="NJ">New Jersey</option>
+        <option value="NM">New Mexico</option>
+        <option value="NY">New York</option>
+        <option value="NC">North Carolina</option>
+        <option value="ND">North Dakota</option>
+        <option value="OH">Ohio</option>
+        <option value="OK">Oklahoma</option>
+        <option value="OR">Oregon</option>
+        <option value="PA">Pennsylvania</option>
+        <option value="RI">Rhode Island</option>
+        <option value="SC">South Carolina</option>
+        <option value="SD">South Dakota</option>
+        <option value="TN">Tennessee</option>
+        <option value="TX">Texas</option>
+        <option value="UT">Utah</option>
+        <option value="VT">Vermont</option>
+        <option value="VA">Virginia</option>
+        <option value="WA">Washington</option>
+        <option value="WV">West Virginia</option>
+        <option value="WI">Wisconsin</option>
+        <option value="WY">Wyoming</option>
+      </select>
+    </div>
+    <div class="col-md-4">
+      <label for="zipCode" class="form-label">Zip</label>
+      <input
+        [(ngModel)]="patientOneModel.zipCode"
+        name="zipCode"
+        #zipCode="ngModel"
+        type="text"
+        class="form-control"
+        id="zipCode"
+      />
+    </div>
 
-      
     <div class="col-md-6">
-        <label for="maritalStatus" class="form-label">Marital Status</label>
-        <select class="form-select" [(ngModel)]="patientOneModel.maritalStatus" name="maritalStatus" #maritalStatus="ngModel" aria-label="Default select example">
-          <option selected>Select</option>
-          <option value="Single">Single</option>
-          <option value="Married">Married</option>
-          <option value="Divorce">Divorce</option>
-          <option value="Widowed">Widowed</option>
-        </select>
-      </div>
+      <label for="maritalStatus" class="form-label">Marital Status</label>
+      <select
+        class="form-select"
+        [(ngModel)]="patientOneModel.maritalStatus"
+        name="maritalStatus"
+        #maritalStatus="ngModel"
+        aria-label="Default select example"
+      >
+        <option selected>Select</option>
+        <option value="Single">Single</option>
+        <option value="Married">Married</option>
+        <option value="Divorce">Divorce</option>
+        <option value="Widowed">Widowed</option>
+      </select>
+    </div>
 
-      <div class="col-md-6">
-        <label for="occupation" class="form-label">Occupation</label>
-        <input [(ngModel)]="patientOneModel.occupation" name="occupation" #occupation="ngModel"
-        type="text" class="form-control" id="occupation">
-      </div>
-      <div class="col-md-4">
-        <label for="mobilePhoneNo" class="form-label">Mobile Phone No</label>
-        <input [(ngModel)]="patientOneModel.mobilePhoneNo" name="mobilePhoneNo" #mobilePhoneNo="ngModel" 
-        type="number" class="form-control" id="mobilePhoneNo">
-      </div>
-      <div class="col-md-4">
-        <label for="dayTimePhoneNo" class="form-label">DayTime Phone No</label>
-        <input [(ngModel)]="patientOneModel.dayTimePhoneNo" name="dayTimePhoneNo" #dayTimePhoneNo="ngModel" 
-        type="number" class="form-control" id="dayTimePhoneNo">
-      </div>
-      <div class="col-md-4" *ngIf="patientOneModel.insurance == 'Yes'">
-        <label for="ssn" class="form-label">SSN</label>
-        <input [(ngModel)]="patientOneModel.ssn" name="ssn" #ssn="ngModel" 
-        type="text" class="form-control" id="ssn"  minlength="9" maxlength="9" pattern="^[0-9]*$" required>
-        <div class="form-control-feedback" *ngIf="pageOne.submitted && ssn.invalid">
-          <div class="text-danger" *ngIf="ssn.errors?.required">SSN is Required</div>
-          <div class="text-danger" *ngIf="ssn.errors?.minlength">Minimum 9 digits</div>
-          <div class="text-danger" *ngIf="ssn.errors?.pattern">Only digits are allowed</div>
+    <div class="col-md-6">
+      <label for="occupation" class="form-label">Occupation</label>
+      <input
+        [(ngModel)]="patientOneModel.occupation"
+        name="occupation"
+        #occupation="ngModel"
+        type="text"
+        class="form-control"
+        id="occupation"
+      />
+    </div>
+    <div class="col-md-4">
+      <label for="mobilePhoneNo" class="form-label">Mobile Phone No</label>
+      <input
+        [(ngModel)]="patientOneModel.mobilePhoneNo"
+        name="mobilePhoneNo"
+        #mobilePhoneNo="ngModel"
+        type="number"
+        class="form-control"
+        id="mobilePhoneNo"
+      />
+    </div>
+    <div class="col-md-4">
+      <label for="dayTimePhoneNo" class="form-label">DayTime Phone No</label>
+      <input
+        [(ngModel)]="patientOneModel.dayTimePhoneNo"
+        name="dayTimePhoneNo"
+        #dayTimePhoneNo="ngModel"
+        type="number"
+        class="form-control"
+        id="dayTimePhoneNo"
+      />
+    </div>
+    <div class="col-md-4" *ngIf="patientOneModel.insurance == 'Yes'">
+      <label for="ssn" class="form-label">SSN</label>
+      <input
+        [(ngModel)]="patientOneModel.ssn"
+        name="ssn"
+        #ssn="ngModel"
+        type="text"
+        class="form-control"
+        id="ssn"
+        minlength="9"
+        maxlength="9"
+        pattern="^[0-9]*$"
+        required
+      />
+      <div
+        class="form-control-feedback"
+        *ngIf="pageOne.submitted && ssn.invalid"
+      >
+        <div class="text-danger" *ngIf="ssn.errors?.required">
+          SSN is required if you are using Health Insurance
+        </div>
+        <div class="text-danger" *ngIf="ssn.errors?.minlength">
+          Minimum 9 digits
+        </div>
+        <div class="text-danger" *ngIf="ssn.errors?.pattern">
+          Only digits are allowed
         </div>
       </div>
+    </div>
 
-      <div class="col-md-6">
-        <label for="ssn" class="form-label">HAVE YOU HAD ANY SURGERIES IN THE PAST? </label>
+    <div class="col-md-6">
+      <label for="ssn" class="form-label"
+        >HAVE YOU HAD ANY SURGERIES IN THE PAST?
+      </label>
+    </div>
+    <div class="col-md-6">
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          [(ngModel)]="patientOneModel.surgery"
+          type="radio"
+          name="surgery"
+          id="surgeryRadioYes"
+          value="Yes"
+        />
+        <label class="form-check-label" for="surgeryRadioYes"> Yes </label>
       </div>
-      <div class="col-md-6">
-        <div class="form-check">
-            <input class="form-check-input" [(ngModel)]="patientOneModel.surgery" type="radio" name="surgery" id="surgeryRadioYes" value="Yes">
-            <label class="form-check-label" for="surgeryRadioYes">
-              Yes
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" [(ngModel)]="patientOneModel.surgery" type="radio" name="surgery" id="surgeryRadioNo" value="No">
-            <label class="form-check-label" for="surgeryRadioNo">
-              No
-            </label>
-          </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          [(ngModel)]="patientOneModel.surgery"
+          type="radio"
+          name="surgery"
+          id="surgeryRadioNo"
+          value="No"
+        />
+        <label class="form-check-label" for="surgeryRadioNo"> No </label>
       </div>
-      <div class="col-12" *ngIf="patientOneModel.surgery == 'Yes'" >
-        <label for="surgeryExplain" class="form-label">Explain</label>
-        <input [(ngModel)]="patientOneModel.surgeryExplain" name="surgeryExplain" #surgeryExplain="ngModel"
-        type="text" class="form-control" id="surgeryExplain">
+    </div>
+    <div class="col-12" *ngIf="patientOneModel.surgery == 'Yes'">
+      <label for="surgeryExplain" class="form-label">Explain</label>
+      <input
+        [(ngModel)]="patientOneModel.surgeryExplain"
+        name="surgeryExplain"
+        #surgeryExplain="ngModel"
+        type="text"
+        class="form-control"
+        id="surgeryExplain"
+      />
+    </div>
+    <div class="col-md-6">
+      <label for="ssn" class="form-label"
+        >ARE YOU ALLERGIC TO ANY MEDICATIONS?
+      </label>
+    </div>
+    <div class="col-md-6">
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          [(ngModel)]="patientOneModel.alergic"
+          type="radio"
+          name="alergic"
+          id="alergicRadioYes"
+          value="Yes"
+        />
+        <label class="form-check-label" for="alergicRadioYes"> Yes </label>
       </div>
-      <div class="col-md-6">
-        <label for="ssn" class="form-label">ARE YOU ALLERGIC TO ANY MEDICATIONS? </label>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          [(ngModel)]="patientOneModel.alergic"
+          type="radio"
+          name="alergic"
+          id="alergicRadioNo"
+          value="No"
+        />
+        <label class="form-check-label" for="alergicRadioNo"> No </label>
       </div>
-      <div class="col-md-6">
-        <div class="form-check">
-            <input class="form-check-input" [(ngModel)]="patientOneModel.alergic" type="radio" name="alergic" id="alergicRadioYes" value="Yes">
-            <label class="form-check-label" for="alergicRadioYes">
-              Yes
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" [(ngModel)]="patientOneModel.alergic" type="radio" name="alergic" id="alergicRadioNo" value="No">
-            <label class="form-check-label" for="alergicRadioNo">
-              No
-            </label>
-          </div>
+    </div>
+    <div class="col-12" *ngIf="patientOneModel.alergic == 'Yes'">
+      <label for="alergicExplain" class="form-label">Explain</label>
+      <input
+        [(ngModel)]="patientOneModel.alergicExplain"
+        name="alergicExplain"
+        #alergicExplain="ngModel"
+        type="text"
+        class="form-control"
+        id="alergicExplain"
+      />
+    </div>
+    <div class="col-md-6">
+      <label for="ssn" class="form-label"
+        >DO YOU HAVE ANY ONGOING MEDICAL PROBLEMS?
+      </label>
+    </div>
+    <div class="col-md-6">
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          [(ngModel)]="patientOneModel.medicalProblem"
+          type="radio"
+          name="medicalProblem"
+          id="medicalProblemYes"
+          value="Yes"
+        />
+        <label class="form-check-label" for="medicalProblemYes"> Yes </label>
       </div>
-      <div class="col-12" *ngIf="patientOneModel.alergic == 'Yes'">
-        <label for="alergicExplain" class="form-label">Explain</label>
-        <input [(ngModel)]="patientOneModel.alergicExplain" name="alergicExplain" #alergicExplain="ngModel"
-        type="text" class="form-control" id="alergicExplain">
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          [(ngModel)]="patientOneModel.medicalProblem"
+          type="radio"
+          name="medicalProblem"
+          id="medicalProblemNo"
+          value="No"
+        />
+        <label class="form-check-label" for="medicalProblemNo"> No </label>
       </div>
-      <div class="col-md-6">
-        <label for="ssn" class="form-label">DO YOU HAVE ANY ONGOING MEDICAL PROBLEMS? </label>
-      </div>
-      <div class="col-md-6">
-        <div class="form-check">
-            <input class="form-check-input" [(ngModel)]="patientOneModel.medicalProblem" type="radio" name="medicalProblem" id="medicalProblemYes" value="Yes">
-            <label class="form-check-label" for="medicalProblemYes">
-              Yes
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" [(ngModel)]="patientOneModel.medicalProblem" type="radio" name="medicalProblem" id="medicalProblemNo" value="No">
-            <label class="form-check-label" for="medicalProblemNo">
-              No
-            </label>
-          </div>
-      </div>
-      <div class="col-12" *ngIf="patientOneModel.medicalProblem == 'Yes'">
-        <label for="medicalProblem" class="form-label">Explain</label>
-        <input [(ngModel)]="patientOneModel.medicalProblemExplain" name="medicalProblemExplain" #medicalProblemExplain="ngModel"
-        type="text" class="form-control" id="medicalProblemExplain">
-      </div>
-      <!-- <div class="col-12">
+    </div>
+    <div class="col-12" *ngIf="patientOneModel.medicalProblem == 'Yes'">
+      <label for="medicalProblem" class="form-label">Explain</label>
+      <input
+        [(ngModel)]="patientOneModel.medicalProblemExplain"
+        name="medicalProblemExplain"
+        #medicalProblemExplain="ngModel"
+        type="text"
+        class="form-control"
+        id="medicalProblemExplain"
+      />
+    </div>
+    <!-- <div class="col-12">
         <label for="medicationList" class="form-label">LIST HERE ANY MEDICATIONS YOU ARE CURRENTLY TAKING: </label>
         <input [(ngModel)]="patientOneModel.medicationList" name="medicationList" #medicationList="ngModel" 
         type="text" class="form-control" id="medicationList">
       </div> -->
-      <div class="col-12">
-        <div class="row">
-          <div class="col-10">
-            <label for="medicationList" class="form-label">List of Mediciations </label>
-          </div>
-          <div class="col-2">
-            <!-- <button class="btn btn-primary" (click)="open()">Add Medicine</button> -->
-            <a href="javascript:void(0)"  (click)="open()"  class="link-primary">Add Medicine</a>
-          </div>
+    <div class="col-12">
+      <div class="row">
+        <div class="col-10">
+          <label for="medicationList" class="form-label"
+            >List of Mediciations
+          </label>
+        </div>
+        <div class="col-2">
+          <!-- <button class="btn btn-primary" (click)="open()">Add Medicine</button> -->
+          <a href="javascript:void(0)" (click)="open()" class="link-primary"
+            >Add Medicine</a
+          >
         </div>
       </div>
-      <div class="col-12">
-        <table class="table">
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Name</th>
-              <th scope="col">Potency</th>
-              <th scope="col">Usage</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let med of medicineList">
-              <td>{{ med.id }}</td>
-              <td>{{ med.name }}</td>
-              <td>{{ med.potency }}</td>
-              <td>{{ med.usage }}</td>
-              <td><a href="javascript:void(0)"  (click)="deleteMed(med.id)"  class="link-primary">Delete</a>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+    </div>
+    <div class="col-12">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Potency</th>
+            <th scope="col">Usage</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let med of medicineList">
+            <td>{{ med.id }}</td>
+            <td>{{ med.name }}</td>
+            <td>{{ med.potency }}</td>
+            <td>{{ med.usage }}</td>
+            <td>
+              <a
+                href="javascript:void(0)"
+                (click)="deleteMed(med.id)"
+                class="link-primary"
+                >Delete</a
+              >
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-4">
+      <label for="ssn" class="form-label">DO YOU SMOKE? </label>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          [(ngModel)]="patientOneModel.smoke"
+          type="radio"
+          name="smoke"
+          id="smokeRadioYes"
+          value="Yes"
+        />
+        <label class="form-check-label" for="smokeRadioYes"> Yes </label>
       </div>
-      <div class="col-md-4">
-        <label for="ssn" class="form-label">DO YOU SMOKE? </label>
-        <div class="form-check">
-            <input class="form-check-input" [(ngModel)]="patientOneModel.smoke" type="radio" name="smoke" id="smokeRadioYes" value="Yes">
-            <label class="form-check-label" for="smokeRadioYes">
-              Yes
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" [(ngModel)]="patientOneModel.smoke" type="radio" name="smoke" id="smokeRadioNo" value="No">
-            <label class="form-check-label" for="smokeRadioNo">
-              No
-            </label>
-          </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          [(ngModel)]="patientOneModel.smoke"
+          type="radio"
+          name="smoke"
+          id="smokeRadioNo"
+          value="No"
+        />
+        <label class="form-check-label" for="smokeRadioNo"> No </label>
       </div>
-      <div class="col-md-8" *ngIf="patientOneModel.smoke == 'Yes'">
-        <label for="smokeExplain" class="form-label">HOW MUCH: </label>
-        <input [(ngModel)]="patientOneModel.smokeExplain" name="smokeExplain" #smokeExplain="ngModel"  
-        type="text" class="form-control" id="smokeExplain">
+    </div>
+    <div class="col-md-8" *ngIf="patientOneModel.smoke == 'Yes'">
+      <label for="smokeExplain" class="form-label">HOW MUCH: </label>
+      <input
+        [(ngModel)]="patientOneModel.smokeExplain"
+        name="smokeExplain"
+        #smokeExplain="ngModel"
+        type="text"
+        class="form-control"
+        id="smokeExplain"
+      />
+    </div>
+    <div class="col-md-4">
+      <label for="ssn" class="form-label">CHEW TOBACCO? </label>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          [(ngModel)]="patientOneModel.tobacco"
+          type="radio"
+          name="tobacco"
+          id="tobaccoRadioYes"
+          value="Yes"
+        />
+        <label class="form-check-label" for="tobaccoRadioYes"> Yes </label>
       </div>
-      <div class="col-md-4">
-        <label for="ssn" class="form-label">CHEW TOBACCO? </label>
-        <div class="form-check">
-            <input class="form-check-input" [(ngModel)]="patientOneModel.tobacco" type="radio" name="tobacco" id="tobaccoRadioYes" value="Yes">
-            <label class="form-check-label" for="tobaccoRadioYes">
-              Yes
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" [(ngModel)]="patientOneModel.tobacco" type="radio" name="tobacco" id="tobaccoRadioNo" value="No">
-            <label class="form-check-label" for="tobaccoRadioNo">
-              No
-            </label>
-          </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          [(ngModel)]="patientOneModel.tobacco"
+          type="radio"
+          name="tobacco"
+          id="tobaccoRadioNo"
+          value="No"
+        />
+        <label class="form-check-label" for="tobaccoRadioNo"> No </label>
       </div>
-      <div class="col-md-8" *ngIf="patientOneModel.tobacco == 'Yes'">
-        <label for="tobaccoExplain" class="form-label">HOW MUCH: </label>
-        <input [(ngModel)]="patientOneModel.tobaccoExplain" name="tobaccoExplain" #tobaccoExplain="ngModel"
-        type="text" class="form-control" id="tobaccoExplain">
+    </div>
+    <div class="col-md-8" *ngIf="patientOneModel.tobacco == 'Yes'">
+      <label for="tobaccoExplain" class="form-label">HOW MUCH: </label>
+      <input
+        [(ngModel)]="patientOneModel.tobaccoExplain"
+        name="tobaccoExplain"
+        #tobaccoExplain="ngModel"
+        type="text"
+        class="form-control"
+        id="tobaccoExplain"
+      />
+    </div>
+    <div class="col-md-4">
+      <label for="ssn" class="form-label">DO YOU DRINK ALCOHOL?</label>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          [(ngModel)]="patientOneModel.alcohol"
+          type="radio"
+          name="alcohol"
+          id="alcoholRadioYes"
+          value="Yes"
+        />
+        <label class="form-check-label" for="alcoholRadioYes"> Yes </label>
       </div>
-      <div class="col-md-4">
-        <label for="ssn" class="form-label">DO YOU DRINK ALCOHOL?</label>
-        <div class="form-check">
-            <input class="form-check-input" [(ngModel)]="patientOneModel.alcohol" type="radio" name="alcohol" id="alcoholRadioYes" value="Yes">
-            <label class="form-check-label" for="alcoholRadioYes">
-              Yes
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" [(ngModel)]="patientOneModel.alcohol" type="radio" name="alcohol" id="alcoholRadioNo" value="No">
-            <label class="form-check-label" for="alcoholRadioNo">
-              No
-            </label>
-          </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          [(ngModel)]="patientOneModel.alcohol"
+          type="radio"
+          name="alcohol"
+          id="alcoholRadioNo"
+          value="No"
+        />
+        <label class="form-check-label" for="alcoholRadioNo"> No </label>
       </div>
-      <div class="col-md-8" *ngIf="patientOneModel.alcohol == 'Yes'">
-        <label for="alcoholExplain" class="form-label">HOW MUCH: </label>
-        <input [(ngModel)]="patientOneModel.alcoholExplain" name="alcoholExplain" #alcoholExplain="ngModel"
-        type="text" class="form-control" id="alcoholExplain">
+    </div>
+    <div class="col-md-8" *ngIf="patientOneModel.alcohol == 'Yes'">
+      <label for="alcoholExplain" class="form-label">HOW MUCH: </label>
+      <input
+        [(ngModel)]="patientOneModel.alcoholExplain"
+        name="alcoholExplain"
+        #alcoholExplain="ngModel"
+        type="text"
+        class="form-control"
+        id="alcoholExplain"
+      />
+    </div>
+    <div class="col-md-4">
+      <label for="ssn" class="form-label">DO YOU USE DRUGS?</label>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          [(ngModel)]="patientOneModel.drugs"
+          type="radio"
+          name="drugs"
+          id="drugsRadioYes"
+          value="Yes"
+        />
+        <label class="form-check-label" for="drugsRadioYes"> Yes </label>
       </div>
-      <div class="col-md-4">
-        <label for="ssn" class="form-label">DO YOU USE DRUGS?</label>
-        <div class="form-check">
-            <input class="form-check-input" [(ngModel)]="patientOneModel.drugs" type="radio" name="drugs" id="drugsRadioYes" value="Yes">
-            <label class="form-check-label" for="drugsRadioYes">
-              Yes
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" [(ngModel)]="patientOneModel.drugs" type="radio" name="drugs" id="drugsRadioNo" value="No">
-            <label class="form-check-label" for="drugsRadioNo">
-              No
-            </label>
-          </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          [(ngModel)]="patientOneModel.drugs"
+          type="radio"
+          name="drugs"
+          id="drugsRadioNo"
+          value="No"
+        />
+        <label class="form-check-label" for="drugsRadioNo"> No </label>
       </div>
-      <div class="col-md-8" *ngIf="patientOneModel.drugs == 'Yes'">
-        <label for="drugsExplain" class="form-label">WHICH ONES: </label>
-        <input [(ngModel)]="patientOneModel.drugsExplain" name="drugsExplain" #drugsExplain="ngModel"
-        type="text" class="form-control" id="drugsExplain">
+    </div>
+    <div class="col-md-8" *ngIf="patientOneModel.drugs == 'Yes'">
+      <label for="drugsExplain" class="form-label">WHICH ONES: </label>
+      <input
+        [(ngModel)]="patientOneModel.drugsExplain"
+        name="drugsExplain"
+        #drugsExplain="ngModel"
+        type="text"
+        class="form-control"
+        id="drugsExplain"
+      />
+    </div>
+    <div class="col-12">
+      <label for="ssn" class="form-label"
+        >DID YOU HAVE YEARLY PHYSICAL THIS YEAR?</label
+      >
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          [(ngModel)]="patientOneModel.yearlyPhysical"
+          type="radio"
+          name="yearlyPhysical"
+          id="yearlyPhysicalRadioYes"
+          value="Yes"
+        />
+        <label class="form-check-label" for="yearlyPhysicalYes"> Yes </label>
       </div>
-      <div class="col-12">
-        <label for="ssn" class="form-label">DID YOU HAVE YEARLY PHYSICAL THIS YEAR?</label>
-        <div class="form-check">
-            <input class="form-check-input" [(ngModel)]="patientOneModel.yearlyPhysical" type="radio" name="yearlyPhysical" id="yearlyPhysicalRadioYes" value="Yes">
-            <label class="form-check-label" for="yearlyPhysicalYes">
-              Yes
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" [(ngModel)]="patientOneModel.yearlyPhysical" type="radio" name="yearlyPhysical" id="yearlyPhysicalNo" value="No">
-            <label class="form-check-label" for="yearlyPhysicalNo">
-              No
-            </label>
-          </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          [(ngModel)]="patientOneModel.yearlyPhysical"
+          type="radio"
+          name="yearlyPhysical"
+          id="yearlyPhysicalNo"
+          value="No"
+        />
+        <label class="form-check-label" for="yearlyPhysicalNo"> No </label>
       </div>
-      <div class="col-md-8" *ngIf="patientOneModel.yearlyPhysical == 'Yes'">
-        <label for="yearlyPhysicalExplain" class="form-label">When was your last annual physical: </label>
-        <input [(ngModel)]="patientOneModel.yearlyPhysicalExplain" name="yearlyPhysicalExplain" #yearlyPhysicalExplain="ngModel"
-        type="text" class="form-control" id="yearlyPhysicalExplain">
+    </div>
+    <div class="col-md-8" *ngIf="patientOneModel.yearlyPhysical == 'Yes'">
+      <label for="yearlyPhysicalExplain" class="form-label"
+        >When was your last annual physical:
+      </label>
+      <input
+        [(ngModel)]="patientOneModel.yearlyPhysicalExplain"
+        name="yearlyPhysicalExplain"
+        #yearlyPhysicalExplain="ngModel"
+        type="text"
+        class="form-control"
+        id="yearlyPhysicalExplain"
+      />
+    </div>
+    <div class="col-12">
+      <label for="ssn" class="form-label"
+        >HAVE YOU BEEN EXPOSED TO COVID?</label
+      >
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          [(ngModel)]="patientOneModel.covid"
+          type="radio"
+          name="covid"
+          id="covidRadioYes"
+          value="Yes"
+        />
+        <label class="form-check-label" for="covidRadioYes"> Yes </label>
       </div>
-      <div class="col-12">
-        <label for="ssn" class="form-label">HAVE YOU BEEN EXPOSED TO COVID?</label>
-        <div class="form-check">
-            <input class="form-check-input" [(ngModel)]="patientOneModel.covid" type="radio" name="covid" id="covidRadioYes" value="Yes">
-            <label class="form-check-label" for="covidRadioYes">
-              Yes
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" [(ngModel)]="patientOneModel.covid" type="radio" name="covid" id="covidRadioNo" value="No">
-            <label class="form-check-label" for="covidRadioNo">
-              No
-            </label>
-          </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          [(ngModel)]="patientOneModel.covid"
+          type="radio"
+          name="covid"
+          id="covidRadioNo"
+          value="No"
+        />
+        <label class="form-check-label" for="covidRadioNo"> No </label>
       </div>
-      <div class="col-12">
-        <label for="covidSymptons" class="form-label">ARE YOU HAVING COVID 19 SYMPTOMS?</label>
-        <div class="form-check">
-            <input class="form-check-input" [(ngModel)]="patientOneModel.covidSymptons" type="radio" name="covidSymptons" id="covidSymptonsYes" value="Yes">
-            <label class="form-check-label" for="vaccinationsYes">
-              Yes
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" [(ngModel)]="patientOneModel.covidSymptons" type="radio" name="covidSymptons" id="covidSymptonsNo" value="No">
-            <label class="form-check-label" for="covidSymptonsNo">
-              No
-            </label>
-          </div>
+    </div>
+    <div class="col-12">
+      <label for="covidSymptons" class="form-label"
+        >ARE YOU HAVING COVID 19 SYMPTOMS?</label
+      >
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          [(ngModel)]="patientOneModel.covidSymptons"
+          type="radio"
+          name="covidSymptons"
+          id="covidSymptonsYes"
+          value="Yes"
+        />
+        <label class="form-check-label" for="vaccinationsYes"> Yes </label>
       </div>
-      <div class="col-12">
-        <label for="ssn" class="form-label">DO YOU HAVE ANY COUGH , CONGESTION OR SORE THROAT?</label>
-        <div class="form-check">
-            <input class="form-check-input" [(ngModel)]="patientOneModel.coughCongestion" type="radio" name="coughCongestion" id="congestionRadioYes" value="Yes">
-            <label class="form-check-label" for="congestionRadioYes">
-              Yes
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" [(ngModel)]="patientOneModel.coughCongestion" type="radio" name="coughCongestion" id="congestionRadioNo" value="No">
-            <label class="form-check-label" for="congestionRadioNo">
-              No
-            </label>
-          </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          [(ngModel)]="patientOneModel.covidSymptons"
+          type="radio"
+          name="covidSymptons"
+          id="covidSymptonsNo"
+          value="No"
+        />
+        <label class="form-check-label" for="covidSymptonsNo"> No </label>
       </div>
-      <div class="col-12">
-        <label for="ssn" class="form-label">ARE YOU HAVING SHORTNESS OF BREATH?</label>
-        <div class="form-check">
-            <input class="form-check-input" [(ngModel)]="patientOneModel.breathShortness" type="radio" name="breathShortness" id="breathRadioYes" value="Yes">
-            <label class="form-check-label" for="breathRadioYes">
-              Yes
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" [(ngModel)]="patientOneModel.breathShortness" type="radio" name="breathShortness" id="breathRadioNo" value="No">
-            <label class="form-check-label" for="breathRadioNo">
-              No
-            </label>
-          </div>
+    </div>
+    <div class="col-12">
+      <label for="ssn" class="form-label"
+        >DO YOU HAVE ANY COUGH , CONGESTION OR SORE THROAT?</label
+      >
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          [(ngModel)]="patientOneModel.coughCongestion"
+          type="radio"
+          name="coughCongestion"
+          id="congestionRadioYes"
+          value="Yes"
+        />
+        <label class="form-check-label" for="congestionRadioYes"> Yes </label>
       </div>
-      <div class="col-12">
-        <label for="ssn" class="form-label">DO YOU HAVE FEVER?</label>
-        <div class="form-check">
-            <input class="form-check-input" [(ngModel)]="patientOneModel.fever" type="radio" name="fever" id="feverRadioYes" value="Yes">
-            <label class="form-check-label" for="feverRadioYes">
-              Yes
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" [(ngModel)]="patientOneModel.fever" type="radio" name="fever" id="feverRadioNo" value="No">
-            <label class="form-check-label" for="feverRadioNo">
-              No
-            </label>
-          </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          [(ngModel)]="patientOneModel.coughCongestion"
+          type="radio"
+          name="coughCongestion"
+          id="congestionRadioNo"
+          value="No"
+        />
+        <label class="form-check-label" for="congestionRadioNo"> No </label>
       </div>
-      <div class="col-12">
-        <label for="headche" class="form-label">DO YOU HAVE HEADACHE?</label>
-        <div class="form-check">
-            <input class="form-check-input" [(ngModel)]="patientOneModel.headche" type="radio" name="headche" id="headcheRadioYes" value="Yes">
-            <label class="form-check-label" for="headcheRadioYes">
-              Yes
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" [(ngModel)]="patientOneModel.headche" type="radio" name="headche" id="headcheRadioNo" value="No">
-            <label class="form-check-label" for="headcheRadioNo">
-              No
-            </label>
-          </div>
+    </div>
+    <div class="col-12">
+      <label for="ssn" class="form-label"
+        >ARE YOU HAVING SHORTNESS OF BREATH?</label
+      >
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          [(ngModel)]="patientOneModel.breathShortness"
+          type="radio"
+          name="breathShortness"
+          id="breathRadioYes"
+          value="Yes"
+        />
+        <label class="form-check-label" for="breathRadioYes"> Yes </label>
       </div>
-      <div class="col-12">
-        <label for="vomiting" class="form-label">DO YOU HAVE VOMITING?</label>
-        <div class="form-check">
-            <input class="form-check-input" [(ngModel)]="patientOneModel.vomiting" type="radio" name="vomiting" id="vomitingRadioYes" value="Yes">
-            <label class="form-check-label" for="vomitingRadioYes">
-              Yes
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" [(ngModel)]="patientOneModel.vomiting" type="radio" name="vomiting" id="vomitingRadioNo" value="No">
-            <label class="form-check-label" for="vomitingRadioNo">
-              No
-            </label>
-          </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          [(ngModel)]="patientOneModel.breathShortness"
+          type="radio"
+          name="breathShortness"
+          id="breathRadioNo"
+          value="No"
+        />
+        <label class="form-check-label" for="breathRadioNo"> No </label>
       </div>
-      <div class="col-12">
-        <label for="bodyache" class="form-label">DO YOU HAVE BODYACHE?</label>
-        <div class="form-check">
-            <input class="form-check-input" [(ngModel)]="patientOneModel.bodyache" type="radio" name="bodyache" id="bodyacheRadioYes" value="Yes">
-            <label class="form-check-label" for="bodyacheRadioYes">
-              Yes
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" [(ngModel)]="patientOneModel.bodyache" type="radio" name="bodyache" id="bodyacheRadioNo" value="No">
-            <label class="form-check-label" for="bodyacheRadioNo">
-              No
-            </label>
-          </div>
+    </div>
+    <div class="col-12">
+      <label for="ssn" class="form-label">DO YOU HAVE FEVER?</label>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          [(ngModel)]="patientOneModel.fever"
+          type="radio"
+          name="fever"
+          id="feverRadioYes"
+          value="Yes"
+        />
+        <label class="form-check-label" for="feverRadioYes"> Yes </label>
       </div>
-      <div class="col-12">
-        <label for="pharmacyName" class="form-label">NAME OF YOUR PHARMACY:</label>
-        <input [(ngModel)]="patientOneModel.pharmacyName" name="pharmacyName" #pharmacyName="ngModel" 
-        type="text" class="form-control" id="pharmacyName">
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          [(ngModel)]="patientOneModel.fever"
+          type="radio"
+          name="fever"
+          id="feverRadioNo"
+          value="No"
+        />
+        <label class="form-check-label" for="feverRadioNo"> No </label>
       </div>
-      <div class="col-12">
-        <label for="streetPharmacy" class="form-label">STREET OF PHARMACY :</label>
-        <input [(ngModel)]="patientOneModel.streetPharmacy" name="streetPharmacy" #streetPharmacy="ngModel" 
-        type="text" class="form-control" id="streetPharmacy">
+    </div>
+    <div class="col-12">
+      <label for="headche" class="form-label">DO YOU HAVE HEADACHE?</label>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          [(ngModel)]="patientOneModel.headche"
+          type="radio"
+          name="headche"
+          id="headcheRadioYes"
+          value="Yes"
+        />
+        <label class="form-check-label" for="headcheRadioYes"> Yes </label>
       </div>
-      <div class="col-12">
-        <label for="crossIntersectin" class="form-label">CROSS INTERSECTION:</label>
-        <input [(ngModel)]="patientOneModel.crossIntersectin" name="crossIntersectin" #crossIntersectin="ngModel" 
-        type="text" class="form-control" id="crossIntersectin">
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          [(ngModel)]="patientOneModel.headche"
+          type="radio"
+          name="headche"
+          id="headcheRadioNo"
+          value="No"
+        />
+        <label class="form-check-label" for="headcheRadioNo"> No </label>
       </div>
-      <div class="col-12">
-        <label for="zipcodePharmacy" class="form-label">ZIP CODE OF PHARMACY:</label>
-        <input [(ngModel)]="patientOneModel.zipcodePharmacy" name="zipcodePharmacy" #zipcodePharmacy="ngModel" 
-        type="text" class="form-control" id="zipcodePharmacy">
+    </div>
+    <div class="col-12">
+      <label for="vomiting" class="form-label">DO YOU HAVE VOMITING?</label>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          [(ngModel)]="patientOneModel.vomiting"
+          type="radio"
+          name="vomiting"
+          id="vomitingRadioYes"
+          value="Yes"
+        />
+        <label class="form-check-label" for="vomitingRadioYes"> Yes </label>
       </div>
-      <div class="col-12">
-        <label for="familyMedicialHistory" class="form-label">FAMILY MEDICIAL HISTORY:</label>
-        <input [(ngModel)]="patientOneModel.familyMedicialHistory" name="familyMedicialHistory" #familyMedicialHistory="ngModel" 
-        type="text" class="form-control" id="familyMedicialHistory">
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          [(ngModel)]="patientOneModel.vomiting"
+          type="radio"
+          name="vomiting"
+          id="vomitingRadioNo"
+          value="No"
+        />
+        <label class="form-check-label" for="vomitingRadioNo"> No </label>
       </div>
-      <div class="col-md-4">
-        <button type="submit" class="btn btn-primary">Next</button>
+    </div>
+    <div class="col-12">
+      <label for="bodyache" class="form-label">DO YOU HAVE BODYACHE?</label>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          [(ngModel)]="patientOneModel.bodyache"
+          type="radio"
+          name="bodyache"
+          id="bodyacheRadioYes"
+          value="Yes"
+        />
+        <label class="form-check-label" for="bodyacheRadioYes"> Yes </label>
       </div>
-    </form>
-
-
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          [(ngModel)]="patientOneModel.bodyache"
+          type="radio"
+          name="bodyache"
+          id="bodyacheRadioNo"
+          value="No"
+        />
+        <label class="form-check-label" for="bodyacheRadioNo"> No </label>
+      </div>
+    </div>
+    <div class="col-12">
+      <label for="pharmacyName" class="form-label"
+        >NAME OF YOUR PHARMACY:</label
+      >
+      <input
+        [(ngModel)]="patientOneModel.pharmacyName"
+        name="pharmacyName"
+        #pharmacyName="ngModel"
+        type="text"
+        class="form-control"
+        id="pharmacyName"
+      />
+    </div>
+    <div class="col-12">
+      <label for="streetPharmacy" class="form-label"
+        >STREET OF PHARMACY :</label
+      >
+      <input
+        [(ngModel)]="patientOneModel.streetPharmacy"
+        name="streetPharmacy"
+        #streetPharmacy="ngModel"
+        type="text"
+        class="form-control"
+        id="streetPharmacy"
+      />
+    </div>
+    <div class="col-12">
+      <label for="crossIntersectin" class="form-label"
+        >CROSS INTERSECTION:</label
+      >
+      <input
+        [(ngModel)]="patientOneModel.crossIntersectin"
+        name="crossIntersectin"
+        #crossIntersectin="ngModel"
+        type="text"
+        class="form-control"
+        id="crossIntersectin"
+      />
+    </div>
+    <div class="col-12">
+      <label for="zipcodePharmacy" class="form-label"
+        >ZIP CODE OF PHARMACY:</label
+      >
+      <input
+        [(ngModel)]="patientOneModel.zipcodePharmacy"
+        name="zipcodePharmacy"
+        #zipcodePharmacy="ngModel"
+        type="text"
+        class="form-control"
+        id="zipcodePharmacy"
+      />
+    </div>
+    <div class="col-12">
+      <label for="familyMedicialHistory" class="form-label"
+        >FAMILY MEDICIAL HISTORY:</label
+      >
+      <input
+        [(ngModel)]="patientOneModel.familyMedicialHistory"
+        name="familyMedicialHistory"
+        #familyMedicialHistory="ngModel"
+        type="text"
+        class="form-control"
+        id="familyMedicialHistory"
+      />
+    </div>
+    <div class="col-md-4">
+      <button type="submit" class="btn btn-primary">Next</button>
+    </div>
+    <!--  -->
+    <div class="col-md-4">
+      <div
+        class="alert alert-danger"
+        role="alert"
+        *ngIf="pageOne.submitted && pageOne.form.invalid"
+      >
+        Review all missing fields before proceeding
+      </div>
+    </div>
+    <!--  -->
+  </form>
 </div>
