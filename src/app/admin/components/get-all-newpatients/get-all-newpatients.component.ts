@@ -74,6 +74,16 @@ export class GetAllNewpatientsComponent implements OnInit {
           result[i].imigrationFilePath = null;
         }
         //
+       /* Medical Examination */
+       if(result[i].medicalExaminationFilePath && result[i].medicalExaminationFilePath != null){
+          result[i].medicalExaminationFilePath = environment.apiUrl+result[i].medicalExaminationFilePath.replace('./public/','/') ;
+        }
+        else{
+          result[i].medicalExaminationFilePath = null;
+        }
+
+
+
         if(result[i].adult == "No"){
           result[i].consentPath = environment.apiUrl+result[i].consentPath.replace('./public/','/') ;
         }

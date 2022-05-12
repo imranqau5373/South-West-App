@@ -187,6 +187,14 @@ export class PatientDataComponent implements OnInit {
       formData.append("cityTownVillage", this.patientMainModel.cityTownVillage)
 
     }
+    else if (this.patientMainModel.reasonForVisit == 'dotPhysical') {
+      formData.append("driverLicenseNumber", this.patientMainModel.driverLicenseNumber)
+      formData.append("licenseState",this.patientMainModel.licenseState)
+      formData.append("clpCdl", this.patientMainModel.clpCdl)
+      formData.append("usdotFmcsa", this.patientMainModel.usdotFmcsa)
+      formData.append("driverPhone", this.patientMainModel.driverPhone)
+      formData.append("driverIdVerifiedBy", this.patientMainModel.driverIdVerifiedBy)
+    }
     formData.append("lastMammogram", this.patientMainModel.lastMammogram);
     formData.append("lastmenstrualPeriod", this.patientMainModel.lastmenstrualPeriod);
     formData.append("periodDate", this.patientMainModel.periodDate);

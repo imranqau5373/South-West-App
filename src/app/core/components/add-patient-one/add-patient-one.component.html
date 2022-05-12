@@ -65,13 +65,12 @@
       </div>
     </div>
     <div class="col-md-4" *ngIf="patientOneModel.apt">
-      <label for="apt" class="form-label">Number</label>
+      <label for="aptNumber" class="form-label">Number</label>
       <input
         [(ngModel)]="patientOneModel.aptNumber"
         name="aptNumber"
         #aptNumber="ngModel"
         type="text"
-        maxlength="6"
         class="form-control"
         id="aptNumber"
       />
