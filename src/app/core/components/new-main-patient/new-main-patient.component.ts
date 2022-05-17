@@ -34,7 +34,49 @@ export class NewMainPatientComponent implements OnInit {
     this.patientMainModel.pregnant = "No";
     this.patientMainModel.interpreter ="No";
     this.patientMainModel.clpCdl ="No";
-    this.patientMainModel.usdotFmcsa ="Notsure";
+    this.patientMainModel.usdotFmcsa ="Notsure"; 
+    this.patientMainModel.driverSurgery ="Notsure";
+    this.patientMainModel.driverMedicine = "Notsure";
+    this.patientMainModel.head = "Notsure";
+    this.patientMainModel.seizures = "Notsure";
+    this.patientMainModel.eye = "Notsure";
+    this.patientMainModel.ear = "Notsure";
+    this.patientMainModel.heart = "Notsure";
+    this.patientMainModel.pace = "Notsure";
+    this.patientMainModel.highBlood = "Notsure";
+    this.patientMainModel.highCholestrol = "Notsure";
+    this.patientMainModel.breath = "Notsure";
+    this.patientMainModel.lung = "Notsure";
+    this.patientMainModel.kidney = "Notsure";
+    this.patientMainModel.stomach = "Notsure";
+    this.patientMainModel.bloodSugar = "Notsure";
+    this.patientMainModel.insulin = "Notsure";
+    this.patientMainModel.mentalHealth = "Notsure";
+    this.patientMainModel.fainting = "Notsure";
+    this.patientMainModel.dizzy = "Notsure";
+    this.patientMainModel.weightLoss = "Notsure";
+    this.patientMainModel.stroke = "Notsure";
+    this.patientMainModel.useLimit = "Notsure";
+    this.patientMainModel.neck = "Notsure";
+    this.patientMainModel.bone = "Notsure";
+    this.patientMainModel.blood = "Notsure";
+    this.patientMainModel.cancer = "Notsure";
+    this.patientMainModel.chronic = "Notsure";
+    this.patientMainModel.apnea = "Notsure";
+    this.patientMainModel.sleepTest = "Notsure";
+    this.patientMainModel.hospitalNight = "Notsure";
+    this.patientMainModel.brokenBone = "Notsure";
+    this.patientMainModel.dTobacco= "Notsure";
+    this.patientMainModel.dAlcohol = "Notsure";
+    this.patientMainModel.illegal = "Notsure";
+    this.patientMainModel.illegalDrug = "Notsure";
+    this.patientMainModel.otherHealth = "Notsure";
+    this.patientMainModel.dComment = "Notsure";
+
+
+
+
+
     
   }
 
