@@ -77,6 +77,13 @@
           >Medical</a
         >
         <!--  -->
+        <a
+          *ngIf="patient.reasonForVisit == 'dotPhysical'"
+          href="javascript:void(0)"
+          (click)="downloadFile(patient.medicalCertificateFilePath)"
+          class="link-primary"
+          >Medical Cert</a
+        >
         <!-- <a *ngIf="patient.insurance=='Yes' && patient.reasonForVisit=='Immigration'" href="javascript:void(0)"
             (click)="downloadFile(patient.imigrationFilePath)" class="link-primary">Immigration</a> -->
         <!--  -->

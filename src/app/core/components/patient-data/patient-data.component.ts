@@ -89,7 +89,7 @@ export class PatientDataComponent implements OnInit {
     formData.append("alergicExplain", this.patientOne.alergicExplain);
     formData.append("medicalProblem", this.patientOne.medicalProblem);
     formData.append("medicalProblemExplain", this.patientOne.medicalProblemExplain);
-    formData.append("medicationList", this.patientOne.medicationList);
+    formData.append("medicationList", JSON.stringify(this.patientOne.medicationList));
     formData.append("smoke", this.patientOne.smoke);
     formData.append("smokeExplain", this.patientOne.smokeExplain);
     formData.append("tobacco", this.patientOne.tobacco);
@@ -99,6 +99,7 @@ export class PatientDataComponent implements OnInit {
     formData.append("drugs", this.patientOne.drugs);
     formData.append("drugsExplain", this.patientOne.drugsExplain);
     formData.append("yearlyPhysical", this.patientOne.yearlyPhysical);
+    formData.append("yearlyPhysicalExplain", this.patientOne.yearlyPhysicalExplain)
     formData.append("covid", this.patientOne.covid);
     formData.append("coughCongestion", this.patientOne.coughCongestion);
     formData.append("breathShortness", this.patientOne.breathShortness);
@@ -118,14 +119,14 @@ export class PatientDataComponent implements OnInit {
   }
 
   setFormDataPatientSecond(formData :FormData ){
-    formData.append("emergencyName", this.patientTwo.emergencyName);
-    formData.append("emergencyLast", this.patientTwo.emergencyLast);
-    formData.append("emergencyPhone", this.patientTwo.emergencyPhone);
-    formData.append("medicalRecord", this.patientTwo.medicalRecord);
-    formData.append("contactFirstName", this.patientTwo.contactFirstName);
-    formData.append("contactLastName", this.patientTwo.contactLastName);
-    formData.append("contactPhone", this.patientTwo.contactPhone);
-    formData.append("contactRelation", this.patientTwo.contactRelation);
+    formData.append("emergencyName", this.patientOne.emergencyName);
+    formData.append("emergencyLast", this.patientOne.emergencyLast);
+    formData.append("emergencyPhone", this.patientOne.emergencyPhone);
+    formData.append("medicalRecord", this.patientOne.medicalRecord);
+    formData.append("contactFirstName", this.patientOne.contactFirstName);
+    formData.append("contactLastName", this.patientOne.contactLastName);
+    formData.append("contactPhone", this.patientOne.contactPhone);
+    formData.append("contactRelation", this.patientOne.contactRelation);
     formData.append("hearAboutUs", this.patientOne.hearAboutUs);
   }
 
