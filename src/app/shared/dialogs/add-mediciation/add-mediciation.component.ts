@@ -7,7 +7,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./add-mediciation.component.css']
 })
 export class AddMediciationComponent implements OnInit {
-  medicineModel : any = {};
+  patientOneModel : any = {};
   constructor(public activeModal: NgbActiveModal) { }
 
   ngOnInit(): void {

@@ -81,8 +81,13 @@ export class GetAllNewpatientsComponent implements OnInit {
         else{
           result[i].medicalExaminationFilePath = null;
         }
-
-
+      /* Medical Certificate */
+      if(result[i].medicalCertificateFilePath && result[i].medicalCertificateFilePath != null){
+          result[i].medicalCertificateFilePath = environment.apiUrl+result[i].medicalCertificateFilePath.replace('./public/','/') ;
+        }
+        else{
+          result[i].medicalCertificateFilePath = null;
+        }
 
         if(result[i].adult == "No"){
           result[i].consentPath = environment.apiUrl+result[i].consentPath.replace('./public/','/') ;

@@ -1,3 +1,6 @@
 a {
     margin: 5px;
 }
+.mat-column-downloadFiles {
+    flex: 0 0 20%;
+}

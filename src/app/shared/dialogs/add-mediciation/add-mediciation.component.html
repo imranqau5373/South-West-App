@@ -1,34 +1,66 @@
 <div class="modal-content">
-    <form #medicine="ngForm" (ngSubmit)="medicine.form.valid && submit(medicine)" class="row g-3">
+  <form
+    #medicine="ngForm"
+    (ngSubmit)="medicine.form.valid && submit(medicine)"
+    class="row g-3"
+  >
     <div class="modal-header">
       <h5 class="modal-title" id="slotDeleteDlgLabel">Add Medicine Details</h5>
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closeDialog()"> <span aria-hidden="true">&times;</span> </button>
+      <button
+        type="button"
+        class="close"
+        data-dismiss="modal"
+        aria-label="Close"
+        (click)="closeDialog()"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
     </div>
     <div class="modal-body">
-
-            <div class="col-md-12">
-                <label for="name" class="form-label">Medicine Name</label>
-                <input [(ngModel)]="medicineModel.name" name="name" #name="ngModel" 
-                type="text" class="form-control" id="name" >
-            </div>
-            <div class="col-md-12">
-                <label for="potency" class="form-label">Medicine Potency</label>
-                <input [(ngModel)]="medicineModel.potency" name="potency" #potency="ngModel" 
-                type="text" class="form-control" id="potency" >
-            </div>
-            <div class="col-md-12">
-                <label for="usage" class="form-label">Medicine Usage</label>
-                <input [(ngModel)]="medicineModel.usage" name="usage" #usage="ngModel" 
-                type="text" class="form-control" id="usage" >
-            </div>
-
-
+      <div class="col-md-12">
+        <label for="name" class="form-label">Medicine Name</label>
+        <input
+          [(ngModel)]="patientOneModel.name"
+          name="name"
+          #name="ngModel"
+          type="text"
+          class="form-control"
+          id="name"
+        />
+      </div>
+      <div class="col-md-12">
+        <label for="potency" class="form-label">Medicine Potency</label>
+        <input
+          [(ngModel)]="patientOneModel.potency"
+          name="potency"
+          #potency="ngModel"
+          type="text"
+          class="form-control"
+          id="potency"
+        />
+      </div>
+      <div class="col-md-12">
+        <label for="usage" class="form-label">Medicine Usage</label>
+        <input
+          [(ngModel)]="patientOneModel.usage"
+          name="usage"
+          #usage="ngModel"
+          type="text"
+          class="form-control"
+          id="usage"
+        />
+      </div>
     </div>
     <div class="modal-footer">
-      <button type="button" class="btn btn-outline-primary" data-dismiss="modal" (click)="closeDialog()">Close</button>
-      <button type="submit" class="btn btn-success" >Add Medicine</button>
+      <button
+        type="button"
+        class="btn btn-outline-primary"
+        data-dismiss="modal"
+        (click)="closeDialog()"
+      >
+        Close
+      </button>
+      <button type="submit" class="btn btn-success">Add Medicine</button>
     </div>
-</form>
-  </div>
-
-
+  </form>
+</div>

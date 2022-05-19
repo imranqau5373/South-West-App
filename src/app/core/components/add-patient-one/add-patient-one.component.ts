@@ -69,16 +69,19 @@ export class AddPatientOneComponent implements OnInit {
   open() {
     const modalRef = this.modalService.open(AddMediciationComponent, { size: 'small', backdrop: 'static' });
     modalRef.result.then((result: any) => {
+      debugger
       console.log(result);
     }, (reason) => {
       console.log(reason);
-      const medicineData = {name : reason.data.name,
+      const patientData = {name : reason.data.name,
         id : this.medicineList.length + 1,
         potency :reason.data.potency,
         usage: reason.data.usage,
       };
-      this.medicineList.push(medicineData);
+      debugger
+      this.medicineList.push(patientData);
       this.patientOneModel.medicationList = this.medicineList;
+      console.log(patientData)
     });
   }
 
