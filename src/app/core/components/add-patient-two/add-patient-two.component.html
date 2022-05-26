@@ -1,98 +1,216 @@
-
 <div class="container py-3">
-
-    <form #pageTwo="ngForm" (ngSubmit)="submitTwo(pageTwo)" class="row g-3">
-      <div class="col-12">
-        <a href="/add-patient-one">Back To Previous</a>
+  <form #pageTwo="ngForm" (ngSubmit)="submitTwo(pageTwo)" class="row g-3">
+    <div class="col-12">
+      <a href="/add-patient-one">Back To Previous</a>
+    </div>
+    <div class="col-12">
+      <label for="emergencyContact" class="form-label">Emergency Contact</label>
+    </div>
+    <div class="col-md-4">
+      <label for="emergencyName" class="form-label"> First Name</label>
+      <input
+        [(ngModel)]="patientTwoModel.emergencyName"
+        name="emergencyName"
+        #emergencyName="ngModel"
+        type="text"
+        class="form-control"
+        id="emergencyName"
+      />
+    </div>
+    <div class="col-md-4">
+      <label for="emergencyLast" class="form-label">Last Name</label>
+      <input
+        [(ngModel)]="patientTwoModel.emergencyLast"
+        name="emergencyLast"
+        #emergencyLast="ngModel"
+        type="text"
+        class="form-control"
+        id="emergencyLast"
+      />
+    </div>
+    <div class="col-md-4">
+      <label for="emergencyPhone" class="form-label">Phone Number</label>
+      <input
+        [(ngModel)]="patientTwoModel.emergencyPhone"
+        name="emergencyPhone"
+        #emergencyPhone="ngModel"
+        type="text"
+        class="form-control"
+        id="emergencyPhone"
+      />
+    </div>
+    <div class="col-md-6">
+      <label for="medicalRecords" class="form-label"
+        >CAN WE DISCLOSE YOUR MEDICAL RECORDS TO ANY ONE (eg FAMILY MEMBER )?
+      </label>
+    </div>
+    <div class="col-md-6">
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          [(ngModel)]="patientTwoModel.medicalRecord"
+          type="radio"
+          name="medicalRecord"
+          id="medicalRadioYes"
+          value="Yes"
+        />
+        <label class="form-check-label" for="medicalRadioYes"> Yes </label>
       </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          [(ngModel)]="patientTwoModel.medicalRecord"
+          type="radio"
+          name="medicalRecord"
+          id="medicalRadioNo"
+          value="No"
+        />
+        <label class="form-check-label" for="smedicalRadioNo"> No </label>
+      </div>
+    </div>
+    <div *ngIf="patientTwoModel.medicalRecord == 'Yes'">
       <div class="col-12">
-        <label for="emergencyContact" class="form-label">Emergency Contact</label>
+        <label for="contactInfo" class="form-label"
+          >IF YES, PLEASE PROVIDE INFORMATION BELOW</label
+        >
       </div>
       <div class="col-md-4">
-        <label for="emergencyName" class="form-label">Name</label>
-        <input [(ngModel)]="patientTwoModel.emergencyName" name="emergencyName" #emergencyName="ngModel" 
-        type="text" class="form-control" id="emergencyName">
+        <label for="contactFirstName" class="form-label"> First Name</label>
+        <input
+          [(ngModel)]="patientTwoModel.contactFirstName"
+          name="contactFirsttName"
+          #contactFirstName="ngModel"
+          type="text"
+          class="form-control"
+          id="contactFirstName"
+        />
       </div>
       <div class="col-md-4">
-        <label for="emergencyLast" class="form-label">Last</label>
-        <input [(ngModel)]="patientTwoModel.emergencyLast" name="emergencyLast" #emergencyLast="ngModel"  
-        type="text" class="form-control" id="emergencyLast">
+        <label for="contactLastName" class="form-label">Last Name</label>
+        <input
+          [(ngModel)]="patientTwoModel.contactLastName"
+          name="contactLastName"
+          #contactLastName="ngModel"
+          type="text"
+          class="form-control"
+          id="contactLastName"
+        />
       </div>
       <div class="col-md-4">
-        <label for="emergencyPhone" class="form-label">Phone Number</label>
-        <input [(ngModel)]="patientTwoModel.emergencyPhone" name="emergencyPhone" #emergencyPhone="ngModel"  
-        type="text" class="form-control" id="emergencyPhone">
+        <label for="contacRelation" class="form-label">Relationship</label>
+        <input
+          [(ngModel)]="patientTwoModel.contactRelation"
+          name="contactRelation"
+          #contactRelation="ngModel"
+          type="text"
+          class="form-control"
+          id="contactRelation"
+        />
       </div>
-      <div class="col-md-6">
-        <label for="medicalRecords" class="form-label">CAN WE DISCLOSE YOUR  MEDICAL RECORDS TO ANY ONE (eg FAMILY MEMBER  )? </label>
+      <div class="col-md-4">
+        <label for="contactPhone" class="form-label">Phone</label>
+        <input
+          [(ngModel)]="patientTwoModel.contactPhone"
+          name="contactPhone"
+          #contactPhone="ngModel"
+          type="text"
+          class="form-control"
+          id="contactPhone"
+        />
       </div>
-      <div class="col-md-6">
-        <div class="form-check">
-            <input class="form-check-input"  [(ngModel)]="patientTwoModel.medicalRecord"
-            type="radio" name="medicalRecord" id="medicalRadioYes" value="Yes">
-            <label class="form-check-label" for="medicalRadioYes">
-              Yes
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" [(ngModel)]="patientTwoModel.medicalRecord"
-            type="radio" name="medicalRecord" id="medicalRadioNo" value="No">
-            <label class="form-check-label" for="smedicalRadioNo">
-              No
-            </label>
-          </div>
-      </div>
-      <div *ngIf="patientTwoModel.medicalRecord == 'Yes'">
-        <div class="col-12" >
-          <label for="contactInfo" class="form-label">IF YES, PLEASE PROVIDE INFORMATION BELOW</label>
-        </div>
-        <div class="col-md-4">
-          <label for="contactFirstName" class="form-label"> First Name</label>
-          <input [(ngModel)]="patientTwoModel.contactFirstName" name="contactFirsttName" #contactFirstName="ngModel"
-          type="text" class="form-control" id="contactFirstName">
-        </div>
-        <div class="col-md-4">
-          <label for="contactLastName" class="form-label">Last Name</label>
-          <input [(ngModel)]="patientTwoModel.contactLastName" name="contactLastName" #contactLastName="ngModel" type="text"
-            class="form-control" id="contactLastName">
-        </div>
-        <div class="col-md-4">
-          <label for="contacRelation" class="form-label">Relationship</label>
-          <input [(ngModel)]="patientTwoModel.contactRelation" name="contactRelation" #contactRelation="ngModel"
-          type="text" class="form-control" id="contactRelation">
-        </div>
-        <div class="col-md-4">
-          <label for="contactPhone" class="form-label">Phone</label>
-          <input [(ngModel)]="patientTwoModel.contactPhone" name="contactPhone" #contactPhone="ngModel"
-          type="text" class="form-control" id="contactPhone">
-        </div>
-      </div>
+    </div>
 
-      <div class="col-12">
-        <label for="aboutUs" class="form-label">How did you hear about us?</label>
-        <input [(ngModel)]="patientTwoModel.hearAboutUs" name="hearAboutUs" #hearAboutUs="ngModel"
-        type="text" class="form-control" id="hearAboutUs">
-        <p style="font-size:x-small;">FINANCIAL POLICY WE ACCEPT CASH AND MAJOR CREDIT CARDS. FULL PAYMENT IS DUE AT THE TIME OF SERVICE. I AUTHORIZE SOUTHWEST URGENT CARE & FAMILY PRACTICE TO TREAT ME. IM ALSO AWARE THAT I AM RESPONSIBLE FOR ANY PAYMENT THAT IS DUE FOR MY TREATMENT. I HAVE READ & UNDERSTAND THE ABOVE FINANCIAL POLICY. BY SIGNING BELOW, I ACKNOWLEDGE RESPONSIBILITY & AGREE TO THE TERMS WRITTEN ABOVE.</p>
-      </div>
-      <div class="col-12">
-        <p>
-          We are required by applicable federal and state law to maintain the privacy of your health information. We are also required to give you this Notice about our privacy practices, legal obligations, and your rights concerning your health information (“Protected Health Information” or “PHI”). We must follow the privacy practices that are described in this Notice (which may be amended from time to time). For more information about our privacy practices, or for additional copies of this Notice, please contact us using the information listed at the end of this Notice.
-I. USES AND DISCLOSURES OF PROTECTED HEALTH INFORMATION: 
-A. Your PHI may be used and disclosed by the physician, our office staff and others outside of our offices that are involved in your care and treatment for the purpose of providing health care services to you, to pay your health care bills, to support the operation of the business, and any other use required by law. We may use and disclose PHI without your written authorization for certain purposes as described below. The examples provided in each category are not meant to be exhaustive, but instead are meant to describe the types of uses and disclosures that are permissible under federal and state law. 
-1. Treatment: We may use and disclose PHI in order to provide treatment to you. For example, we may use PHI including your medication history to diagnose, treat, and provide medical services to you. In addition, we may disclose PHI to other health care providers involved in your treatment. 
-2. Payment: Under federal law we may use or disclose PHI so that services you receive are appropriately billed to, and payment is collected from, your health plan. By way of example, we may disclose PHI to permit your health plan to take certain actions before it approves or pays for treatment services. Under Washington state law, release of PHI to health plans require an authorization provided by you to us or to your health plan. We may contact the Guarantor for your visit in order to obtain payment. 
-3. Health Care Operations: We may use or disclose your PHI in order to support our business activities. These activities include, but are not limited to business associates, quality assessment activities, internal investigations, performance reviews, and training employees. In addition, we will use a sign-in sheet at the registration desk where you will be asked to provide your name and date of birth. We may also call you by name in the waiting room when the physician is ready to see you. We may use or disclose your PHI to contact you to remind you of an appointment, to notify you of test results, to inform you of health-related services that may be of interest to you, and to check on your treatment, progress, and satisfaction with our services.
-4. Required or Permitted by Law: As required by Law, Public Health issues as required by law, Communicable Diseases, Health Oversight, Abuse or Neglect, Food and Drug Administration requirements, Legal proceedings, Law Enforcement, Coroners, Funeral Directors, Organ Donation, Research, Criminal Activity, Military Activity, National Security, Worker’s Compensation, Inmates, and other Required Uses and Disclosures. Under the law, we must make disclosures to you and when required by the Secretary of the Department of Health and Human Services.
-B. Permissible Uses and Disclosures That May Be Made Without Your Authorization, But For Which You Have An Opportunity to Object.
-1. Family and Other Persons Involved in Your Care. We may use or disclose health information to notify, or assist in the notification of (including identifying or locating) a family member, your personal representative or another person responsible for your care, of your location, your general condition, or death. If you are present, then prior to use or disclosure of your health information, we will provide you with an opportunity to object to such uses or disclosures. In the event of your incapacity or emergency circumstances, we will disclose health information based on a determination using our professional judgment disclosing only health information that is directly relevant to the person’s involvement in your healthcare. We will also use our professional judgment and our experience to make reasonable inferences of your best interest in allowing a person to pick up filled prescriptions, medical supplies, x-rays, or other similar forms of health information. 
+    <div class="col-12">
+      <label for="aboutUs" class="form-label">How did you hear about us?</label>
+      <input
+        [(ngModel)]="patientTwoModel.hearAboutUs"
+        name="hearAboutUs"
+        #hearAboutUs="ngModel"
+        type="text"
+        class="form-control"
+        id="hearAboutUs"
+      />
+      <p style="font-size: x-small">
+        FINANCIAL POLICY WE ACCEPT CASH AND MAJOR CREDIT CARDS. FULL PAYMENT IS
+        DUE AT THE TIME OF SERVICE. I AUTHORIZE SOUTHWEST URGENT CARE & FAMILY
+        PRACTICE TO TREAT ME. IM ALSO AWARE THAT I AM RESPONSIBLE FOR ANY
+        PAYMENT THAT IS DUE FOR MY TREATMENT. I HAVE READ & UNDERSTAND THE ABOVE
+        FINANCIAL POLICY. BY SIGNING BELOW, I ACKNOWLEDGE RESPONSIBILITY & AGREE
+        TO THE TERMS WRITTEN ABOVE.
+      </p>
+    </div>
+    <div class="col-12">
+      <p>
+        We are required by applicable federal and state law to maintain the
+        privacy of your health information. We are also required to give you
+        this Notice about our privacy practices, legal obligations, and your
+        rights concerning your health information (“Protected Health
+        Information” or “PHI”). We must follow the privacy practices that are
+        described in this Notice (which may be amended from time to time). For
+        more information about our privacy practices, or for additional copies
+        of this Notice, please contact us using the information listed at the
+        end of this Notice. I. USES AND DISCLOSURES OF PROTECTED HEALTH
+        INFORMATION: A. Your PHI may be used and disclosed by the physician, our
+        office staff and others outside of our offices that are involved in your
+        care and treatment for the purpose of providing health care services to
+        you, to pay your health care bills, to support the operation of the
+        business, and any other use required by law. We may use and disclose PHI
+        without your written authorization for certain purposes as described
+        below. The examples provided in each category are not meant to be
+        exhaustive, but instead are meant to describe the types of uses and
+        disclosures that are permissible under federal and state law. 1.
+        Treatment: We may use and disclose PHI in order to provide treatment to
+        you. For example, we may use PHI including your medication history to
+        diagnose, treat, and provide medical services to you. In addition, we
+        may disclose PHI to other health care providers involved in your
+        treatment. 2. Payment: Under federal law we may use or disclose PHI so
+        that services you receive are appropriately billed to, and payment is
+        collected from, your health plan. By way of example, we may disclose PHI
+        to permit your health plan to take certain actions before it approves or
+        pays for treatment services. Under Washington state law, release of PHI
+        to health plans require an authorization provided by you to us or to
+        your health plan. We may contact the Guarantor for your visit in order
+        to obtain payment. 3. Health Care Operations: We may use or disclose
+        your PHI in order to support our business activities. These activities
+        include, but are not limited to business associates, quality assessment
+        activities, internal investigations, performance reviews, and training
+        employees. In addition, we will use a sign-in sheet at the registration
+        desk where you will be asked to provide your name and date of birth. We
+        may also call you by name in the waiting room when the physician is
+        ready to see you. We may use or disclose your PHI to contact you to
+        remind you of an appointment, to notify you of test results, to inform
+        you of health-related services that may be of interest to you, and to
+        check on your treatment, progress, and satisfaction with our services.
+        4. Required or Permitted by Law: As required by Law, Public Health
+        issues as required by law, Communicable Diseases, Health Oversight,
+        Abuse or Neglect, Food and Drug Administration requirements, Legal
+        proceedings, Law Enforcement, Coroners, Funeral Directors, Organ
+        Donation, Research, Criminal Activity, Military Activity, National
+        Security, Worker’s Compensation, Inmates, and other Required Uses and
+        Disclosures. Under the law, we must make disclosures to you and when
+        required by the Secretary of the Department of Health and Human
+        Services. B. Permissible Uses and Disclosures That May Be Made Without
+        Your Authorization, But For Which You Have An Opportunity to Object. 1.
+        Family and Other Persons Involved in Your Care. We may use or disclose
+        health information to notify, or assist in the notification of
+        (including identifying or locating) a family member, your personal
+        representative or another person responsible for your care, of your
+        location, your general condition, or death. If you are present, then
+        prior to use or disclosure of your health information, we will provide
+        you with an opportunity to object to such uses or disclosures. In the
+        event of your incapacity or emergency circumstances, we will disclose
+        health information based on a determination using our professional
+        judgment disclosing only health information that is directly relevant to
+        the person’s involvement in your healthcare. We will also use our
+        professional judgment and our experience to make reasonable inferences
+        of your best interest in allowing a person to pick up filled
+        prescriptions, medical supplies, x-rays, or other similar forms of
+        health information.
+      </p>
+    </div>
 
-        </p>
-      </div>
-
-      <div class="col-12">
-        <button type="submit" class="btn btn-primary">Next</button>
-      </div>
-    </form>
-
-
+    <div class="col-12">
+      <button type="submit" class="btn btn-primary">Next</button>
+    </div>
+  </form>
 </div>

@@ -2558,18 +2558,55 @@
           <label class="form-check-label" for="interpreterNo"> No </label>
         </div>
       </div>
-      <div class="col-md-4" *ngIf="patientMainModel.interpreter == 'No'">
-        <label for="drugsExplain" class="form-label">
-          Name of Interpreter</label
-        >
-        <input
-          [(ngModel)]="patientMainModel.interpreterName"
-          name="interpreterName"
-          #drugsExplain="ngModel"
-          type="text"
-          class="form-control"
-          id="interpreterName"
-        />
+      <br />
+      <div class="col-md-12" *ngIf="patientMainModel.interpreter == 'No'">
+        <h3>
+          <strong>
+            Provide the following information about the interpreter, if you used
+            one</strong
+          >
+        </h3>
+        <div class="row">
+          <div class="col-md-4">
+            <label for="drugsExplain" class="form-label">
+              Interpreter's Given Name (First Name)
+            </label>
+            <input
+              [(ngModel)]="patientMainModel.interpreterFName"
+              name="interpreterFName"
+              #drugsExplain="ngModel"
+              type="text"
+              class="form-control"
+              id="interpreterFName"
+            />
+          </div>
+          <div class="col-md-4">
+            <label for="drugsExplain" class="form-label">
+              Interpreter's Family Name (Last Name)
+            </label>
+            <input
+              [(ngModel)]="patientMainModel.interpreterLName"
+              name="interpreterLName"
+              #drugsExplain="ngModel"
+              type="text"
+              class="form-control"
+              id="interpreterLName"
+            />
+          </div>
+          <div class="col-md-4">
+            <label for="drugsExplain" class="form-label">
+              Interpreter's Business or Organization Name (if any)
+            </label>
+            <input
+              [(ngModel)]="patientMainModel.interpreterBusiness"
+              name="interpreterBusiness"
+              #drugsExplain="ngModel"
+              type="text"
+              class="form-control"
+              id="interpreterBusiness"
+            />
+          </div>
+        </div>
       </div>
 
       <!--  -->

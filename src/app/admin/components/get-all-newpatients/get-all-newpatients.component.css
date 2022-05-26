@@ -2,5 +2,8 @@ a {
     margin: 5px;
 }
 .mat-column-downloadFiles {
-    flex: 0 0 20%;
+    flex: 0 0 22%;
+}
+.mat-column-email {
+    flex: 0 0 15%;
 }
