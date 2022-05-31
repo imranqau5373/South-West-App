@@ -73,15 +73,15 @@ export class AddPatientOneComponent implements OnInit {
       console.log(result);
     }, (reason) => {
       console.log(reason);
-      const patientData = {name : reason.data.name,
+      const medicineData = {name : reason.data.name,
         id : this.medicineList.length + 1,
         potency :reason.data.potency,
         usage: reason.data.usage,
       };
       debugger
-      this.medicineList.push(patientData);
+      this.medicineList.push(medicineData);
       this.patientOneModel.medicationList = this.medicineList;
-      console.log(patientData)
+      console.log(medicineData)
     });
   }
 

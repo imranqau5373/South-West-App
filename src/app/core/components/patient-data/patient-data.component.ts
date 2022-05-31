@@ -89,7 +89,7 @@ export class PatientDataComponent implements OnInit {
     formData.append("alergicExplain", this.patientOne.alergicExplain);
     formData.append("medicalProblem", this.patientOne.medicalProblem);
     formData.append("medicalProblemExplain", this.patientOne.medicalProblemExplain);
-    formData.append("medicationList", JSON.stringify(this.patientOne.medicationList));
+    formData.append('medicationList',JSON.stringify(this.patientOne.medicationList))
     formData.append("smoke", this.patientOne.smoke);
     formData.append("smokeExplain", this.patientOne.smokeExplain);
     formData.append("tobacco", this.patientOne.tobacco);

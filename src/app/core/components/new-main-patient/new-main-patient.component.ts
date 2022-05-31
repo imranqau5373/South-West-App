@@ -115,7 +115,7 @@ export class NewMainPatientComponent implements OnInit {
     this.patientMainModel.guardianIdCardPicture = $event.target.files[0];
 
   }
-
+  
   dateChange($event:any){
     var age18Date = new Date();
     var age15Date = new Date();
