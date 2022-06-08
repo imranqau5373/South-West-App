@@ -482,17 +482,93 @@
         <label class="form-check-label" for="smokeRadioNo"> No </label>
       </div>
     </div>
-    <div class="col-md-8" *ngIf="patientOneModel.smoke == 'Yes'">
+    <div class="col-md-12" *ngIf="patientOneModel.smoke == 'Yes'">
       <label for="smokeExplain" class="form-label">HOW MUCH: </label>
-      <input
-        [(ngModel)]="patientOneModel.smokeExplain"
-        name="smokeExplain"
-        #smokeExplain="ngModel"
-        type="text"
-        class="form-control"
-        id="smokeExplain"
-      />
+
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          [(ngModel)]="patientOneModel.smokeExplain"
+          type="radio"
+          name="exSmoker"
+          id="exSmoker"
+          value="Ex-Smoker"
+        />
+
+        <label class="form-check-label" for="exSmoker"> Ex-Smoker </label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          [(ngModel)]="patientOneModel.smokeExplain"
+          type="radio"
+          name="lightSmoker"
+          id="lightSmoker"
+          value="1-9 cigs/day"
+        />
+
+        <label class="form-check-label" for="lightSmoker">
+          Light Cigarette Smoker (1-9 cigs/day)
+        </label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          [(ngModel)]="patientOneModel.smokeExplain"
+          type="radio"
+          name="moderateSmoker"
+          id="moderateSmoker"
+          value="10-19 cigs/day"
+        />
+
+        <label class="form-check-label" for="moderateSmoker">
+          Moderate Cigarette Smoker (10-19 cigs/day)</label
+        >
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          [(ngModel)]="patientOneModel.smokeExplain"
+          type="radio"
+          name="heavySmoker"
+          id="heavySmoker"
+          value="20-39 cigs/day"
+        />
+
+        <label class="form-check-label" for="heavySmoker"
+          >Heavy Cigarette Smoker (20-39 cigs/day)</label
+        >
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          [(ngModel)]="patientOneModel.smokeExplain"
+          type="radio"
+          name="veryHeavySmoker"
+          id="veryHeavySmoker"
+          value="40+ cigs/day"
+        />
+
+        <label class="form-check-label" for="veryHeavySmoker"
+          >Very Heavy Cigarette Smoker (40+ cigs/day)</label
+        >
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          [(ngModel)]="patientOneModel.smokeExplain"
+          type="radio"
+          name="electronicSmoker"
+          id="electronicSmoker"
+          value="Electronic"
+        />
+
+        <label class="form-check-label" for="electronicSmoker"
+          >Electronic Cigarette Smoker</label
+        >
+      </div>
     </div>
+
     <div class="col-md-4">
       <label for="ssn" class="form-label">CHEW TOBACCO? </label>
       <div class="form-check">

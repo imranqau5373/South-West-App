@@ -345,7 +345,7 @@
     </div>
     <div class="col-4" *ngIf="patientMainModel.insurance == 'Yes'">
       <label for="insuranceFront" class="form-label"
-        >UPLOAD FRONT PICITURE OF INSURANCE CARD</label
+        >UPLOAD FRONT PICTURE OF INSURANCE CARD</label
       >
       <input
         name="insuranceFront"
@@ -365,12 +365,12 @@
         class="invalid-feedback"
         *ngIf="patient.submitted && insuranceFront.invalid"
       >
-        Front Piciture Of Insurance Card is Required
+        Front Picture Of Insurance Card is Required
       </div>
     </div>
     <div class="col-4" *ngIf="patientMainModel.insurance == 'Yes'">
       <label for="insuranceBack" class="form-label"
-        >UPLOAD BACK PICITURE OF INSURANCE CARD</label
+        >UPLOAD BACK PICTURE OF INSURANCE CARD</label
       >
       <input
         name="insuranceBack"
@@ -388,7 +388,7 @@
         class="invalid-feedback"
         *ngIf="patient.submitted && insuranceBack.invalid"
       >
-        Back Piciture Of Insurance Card is Required
+        Back Picture Of Insurance Card is Required
       </div>
     </div>
     <div
@@ -435,8 +435,9 @@
         }"
       >
         <option selected>Select</option>
-        <option value="Covid">Covid</option>
         <option value="CovidConsultation">Covid Test Consultation</option>
+        <option value="Covid">Covid</option>
+
         <option value="Consultation / Medicine Refill">
           Consultation /Medicine Refill
         </option>

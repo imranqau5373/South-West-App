@@ -39,7 +39,7 @@ export class AddPatientOneComponent implements OnInit {
     this.patientOneModel.headche = "No";
     this.patientOneModel.vomiting = "No";
     this.patientOneModel.bodyache = "No";
-    this.patientOneModel.apt = "Apartment";
+    this.patientOneModel.apt = "Apartment";  
   }
 
   nextClick(){
