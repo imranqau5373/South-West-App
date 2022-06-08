@@ -54,7 +54,7 @@ export class GetAllNewpatientsComponent implements OnInit {
         }
         if(result[i].insuranceFilePath && result[i].insuranceFilePath != null){
           result[i].insuranceFilePath = environment.apiUrl+result[i].insuranceFilePath.replace('./public/','/') ;
-          result[i].cashSuperBillFilePath = null;
+         // result[i].cashSuperBillFilePath = null;
         }
         if(result[i].cashSuperBillFilePath && result[i].cashSuperBillFilePath != null){
           result[i].insuranceFilePath = null;

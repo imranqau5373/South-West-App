@@ -132,11 +132,11 @@ export class PatientDataComponent implements OnInit {
 
   setMainPatientData(formData : FormData){
     formData.append("firstName", this.patientMainModel.firstName);
-    formData.append("createdDate",  new Date().toLocaleDateString('en-us'));
+    formData.append("createdDate",  new Date().toLocaleDateString('en-us', { year: 'numeric', month: '2-digit', day: '2-digit' } ));
     formData.append("middleName", this.patientMainModel.middleName);
     formData.append("lastName", this.patientMainModel.lastName);
     formData.append("mrnNumber", this.patientMainModel.mrnNumber);
-    formData.append("dateOfBirth", new Date(this.patientMainModel.dateOfBirth).toLocaleDateString('en-us') );
+    formData.append("dateOfBirth", new Date(this.patientMainModel.dateOfBirth).toLocaleDateString('en-us', { year: 'numeric', month: '2-digit', day: '2-digit' }) );
     formData.append("reasonForVisit", this.patientMainModel.reasonForVisit);
     formData.append("adult", this.patientMainModel.adult);
     formData.append("insurance", this.patientMainModel.insurance);
