@@ -569,7 +569,7 @@
       </div>
     </div>
 
-    <div class="col-md-4">
+    <div class="col-md-12">
       <label for="ssn" class="form-label">CHEW TOBACCO? </label>
       <div class="form-check">
         <input
@@ -594,18 +594,66 @@
         <label class="form-check-label" for="tobaccoRadioNo"> No </label>
       </div>
     </div>
-    <div class="col-md-8" *ngIf="patientOneModel.tobacco == 'Yes'">
+
+    <div class="col-md-12" *ngIf="patientOneModel.tobacco == 'Yes'">
       <label for="tobaccoExplain" class="form-label">HOW MUCH: </label>
-      <input
-        [(ngModel)]="patientOneModel.tobaccoExplain"
-        name="tobaccoExplain"
-        #tobaccoExplain="ngModel"
-        type="text"
-        class="form-control"
-        id="tobaccoExplain"
-      />
+
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          [(ngModel)]="patientOneModel.tobaccoExplain"
+          type="radio"
+          name="useSocially"
+          id="useSocially"
+          value="Social"
+        />
+        <label class="form-check-label" for="useSocially"> Use Socially </label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          [(ngModel)]="patientOneModel.tobaccoExplain"
+          type="radio"
+          name="lessThenAWeek"
+          id="lessThenAWeek"
+          value="Less than 1 can/week"
+        />
+
+        <label class="form-check-label" for="lessThenAWeek">
+          Less than one can a week
+        </label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          [(ngModel)]="patientOneModel.tobaccoExplain"
+          type="radio"
+          name="oneCanAweek"
+          id="oneCanAweek"
+          value="1/week"
+        />
+
+        <label class="form-check-label" for="fiveOrMoreDrinksAWeek">
+          One can a week</label
+        >
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          [(ngModel)]="patientOneModel.tobaccoExplain"
+          type="radio"
+          name="twoOrMore"
+          id="twoOrMore"
+          value="2+/week"
+        />
+
+        <label class="form-check-label" for="twoOrMore"
+          >Two or more cans a week</label
+        >
+      </div>
     </div>
-    <div class="col-md-4">
+
+    <div class="col-md-12">
       <label for="ssn" class="form-label">DO YOU DRINK ALCOHOL?</label>
       <div class="form-check">
         <input
@@ -630,17 +678,67 @@
         <label class="form-check-label" for="alcoholRadioNo"> No </label>
       </div>
     </div>
-    <div class="col-md-8" *ngIf="patientOneModel.alcohol == 'Yes'">
+
+    <div class="col-md-12" *ngIf="patientOneModel.alcohol == 'Yes'">
       <label for="alcoholExplain" class="form-label">HOW MUCH: </label>
-      <input
-        [(ngModel)]="patientOneModel.alcoholExplain"
-        name="alcoholExplain"
-        #alcoholExplain="ngModel"
-        type="text"
-        class="form-control"
-        id="alcoholExplain"
-      />
+
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          [(ngModel)]="patientOneModel.alcoholExplain"
+          type="radio"
+          name="oneDrinkADay"
+          id="oneDrinkADay"
+          value="1/day"
+        />
+        <label class="form-check-label" for="oneDrinkADay">
+          One drink a day
+        </label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          [(ngModel)]="patientOneModel.alcoholExplain"
+          type="radio"
+          name="twoToThreeDrinksAWeek"
+          id="twoToThreeDrinksAWeek"
+          value="2-3/week"
+        />
+
+        <label class="form-check-label" for="twoToThreeDrinksAWeek">
+          Two to three drinks a week
+        </label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          [(ngModel)]="patientOneModel.alcoholExplain"
+          type="radio"
+          name="fiveOrMoreDrinksAWeek"
+          id="fiveOrMoreDrinksAWeek"
+          value="5+"
+        />
+
+        <label class="form-check-label" for="fiveOrMoreDrinksAWeek">
+          Five or more drinks a week</label
+        >
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          [(ngModel)]="patientOneModel.alcoholExplain"
+          type="radio"
+          name="socialDrinker"
+          id="socialDrinker"
+          value="Social"
+        />
+
+        <label class="form-check-label" for="socialDrinker"
+          >Social drinker</label
+        >
+      </div>
     </div>
+
     <div class="col-md-4">
       <label for="ssn" class="form-label">DO YOU USE DRUGS?</label>
       <div class="form-check">
@@ -666,16 +764,100 @@
         <label class="form-check-label" for="drugsRadioNo"> No </label>
       </div>
     </div>
-    <div class="col-md-8" *ngIf="patientOneModel.drugs == 'Yes'">
+    <div class="col-md-12" *ngIf="patientOneModel.drugs == 'Yes'">
       <label for="drugsExplain" class="form-label">WHICH ONES: </label>
-      <input
-        [(ngModel)]="patientOneModel.drugsExplain"
-        name="drugsExplain"
-        #drugsExplain="ngModel"
-        type="text"
-        class="form-control"
-        id="drugsExplain"
-      />
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          [(ngModel)]="patientOneModel.drugsExplain"
+          type="radio"
+          name="Marijuana (THC)"
+          id="Marijuana (THC)"
+          value="THC"
+        />
+        <label class="form-check-label" for="Marijuana (THC)">
+          Marijuana (THC)
+        </label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          [(ngModel)]="patientOneModel.drugsExplain"
+          type="radio"
+          name="Cocaine (COC)"
+          id="Cocaine (COC)"
+          value="COC"
+        />
+
+        <label class="form-check-label" for="Cocaine (COC)">
+          Cocaine (COC)
+        </label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          [(ngModel)]="patientOneModel.drugsExplain"
+          type="radio"
+          name="Methamphetamine (MET)"
+          id="Methamphetamine (MET)"
+          value="MET"
+        />
+
+        <label class="form-check-label" for="Methamphetamine (MET)">
+          Methamphetamine (MET)</label
+        >
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          [(ngModel)]="patientOneModel.drugsExplain"
+          type="radio"
+          name="Opiates (OPI)"
+          id="Opiates (OPI)"
+          value="OPI"
+        />
+
+        <label class="form-check-label" for="Opiates (OPI)"
+          >Opiates (OPI)</label
+        >
+      </div>
+
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          [(ngModel)]="patientOneModel.drugsExplain"
+          type="radio"
+          name="PCP (PCP)"
+          id="PCP (PCP)"
+          value="PCP"
+        />
+
+        <label class="form-check-label" for="PCP (PCP)">PCP (PCP)</label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          [(ngModel)]="patientOneModel.drugsExplain"
+          type="radio"
+          name="Amphetamines (AMP)"
+          id="Amphetamines (AMP)"
+          value="AMP"
+        />
+        <label class="form-check-label" for="Amphetamines (AMP)">
+          Amphetamines (AMP)
+        </label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          [(ngModel)]="patientOneModel.drugsExplain"
+          type="radio"
+          name="other"
+          id="other"
+          value="Other"
+        />
+        <label class="form-check-label" for="other"> Other </label>
+      </div>
     </div>
     <div class="col-12">
       <label for="ssn" class="form-label"

@@ -242,7 +242,7 @@ export class PatientDataComponent implements OnInit {
     }
     formData.append("lastMammogram", this.patientMainModel.lastMammogram);
     formData.append("lastmenstrualPeriod", this.patientMainModel.lastmenstrualPeriod);
-    formData.append("periodDate", this.patientMainModel.periodDate);
+    formData.append("periodDate", new Date(this.patientMainModel.periodDate).toLocaleDateString('en-us', { year: 'numeric', month: '2-digit', day: '2-digit' }) );
     formData.append("breastFeeding", this.patientMainModel.breastFeeding);
     formData.append("pregnant", this.patientMainModel.pregnant);
     formData.append("pregnantMonths", this.patientMainModel.pregnantMonths);

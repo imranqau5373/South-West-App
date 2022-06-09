@@ -72,11 +72,6 @@ export class NewMainPatientComponent implements OnInit {
     this.patientMainModel.illegalDrug = "Notsure";
     this.patientMainModel.otherHealth = "Notsure";
     this.patientMainModel.dComment = "Notsure";
-
-
-
-
-
     
   }
 
