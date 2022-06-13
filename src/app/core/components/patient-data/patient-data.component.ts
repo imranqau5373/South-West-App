@@ -108,7 +108,7 @@ export class PatientDataComponent implements OnInit {
     formData.append("vomiting", this.patientOne.vomiting);
     formData.append("bodyache", this.patientOne.bodyache);
     formData.append("covidSymptons", this.patientOne.covidSymptons);
-    formData.append("covidTesting", this.patientOne.covidTesting);
+    formData.append("covidTesting", this.patientMainModel.covidTesting);
     formData.append("pharmacyName", this.patientOne.pharmacyName);
     formData.append("streetPharmacy", this.patientOne.streetPharmacy);
     formData.append("crossIntersectin", this.patientOne.crossIntersectin);
@@ -172,9 +172,9 @@ export class PatientDataComponent implements OnInit {
       formData.append("guardianName", this.patientMainModel.guardianName);
       formData.append("guardianRelation", this.patientMainModel.guardianRelation);
     }
-    if(this.patientMainModel.reasonForVisit == "Covid"){
+   /*  if(this.patientMainModel.reasonForVisit == "Covid"){
       formData.append("covidTesting", this.patientMainModel.covidTesting);
-    }
+    } */
     else if(this.patientMainModel.reasonForVisit == "Other"){
       formData.append("reasonForVisitOther", this.patientMainModel.reasonForVisitOther);
     }
