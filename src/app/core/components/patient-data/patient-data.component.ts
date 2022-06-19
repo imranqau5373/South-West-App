@@ -238,8 +238,15 @@ export class PatientDataComponent implements OnInit {
       formData.append("otherHealthExplain", this.patientMainModel.otherHealthExplain)
       formData.append("dComment", this.patientMainModel.dComment)
       formData.append("dCommentExplain", this.patientMainModel.dCommentExplain)
-
     }
+    
+    if (this.patientMainModel.reasonForVisit == "schoolPhysical") {
+      formData.append("grade", this.patientMainModel.grade)
+      formData.append("school", this.patientMainModel.school)
+    }
+
+
+
     formData.append("lastMammogram", this.patientMainModel.lastMammogram);
     formData.append("lastmenstrualPeriod", this.patientMainModel.lastmenstrualPeriod);
     formData.append("periodDate", new Date(this.patientMainModel.periodDate).toLocaleDateString('en-us', { year: 'numeric', month: '2-digit', day: '2-digit' }) );

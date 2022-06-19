@@ -441,6 +441,7 @@
         <option value="Consultation / Medicine Refill">
           Consultation /Medicine Refill
         </option>
+        <option value="schoolPhysical">Sports/School Physical</option>
         <option value="Immigration">Immigration</option>
         <option value="dotPhysical">Dot Physical</option>
         <option value="Other">Other</option>
@@ -464,6 +465,1532 @@
         id="reasonForVisitOther"
       />
     </div>
+    <!-- ====== Reason of Visit School Physical====== -->
+    <div
+      class="col-md-12"
+      *ngIf="patientMainModel.reasonForVisit == 'schoolPhysical'"
+    >
+      <!--  <h1 class="display-6">Student School Info</h1>
+      <br /> -->
+      <div class="row">
+        <div class="col-md-4">
+          <label for="grade" class="form-label">Grade</label>
+          <input
+            [(ngModel)]="patientMainModel.grade"
+            name="garde"
+            #countryOfBirth="ngModel"
+            type="text"
+            class="form-control"
+            id="grade"
+          />
+        </div>
+        <div class="col-md-4">
+          <label for="school" class="form-label">School</label>
+          <input
+            [(ngModel)]="patientMainModel.school"
+            name="school"
+            #countryOfBirth="ngModel"
+            type="text"
+            class="form-control"
+            id="school"
+          />
+        </div>
+      </div>
+      <!-- Student Questions  -->
+      <div class="col-12">
+        <label for="stdIllness" class="form-label"
+          >Have you had a medical illness or injury since your last check up or
+          physical?</label
+        >
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdIllness"
+            type="radio"
+            name="stdIllness"
+            id="stdIllnessYes"
+            value="Yes"
+          />
+          <label class="form-check-label" for="stdIllnessYes"> Yes </label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdIllness"
+            type="radio"
+            name="stdIllness"
+            id="stdIllnessNo"
+            value="No"
+          />
+          <label class="form-check-label" for="stdIllnessNo"> No </label>
+        </div>
+      </div>
+      <!--  -->
+      <div class="col-12">
+        <label for="stdHospitalized" class="form-label"
+          >Have you been hospitalized overnight in the past year?</label
+        >
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdHospitalized"
+            type="radio"
+            name="stdHospitalized"
+            id="stdHospitalizedYes"
+            value="Yes"
+          />
+          <label class="form-check-label" for="stdHospitalizedYes"> Yes </label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdHospitalized"
+            type="radio"
+            name="stdHospitalized"
+            id="stdHospitalizedNo"
+            value="No"
+          />
+          <label class="form-check-label" for="stdHospitalizedNo"> No </label>
+        </div>
+      </div>
+      <!--  -->
+      <div class="col-12">
+        <label for="stdSurgery" class="form-label"
+          >Have you ever had surgery?</label
+        >
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdSurgery"
+            type="radio"
+            name="stdSurgery"
+            id="stdSurgeryYes"
+            value="Yes"
+          />
+          <label class="form-check-label" for="stdSurgeryYes"> Yes </label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdSurgery"
+            type="radio"
+            name="stdSurgery"
+            id="stdSurgeryNo"
+            value="No"
+          />
+          <label class="form-check-label" for="stdSurgeryNo"> No </label>
+        </div>
+      </div>
+      <!--  -->
+      <div class="col-12">
+        <label for="stdHeartTest" class="form-label"
+          >Have you ever had prior testing for the heart ordered by a
+          physician?</label
+        >
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdHeartTest"
+            type="radio"
+            name="stdHeartTest"
+            id="stdHeartTestYes"
+            value="Yes"
+          />
+          <label class="form-check-label" for="stdHeartTestYes"> Yes </label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdHeartTest"
+            type="radio"
+            name="stdHeartTest"
+            id="stdHeartTestNo"
+            value="No"
+          />
+          <label class="form-check-label" for="stdHeartTestNo"> No </label>
+        </div>
+      </div>
+      <!--  -->
+      <div class="col-12">
+        <label for="stdPassedOutEx" class="form-label"
+          >Have you ever passed out during or after exercise?</label
+        >
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdPassedOutEx"
+            type="radio"
+            name="stdPassedOutEx"
+            id="stdPassedOutExYes"
+            value="Yes"
+          />
+          <label class="form-check-label" for="stdPassedOutExYes"> Yes </label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdPassedOutEx"
+            type="radio"
+            name="stdPassedOutEx"
+            id="stdPassedOutExNo"
+            value="No"
+          />
+          <label class="form-check-label" for="stdPassedOutExNo"> No </label>
+        </div>
+      </div>
+      <!--  -->
+      <div class="col-12">
+        <label for="stdChestPainEx" class="form-label"
+          >Have you ever had chest pain during or after exercise?</label
+        >
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdChestPainEx"
+            type="radio"
+            name="stdChestPainEx"
+            id="stdChestPainExYes"
+            value="Yes"
+          />
+          <label class="form-check-label" for="stdChestPainExYes"> Yes </label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdChestPainEx"
+            type="radio"
+            name="stdChestPainEx"
+            id="stdChestPainExNo"
+            value="No"
+          />
+          <label class="form-check-label" for="stdChestPainExNo"> No </label>
+        </div>
+      </div>
+      <!--  -->
+      <div class="col-12">
+        <label for="stdTiredQuicklyEx" class="form-label"
+          >Do you get tired more quickly than your friends do during
+          exercise?</label
+        >
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdTiredQuicklyEx"
+            type="radio"
+            name="stdTiredQuicklyEx"
+            id="stdTiredQuicklyExYes"
+            value="Yes"
+          />
+          <label class="form-check-label" for="stdTiredQuicklyExYes">
+            Yes
+          </label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdTiredQuicklyEx"
+            type="radio"
+            name="stdTiredQuicklyEx"
+            id="stdTiredQuicklyExNo"
+            value="No"
+          />
+          <label class="form-check-label" for="stdTiredQuicklyExNo"> No </label>
+        </div>
+      </div>
+      <!--  -->
+      <div class="col-12">
+        <label for="stdSkipHeartbeatEx" class="form-label"
+          >Have you ever had racing of your heart or skipped heartbeats?</label
+        >
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdSkipHeartbeatEx"
+            type="radio"
+            name="stdSkipHeartbeatEx"
+            id="stdSkipHeartbeatExYes"
+            value="Yes"
+          />
+          <label class="form-check-label" for="stdSkipHeartbeatExYes">
+            Yes
+          </label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdSkipHeartbeatEx"
+            type="radio"
+            name="stdSkipHeartbeatEx"
+            id="stdSkipHeartbeatExNo"
+            value="No"
+          />
+          <label class="form-check-label" for="stdSkipHeartbeatExNo">
+            No
+          </label>
+        </div>
+      </div>
+      <!--  -->
+      <div class="col-12">
+        <label for="stdHighBlood" class="form-label"
+          >Have you had high blood pressure or high cholesterol?</label
+        >
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdHighBlood"
+            type="radio"
+            name="stdHighBlood"
+            id="stdHighBloodYes"
+            value="Yes"
+          />
+          <label class="form-check-label" for="stdHighBloodYes"> Yes </label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdHighBlood"
+            type="radio"
+            name="stdHighBlood"
+            id="stdHighBloodNo"
+            value="No"
+          />
+          <label class="form-check-label" for="stdHighBloodNo"> No </label>
+        </div>
+      </div>
+      <!--  -->
+      <div class="col-12">
+        <label for="stdHeartMurmur" class="form-label"
+          >Have you ever been told you have a heart murmur?</label
+        >
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdHeartMurmur"
+            type="radio"
+            name="stdHeartMurmur"
+            id="stdHeartMurmurYes"
+            value="Yes"
+          />
+          <label class="form-check-label" for="stdHeartMurmurYes"> Yes </label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdHeartMurmur"
+            type="radio"
+            name="stdHeartMurmur"
+            id="stdHeartMurmurNo"
+            value="No"
+          />
+          <label class="form-check-label" for="stdHeartMurmurNo"> No </label>
+        </div>
+      </div>
+      <!--  -->
+      <div class="col-12">
+        <label for="stdHeartProblemDeath" class="form-label"
+          >Has any family member or relative died of heart problems or of sudden
+          unexpected death before age 50?</label
+        >
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdHeartProblemDeath"
+            type="radio"
+            name="stdHeartProblemDeath"
+            id="stdHeartProblemDeathYes"
+            value="Yes"
+          />
+          <label class="form-check-label" for="stdHeartProblemDeathYes">
+            Yes
+          </label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdHeartProblemDeath"
+            type="radio"
+            name="stdHeartProblemDeath"
+            id="stdHeartProblemDeathNo"
+            value="No"
+          />
+          <label class="form-check-label" for="stdHeartProblemDeathNo">
+            No
+          </label>
+        </div>
+      </div>
+      <!--  -->
+      <div class="col-12">
+        <label for="stdFamilyHeartProblem" class="form-label"
+          >Has any family member been diagnosed with enlarged heart, (dilated
+          cardiomyopathy), hypertrophic cardiomyopathy, long QT syndrome or
+          other ion channelpathy (Brugada syndrome, etc), Marfan's syndrome, or
+          abnormal heart rhythm?</label
+        >
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdFamilyHeartProblem"
+            type="radio"
+            name="stdFamilyHeartProblem"
+            id="stdFamilyHeartProblemYes"
+            value="Yes"
+          />
+          <label class="form-check-label" for="stdFamilyHeartProblemYes">
+            Yes
+          </label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdFamilyHeartProblem"
+            type="radio"
+            name="stdFamilyHeartProblem"
+            id="stdFamilyHeartProblemNo"
+            value="No"
+          />
+          <label class="form-check-label" for="stdFamilyHeartProblemNo">
+            No
+          </label>
+        </div>
+      </div>
+      <!--  -->
+      <div class="col-12">
+        <label for="stdViralInfection" class="form-label"
+          >Have you had a severe viral infection (for example, myocarditis or
+          mononucleosis) within the last month?</label
+        >
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdViralInfection"
+            type="radio"
+            name="stdViralInfection"
+            id="stdViralInfectionYes"
+            value="Yes"
+          />
+          <label class="form-check-label" for="stdViralInfectionYes">
+            Yes
+          </label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdViralInfection"
+            type="radio"
+            name="stdViralInfection"
+            id="stdViralInfectionNo"
+            value="No"
+          />
+          <label class="form-check-label" for="stdViralInfectionNo"> No </label>
+        </div>
+      </div>
+      <!--  -->
+      <div class="col-12">
+        <label for="stdDenied" class="form-label"
+          >Has a physician ever denied or restricted your participation in
+          activities for any heart problems?</label
+        >
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdDenied"
+            type="radio"
+            name="stdDenied"
+            id="stdDeniedYes"
+            value="Yes"
+          />
+          <label class="form-check-label" for="stdDeniedYes"> Yes </label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdDenied"
+            type="radio"
+            name="stdDenied"
+            id="stdDeniedNo"
+            value="No"
+          />
+          <label class="form-check-label" for="stdDeniedNo"> No </label>
+        </div>
+      </div>
+      <!--  -->
+      <div class="col-12">
+        <label for="stdHeadInjury" class="form-label"
+          >Have you ever had a head injury or concussion?</label
+        >
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdHeadInjury"
+            type="radio"
+            name="stdHeadInjury"
+            id="stdHeadInjuryYes"
+            value="Yes"
+          />
+          <label class="form-check-label" for="stdHeadInjuryYes"> Yes </label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdHeadInjury"
+            type="radio"
+            name="stdHeadInjury"
+            id="stdHeadInjuryNo"
+            value="No"
+          />
+          <label class="form-check-label" for="stdHeadInjuryNo"> No </label>
+        </div>
+      </div>
+
+      <!--  -->
+      <div class="col-md-4" *ngIf="patientMainModel.stdHeadInjury == 'Yes'">
+        <label for="stdConcussion" class="form-label"
+          >When was your last concussion?
+        </label>
+        <input
+          [(ngModel)]="patientMainModel.stdConcussion"
+          name="stdConcussion"
+          #stdConcussionExplain="ngModel"
+          type="text"
+          class="form-control"
+          id="stdConcussion"
+        />
+      </div>
+      <!--  -->
+      <!--  -->
+      <div class="col-12">
+        <label for="stdMemoryLoss" class="form-label"
+          >Have you ever been knocked out, become unconscious, or lost your
+          memory?</label
+        >
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdMemoryLoss"
+            type="radio"
+            name="stdMemoryLoss"
+            id="stdMemoryLossYes"
+            value="Yes"
+          />
+          <label class="form-check-label" for="stdMemoryLossYes"> Yes </label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdMemoryLoss"
+            type="radio"
+            name="stdMemoryLoss"
+            id="stdMemoryLossNo"
+            value="No"
+          />
+          <label class="form-check-label" for="stdMemoryLossNo"> No </label>
+        </div>
+      </div>
+      <!--  -->
+      <div class="col-md-4" *ngIf="patientMainModel.stdMemoryLoss == 'Yes'">
+        <label for="stdMemoryLoss" class="form-label">How many times?</label>
+        <input
+          [(ngModel)]="patientMainModel.stdMemoryLossExplain"
+          name="stdMemoryLossExplain"
+          #stdMemoryLossExplain="ngModel"
+          type="text"
+          class="form-control"
+          id="stdMemoryLossExplain"
+        />
+      </div>
+
+      <!--  -->
+      <div class="col-12">
+        <label for="stdSeizure" class="form-label"
+          >Have you ever had a seizure?</label
+        >
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdSeizure"
+            type="radio"
+            name="stdSeizure"
+            id="stdSeizureYes"
+            value="Yes"
+          />
+          <label class="form-check-label" for="stdSeizureYes"> Yes </label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdSeizure"
+            type="radio"
+            name="stdSeizure"
+            id="stdSeizureNo"
+            value="No"
+          />
+          <label class="form-check-label" for="stdSeizureNo"> No </label>
+        </div>
+      </div>
+      <!--  -->
+      <div class="col-12">
+        <label for="stdHeadache" class="form-label"
+          >Do you have frequent or severe headaches?</label
+        >
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdHeadache"
+            type="radio"
+            name="stdHeadache"
+            id="stdHeadacheYes"
+            value="Yes"
+          />
+          <label class="form-check-label" for="stdHeadacheYes"> Yes </label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdHeadache"
+            type="radio"
+            name="stdHeadache"
+            id="stdHeadacheNo"
+            value="No"
+          />
+          <label class="form-check-label" for="stdHeadacheNo"> No </label>
+        </div>
+      </div>
+      <!--  -->
+      <div class="col-12">
+        <label for="stdNumbness" class="form-label"
+          >Have you ever had numbness or tingling in your arms, hands, legs or
+          feet?</label
+        >
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdNumbness"
+            type="radio"
+            name="stdNumbness"
+            id="stdNumbnessYes"
+            value="Yes"
+          />
+          <label class="form-check-label" for="stdNumbnessYes"> Yes </label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdNumbness"
+            type="radio"
+            name="stdNumbness"
+            id="stdNumbnessNo"
+            value="No"
+          />
+          <label class="form-check-label" for="stdNumbnessNo"> No </label>
+        </div>
+      </div>
+      <!--  -->
+      <div class="col-12">
+        <label for="stdPinchedNerve" class="form-label"
+          >Have you ever had a stinger, burner, or pinched nerve?</label
+        >
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdPinchedNerve"
+            type="radio"
+            name="stdPinchedNerve"
+            id="stdPinchedNerveYes"
+            value="Yes"
+          />
+          <label class="form-check-label" for="stdPinchedNerveYes"> Yes </label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdPinchedNerve"
+            type="radio"
+            name="stdPinchedNerve"
+            id="stdPinchedNerveNo"
+            value="No"
+          />
+          <label class="form-check-label" for="stdPinchedNerveNo"> No </label>
+        </div>
+      </div>
+      <!--  -->
+      <div class="col-12">
+        <label for="stdMissingOrgan" class="form-label"
+          >Are you missing any paired organs?</label
+        >
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdMissingOrgan"
+            type="radio"
+            name="stdMissingOrgan"
+            id="stdMissingOrganYes"
+            value="Yes"
+          />
+          <label class="form-check-label" for="stdMissingOrganYes"> Yes </label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdMissingOrgan"
+            type="radio"
+            name="stdMissingOrgan"
+            id="stdMissingOrganNo"
+            value="No"
+          />
+          <label class="form-check-label" for="stdMissingOrganNo"> No </label>
+        </div>
+      </div>
+
+      <!--  -->
+      <div class="col-12">
+        <label for="stdUnderDrCare" class="form-label"
+          >Are you under a doctor’s care?</label
+        >
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdUnderDrCare"
+            type="radio"
+            name="stdUnderDrCare"
+            id="stdUnderDrCareYes"
+            value="Yes"
+          />
+          <label class="form-check-label" for="stdUnderDrCareYes"> Yes </label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdUnderDrCare"
+            type="radio"
+            name="stdUnderDrCare"
+            id="stdUnderDrCareNo"
+            value="No"
+          />
+          <label class="form-check-label" for="stdUnderDrCareNo"> No </label>
+        </div>
+      </div>
+
+      <!--  -->
+      <div class="col-12">
+        <label for="stdTakingMed" class="form-label"
+          >Are you currently taking any prescription or non-prescription
+          (over-the-counter) medication or pills or using an inhaler?</label
+        >
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdTakingMed"
+            type="radio"
+            name="stdTakingMed"
+            id="stdTakingMedYes"
+            value="Yes"
+          />
+          <label class="form-check-label" for="stdTakingMedYes"> Yes </label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdTakingMed"
+            type="radio"
+            name="stdTakingMed"
+            id="stdTakingMedNo"
+            value="No"
+          />
+          <label class="form-check-label" for="stdTakingMedNo"> No </label>
+        </div>
+      </div>
+      <!--  -->
+      <div class="col-12">
+        <label for="stdAlergic" class="form-label"
+          >Do you have any allergies (for example, to pollen, medicine, food, or
+          stinging insects)?</label
+        >
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdAlergic"
+            type="radio"
+            name="stdAlergic"
+            id="stdAlergicYes"
+            value="Yes"
+          />
+          <label class="form-check-label" for="stdAlergicYes"> Yes </label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdAlergic"
+            type="radio"
+            name="stdAlergic"
+            id="stdAlergicNo"
+            value="No"
+          />
+          <label class="form-check-label" for="stdAlergicNo"> No </label>
+        </div>
+      </div>
+      <!--  -->
+
+      <div class="col-12">
+        <label for="stdDizzy" class="form-label"
+          >Have you ever been dizzy during or after exercise?</label
+        >
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdDizzy"
+            type="radio"
+            name="stdDizzy"
+            id="stdDizzyYes"
+            value="Yes"
+          />
+          <label class="form-check-label" for="stdDizzyYes"> Yes </label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdDizzy"
+            type="radio"
+            name="stdDizzy"
+            id="stdDizzyNo"
+            value="No"
+          />
+          <label class="form-check-label" for="stdDizzyNo"> No </label>
+        </div>
+      </div>
+      <!--  -->
+      <div class="col-12">
+        <label for="stdSkinProblem" class="form-label">
+          Do you have any current skin problems (for example, itching, rashes,
+          acne, warts, fungus, or blisters)?</label
+        >
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdSkinProblem"
+            type="radio"
+            name="stdSkinProblem"
+            id="stdSkinProblemYes"
+            value="Yes"
+          />
+          <label class="form-check-label" for="stdSkinProblemYes"> Yes </label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdSkinProblem"
+            type="radio"
+            name="stdSkinProblem"
+            id="stdSkinProblemNo"
+            value="No"
+          />
+          <label class="form-check-label" for="stdSkinProblemNo"> No </label>
+        </div>
+      </div>
+      <!--  -->
+      <div class="col-12">
+        <label for="stdIllnessInHeat" class="form-label"
+          >Have you ever become ill from exercising in the heat?</label
+        >
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdIllnessInHeat"
+            type="radio"
+            name="stdIllnessInHeat"
+            id="stdIllnessInHeatYes"
+            value="Yes"
+          />
+          <label class="form-check-label" for="stdIllnessInHeatYes">
+            Yes
+          </label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdIllnessInHeat"
+            type="radio"
+            name="stdIllnessInHeat"
+            id="stdIllnessInHeatNo"
+            value="No"
+          />
+          <label class="form-check-label" for="stdIllnessInHeatNo"> No </label>
+        </div>
+      </div>
+      <!--  -->
+      <div class="col-12">
+        <label for="stdEyeProblem" class="form-label"
+          >Have you had any problems with your eyes or vision?</label
+        >
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdEyeProblem"
+            type="radio"
+            name="stdEyeProblem"
+            id="stdEyeProblemYes"
+            value="Yes"
+          />
+          <label class="form-check-label" for="stdEyeProblemYes"> Yes </label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdEyeProblem"
+            type="radio"
+            name="stdEyeProblem"
+            id="stdEyeProblemNo"
+            value="No"
+          />
+          <label class="form-check-label" for="stdEyeProblemNo"> No </label>
+        </div>
+      </div>
+      <!--  -->
+      <div class="col-12">
+        <label for="stdBreathness" class="form-label"
+          >Have you ever gotten unexpectedly short of breath with
+          exercise?</label
+        >
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdBreathness"
+            type="radio"
+            name="stdBreathness"
+            id="stdBreathnessYes"
+            value="Yes"
+          />
+          <label class="form-check-label" for="stdBreathnessYes"> Yes </label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdBreathness"
+            type="radio"
+            name="stdBreathness"
+            id="stdBreathnessNo"
+            value="No"
+          />
+          <label class="form-check-label" for="stdBreathnessNo"> No </label>
+        </div>
+      </div>
+
+      <!--  -->
+      <div class="col-12">
+        <label for="stdAsthma" class="form-label">Do you have asthma?</label>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdAsthma"
+            type="radio"
+            name="stdAsthma"
+            id="stdAsthmaYes"
+            value="Yes"
+          />
+          <label class="form-check-label" for="stdAsthmaYes"> Yes </label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdAsthma"
+            type="radio"
+            name="stdAsthma"
+            id="stdAsthmaNo"
+            value="No"
+          />
+          <label class="form-check-label" for="stdAsthmaNo"> No </label>
+        </div>
+      </div>
+      <!--  -->
+      <div class="col-12">
+        <label for="stdSeasonalAlergy" class="form-label"
+          >Do you have seasonal allergies that require medical treatment?</label
+        >
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdSeasonalAlergy"
+            type="radio"
+            name="stdSeasonalAlergy"
+            id="stdSeasonalAlergyYes"
+            value="Yes"
+          />
+          <label class="form-check-label" for="stdSeasonalAlergyYes">
+            Yes
+          </label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdSeasonalAlergy"
+            type="radio"
+            name="stdSeasonalAlergy"
+            id="stdSeasonalAlergyNo"
+            value="No"
+          />
+          <label class="form-check-label" for="stdSeasonalAlergyNo"> No </label>
+        </div>
+      </div>
+      <!--  -->
+      <div class="col-12">
+        <label for="stdProtective" class="form-label"
+          >Do you use any special protective or corrective equipment or devices
+          that aren't usually used for your activity or position (for example,
+          knee brace, special neck roll, foot orthotics, retainer on your teeth,
+          hearing aid)?</label
+        >
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdProtective"
+            type="radio"
+            name="stdProtective"
+            id="stdProtectiveYes"
+            value="Yes"
+          />
+          <label class="form-check-label" for="stdProtectiveYes"> Yes </label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdProtective"
+            type="radio"
+            name="stdProtective"
+            id="stdProtectiveNo"
+            value="No"
+          />
+          <label class="form-check-label" for="stdProtectiveNo"> No </label>
+        </div>
+      </div>
+      <!--  -->
+      <div class="col-12">
+        <label for="stdInjurySwelling" class="form-label"
+          >Have you ever had a sprain, strain, or swelling after injury?</label
+        >
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdInjurySwelling"
+            type="radio"
+            name="stdInjurySwelling"
+            id="stdInjurySwellingYes"
+            value="Yes"
+          />
+          <label class="form-check-label" for="stdInjurySwellingYes">
+            Yes
+          </label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdInjurySwelling"
+            type="radio"
+            name="stdInjurySwelling"
+            id="stdInjurySwellingNo"
+            value="No"
+          />
+          <label class="form-check-label" for="stdInjurySwellingNo"> No </label>
+        </div>
+      </div>
+      <!--  -->
+      <div class="col-12">
+        <label for="stdFracturedBone" class="form-label"
+          >Have you broken or fractured any bones or dislocated any
+          joints?</label
+        >
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdFracturedBone"
+            type="radio"
+            name="stdFracturedBone"
+            id="stdFracturedBoneYes"
+            value="Yes"
+          />
+          <label class="form-check-label" for="stdFracturedBoneYes">
+            Yes
+          </label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdFracturedBone"
+            type="radio"
+            name="stdFracturedBone"
+            id="stdFracturedBoneNo"
+            value="No"
+          />
+          <label class="form-check-label" for="stdFracturedBoneNo"> No </label>
+        </div>
+      </div>
+      <!--  -->
+      <div class="col-12" *ngIf="patientMainModel.stdFracturedBone == 'Yes'">
+        <label for="stdFracturedBone" class="form-label"
+          >If yes, check appropriate box and explain below:</label
+        >
+
+        <div class="form-check" class="col-3">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdFracturedHead"
+            type="checkbox"
+            name="stdFracturedHead"
+            id="stdFracturedHead"
+            value="Head"
+          />
+          <label class="form-check-label" for="stdFracturedHead"> Head </label>
+        </div>
+        <div class="form-check" class="col-3">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdFracturedNeck"
+            type="checkbox"
+            name="stdFracturedNeck"
+            id="stdFracturedNeck"
+            value="Neck"
+          />
+          <label class="form-check-label" for="stdFracturedNeck"> Neck </label>
+        </div>
+        <div class="form-check" class="col-3">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdFracturedBack"
+            type="checkbox"
+            name="stdFracturedBack"
+            id="stdFracturedBack"
+            value="Back"
+          />
+          <label class="form-check-label" for="stdFracturedBack"> Back </label>
+        </div>
+        <div class="form-check" class="col-3">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdFracturedChest"
+            type="checkbox"
+            name="stdFracturedChest"
+            id="stdFracturedChest"
+            value="Chest"
+          />
+          <label class="form-check-label" for="stdFracturedChest">
+            Chest
+          </label>
+        </div>
+        <!--  -->
+        <div class="form-check" class="col-3">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdFracturedShoulder"
+            type="checkbox"
+            name="stdFracturedShoulder"
+            id="stdFracturedShoulder"
+            value="Shoulder"
+          />
+          <label class="form-check-label" for="stdFracturedShoulder">
+            Shoulder
+          </label>
+        </div>
+        <!--  -->
+        <div class="form-check" class="col-3">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdFracturedUpperArm"
+            type="checkbox"
+            name="stdFracturedUpperArm"
+            id="stdFracturedUpperArm"
+            value="UpperArm"
+          />
+          <label class="form-check-label" for="stdFracturedUpperArm">
+            Upper Arm
+          </label>
+        </div>
+        <!--  -->
+        <div class="form-check" class="col-3">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdFracturedElbow"
+            type="checkbox"
+            name="stdFracturedElbow"
+            id="stdFracturedElbow"
+            value="Elbow"
+          />
+          <label class="form-check-label" for="stdFracturedElbow">
+            Elbow
+          </label>
+        </div>
+        <!--  -->
+        <div class="form-check" class="col-3">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdFracturedForearm"
+            type="checkbox"
+            name="stdFracturedForearm"
+            id="stdFracturedForearm"
+            value="Forearm"
+          />
+          <label class="form-check-label" for="stdFracturedForearm">
+            Forearm
+          </label>
+        </div>
+        <!--  -->
+        <div class="form-check" class="col-3">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdFracturedWrist"
+            type="checkbox"
+            name="stdFracturedWrist"
+            id="stdFracturedWrist"
+            value="Wrist"
+          />
+          <label class="form-check-label" for="stdFracturedWrist">
+            Wrist
+          </label>
+        </div>
+        <!--  -->
+        <div class="form-check" class="col-3">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdFracturedHand"
+            type="checkbox"
+            name="stdFracturedHand"
+            id="stdFracturedHand"
+            value="Hand"
+          />
+          <label class="form-check-label" for="stdFracturedHand"> Hand </label>
+        </div>
+        <!--  -->
+        <div class="form-check" class="col-3">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdFracturedFinger"
+            type="checkbox"
+            name="stdFracturedFinger"
+            id="stdFracturedFinger"
+            value="Finger"
+          />
+          <label class="form-check-label" for="stdFracturedFinger">
+            Finger
+          </label>
+        </div>
+        <!--  -->
+        <div class="form-check" class="col-3">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdFracturedFoot"
+            type="checkbox"
+            name="stdFracturedFoot"
+            id="stdFracturedFoot"
+            value="Foot"
+          />
+          <label class="form-check-label" for="stdFracturedFoot"> Foot </label>
+        </div>
+        <!--  -->
+        <div class="form-check" class="col-3">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdFracturedHip"
+            type="checkbox"
+            name="stdFracturedHip"
+            id="stdFracturedHip"
+            value="Hip"
+          />
+          <label class="form-check-label" for="stdFracturedHip"> Hip </label>
+        </div>
+        <!--  -->
+        <div class="form-check" class="col-3">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdFracturedThigh"
+            type="checkbox"
+            name="stdFracturedThigh"
+            id="stdFracturedThigh"
+            value="Thigh"
+          />
+          <label class="form-check-label" for="stdFracturedThigh">
+            Thigh
+          </label>
+        </div>
+        <!--  -->
+        <div class="form-check" class="col-3">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdFracturedKnee"
+            type="checkbox"
+            name="stdFracturedKnee"
+            id="stdFracturedKnee"
+            value="Knee"
+          />
+          <label class="form-check-label" for="stdFracturedKnee"> Knee </label>
+        </div>
+        <!--  -->
+        <div class="form-check" class="col-3">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdFracturedShin"
+            type="checkbox"
+            name="stdFracturedShin"
+            id="stdFracturedShin"
+            value="Shin/calf"
+          />
+          <label class="form-check-label" for="stdFracturedShin">
+            Shin/Calf
+          </label>
+        </div>
+        <!--  -->
+        <div class="form-check" class="col-3">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdFracturedAnkle"
+            type="checkbox"
+            name="stdFracturedAnkle"
+            id="stdFracturedAnkle"
+            value="Ankle/calf"
+          />
+          <label class="form-check-label" for="stdFracturedAnkle">
+            Ankle
+          </label>
+        </div>
+      </div>
+      <!--  -->
+      <div class="col-12">
+        <label for="stdMusclePain" class="form-label"
+          >Have you had any other problems with pain or swelling in muscles,
+          tendons, bones, or joints?</label
+        >
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdMusclePain"
+            type="radio"
+            name="stdMusclePain"
+            id="stdMusclePainYes"
+            value="Yes"
+          />
+          <label class="form-check-label" for="stdMusclePainYes"> Yes </label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdMusclePain"
+            type="radio"
+            name="stdMusclePain"
+            id="stdMusclePainNo"
+            value="No"
+          />
+          <label class="form-check-label" for="stdMusclePainNo"> No </label>
+        </div>
+      </div>
+      <!--  -->
+
+      <!--  -->
+      <div class="col-12">
+        <label for="stdWeight" class="form-label"
+          >Do you want to weigh more or less than you do now?
+        </label>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdWeight"
+            type="radio"
+            name="stdWeight"
+            id="stdWeightYes"
+            value="Yes"
+          />
+          <label class="form-check-label" for="stdWeightYes"> Yes </label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdWeight"
+            type="radio"
+            name="stdWeight"
+            id="stdWeightNo"
+            value="No"
+          />
+          <label class="form-check-label" for="stdWeightNo"> No </label>
+        </div>
+      </div>
+      <!--  -->
+      <div class="col-12">
+        <label for="stdStress" class="form-label"
+          >Do you feel stressed out?</label
+        >
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdStress"
+            type="radio"
+            name="stdStress"
+            id="stdStressYes"
+            value="Yes"
+          />
+          <label class="form-check-label" for="stdStressYes"> Yes </label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdStress"
+            type="radio"
+            name="stdStress"
+            id="stdStressNo"
+            value="No"
+          />
+          <label class="form-check-label" for="stdStressNo"> No </label>
+        </div>
+      </div>
+      <!--  -->
+      <div class="col-12">
+        <label for="stdSickleCell" class="form-label"
+          >Have you ever been diagnosed with or treated for sickle cell trait or
+          sickle cell disease?</label
+        >
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdSickleCell"
+            type="radio"
+            name="stdSickleCell"
+            id="stdSickleCellYes"
+            value="Yes"
+          />
+          <label class="form-check-label" for="stdSickleCellYes"> Yes </label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.stdSickleCell"
+            type="radio"
+            name="stdSickleCell"
+            id="stdSickleCellNo"
+            value="No"
+          />
+          <label class="form-check-label" for="stdSickleCellNo"> No </label>
+        </div>
+      </div>
+      <!--  -->
+      <div class="col-md-12" *ngIf="patientMainModel.gender == 'Female'">
+        <div class="col-md-4">
+          <label for="stdFirstMenstrual" class="form-label"
+            >When was your first menstrual period?</label
+          >
+          <input
+            [(ngModel)]="patientMainModel.stdFirstMenstrual"
+            name="stdFirstMenstrual"
+            #stdFirstMenstrual="ngModel"
+            type="text"
+            class="form-control"
+            id="stdFirstMenstrual"
+          />
+        </div>
+        <!--  -->
+        <div class="col-md-4">
+          <label for="stdRecentMenstrual" class="form-label"
+            >When was your most recent menstrual period?</label
+          >
+          <input
+            [(ngModel)]="patientMainModel.stdRecentMenstrual"
+            name="stdRecentMenstrual"
+            #stdRecentMenstrual="ngModel"
+            type="text"
+            class="form-control"
+            id="stdRecentMenstrual"
+          />
+        </div>
+        <!--  -->
+        <div class="col-md-4">
+          <label for="stdMenstrualTime" class="form-label"
+            >How much time do you usually have from the start of one period to
+            the start of another?</label
+          >
+          <input
+            [(ngModel)]="patientMainModel.stdMenstrualTime"
+            name="stdMenstrualTime"
+            #stdMenstrualTime="ngModel"
+            type="text"
+            class="form-control"
+            id="stdMenstrualTime"
+          />
+        </div>
+        <!--  -->
+        <div class="col-md-4">
+          <label for="stdLastYearPeriods" class="form-label"
+            >How many periods have you had in the last year?</label
+          >
+          <input
+            [(ngModel)]="patientMainModel.stdLastYearPeriods"
+            name="stdLastYearPeriods"
+            #stdLastYearPeriods="ngModel"
+            type="text"
+            class="form-control"
+            id="stdLastYearPeriods"
+          />
+        </div>
+        <!--  -->
+        <div class="col-md-4">
+          <label for="stdLongestPeriodTime" class="form-label"
+            >What was the longest time between periods in the last year?</label
+          >
+          <input
+            [(ngModel)]="patientMainModel.stdLongestPeriodTime"
+            name="stdLongestPeriodTime"
+            #stdLongestPeriodTime="ngModel"
+            type="text"
+            class="form-control"
+            id="stdLongestPeriodTime"
+          />
+        </div>
+      </div>
+      <!--  -->
+      <div class="col-md-12" *ngIf="patientMainModel.gender == 'Male'">
+        <div class="row">
+          <div class="col-md-6">
+            <label for="stdTwoTesticle" class="form-label"
+              >Do you have two testicles?</label
+            >
+            <input
+              [(ngModel)]="patientMainModel.stdTwoTesticle"
+              name="stdTwoTesticle"
+              #stdTwoTesticle="ngModel"
+              type="text"
+              class="form-control"
+              id="stdTwoTesticle"
+            />
+          </div>
+          <!--  -->
+          <div class="col-md-6">
+            <label for="stdTesticularSwelling" class="form-label"
+              >Do you have any testicular swelling or masses?</label
+            >
+            <input
+              [(ngModel)]="patientMainModel.stdTesticularSwelling"
+              name="stdTesticularSwelling"
+              #stdTesticularSwelling="ngModel"
+              type="text"
+              class="form-control"
+              id="stdTesticularSwelling"
+            />
+          </div>
+        </div>
+      </div>
+      <!--  -->
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          [(ngModel)]="patientMainModel.stdECG"
+          type="checkbox"
+          name="stdECG"
+          id="stdECG"
+          value="ECG"
+        />
+        <label class="form-check-label" for="stdECG">
+          An electrocardiogram (ECG) is not required. By checking this box, I
+          choose to obtain an ECG for my student for additional cardiac
+          screening. I have read and understand the information about cardiac
+          screening. I understand it is the responsibility of my family to
+          schedule and pay for such ECG.
+        </label>
+      </div>
+      <!--  -->
+    </div>
+
     <!-- ====== Reason of Visit Dot Physical====== -->
 
     <div
