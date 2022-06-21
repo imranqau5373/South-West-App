@@ -95,6 +95,13 @@ export class GetAllNewpatientsComponent implements OnInit {
         else{
           result[i].covidFilePath = null;
         }
+      /*  Sport*/
+       if(result[i].schoolFilePath && result[i].schoolFilePath != null){
+          result[i].schoolFilePath = environment.apiUrl+result[i].schoolFilePath.replace('./public/','/') ;
+        }
+        else{
+          result[i].schoolFilePath = null;
+        }
       /*  */
         if(result[i].adult == "No"){
           result[i].consentPath = environment.apiUrl+result[i].consentPath.replace('./public/','/') ;

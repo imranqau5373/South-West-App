@@ -72,6 +72,46 @@ export class NewMainPatientComponent implements OnInit {
     this.patientMainModel.illegalDrug = "Notsure";
     this.patientMainModel.otherHealth = "Notsure";
     this.patientMainModel.dComment = "Notsure";
+    this.patientMainModel.stdAlergic = "No"
+    this.patientMainModel.stdAsthma = "No"
+    this.patientMainModel.stdBreathness = "No"
+   this.patientMainModel.stdChestPainEx = "No"
+   this.patientMainModel.stdDenied = "No"
+   this.patientMainModel.stdDizzy = "No"
+    this.patientMainModel.stdEyeProblem = "No"
+    this.patientMainModel.stdFamilyHeartProblem = "No"
+     this.patientMainModel.stdFracturedBone= "No"
+     this.patientMainModel.stdHeadache = "No"
+     this.patientMainModel.stdHeadInjury = "No"
+     this.patientMainModel.stdHeartMurmur = "No"
+     this.patientMainModel.stdHeartProblemDeath= "No"
+     this.patientMainModel.stdHeartTest= "No"
+     this.patientMainModel.stdHighBlood = "No"
+     this.patientMainModel.stdHospitalized= "No"
+    this.patientMainModel.stdIllness= "No"
+    this.patientMainModel.stdIllnessInHeat= "No"
+    this.patientMainModel.stdInjurySwelling= "No"
+      this.patientMainModel.stdMemoryLoss= "No"
+     this.patientMainModel.stdMissingOrgan= "No"
+    this.patientMainModel.stdMusclePain= "No"
+     this.patientMainModel.stdNumbness= "No"
+      this.patientMainModel.stdPassedOutEx= "No"
+     this.patientMainModel.stdPinchedNerve= "No"
+      this.patientMainModel.stdProtective = "No"
+     this.patientMainModel.stdSeasonalAlergy = "No"
+     this.patientMainModel.stdSeizure = "No"
+    this.patientMainModel.stdSickleCell = "No"
+     this.patientMainModel.stdSkinProblem = "No"
+    this.patientMainModel.stdSkipHeartbeatEx = "No"
+ this.patientMainModel.stdStress = "No"
+  this.patientMainModel.stdSurgery = "No"
+   this.patientMainModel.stdTakingMed= "No"
+    this.patientMainModel.stdTiredQuicklyEx = "No"
+     this.patientMainModel.stdUnderDrCare = "No"
+      this.patientMainModel.stdViralInfection = "No"
+       this.patientMainModel.stdWeight = "No"
+        
+  
     
   }
 

@@ -106,6 +106,14 @@
           class="link-primary"
           >Covid Report</a
         >
+        <!-- Sportphysical -->
+        <a
+          *ngIf="patient.reasonForVisit == 'schoolPhysical'"
+          href="javascript:void(0)"
+          (click)="downloadFile(patient.schoolFilePath)"
+          class="link-primary"
+          >Sports Physical Report</a
+        >
         <!--  -->
         <a
           href="javascript:void(0)"

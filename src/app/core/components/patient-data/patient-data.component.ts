@@ -260,6 +260,7 @@ export class PatientDataComponent implements OnInit {
       formData.append("stdHeadInjury", this.patientMainModel.stdHeadInjury)
       formData.append("stdConcussion", this.patientMainModel.stdConcussion)
       formData.append("stdMemoryLoss", this.patientMainModel.stdMemoryLoss)
+      formData.append("stdMemoryLossExplain", this.patientMainModel.stdMemoryLossExplain)
       formData.append("stdSeizure", this.patientMainModel.stdSeizure)
       formData.append("stdHeadache", this.patientMainModel.stdHeadache)
       formData.append("stdNumbness", this.patientMainModel.stdNumbness)
