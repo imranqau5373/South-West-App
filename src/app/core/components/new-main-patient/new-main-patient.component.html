@@ -1,5 +1,5 @@
 <div class="container py-3">
-  <h1 class="display-6" i18n>New Patient Details</h1>
+  <h1 class="display-6">New Patient Details</h1>
   <br />
   <form
     #patient="ngForm"
@@ -7,7 +7,7 @@
     class="row g-3"
   >
     <div class="col-md-4">
-      <label for="firstName" class="form-label" i18n>First Name</label>
+      <label for="firstName" class="form-label">First Name</label>
       <input
         [(ngModel)]="patientMainModel.firstName"
         name="firstName"
@@ -21,13 +21,12 @@
       <div
         class="invalid-feedback"
         *ngIf="patient.submitted && firstName.invalid"
-        i18n
       >
         First Name is Required
       </div>
     </div>
     <div class="col-md-4">
-      <label for="middleName" class="form-label" i18n>Middle Name</label>
+      <label for="middleName" class="form-label">Middle Name</label>
       <input
         [(ngModel)]="patientMainModel.middleName"
         name="middleName"
@@ -38,7 +37,7 @@
       />
     </div>
     <div class="col-md-4">
-      <label for="lastName" class="form-label" i18n>Last Name</label>
+      <label for="lastName" class="form-label">Last Name</label>
       <input
         [(ngModel)]="patientMainModel.lastName"
         name="lastName"
@@ -52,13 +51,12 @@
       <div
         class="invalid-feedback"
         *ngIf="patient.submitted && lastName.invalid"
-        i18n
       >
         Last Name is Required
       </div>
     </div>
     <div class="col-md-4">
-      <label for="email" class="form-label" i18n>Email</label>
+      <label for="email" class="form-label">Email</label>
       <input
         [(ngModel)]="patientMainModel.email"
         name="email"
@@ -69,11 +67,7 @@
         [ngClass]="{ 'is-invalid': patient.submitted && email.invalid }"
         required
       />
-      <div
-        class="invalid-feedback"
-        *ngIf="patient.submitted && email.invalid"
-        i18n
-      >
+      <div class="invalid-feedback" *ngIf="patient.submitted && email.invalid">
         Email is Required
       </div>
     </div>
@@ -87,7 +81,7 @@
             </div>
           </div> -->
     <div class="col-md-4">
-      <label for="dateOfBirth" class="form-label" i18n>Date of Birth</label>
+      <label for="dateOfBirth" class="form-label">Date of Birth</label>
       <input
         [(ngModel)]="patientMainModel.dateOfBirth"
         name="dateOfBirth"
@@ -102,14 +96,13 @@
       <div
         class="invalid-feedback"
         *ngIf="patient.submitted && dateOfBirth.invalid"
-        i18n
       >
         Date of Birth is Required
       </div>
     </div>
 
     <div class="col-4" *ngIf="patientMainModel.adult == 'No'">
-      <label for="guardianIdCardPicture" class="form-label" i18n
+      <label for="guardianIdCardPicture" class="form-label"
         >Upload Guardian ID Card Picture</label
       >
       <input
@@ -129,13 +122,12 @@
       <div
         class="invalid-feedback"
         *ngIf="patient.submitted && guardianIdCardPicture.invalid"
-        i18n
       >
         Guardian ID Card Picture is Required
       </div>
     </div>
     <div class="col-4" *ngIf="patientMainModel.adult == 'No'">
-      <label for="guardianName" class="form-label" i18n>Guardian Name</label>
+      <label for="guardianName" class="form-label">Guardian Name</label>
       <input
         [(ngModel)]="patientMainModel.guardianName"
         name="guardianName"
@@ -149,13 +141,12 @@
       <div
         class="invalid-feedback"
         *ngIf="patient.submitted && guardianName.invalid"
-        i18n
       >
         Guardian Name is Required
       </div>
     </div>
     <div class="col-4" *ngIf="patientMainModel.adult == 'No'">
-      <label for="guardianName" class="form-label" i18n
+      <label for="guardianName" class="form-label"
         >Relationship With Patient</label
       >
       <input
@@ -173,13 +164,12 @@
       <div
         class="invalid-feedback"
         *ngIf="patient.submitted && guardianRelation.invalid"
-        i18n
       >
         Relationship With Patient is Required
       </div>
     </div>
     <div class="col-6">
-      <label for="ssn" class="form-label" i18n>Gender </label>
+      <label for="ssn" class="form-label">Gender </label>
     </div>
     <div class="col-12">
       <div class="form-check">
@@ -191,9 +181,7 @@
           value="Male"
           [(ngModel)]="patientMainModel.gender"
         />
-        <label class="form-check-label" for="genderRadioMale" i18n>
-          Male
-        </label>
+        <label class="form-check-label" for="genderRadioMale"> Male </label>
       </div>
       <div class="form-check">
         <input
@@ -204,16 +192,14 @@
           value="Female"
           [(ngModel)]="patientMainModel.gender"
         />
-        <label class="form-check-label" for="genderRadioFemale" i18n>
-          Female
-        </label>
+        <label class="form-check-label" for="genderRadioFemale"> Female </label>
       </div>
     </div>
     <div
       class="col-md-6"
       *ngIf="patientMainModel.gender == 'Female' && isFemaleAge"
     >
-      <label for="firstName" class="form-label" i18n>
+      <label for="firstName" class="form-label">
         When was approximately your last mammogram ?</label
       >
       <input
@@ -229,7 +215,7 @@
       class="col-md-6"
       *ngIf="patientMainModel.gender == 'Female' && isFemaleAge"
     >
-      <label for="lastmenstrualPeriod" class="form-label" i18n
+      <label for="lastmenstrualPeriod" class="form-label"
         >When was your last menstrual period</label
       >
       <select
@@ -240,10 +226,10 @@
         (change)="changeLastmenstrualPeriod($event)"
         #lastmenstrualPeriod="ngModel"
       >
-        <option selected i18n>Select</option>
-        <option value="Date" i18n>Date</option>
-        <option value="Menopause" i18n>I am in Menopause</option>
-        <option value="NA" i18n>Not Applicable</option>
+        <option selected>Select</option>
+        <option value="Date">Date</option>
+        <option value="Menopause">I am in Menopause</option>
+        <option value="NA">Not Applicable</option>
       </select>
     </div>
     <div
@@ -267,7 +253,7 @@
       class="col-12"
       *ngIf="patientMainModel.gender == 'Female' && isFemaleAge"
     >
-      <label for="insurance" class="form-label" i18n
+      <label for="insurance" class="form-label"
         >Are you Breast Feeding/Lactating?</label
       >
       <div class="form-check">
@@ -279,9 +265,7 @@
           id="breastFeedingYes"
           value="Yes"
         />
-        <label class="form-check-label" for="breastFeedingYes" i18n>
-          Yes
-        </label>
+        <label class="form-check-label" for="breastFeedingYes"> Yes </label>
       </div>
       <div class="form-check">
         <input
@@ -292,14 +276,14 @@
           id="breastFeedingNo"
           value="No"
         />
-        <label class="form-check-label" for="breastFeedingNo" i18n> No </label>
+        <label class="form-check-label" for="breastFeedingNo"> No </label>
       </div>
     </div>
     <div
       class="col-6"
       *ngIf="patientMainModel.gender == 'Female' && isFemaleAge"
     >
-      <label for="insurance" class="form-label" i18n>Are you Pregnant?</label>
+      <label for="insurance" class="form-label">Are you Pregnant?</label>
       <div class="form-check">
         <input
           class="form-check-input"
@@ -309,7 +293,7 @@
           id="pregnantYes"
           value="Yes"
         />
-        <label class="form-check-label" for="pregnantYes" i18n> Yes </label>
+        <label class="form-check-label" for="pregnantYes"> Yes </label>
       </div>
       <div class="form-check">
         <input
@@ -320,13 +304,11 @@
           id="pregnantNo"
           value="No"
         />
-        <label class="form-check-label" for="pregnantNo" i18n> No </label>
+        <label class="form-check-label" for="pregnantNo"> No </label>
       </div>
     </div>
     <div class="col-6" *ngIf="patientMainModel.pregnant == 'Yes'">
-      <label for="pregnantMonths" class="form-label" i18n>
-        How many months</label
-      >
+      <label for="pregnantMonths" class="form-label"> How many months</label>
       <input
         [(ngModel)]="patientMainModel.pregnantMonths"
         name="pregnantMonths"
@@ -337,9 +319,7 @@
       />
     </div>
     <div class="col-12">
-      <label for="insurance" class="form-label" i18n
-        >DO YOU HAVE INSURANCE?</label
-      >
+      <label for="insurance" class="form-label">DO YOU HAVE INSURANCE?</label>
       <div class="form-check">
         <input
           class="form-check-input"
@@ -349,7 +329,7 @@
           id="insuranceYes"
           value="Yes"
         />
-        <label class="form-check-label" for="insuranceYes" i18n> Yes </label>
+        <label class="form-check-label" for="insuranceYes"> Yes </label>
       </div>
       <div class="form-check">
         <input
@@ -360,11 +340,11 @@
           id="insuranceNo"
           value="No"
         />
-        <label class="form-check-label" for="insuranceNo" i18n> No </label>
+        <label class="form-check-label" for="insuranceNo"> No </label>
       </div>
     </div>
     <div class="col-4" *ngIf="patientMainModel.insurance == 'Yes'">
-      <label for="insuranceFront" class="form-label" i18n
+      <label for="insuranceFront" class="form-label"
         >UPLOAD FRONT PICTURE OF INSURANCE CARD</label
       >
       <input
@@ -384,13 +364,12 @@
       <div
         class="invalid-feedback"
         *ngIf="patient.submitted && insuranceFront.invalid"
-        i18n
       >
         Front Picture Of Insurance Card is Required
       </div>
     </div>
     <div class="col-4" *ngIf="patientMainModel.insurance == 'Yes'">
-      <label for="insuranceBack" class="form-label" i18n
+      <label for="insuranceBack" class="form-label"
         >UPLOAD BACK PICTURE OF INSURANCE CARD</label
       >
       <input
@@ -408,7 +387,6 @@
       <div
         class="invalid-feedback"
         *ngIf="patient.submitted && insuranceBack.invalid"
-        i18n
       >
         Back Picture Of Insurance Card is Required
       </div>
@@ -419,7 +397,7 @@
         patientMainModel.insurance == 'Yes' && patientMainModel.adult == 'Yes'
       "
     >
-      <label for="idCardPicture" class="form-label" i18n
+      <label for="idCardPicture" class="form-label"
         >UPLOAD ID CARD PICTURE</label
       >
       <input
@@ -437,16 +415,13 @@
       <div
         class="invalid-feedback"
         *ngIf="patient.submitted && idCardPicture.invalid"
-        i18n
       >
         ID Card Piciture is Required
       </div>
     </div>
 
     <div class="col-md-6">
-      <label for="reasonForVisit" class="form-label" i18n
-        >Reason for Visit</label
-      >
+      <label for="reasonForVisit" class="form-label">Reason for Visit</label>
       <select
         class="form-select"
         [(ngModel)]="patientMainModel.reasonForVisit"
@@ -459,29 +434,28 @@
           'is-invalid': patient.submitted && reasonForVisit.invalid
         }"
       >
-        <option selected i18n>Select</option>
-        <option value="CovidConsultation" i18n>Covid Test Consultation</option>
-        <option value="Covid" i18n>Covid</option>
+        <option selected>Select</option>
+        <option value="CovidConsultation">Covid Test Consultation</option>
+        <option value="Covid">Covid</option>
 
-        <option value="Consultation / Medicine Refill" i18n>
+        <option value="Consultation / Medicine Refill">
           Consultation /Medicine Refill
         </option>
-        <option value="schoolPhysical" i18n>Sports/School Physical</option>
-        <option value="Immigration" i18n>Immigration</option>
-        <option value="dotPhysical" i18n>Dot Physical</option>
-        <option value="Other" i18n>Other</option>
+        <option value="schoolPhysical">Sports/School Physical</option>
+        <option value="Immigration">Immigration</option>
+        <option value="dotPhysical">Dot Physical</option>
+        <option value="Other">Other</option>
       </select>
       <div
         class="invalid-feedback"
         *ngIf="patient.submitted && reasonForVisit.invalid"
-        i18n
       >
         Reason for Visit is Required
       </div>
     </div>
 
     <div class="col-md-6" *ngIf="patientMainModel.reasonForVisit == 'Other'">
-      <label for="idCardPicture" class="form-label" i18n>Explain</label>
+      <label for="idCardPicture" class="form-label">Explain</label>
       <input
         [(ngModel)]="patientMainModel.reasonForVisitOther"
         name="reasonForVisitOther"
@@ -500,7 +474,7 @@
       <br /> -->
       <div class="row">
         <div class="col-md-4">
-          <label for="grade" class="form-label" i18n>Grade</label>
+          <label for="grade" class="form-label">Grade</label>
           <input
             [(ngModel)]="patientMainModel.grade"
             name="garde"
@@ -511,7 +485,7 @@
           />
         </div>
         <div class="col-md-4">
-          <label for="school" class="form-label" i18n>School</label>
+          <label for="school" class="form-label">School</label>
           <input
             [(ngModel)]="patientMainModel.school"
             name="school"
@@ -524,7 +498,7 @@
       </div>
       <!-- Student Questions  -->
       <div class="col-12">
-        <label for="stdIllness" class="form-label" i18n
+        <label for="stdIllness" class="form-label"
           >Have you had a medical illness or injury since your last check up or
           physical?</label
         >
@@ -537,7 +511,7 @@
             id="stdIllnessYes"
             value="Yes"
           />
-          <label class="form-check-label" for="stdIllnessYes" i18n> Yes </label>
+          <label class="form-check-label" for="stdIllnessYes"> Yes </label>
         </div>
         <div class="form-check">
           <input
@@ -548,12 +522,12 @@
             id="stdIllnessNo"
             value="No"
           />
-          <label class="form-check-label" for="stdIllnessNo" i18n> No </label>
+          <label class="form-check-label" for="stdIllnessNo"> No </label>
         </div>
       </div>
       <!--  -->
       <div class="col-12">
-        <label for="stdHospitalized" class="form-label" i18n
+        <label for="stdHospitalized" class="form-label"
           >Have you been hospitalized overnight in the past year?</label
         >
         <div class="form-check">
@@ -565,9 +539,7 @@
             id="stdHospitalizedYes"
             value="Yes"
           />
-          <label class="form-check-label" for="stdHospitalizedYes" i18n>
-            Yes
-          </label>
+          <label class="form-check-label" for="stdHospitalizedYes"> Yes </label>
         </div>
         <div class="form-check">
           <input
@@ -578,14 +550,12 @@
             id="stdHospitalizedNo"
             value="No"
           />
-          <label class="form-check-label" for="stdHospitalizedNo" i18n>
-            No
-          </label>
+          <label class="form-check-label" for="stdHospitalizedNo"> No </label>
         </div>
       </div>
       <!--  -->
       <div class="col-12">
-        <label for="stdSurgery" class="form-label" i18n
+        <label for="stdSurgery" class="form-label"
           >Have you ever had surgery?</label
         >
         <div class="form-check">
@@ -597,7 +567,7 @@
             id="stdSurgeryYes"
             value="Yes"
           />
-          <label class="form-check-label" for="stdSurgeryYes" i18n> Yes </label>
+          <label class="form-check-label" for="stdSurgeryYes"> Yes </label>
         </div>
         <div class="form-check">
           <input
@@ -608,12 +578,12 @@
             id="stdSurgeryNo"
             value="No"
           />
-          <label class="form-check-label" for="stdSurgeryNo" i18n> No </label>
+          <label class="form-check-label" for="stdSurgeryNo"> No </label>
         </div>
       </div>
       <!--  -->
       <div class="col-12">
-        <label for="stdHeartTest" class="form-label" i18n
+        <label for="stdHeartTest" class="form-label"
           >Have you ever had prior testing for the heart ordered by a
           physician?</label
         >
@@ -626,9 +596,7 @@
             id="stdHeartTestYes"
             value="Yes"
           />
-          <label class="form-check-label" for="stdHeartTestYes" i18n>
-            Yes
-          </label>
+          <label class="form-check-label" for="stdHeartTestYes"> Yes </label>
         </div>
         <div class="form-check">
           <input
@@ -639,12 +607,12 @@
             id="stdHeartTestNo"
             value="No"
           />
-          <label class="form-check-label" for="stdHeartTestNo" i18n> No </label>
+          <label class="form-check-label" for="stdHeartTestNo"> No </label>
         </div>
       </div>
       <!--  -->
       <div class="col-12">
-        <label for="stdPassedOutEx" class="form-label" i18n
+        <label for="stdPassedOutEx" class="form-label"
           >Have you ever passed out during or after exercise?</label
         >
         <div class="form-check">
@@ -656,9 +624,7 @@
             id="stdPassedOutExYes"
             value="Yes"
           />
-          <label class="form-check-label" for="stdPassedOutExYes" i18n>
-            Yes
-          </label>
+          <label class="form-check-label" for="stdPassedOutExYes"> Yes </label>
         </div>
         <div class="form-check">
           <input
@@ -669,14 +635,12 @@
             id="stdPassedOutExNo"
             value="No"
           />
-          <label class="form-check-label" for="stdPassedOutExNo" i18n>
-            No
-          </label>
+          <label class="form-check-label" for="stdPassedOutExNo"> No </label>
         </div>
       </div>
       <!--  -->
       <div class="col-12">
-        <label for="stdChestPainEx" class="form-label" i18n
+        <label for="stdChestPainEx" class="form-label"
           >Have you ever had chest pain during or after exercise?</label
         >
         <div class="form-check">
@@ -688,9 +652,7 @@
             id="stdChestPainExYes"
             value="Yes"
           />
-          <label class="form-check-label" for="stdChestPainExYes" i18n>
-            Yes
-          </label>
+          <label class="form-check-label" for="stdChestPainExYes"> Yes </label>
         </div>
         <div class="form-check">
           <input
@@ -701,14 +663,12 @@
             id="stdChestPainExNo"
             value="No"
           />
-          <label class="form-check-label" for="stdChestPainExNo" i18n>
-            No
-          </label>
+          <label class="form-check-label" for="stdChestPainExNo"> No </label>
         </div>
       </div>
       <!--  -->
       <div class="col-12">
-        <label for="stdTiredQuicklyEx" class="form-label" i18n
+        <label for="stdTiredQuicklyEx" class="form-label"
           >Do you get tired more quickly than your friends do during
           exercise?</label
         >
@@ -721,7 +681,7 @@
             id="stdTiredQuicklyExYes"
             value="Yes"
           />
-          <label class="form-check-label" for="stdTiredQuicklyExYes" i18n>
+          <label class="form-check-label" for="stdTiredQuicklyExYes">
             Yes
           </label>
         </div>
@@ -734,14 +694,12 @@
             id="stdTiredQuicklyExNo"
             value="No"
           />
-          <label class="form-check-label" for="stdTiredQuicklyExNo" i18n>
-            No
-          </label>
+          <label class="form-check-label" for="stdTiredQuicklyExNo"> No </label>
         </div>
       </div>
       <!--  -->
       <div class="col-12">
-        <label for="stdSkipHeartbeatEx" class="form-label" i18n
+        <label for="stdSkipHeartbeatEx" class="form-label"
           >Have you ever had racing of your heart or skipped heartbeats?</label
         >
         <div class="form-check">
@@ -753,7 +711,7 @@
             id="stdSkipHeartbeatExYes"
             value="Yes"
           />
-          <label class="form-check-label" for="stdSkipHeartbeatExYes" i18n>
+          <label class="form-check-label" for="stdSkipHeartbeatExYes">
             Yes
           </label>
         </div>
@@ -766,14 +724,14 @@
             id="stdSkipHeartbeatExNo"
             value="No"
           />
-          <label class="form-check-label" for="stdSkipHeartbeatExNo" i18n>
+          <label class="form-check-label" for="stdSkipHeartbeatExNo">
             No
           </label>
         </div>
       </div>
       <!--  -->
       <div class="col-12">
-        <label for="stdHighBlood" class="form-label" i18n
+        <label for="stdHighBlood" class="form-label"
           >Have you had high blood pressure or high cholesterol?</label
         >
         <div class="form-check">
@@ -785,9 +743,7 @@
             id="stdHighBloodYes"
             value="Yes"
           />
-          <label class="form-check-label" for="stdHighBloodYes" i18n>
-            Yes
-          </label>
+          <label class="form-check-label" for="stdHighBloodYes"> Yes </label>
         </div>
         <div class="form-check">
           <input
@@ -798,12 +754,12 @@
             id="stdHighBloodNo"
             value="No"
           />
-          <label class="form-check-label" for="stdHighBloodNo" i18n> No </label>
+          <label class="form-check-label" for="stdHighBloodNo"> No </label>
         </div>
       </div>
       <!--  -->
       <div class="col-12">
-        <label for="stdHeartMurmur" class="form-label" i18n
+        <label for="stdHeartMurmur" class="form-label"
           >Have you ever been told you have a heart murmur?</label
         >
         <div class="form-check">
@@ -815,9 +771,7 @@
             id="stdHeartMurmurYes"
             value="Yes"
           />
-          <label class="form-check-label" for="stdHeartMurmurYes" i18n>
-            Yes
-          </label>
+          <label class="form-check-label" for="stdHeartMurmurYes"> Yes </label>
         </div>
         <div class="form-check">
           <input
@@ -828,14 +782,12 @@
             id="stdHeartMurmurNo"
             value="No"
           />
-          <label class="form-check-label" for="stdHeartMurmurNo" i18n>
-            No
-          </label>
+          <label class="form-check-label" for="stdHeartMurmurNo"> No </label>
         </div>
       </div>
       <!--  -->
       <div class="col-12">
-        <label for="stdHeartProblemDeath" class="form-label" i18n
+        <label for="stdHeartProblemDeath" class="form-label"
           >Has any family member or relative died of heart problems or of sudden
           unexpected death before age 50?</label
         >
@@ -848,7 +800,7 @@
             id="stdHeartProblemDeathYes"
             value="Yes"
           />
-          <label class="form-check-label" for="stdHeartProblemDeathYes" i18n>
+          <label class="form-check-label" for="stdHeartProblemDeathYes">
             Yes
           </label>
         </div>
@@ -861,14 +813,14 @@
             id="stdHeartProblemDeathNo"
             value="No"
           />
-          <label class="form-check-label" for="stdHeartProblemDeathNo" i18n>
+          <label class="form-check-label" for="stdHeartProblemDeathNo">
             No
           </label>
         </div>
       </div>
       <!--  -->
       <div class="col-12">
-        <label for="stdFamilyHeartProblem" class="form-label" i18n
+        <label for="stdFamilyHeartProblem" class="form-label"
           >Has any family member been diagnosed with enlarged heart, (dilated
           cardiomyopathy), hypertrophic cardiomyopathy, long QT syndrome or
           other ion channelpathy (Brugada syndrome, etc), Marfan's syndrome, or
@@ -883,7 +835,7 @@
             id="stdFamilyHeartProblemYes"
             value="Yes"
           />
-          <label class="form-check-label" for="stdFamilyHeartProblemYes" i18n>
+          <label class="form-check-label" for="stdFamilyHeartProblemYes">
             Yes
           </label>
         </div>
@@ -896,14 +848,14 @@
             id="stdFamilyHeartProblemNo"
             value="No"
           />
-          <label class="form-check-label" for="stdFamilyHeartProblemNo" i18n>
+          <label class="form-check-label" for="stdFamilyHeartProblemNo">
             No
           </label>
         </div>
       </div>
       <!--  -->
       <div class="col-12">
-        <label for="stdViralInfection" class="form-label" i18n
+        <label for="stdViralInfection" class="form-label"
           >Have you had a severe viral infection (for example, myocarditis or
           mononucleosis) within the last month?</label
         >
@@ -916,7 +868,7 @@
             id="stdViralInfectionYes"
             value="Yes"
           />
-          <label class="form-check-label" for="stdViralInfectionYes" i18n>
+          <label class="form-check-label" for="stdViralInfectionYes">
             Yes
           </label>
         </div>
@@ -929,14 +881,12 @@
             id="stdViralInfectionNo"
             value="No"
           />
-          <label class="form-check-label" for="stdViralInfectionNo" i18n>
-            No
-          </label>
+          <label class="form-check-label" for="stdViralInfectionNo"> No </label>
         </div>
       </div>
       <!--  -->
       <div class="col-12">
-        <label for="stdDenied" class="form-label" i18n
+        <label for="stdDenied" class="form-label"
           >Has a physician ever denied or restricted your participation in
           activities for any heart problems?</label
         >
@@ -949,7 +899,7 @@
             id="stdDeniedYes"
             value="Yes"
           />
-          <label class="form-check-label" for="stdDeniedYes" i18n> Yes </label>
+          <label class="form-check-label" for="stdDeniedYes"> Yes </label>
         </div>
         <div class="form-check">
           <input
@@ -960,12 +910,12 @@
             id="stdDeniedNo"
             value="No"
           />
-          <label class="form-check-label" for="stdDeniedNo" i18n> No </label>
+          <label class="form-check-label" for="stdDeniedNo"> No </label>
         </div>
       </div>
       <!--  -->
       <div class="col-12">
-        <label for="stdHeadInjury" class="form-label" i18n
+        <label for="stdHeadInjury" class="form-label"
           >Have you ever had a head injury or concussion?</label
         >
         <div class="form-check">
@@ -977,9 +927,7 @@
             id="stdHeadInjuryYes"
             value="Yes"
           />
-          <label class="form-check-label" for="stdHeadInjuryYes" i18n>
-            Yes
-          </label>
+          <label class="form-check-label" for="stdHeadInjuryYes"> Yes </label>
         </div>
         <div class="form-check">
           <input
@@ -990,15 +938,13 @@
             id="stdHeadInjuryNo"
             value="No"
           />
-          <label class="form-check-label" for="stdHeadInjuryNo" i18n>
-            No
-          </label>
+          <label class="form-check-label" for="stdHeadInjuryNo"> No </label>
         </div>
       </div>
 
       <!--  -->
       <div class="col-md-4" *ngIf="patientMainModel.stdHeadInjury == 'Yes'">
-        <label for="stdConcussion" class="form-label" i18n
+        <label for="stdConcussion" class="form-label"
           >When was your last concussion?
         </label>
         <input
@@ -1013,7 +959,7 @@
       <!--  -->
       <!--  -->
       <div class="col-12">
-        <label for="stdMemoryLoss" class="form-label" i18n
+        <label for="stdMemoryLoss" class="form-label"
           >Have you ever been knocked out, become unconscious, or lost your
           memory?</label
         >
@@ -1026,9 +972,7 @@
             id="stdMemoryLossYes"
             value="Yes"
           />
-          <label class="form-check-label" for="stdMemoryLossYes" i18n>
-            Yes
-          </label>
+          <label class="form-check-label" for="stdMemoryLossYes"> Yes </label>
         </div>
         <div class="form-check">
           <input
@@ -1039,16 +983,12 @@
             id="stdMemoryLossNo"
             value="No"
           />
-          <label class="form-check-label" for="stdMemoryLossNo" i18n>
-            No
-          </label>
+          <label class="form-check-label" for="stdMemoryLossNo"> No </label>
         </div>
       </div>
       <!--  -->
       <div class="col-md-4" *ngIf="patientMainModel.stdMemoryLoss == 'Yes'">
-        <label for="stdMemoryLoss" class="form-label" i18n
-          >How many times?</label
-        >
+        <label for="stdMemoryLoss" class="form-label">How many times?</label>
         <input
           [(ngModel)]="patientMainModel.stdMemoryLossExplain"
           name="stdMemoryLossExplain"
@@ -1061,7 +1001,7 @@
 
       <!--  -->
       <div class="col-12">
-        <label for="stdSeizure" class="form-label" i18n
+        <label for="stdSeizure" class="form-label"
           >Have you ever had a seizure?</label
         >
         <div class="form-check">
@@ -1073,7 +1013,7 @@
             id="stdSeizureYes"
             value="Yes"
           />
-          <label class="form-check-label" for="stdSeizureYes" i18n> Yes </label>
+          <label class="form-check-label" for="stdSeizureYes"> Yes </label>
         </div>
         <div class="form-check">
           <input
@@ -1084,12 +1024,12 @@
             id="stdSeizureNo"
             value="No"
           />
-          <label class="form-check-label" for="stdSeizureNo" i18n> No </label>
+          <label class="form-check-label" for="stdSeizureNo"> No </label>
         </div>
       </div>
       <!--  -->
       <div class="col-12">
-        <label for="stdHeadache" class="form-label" i18n
+        <label for="stdHeadache" class="form-label"
           >Do you have frequent or severe headaches?</label
         >
         <div class="form-check">
@@ -1101,9 +1041,7 @@
             id="stdHeadacheYes"
             value="Yes"
           />
-          <label class="form-check-label" for="stdHeadacheYes" i18n>
-            Yes
-          </label>
+          <label class="form-check-label" for="stdHeadacheYes"> Yes </label>
         </div>
         <div class="form-check">
           <input
@@ -1114,12 +1052,12 @@
             id="stdHeadacheNo"
             value="No"
           />
-          <label class="form-check-label" for="stdHeadacheNo" i18n> No </label>
+          <label class="form-check-label" for="stdHeadacheNo"> No </label>
         </div>
       </div>
       <!--  -->
       <div class="col-12">
-        <label for="stdNumbness" class="form-label" i18n
+        <label for="stdNumbness" class="form-label"
           >Have you ever had numbness or tingling in your arms, hands, legs or
           feet?</label
         >
@@ -1132,9 +1070,7 @@
             id="stdNumbnessYes"
             value="Yes"
           />
-          <label class="form-check-label" for="stdNumbnessYes" i18n>
-            Yes
-          </label>
+          <label class="form-check-label" for="stdNumbnessYes"> Yes </label>
         </div>
         <div class="form-check">
           <input
@@ -1145,12 +1081,12 @@
             id="stdNumbnessNo"
             value="No"
           />
-          <label class="form-check-label" for="stdNumbnessNo" i18n> No </label>
+          <label class="form-check-label" for="stdNumbnessNo"> No </label>
         </div>
       </div>
       <!--  -->
       <div class="col-12">
-        <label for="stdPinchedNerve" class="form-label" i18n
+        <label for="stdPinchedNerve" class="form-label"
           >Have you ever had a stinger, burner, or pinched nerve?</label
         >
         <div class="form-check">
@@ -1162,9 +1098,7 @@
             id="stdPinchedNerveYes"
             value="Yes"
           />
-          <label class="form-check-label" for="stdPinchedNerveYes" i18n>
-            Yes
-          </label>
+          <label class="form-check-label" for="stdPinchedNerveYes"> Yes </label>
         </div>
         <div class="form-check">
           <input
@@ -1175,14 +1109,12 @@
             id="stdPinchedNerveNo"
             value="No"
           />
-          <label class="form-check-label" for="stdPinchedNerveNo" i18n>
-            No
-          </label>
+          <label class="form-check-label" for="stdPinchedNerveNo"> No </label>
         </div>
       </div>
       <!--  -->
       <div class="col-12">
-        <label for="stdMissingOrgan" class="form-label" i18n
+        <label for="stdMissingOrgan" class="form-label"
           >Are you missing any paired organs?</label
         >
         <div class="form-check">
@@ -1194,9 +1126,7 @@
             id="stdMissingOrganYes"
             value="Yes"
           />
-          <label class="form-check-label" for="stdMissingOrganYes" i18n>
-            Yes
-          </label>
+          <label class="form-check-label" for="stdMissingOrganYes"> Yes </label>
         </div>
         <div class="form-check">
           <input
@@ -1207,15 +1137,13 @@
             id="stdMissingOrganNo"
             value="No"
           />
-          <label class="form-check-label" for="stdMissingOrganNo" i18n>
-            No
-          </label>
+          <label class="form-check-label" for="stdMissingOrganNo"> No </label>
         </div>
       </div>
 
       <!--  -->
       <div class="col-12">
-        <label for="stdUnderDrCare" class="form-label" i18n
+        <label for="stdUnderDrCare" class="form-label"
           >Are you under a doctor’s care?</label
         >
         <div class="form-check">
@@ -1227,9 +1155,7 @@
             id="stdUnderDrCareYes"
             value="Yes"
           />
-          <label class="form-check-label" for="stdUnderDrCareYes" i18n>
-            Yes
-          </label>
+          <label class="form-check-label" for="stdUnderDrCareYes"> Yes </label>
         </div>
         <div class="form-check">
           <input
@@ -1240,15 +1166,13 @@
             id="stdUnderDrCareNo"
             value="No"
           />
-          <label class="form-check-label" for="stdUnderDrCareNo" i18n>
-            No
-          </label>
+          <label class="form-check-label" for="stdUnderDrCareNo"> No </label>
         </div>
       </div>
 
       <!--  -->
       <div class="col-12">
-        <label for="stdTakingMed" class="form-label" i18n
+        <label for="stdTakingMed" class="form-label"
           >Are you currently taking any prescription or non-prescription
           (over-the-counter) medication or pills or using an inhaler?</label
         >
@@ -1261,9 +1185,7 @@
             id="stdTakingMedYes"
             value="Yes"
           />
-          <label class="form-check-label" for="stdTakingMedYes" i18n>
-            Yes
-          </label>
+          <label class="form-check-label" for="stdTakingMedYes"> Yes </label>
         </div>
         <div class="form-check">
           <input
@@ -1274,12 +1196,12 @@
             id="stdTakingMedNo"
             value="No"
           />
-          <label class="form-check-label" for="stdTakingMedNo" i18n> No </label>
+          <label class="form-check-label" for="stdTakingMedNo"> No </label>
         </div>
       </div>
       <!--  -->
       <div class="col-12">
-        <label for="stdAlergic" class="form-label" i18n
+        <label for="stdAlergic" class="form-label"
           >Do you have any allergies (for example, to pollen, medicine, food, or
           stinging insects)?</label
         >
@@ -1292,7 +1214,7 @@
             id="stdAlergicYes"
             value="Yes"
           />
-          <label class="form-check-label" for="stdAlergicYes" i18n> Yes </label>
+          <label class="form-check-label" for="stdAlergicYes"> Yes </label>
         </div>
         <div class="form-check">
           <input
@@ -1303,13 +1225,13 @@
             id="stdAlergicNo"
             value="No"
           />
-          <label class="form-check-label" for="stdAlergicNo" i18n> No </label>
+          <label class="form-check-label" for="stdAlergicNo"> No </label>
         </div>
       </div>
       <!--  -->
 
       <div class="col-12">
-        <label for="stdDizzy" class="form-label" i18n
+        <label for="stdDizzy" class="form-label"
           >Have you ever been dizzy during or after exercise?</label
         >
         <div class="form-check">
@@ -1321,7 +1243,7 @@
             id="stdDizzyYes"
             value="Yes"
           />
-          <label class="form-check-label" for="stdDizzyYes" i18n> Yes </label>
+          <label class="form-check-label" for="stdDizzyYes"> Yes </label>
         </div>
         <div class="form-check">
           <input
@@ -1332,12 +1254,12 @@
             id="stdDizzyNo"
             value="No"
           />
-          <label class="form-check-label" for="stdDizzyNo" i18n> No </label>
+          <label class="form-check-label" for="stdDizzyNo"> No </label>
         </div>
       </div>
       <!--  -->
       <div class="col-12">
-        <label for="stdSkinProblem" class="form-label" i18n>
+        <label for="stdSkinProblem" class="form-label">
           Do you have any current skin problems (for example, itching, rashes,
           acne, warts, fungus, or blisters)?</label
         >
@@ -1350,9 +1272,7 @@
             id="stdSkinProblemYes"
             value="Yes"
           />
-          <label class="form-check-label" for="stdSkinProblemYes" i18n>
-            Yes
-          </label>
+          <label class="form-check-label" for="stdSkinProblemYes"> Yes </label>
         </div>
         <div class="form-check">
           <input
@@ -1363,14 +1283,12 @@
             id="stdSkinProblemNo"
             value="No"
           />
-          <label class="form-check-label" for="stdSkinProblemNo" i18n>
-            No
-          </label>
+          <label class="form-check-label" for="stdSkinProblemNo"> No </label>
         </div>
       </div>
       <!--  -->
       <div class="col-12">
-        <label for="stdIllnessInHeat" class="form-label" i18n
+        <label for="stdIllnessInHeat" class="form-label"
           >Have you ever become ill from exercising in the heat?</label
         >
         <div class="form-check">
@@ -1382,7 +1300,7 @@
             id="stdIllnessInHeatYes"
             value="Yes"
           />
-          <label class="form-check-label" for="stdIllnessInHeatYes" i18n>
+          <label class="form-check-label" for="stdIllnessInHeatYes">
             Yes
           </label>
         </div>
@@ -1395,14 +1313,12 @@
             id="stdIllnessInHeatNo"
             value="No"
           />
-          <label class="form-check-label" for="stdIllnessInHeatNo" i18n>
-            No
-          </label>
+          <label class="form-check-label" for="stdIllnessInHeatNo"> No </label>
         </div>
       </div>
       <!--  -->
       <div class="col-12">
-        <label for="stdEyeProblem" class="form-label" i18n
+        <label for="stdEyeProblem" class="form-label"
           >Have you had any problems with your eyes or vision?</label
         >
         <div class="form-check">
@@ -1414,9 +1330,7 @@
             id="stdEyeProblemYes"
             value="Yes"
           />
-          <label class="form-check-label" for="stdEyeProblemYes" i18n>
-            Yes
-          </label>
+          <label class="form-check-label" for="stdEyeProblemYes"> Yes </label>
         </div>
         <div class="form-check">
           <input
@@ -1427,14 +1341,12 @@
             id="stdEyeProblemNo"
             value="No"
           />
-          <label class="form-check-label" for="stdEyeProblemNo" i18n>
-            No
-          </label>
+          <label class="form-check-label" for="stdEyeProblemNo"> No </label>
         </div>
       </div>
       <!--  -->
       <div class="col-12">
-        <label for="stdBreathness" class="form-label" i18n
+        <label for="stdBreathness" class="form-label"
           >Have you ever gotten unexpectedly short of breath with
           exercise?</label
         >
@@ -1447,9 +1359,7 @@
             id="stdBreathnessYes"
             value="Yes"
           />
-          <label class="form-check-label" for="stdBreathnessYes" i18n>
-            Yes
-          </label>
+          <label class="form-check-label" for="stdBreathnessYes"> Yes </label>
         </div>
         <div class="form-check">
           <input
@@ -1460,17 +1370,13 @@
             id="stdBreathnessNo"
             value="No"
           />
-          <label class="form-check-label" for="stdBreathnessNo" i18n>
-            No
-          </label>
+          <label class="form-check-label" for="stdBreathnessNo"> No </label>
         </div>
       </div>
 
       <!--  -->
       <div class="col-12">
-        <label for="stdAsthma" class="form-label" i18n
-          >Do you have asthma?</label
-        >
+        <label for="stdAsthma" class="form-label">Do you have asthma?</label>
         <div class="form-check">
           <input
             class="form-check-input"
@@ -1480,7 +1386,7 @@
             id="stdAsthmaYes"
             value="Yes"
           />
-          <label class="form-check-label" for="stdAsthmaYes" i18n> Yes </label>
+          <label class="form-check-label" for="stdAsthmaYes"> Yes </label>
         </div>
         <div class="form-check">
           <input
@@ -1491,12 +1397,12 @@
             id="stdAsthmaNo"
             value="No"
           />
-          <label class="form-check-label" for="stdAsthmaNo" i18n> No </label>
+          <label class="form-check-label" for="stdAsthmaNo"> No </label>
         </div>
       </div>
       <!--  -->
       <div class="col-12">
-        <label for="stdSeasonalAlergy" class="form-label" i18n
+        <label for="stdSeasonalAlergy" class="form-label"
           >Do you have seasonal allergies that require medical treatment?</label
         >
         <div class="form-check">
@@ -1508,7 +1414,7 @@
             id="stdSeasonalAlergyYes"
             value="Yes"
           />
-          <label class="form-check-label" for="stdSeasonalAlergyYes" i18n>
+          <label class="form-check-label" for="stdSeasonalAlergyYes">
             Yes
           </label>
         </div>
@@ -1521,14 +1427,12 @@
             id="stdSeasonalAlergyNo"
             value="No"
           />
-          <label class="form-check-label" for="stdSeasonalAlergyNo" i18n>
-            No
-          </label>
+          <label class="form-check-label" for="stdSeasonalAlergyNo"> No </label>
         </div>
       </div>
       <!--  -->
       <div class="col-12">
-        <label for="stdProtective" class="form-label" i18n
+        <label for="stdProtective" class="form-label"
           >Do you use any special protective or corrective equipment or devices
           that aren't usually used for your activity or position (for example,
           knee brace, special neck roll, foot orthotics, retainer on your teeth,
@@ -1543,9 +1447,7 @@
             id="stdProtectiveYes"
             value="Yes"
           />
-          <label class="form-check-label" for="stdProtectiveYes" i18n>
-            Yes
-          </label>
+          <label class="form-check-label" for="stdProtectiveYes"> Yes </label>
         </div>
         <div class="form-check">
           <input
@@ -1556,14 +1458,12 @@
             id="stdProtectiveNo"
             value="No"
           />
-          <label class="form-check-label" for="stdProtectiveNo" i18n>
-            No
-          </label>
+          <label class="form-check-label" for="stdProtectiveNo"> No </label>
         </div>
       </div>
       <!--  -->
       <div class="col-12">
-        <label for="stdInjurySwelling" class="form-label" i18n
+        <label for="stdInjurySwelling" class="form-label"
           >Have you ever had a sprain, strain, or swelling after injury?</label
         >
         <div class="form-check">
@@ -1575,7 +1475,7 @@
             id="stdInjurySwellingYes"
             value="Yes"
           />
-          <label class="form-check-label" for="stdInjurySwellingYes" i18n>
+          <label class="form-check-label" for="stdInjurySwellingYes">
             Yes
           </label>
         </div>
@@ -1588,14 +1488,12 @@
             id="stdInjurySwellingNo"
             value="No"
           />
-          <label class="form-check-label" for="stdInjurySwellingNo" i18n>
-            No
-          </label>
+          <label class="form-check-label" for="stdInjurySwellingNo"> No </label>
         </div>
       </div>
       <!--  -->
       <div class="col-12">
-        <label for="stdFracturedBone" class="form-label" i18n
+        <label for="stdFracturedBone" class="form-label"
           >Have you broken or fractured any bones or dislocated any
           joints?</label
         >
@@ -1608,7 +1506,7 @@
             id="stdFracturedBoneYes"
             value="Yes"
           />
-          <label class="form-check-label" for="stdFracturedBoneYes" i18n>
+          <label class="form-check-label" for="stdFracturedBoneYes">
             Yes
           </label>
         </div>
@@ -1621,14 +1519,12 @@
             id="stdFracturedBoneNo"
             value="No"
           />
-          <label class="form-check-label" for="stdFracturedBoneNo" i18n>
-            No
-          </label>
+          <label class="form-check-label" for="stdFracturedBoneNo"> No </label>
         </div>
       </div>
       <!--  -->
       <div class="col-12" *ngIf="patientMainModel.stdFracturedBone == 'Yes'">
-        <label for="stdFracturedBone" class="form-label" i18n
+        <label for="stdFracturedBone" class="form-label"
           >If yes, check appropriate box and explain below:</label
         >
 
@@ -1641,9 +1537,7 @@
             id="stdFracturedHead"
             value="Head"
           />
-          <label class="form-check-label" for="stdFracturedHead" i18n>
-            Head
-          </label>
+          <label class="form-check-label" for="stdFracturedHead"> Head </label>
         </div>
         <div class="form-check" class="col-3">
           <input
@@ -1654,9 +1548,7 @@
             id="stdFracturedNeck"
             value="Neck"
           />
-          <label class="form-check-label" for="stdFracturedNeck" i18n>
-            Neck
-          </label>
+          <label class="form-check-label" for="stdFracturedNeck"> Neck </label>
         </div>
         <div class="form-check" class="col-3">
           <input
@@ -1667,9 +1559,7 @@
             id="stdFracturedBack"
             value="Back"
           />
-          <label class="form-check-label" for="stdFracturedBack" i18n>
-            Back
-          </label>
+          <label class="form-check-label" for="stdFracturedBack"> Back </label>
         </div>
         <div class="form-check" class="col-3">
           <input
@@ -1680,7 +1570,7 @@
             id="stdFracturedChest"
             value="Chest"
           />
-          <label class="form-check-label" for="stdFracturedChest" i18n>
+          <label class="form-check-label" for="stdFracturedChest">
             Chest
           </label>
         </div>
@@ -1694,7 +1584,7 @@
             id="stdFracturedShoulder"
             value="Shoulder"
           />
-          <label class="form-check-label" for="stdFracturedShoulder" i18n>
+          <label class="form-check-label" for="stdFracturedShoulder">
             Shoulder
           </label>
         </div>
@@ -1708,7 +1598,7 @@
             id="stdFracturedUpperArm"
             value="UpperArm"
           />
-          <label class="form-check-label" for="stdFracturedUpperArm" i18n>
+          <label class="form-check-label" for="stdFracturedUpperArm">
             Upper Arm
           </label>
         </div>
@@ -1722,7 +1612,7 @@
             id="stdFracturedElbow"
             value="Elbow"
           />
-          <label class="form-check-label" for="stdFracturedElbow" i18n>
+          <label class="form-check-label" for="stdFracturedElbow">
             Elbow
           </label>
         </div>
@@ -1736,7 +1626,7 @@
             id="stdFracturedForearm"
             value="Forearm"
           />
-          <label class="form-check-label" for="stdFracturedForearm" i18n>
+          <label class="form-check-label" for="stdFracturedForearm">
             Forearm
           </label>
         </div>
@@ -1750,7 +1640,7 @@
             id="stdFracturedWrist"
             value="Wrist"
           />
-          <label class="form-check-label" for="stdFracturedWrist" i18n>
+          <label class="form-check-label" for="stdFracturedWrist">
             Wrist
           </label>
         </div>
@@ -1764,9 +1654,7 @@
             id="stdFracturedHand"
             value="Hand"
           />
-          <label class="form-check-label" for="stdFracturedHand" i18n>
-            Hand
-          </label>
+          <label class="form-check-label" for="stdFracturedHand"> Hand </label>
         </div>
         <!--  -->
         <div class="form-check" class="col-3">
@@ -1778,7 +1666,7 @@
             id="stdFracturedFinger"
             value="Finger"
           />
-          <label class="form-check-label" for="stdFracturedFinger" i18n>
+          <label class="form-check-label" for="stdFracturedFinger">
             Finger
           </label>
         </div>
@@ -1792,9 +1680,7 @@
             id="stdFracturedFoot"
             value="Foot"
           />
-          <label class="form-check-label" for="stdFracturedFoot" i18n>
-            Foot
-          </label>
+          <label class="form-check-label" for="stdFracturedFoot"> Foot </label>
         </div>
         <!--  -->
         <div class="form-check" class="col-3">
@@ -1806,9 +1692,7 @@
             id="stdFracturedHip"
             value="Hip"
           />
-          <label class="form-check-label" for="stdFracturedHip" i18n>
-            Hip
-          </label>
+          <label class="form-check-label" for="stdFracturedHip"> Hip </label>
         </div>
         <!--  -->
         <div class="form-check" class="col-3">
@@ -1820,7 +1704,7 @@
             id="stdFracturedThigh"
             value="Thigh"
           />
-          <label class="form-check-label" for="stdFracturedThigh" i18n>
+          <label class="form-check-label" for="stdFracturedThigh">
             Thigh
           </label>
         </div>
@@ -1834,9 +1718,7 @@
             id="stdFracturedKnee"
             value="Knee"
           />
-          <label class="form-check-label" for="stdFracturedKnee" i18n>
-            Knee
-          </label>
+          <label class="form-check-label" for="stdFracturedKnee"> Knee </label>
         </div>
         <!--  -->
         <div class="form-check" class="col-3">
@@ -1848,7 +1730,7 @@
             id="stdFracturedShin"
             value="Shin/calf"
           />
-          <label class="form-check-label" for="stdFracturedShin" i18n>
+          <label class="form-check-label" for="stdFracturedShin">
             Shin/Calf
           </label>
         </div>
@@ -1862,14 +1744,14 @@
             id="stdFracturedAnkle"
             value="Ankle/calf"
           />
-          <label class="form-check-label" for="stdFracturedAnkle" i18n>
+          <label class="form-check-label" for="stdFracturedAnkle">
             Ankle
           </label>
         </div>
       </div>
       <!--  -->
       <div class="col-12">
-        <label for="stdMusclePain" class="form-label" i18n
+        <label for="stdMusclePain" class="form-label"
           >Have you had any other problems with pain or swelling in muscles,
           tendons, bones, or joints?</label
         >
@@ -1882,9 +1764,7 @@
             id="stdMusclePainYes"
             value="Yes"
           />
-          <label class="form-check-label" for="stdMusclePainYes" i18n>
-            Yes
-          </label>
+          <label class="form-check-label" for="stdMusclePainYes"> Yes </label>
         </div>
         <div class="form-check">
           <input
@@ -1895,16 +1775,14 @@
             id="stdMusclePainNo"
             value="No"
           />
-          <label class="form-check-label" for="stdMusclePainNo" i18n>
-            No
-          </label>
+          <label class="form-check-label" for="stdMusclePainNo"> No </label>
         </div>
       </div>
       <!--  -->
 
       <!--  -->
       <div class="col-12">
-        <label for="stdWeight" class="form-label" i18n
+        <label for="stdWeight" class="form-label"
           >Do you want to weigh more or less than you do now?
         </label>
         <div class="form-check">
@@ -1916,7 +1794,7 @@
             id="stdWeightYes"
             value="Yes"
           />
-          <label class="form-check-label" for="stdWeightYes" i18n> Yes </label>
+          <label class="form-check-label" for="stdWeightYes"> Yes </label>
         </div>
         <div class="form-check">
           <input
@@ -1927,12 +1805,12 @@
             id="stdWeightNo"
             value="No"
           />
-          <label class="form-check-label" for="stdWeightNo" i18n> No </label>
+          <label class="form-check-label" for="stdWeightNo"> No </label>
         </div>
       </div>
       <!--  -->
       <div class="col-12">
-        <label for="stdStress" class="form-label" i18n
+        <label for="stdStress" class="form-label"
           >Do you feel stressed out?</label
         >
         <div class="form-check">
@@ -1944,7 +1822,7 @@
             id="stdStressYes"
             value="Yes"
           />
-          <label class="form-check-label" for="stdStressYes" i18n> Yes </label>
+          <label class="form-check-label" for="stdStressYes"> Yes </label>
         </div>
         <div class="form-check">
           <input
@@ -1955,12 +1833,12 @@
             id="stdStressNo"
             value="No"
           />
-          <label class="form-check-label" for="stdStressNo" i18n> No </label>
+          <label class="form-check-label" for="stdStressNo"> No </label>
         </div>
       </div>
       <!--  -->
       <div class="col-12">
-        <label for="stdSickleCell" class="form-label" i18n
+        <label for="stdSickleCell" class="form-label"
           >Have you ever been diagnosed with or treated for sickle cell trait or
           sickle cell disease?</label
         >
@@ -1973,9 +1851,7 @@
             id="stdSickleCellYes"
             value="Yes"
           />
-          <label class="form-check-label" for="stdSickleCellYes" i18n>
-            Yes
-          </label>
+          <label class="form-check-label" for="stdSickleCellYes"> Yes </label>
         </div>
         <div class="form-check">
           <input
@@ -1986,15 +1862,13 @@
             id="stdSickleCellNo"
             value="No"
           />
-          <label class="form-check-label" for="stdSickleCellNo" i18n>
-            No
-          </label>
+          <label class="form-check-label" for="stdSickleCellNo"> No </label>
         </div>
       </div>
       <!--  -->
       <div class="col-md-12" *ngIf="patientMainModel.gender == 'Female'">
         <div class="col-md-4">
-          <label for="stdFirstMenstrual" class="form-label" i18n
+          <label for="stdFirstMenstrual" class="form-label"
             >When was your first menstrual period?</label
           >
           <input
@@ -2008,7 +1882,7 @@
         </div>
         <!--  -->
         <div class="col-md-4">
-          <label for="stdRecentMenstrual" class="form-label" i18n
+          <label for="stdRecentMenstrual" class="form-label"
             >When was your most recent menstrual period?</label
           >
           <input
@@ -2022,7 +1896,7 @@
         </div>
         <!--  -->
         <div class="col-md-4">
-          <label for="stdMenstrualTime" class="form-label" i18n
+          <label for="stdMenstrualTime" class="form-label"
             >How much time do you usually have from the start of one period to
             the start of another?</label
           >
@@ -2037,7 +1911,7 @@
         </div>
         <!--  -->
         <div class="col-md-4">
-          <label for="stdLastYearPeriods" class="form-label" i18n
+          <label for="stdLastYearPeriods" class="form-label"
             >How many periods have you had in the last year?</label
           >
           <input
@@ -2051,7 +1925,7 @@
         </div>
         <!--  -->
         <div class="col-md-4">
-          <label for="stdLongestPeriodTime" class="form-label" i18n
+          <label for="stdLongestPeriodTime" class="form-label"
             >What was the longest time between periods in the last year?</label
           >
           <input
@@ -2068,7 +1942,7 @@
       <div class="col-md-12" *ngIf="patientMainModel.gender == 'Male'">
         <div class="row">
           <div class="col-md-6">
-            <label for="stdTwoTesticle" class="form-label" i18n
+            <label for="stdTwoTesticle" class="form-label"
               >Do you have two testicles?</label
             >
             <input
@@ -2082,7 +1956,7 @@
           </div>
           <!--  -->
           <div class="col-md-6">
-            <label for="stdTesticularSwelling" class="form-label" i18n
+            <label for="stdTesticularSwelling" class="form-label"
               >Do you have any testicular swelling or masses?</label
             >
             <input
@@ -2106,7 +1980,7 @@
           id="stdECG"
           value="ECG"
         />
-        <label class="form-check-label" for="stdECG" i18n>
+        <label class="form-check-label" for="stdECG">
           An electrocardiogram (ECG) is not required. By checking this box, I
           choose to obtain an ECG for my student for additional cardiac
           screening. I have read and understand the information about cardiac
@@ -2123,11 +1997,11 @@
       class="col-md-12"
       *ngIf="patientMainModel.reasonForVisit == 'dotPhysical'"
     >
-      <h1 class="display-6" i18n>Driver Information</h1>
+      <h1 class="display-6">Driver Information</h1>
       <br />
       <div class="row">
         <div class="col-md-4">
-          <label for="driverLicenseNumber" class="form-label" i18n
+          <label for="driverLicenseNumber" class="form-label"
             >Driver's License Number</label
           >
           <input
@@ -2140,7 +2014,7 @@
           />
         </div>
         <div class="col-md-4">
-          <label for="licenseState" class="form-label" i18n>
+          <label for="licenseState" class="form-label">
             Issuing State/Province
           </label>
           <select
@@ -2150,7 +2024,7 @@
             id="licenseState"
             #state="ngModel"
           >
-            <option value="" selected="selected" i18n>Select a State</option>
+            <option value="" selected="selected">Select a State</option>
             <option value="AL">Alabama</option>
             <option value="AK">Alaska</option>
             <option value="AZ">Arizona</option>
@@ -2205,7 +2079,7 @@
           </select>
         </div>
         <div class="col-md-4">
-          <label for="driverIdVerifiedBy" class="form-label" i18n
+          <label for="driverIdVerifiedBy" class="form-label"
             >Driver ID Verified By</label
           >
           <input
@@ -2218,7 +2092,7 @@
           />
         </div>
         <div class="col-md-4">
-          <label for="driverPhone" class="form-label" i18n> Phone Number</label>
+          <label for="driverPhone" class="form-label"> Phone Number</label>
           <input
             [(ngModel)]="patientMainModel.driverPhone"
             name="driverPhone"
@@ -2232,7 +2106,7 @@
       <!--  -->
 
       <div class="col-md-6">
-        <label for="clpCdl" class="form-label" i18n
+        <label for="clpCdl" class="form-label"
           >CLP/CDL Applicant/Holder*
         </label>
       </div>
@@ -2246,7 +2120,7 @@
             id="clpCdlYes"
             value="Yes"
           />
-          <label class="form-check-label" for="clpCdlYes" i18n> Yes </label>
+          <label class="form-check-label" for="clpCdlYes"> Yes </label>
         </div>
         <div class="form-check">
           <input
@@ -2257,12 +2131,12 @@
             id="clpCdlNo"
             value="No"
           />
-          <label class="form-check-label" for="clpCdlNo" i18n> No </label>
+          <label class="form-check-label" for="clpCdlNo"> No </label>
         </div>
       </div>
       <!--  -->
       <div class="col-md-6">
-        <label for="clpCdl" class="form-label" i18n
+        <label for="clpCdl" class="form-label"
           >Has your USDOT/FMCSA medical certificate ever been denied or issued
           for less than 2 years?
         </label>
@@ -2278,7 +2152,7 @@
             id="usdotFmcsaYes"
             value="Yes"
           />
-          <label class="form-check-label" for="usdotFmcsaYes" i18n> Yes </label>
+          <label class="form-check-label" for="usdotFmcsaYes"> Yes </label>
         </div>
         <div class="form-check">
           <input
@@ -2289,7 +2163,7 @@
             id="usdotFmcsaNo"
             value="No"
           />
-          <label class="form-check-label" for="usdotFmcsaNo" i18n> No </label>
+          <label class="form-check-label" for="usdotFmcsaNo"> No </label>
         </div>
         <div class="form-check">
           <input
@@ -2300,18 +2174,16 @@
             id="usdotFmcsaNot"
             value="Notsure"
           />
-          <label class="form-check-label" for="usdotFmcsaNot" i18n>
-            Not Sure
-          </label>
+          <label class="form-check-label" for="usdotFmcsaNot"> Not Sure </label>
         </div>
       </div>
 
       <br />
       <!-- Driver Health info -->
 
-      <h1 class="display-6" i18n>Driver Health History</h1>
+      <h1 class="display-6">Driver Health History</h1>
       <div class="col-md-12">
-        <label for="driverSurgery" class="form-label" i18n
+        <label for="driverSurgery" class="form-label"
           >Have you ever had surgery?
         </label>
       </div>
@@ -2325,9 +2197,7 @@
             id="driverSurgeryYes"
             value="Yes"
           />
-          <label class="form-check-label" for="driverSurgeryYes" i18n>
-            Yes
-          </label>
+          <label class="form-check-label" for="driverSurgeryYes"> Yes </label>
         </div>
         <div class="form-check">
           <input
@@ -2338,9 +2208,7 @@
             id="driverSurgeryNo"
             value="No"
           />
-          <label class="form-check-label" for="driverSurgeryNo" i18n>
-            No
-          </label>
+          <label class="form-check-label" for="driverSurgeryNo"> No </label>
         </div>
         <div class="form-check">
           <input
@@ -2351,14 +2219,14 @@
             id="driverSurgeryNotsure"
             value="Notsure"
           />
-          <label class="form-check-label" for="driverSurgeryNotsure" i18n>
+          <label class="form-check-label" for="driverSurgeryNotsure">
             Not Sure
           </label>
         </div>
       </div>
 
       <div class="col-12" *ngIf="patientMainModel.driverSurgery == 'Yes'">
-        <label for="driverSurgery" class="form-label" i18n
+        <label for="driverSurgery" class="form-label"
           >Please list and explain below.</label
         >
         <textarea
@@ -2373,7 +2241,7 @@
       </div>
       <!--  ======================== -->
       <div class="col-md-12">
-        <label for="driverMedicine" class="form-label" i18n
+        <label for="driverMedicine" class="form-label"
           >Are you currently taking medications (prescription, over-the-counter,
           herbal remedies, diet supplements)?
         </label>
@@ -2388,9 +2256,7 @@
             id="driverMedicineYes"
             value="Yes"
           />
-          <label class="form-check-label" for="driverMedicineYes" i18n
-            >Yes</label
-          >
+          <label class="form-check-label" for="driverMedicineYes">Yes</label>
         </div>
         <div class="form-check">
           <input
@@ -2401,7 +2267,7 @@
             id="driverMedicineNo"
             value="No"
           />
-          <label class="form-check-label" for="driverMedicineNo" i18n>No</label>
+          <label class="form-check-label" for="driverMedicineNo">No</label>
         </div>
         <div class="form-check">
           <input
@@ -2412,13 +2278,13 @@
             id="driverMedicineNotsure"
             value="Notsure"
           />
-          <label class="form-check-label" for="driverMedicineNotsure" i18n>
+          <label class="form-check-label" for="driverMedicineNotsure">
             Not Sure
           </label>
         </div>
       </div>
       <div class="col-12" *ngIf="patientMainModel.driverMedicine == 'Yes'">
-        <label for="driverMedicine" class="form-label" i18n
+        <label for="driverMedicine" class="form-label"
           >Please describe below.</label
         >
         <textarea
@@ -2433,12 +2299,12 @@
       </div>
       <br />
       <!-- Driver Health Part Two-->
-      <h1 class="display-6" i18n>Do you have or have you ever had:</h1>
+      <h1 class="display-6">Do you have or have you ever had:</h1>
 
       <div class="container">
         <div class="row">
           <div class="col-md-6">
-            <label for="head" class="form-label" i18n
+            <label for="head" class="form-label"
               >1. Head/brain injuries or illnesses (e.g., concussion)
             </label>
             <div class="col-md-6">
@@ -2451,7 +2317,7 @@
                   id="headYes"
                   value="Yes"
                 />
-                <label class="form-check-label" for="headYes" i18n> Yes </label>
+                <label class="form-check-label" for="headYes"> Yes </label>
               </div>
               <div class="form-check">
                 <input
@@ -2462,7 +2328,7 @@
                   id="headNo"
                   value="No"
                 />
-                <label class="form-check-label" for="headNo" i18n> No </label>
+                <label class="form-check-label" for="headNo"> No </label>
               </div>
               <div class="form-check">
                 <input
@@ -2473,7 +2339,7 @@
                   id="headNotsure"
                   value="Notsure"
                 />
-                <label class="form-check-label" for="headNotsure" i18n>
+                <label class="form-check-label" for="headNotsure">
                   Not Sure
                 </label>
               </div>
@@ -2482,7 +2348,7 @@
 
           <!-- Seizures -->
           <div class="col-md-6">
-            <label for="seizures" class="form-label" i18n
+            <label for="seizures" class="form-label"
               >2. Seizures, epilepsy
             </label>
             <div class="col-md-6">
@@ -2495,9 +2361,7 @@
                   id="seizuresYes"
                   value="Yes"
                 />
-                <label class="form-check-label" for="seizuresYes" i18n>
-                  Yes
-                </label>
+                <label class="form-check-label" for="seizuresYes"> Yes </label>
               </div>
               <div class="form-check">
                 <input
@@ -2508,9 +2372,7 @@
                   id="seizuresNo"
                   value="No"
                 />
-                <label class="form-check-label" for="seizuresNo" i18n>
-                  No
-                </label>
+                <label class="form-check-label" for="seizuresNo"> No </label>
               </div>
               <div class="form-check">
                 <input
@@ -2521,7 +2383,7 @@
                   id="seizuresNotsure"
                   value="Notsure"
                 />
-                <label class="form-check-label" for="seizuresNotsure" i18n>
+                <label class="form-check-label" for="seizuresNotsure">
                   Not Sure
                 </label>
               </div>
@@ -2530,7 +2392,7 @@
 
           <!--  -->
           <div class="col-md-6">
-            <label for="eye" class="form-label" i18n
+            <label for="eye" class="form-label"
               >3. Eye problems (except glasses or contacts)
             </label>
             <div class="col-md-6">
@@ -2543,7 +2405,7 @@
                   id="eyeYes"
                   value="Yes"
                 />
-                <label class="form-check-label" for="eyeYes" i18n> Yes </label>
+                <label class="form-check-label" for="eyeYes"> Yes </label>
               </div>
               <div class="form-check">
                 <input
@@ -2554,7 +2416,7 @@
                   id="eyeNo"
                   value="No"
                 />
-                <label class="form-check-label" for="eyeNo" i18n> No </label>
+                <label class="form-check-label" for="eyeNo"> No </label>
               </div>
               <div class="form-check">
                 <input
@@ -2565,7 +2427,7 @@
                   id="eyeNotsure"
                   value="Notsure"
                 />
-                <label class="form-check-label" for="eyeNotsure" i18n>
+                <label class="form-check-label" for="eyeNotsure">
                   Not Sure
                 </label>
               </div>
@@ -2574,7 +2436,7 @@
 
           <!-- Ear -->
           <div class="col-md-6">
-            <label for="ear" class="form-label" i18n
+            <label for="ear" class="form-label"
               >4. Ear and/or hearing problems
             </label>
             <div class="col-md-6">
@@ -2587,7 +2449,7 @@
                   id="earYes"
                   value="Yes"
                 />
-                <label class="form-check-label" for="earYes" i18n> Yes </label>
+                <label class="form-check-label" for="earYes"> Yes </label>
               </div>
               <div class="form-check">
                 <input
@@ -2598,7 +2460,7 @@
                   id="earNo"
                   value="No"
                 />
-                <label class="form-check-label" for="earNo" i18n> No </label>
+                <label class="form-check-label" for="earNo"> No </label>
               </div>
               <div class="form-check">
                 <input
@@ -2609,7 +2471,7 @@
                   id="earNotsure"
                   value="Notsure"
                 />
-                <label class="form-check-label" for="earNotsure" i18n>
+                <label class="form-check-label" for="earNotsure">
                   Not Sure
                 </label>
               </div>
@@ -2618,7 +2480,7 @@
 
           <!-- Heart -->
           <div class="col-md-6">
-            <label for="ear" class="form-label" i18n
+            <label for="ear" class="form-label"
               >5. Heart disease, heart attack, bypass, or other heart problems
             </label>
             <div class="col-md-6">
@@ -2631,9 +2493,7 @@
                   id="heartYes"
                   value="Yes"
                 />
-                <label class="form-check-label" for="heartYes" i18n>
-                  Yes
-                </label>
+                <label class="form-check-label" for="heartYes"> Yes </label>
               </div>
               <div class="form-check">
                 <input
@@ -2644,7 +2504,7 @@
                   id="heartNo"
                   value="No"
                 />
-                <label class="form-check-label" for="heartNo" i18n> No </label>
+                <label class="form-check-label" for="heartNo"> No </label>
               </div>
               <div class="form-check">
                 <input
@@ -2655,7 +2515,7 @@
                   id="heartNotsure"
                   value="Notsure"
                 />
-                <label class="form-check-label" for="heartNotsure" i18n>
+                <label class="form-check-label" for="heartNotsure">
                   Not Sure
                 </label>
               </div>
@@ -2664,7 +2524,7 @@
 
           <!-- Pace Stent -->
           <div class="col-md-6">
-            <label for="pace" class="form-label" i18n
+            <label for="pace" class="form-label"
               >6. Pacemaker,stents, implantable devices, or other heart
               procedures
             </label>
@@ -2678,7 +2538,7 @@
                   id="paceYes"
                   value="Yes"
                 />
-                <label class="form-check-label" for="paceYes" i18n> Yes </label>
+                <label class="form-check-label" for="paceYes"> Yes </label>
               </div>
               <div class="form-check">
                 <input
@@ -2689,7 +2549,7 @@
                   id="paceNo"
                   value="No"
                 />
-                <label class="form-check-label" for="paceNo" i18n> No </label>
+                <label class="form-check-label" for="paceNo"> No </label>
               </div>
               <div class="form-check">
                 <input
@@ -2700,7 +2560,7 @@
                   id="paceNotsure"
                   value="Notsure"
                 />
-                <label class="form-check-label" for="paceNotsure" i18n>
+                <label class="form-check-label" for="paceNotsure">
                   Not Sure
                 </label>
               </div>
@@ -2709,9 +2569,7 @@
 
           <!-- High Blood Presure -->
           <div class="col-md-6">
-            <label for="pace" class="form-label" i18n
-              >7. High blood pressure
-            </label>
+            <label for="pace" class="form-label">7. High blood pressure </label>
             <div class="col-md-6">
               <div class="form-check">
                 <input
@@ -2722,9 +2580,7 @@
                   id="highBloodYes"
                   value="Yes"
                 />
-                <label class="form-check-label" for="highBloodYes" i18n>
-                  Yes
-                </label>
+                <label class="form-check-label" for="highBloodYes"> Yes </label>
               </div>
               <div class="form-check">
                 <input
@@ -2735,9 +2591,7 @@
                   id="highBloodNo"
                   value="No"
                 />
-                <label class="form-check-label" for="highBloodNo" i18n>
-                  No
-                </label>
+                <label class="form-check-label" for="highBloodNo"> No </label>
               </div>
               <div class="form-check">
                 <input
@@ -2748,7 +2602,7 @@
                   id="highBloodNotsure"
                   value="Notsure"
                 />
-                <label class="form-check-label" for="highBloodNotsure" i18n>
+                <label class="form-check-label" for="highBloodNotsure">
                   Not Sure
                 </label>
               </div>
@@ -2757,9 +2611,7 @@
 
           <!-- High cholestrol -->
           <div class="col-md-6">
-            <label for="pace" class="form-label" i18n
-              >8. High cholestrol
-            </label>
+            <label for="pace" class="form-label">8. High cholestrol </label>
             <div class="col-md-6">
               <div class="form-check">
                 <input
@@ -2770,7 +2622,7 @@
                   id="highCholestrolYes"
                   value="Yes"
                 />
-                <label class="form-check-label" for="highCholestrolYes" i18n>
+                <label class="form-check-label" for="highCholestrolYes">
                   Yes
                 </label>
               </div>
@@ -2783,7 +2635,7 @@
                   id="highCholestrolNo"
                   value="No"
                 />
-                <label class="form-check-label" for="highCholestrolNo" i18n>
+                <label class="form-check-label" for="highCholestrolNo">
                   No
                 </label>
               </div>
@@ -2796,11 +2648,7 @@
                   id="highCholestrolNotsure"
                   value="Notsure"
                 />
-                <label
-                  class="form-check-label"
-                  for="highCholestrolNotsure"
-                  i18n
-                >
+                <label class="form-check-label" for="highCholestrolNotsure">
                   Not Sure
                 </label>
               </div>
@@ -2809,7 +2657,7 @@
 
           <!-- Breath -->
           <div class="col-md-6">
-            <label for="breath" class="form-label" i18n
+            <label for="breath" class="form-label"
               >9. Chronic (long-term) cough, shortness of breath, or other
               breathing problems
             </label>
@@ -2823,9 +2671,7 @@
                   id="breathYes"
                   value="Yes"
                 />
-                <label class="form-check-label" for="breathYes" i18n>
-                  Yes
-                </label>
+                <label class="form-check-label" for="breathYes"> Yes </label>
               </div>
               <div class="form-check">
                 <input
@@ -2836,7 +2682,7 @@
                   id="breathNo"
                   value="No"
                 />
-                <label class="form-check-label" for="breathNo" i18n> No </label>
+                <label class="form-check-label" for="breathNo"> No </label>
               </div>
               <div class="form-check">
                 <input
@@ -2847,7 +2693,7 @@
                   id="breathNotsure"
                   value="Notsure"
                 />
-                <label class="form-check-label" for="breathNotsure" i18n>
+                <label class="form-check-label" for="breathNotsure">
                   Not Sure
                 </label>
               </div>
@@ -2856,7 +2702,7 @@
 
           <!-- Lung  -->
           <div class="col-md-6">
-            <label for="lung" class="form-label" i18n
+            <label for="lung" class="form-label"
               >10. Lung disease (e.g., asthma)
             </label>
             <div class="col-md-6">
@@ -2869,7 +2715,7 @@
                   id="lungYes"
                   value="Yes"
                 />
-                <label class="form-check-label" for="lungYes" i18n> Yes </label>
+                <label class="form-check-label" for="lungYes"> Yes </label>
               </div>
               <div class="form-check">
                 <input
@@ -2880,7 +2726,7 @@
                   id="lungNo"
                   value="No"
                 />
-                <label class="form-check-label" for="lungNo" i18n> No </label>
+                <label class="form-check-label" for="lungNo"> No </label>
               </div>
               <div class="form-check">
                 <input
@@ -2891,7 +2737,7 @@
                   id="lungNotsure"
                   value="Notsure"
                 />
-                <label class="form-check-label" for="lungNotsure" i18n>
+                <label class="form-check-label" for="lungNotsure">
                   Not Sure
                 </label>
               </div>
@@ -2901,7 +2747,7 @@
           <!-- Kidney  -->
 
           <div class="col-md-6">
-            <label for="kidney" class="form-label" i18n
+            <label for="kidney" class="form-label"
               >11. Kidney problems, kidney stones, or pain/problems with
               urination
             </label>
@@ -2915,9 +2761,7 @@
                   id="kidneyYes"
                   value="Yes"
                 />
-                <label class="form-check-label" for="kidneyYes" i18n>
-                  Yes
-                </label>
+                <label class="form-check-label" for="kidneyYes"> Yes </label>
               </div>
               <div class="form-check">
                 <input
@@ -2928,7 +2772,7 @@
                   id="kidneyNo"
                   value="No"
                 />
-                <label class="form-check-label" for="kidneyNo" i18n> No </label>
+                <label class="form-check-label" for="kidneyNo"> No </label>
               </div>
               <div class="form-check">
                 <input
@@ -2939,7 +2783,7 @@
                   id="kidneyNotsure"
                   value="Notsure"
                 />
-                <label class="form-check-label" for="kidneyNotsure" i18n>
+                <label class="form-check-label" for="kidneyNotsure">
                   Not Sure
                 </label>
               </div>
@@ -2948,7 +2792,7 @@
 
           <!-- Stomach -->
           <div class="col-md-6">
-            <label for="stomach" class="form-label" i18n
+            <label for="stomach" class="form-label"
               >12. Stomach, liver, or digestive problems
             </label>
             <div class="col-md-6">
@@ -2961,9 +2805,7 @@
                   id="stomachYes"
                   value="Yes"
                 />
-                <label class="form-check-label" for="stomachYes" i18n>
-                  Yes
-                </label>
+                <label class="form-check-label" for="stomachYes"> Yes </label>
               </div>
               <div class="form-check">
                 <input
@@ -2974,9 +2816,7 @@
                   id="stomachNo"
                   value="No"
                 />
-                <label class="form-check-label" for="stomachNo" i18n>
-                  No
-                </label>
+                <label class="form-check-label" for="stomachNo"> No </label>
               </div>
               <div class="form-check">
                 <input
@@ -2987,7 +2827,7 @@
                   id="stomachNotsure"
                   value="Notsure"
                 />
-                <label class="form-check-label" for="stomachNotsure" i18n>
+                <label class="form-check-label" for="stomachNotsure">
                   Not Sure
                 </label>
               </div>
@@ -2996,7 +2836,7 @@
 
           <!-- Blood Sugar -->
           <div class="col-md-6">
-            <label for="bloodSugar" class="form-label" i18n
+            <label for="bloodSugar" class="form-label"
               >13. Diabetes or blood sugar problems
             </label>
             <div class="col-md-6">
@@ -3009,7 +2849,7 @@
                   id="bloodSugarYes"
                   value="Yes"
                 />
-                <label class="form-check-label" for="bloodSugarYes" i18n>
+                <label class="form-check-label" for="bloodSugarYes">
                   Yes
                 </label>
               </div>
@@ -3022,9 +2862,7 @@
                   id="bloodSugarNo"
                   value="No"
                 />
-                <label class="form-check-label" for="bloodSugarNo" i18n>
-                  No
-                </label>
+                <label class="form-check-label" for="bloodSugarNo"> No </label>
               </div>
               <div class="form-check">
                 <input
@@ -3035,7 +2873,7 @@
                   id="bloodSugarNotsure"
                   value="Notsure"
                 />
-                <label class="form-check-label" for="bloodSugarNotsure" i18n>
+                <label class="form-check-label" for="bloodSugarNotsure">
                   Not Sure
                 </label>
               </div>
@@ -3044,7 +2882,7 @@
 
           <!-- Insulin -->
           <div class="col-md-6">
-            <label for="insulin" class="form-label" i18n>Insulin used </label>
+            <label for="insulin" class="form-label">Insulin used </label>
             <div class="col-md-6">
               <div class="form-check">
                 <input
@@ -3055,9 +2893,7 @@
                   id="insulinYes"
                   value="Yes"
                 />
-                <label class="form-check-label" for="insulinYes" i18n>
-                  Yes
-                </label>
+                <label class="form-check-label" for="insulinYes"> Yes </label>
               </div>
               <div class="form-check">
                 <input
@@ -3068,9 +2904,7 @@
                   id="insulinNo"
                   value="No"
                 />
-                <label class="form-check-label" for="insulinNo" i18n>
-                  No
-                </label>
+                <label class="form-check-label" for="insulinNo"> No </label>
               </div>
               <div class="form-check">
                 <input
@@ -3081,7 +2915,7 @@
                   id="insulinNotsure"
                   value="Notsure"
                 />
-                <label class="form-check-label" for="insulinNotsure" i18n>
+                <label class="form-check-label" for="insulinNotsure">
                   Not Sure
                 </label>
               </div>
@@ -3090,7 +2924,7 @@
 
           <!-- Mental Health  -->
           <div class="col-md-6">
-            <label for="mentalHealth" class="form-label" i18n
+            <label for="mentalHealth" class="form-label"
               >14. Anxiety, depression, nervousness, other mental health
               problems</label
             >
@@ -3104,7 +2938,7 @@
                   id="mentalHealthYes"
                   value="Yes"
                 />
-                <label class="form-check-label" for="mentalHealthYes" i18n>
+                <label class="form-check-label" for="mentalHealthYes">
                   Yes
                 </label>
               </div>
@@ -3117,7 +2951,7 @@
                   id="mentalHealthNo"
                   value="No"
                 />
-                <label class="form-check-label" for="mentalHealthNo" i18n>
+                <label class="form-check-label" for="mentalHealthNo">
                   No
                 </label>
               </div>
@@ -3130,7 +2964,7 @@
                   id="mentalHealthNotsure"
                   value="Notsure"
                 />
-                <label class="form-check-label" for="mentalHealthNotsure" i18n>
+                <label class="form-check-label" for="mentalHealthNotsure">
                   Not Sure
                 </label>
               </div>
@@ -3139,7 +2973,7 @@
 
           <!-- Fainting -->
           <div class="col-md-6">
-            <label for="fainting" class="form-label" i18n
+            <label for="fainting" class="form-label"
               >15. Fainting or passing out</label
             >
             <div class="col-md-6">
@@ -3152,9 +2986,7 @@
                   id="faintingYes"
                   value="Yes"
                 />
-                <label class="form-check-label" for="faintingYes" i18n>
-                  Yes
-                </label>
+                <label class="form-check-label" for="faintingYes"> Yes </label>
               </div>
               <div class="form-check">
                 <input
@@ -3165,9 +2997,7 @@
                   id="faintingNo"
                   value="No"
                 />
-                <label class="form-check-label" for="faintingNo" i18n>
-                  No
-                </label>
+                <label class="form-check-label" for="faintingNo"> No </label>
               </div>
               <div class="form-check">
                 <input
@@ -3178,7 +3008,7 @@
                   id="faintingNotsure"
                   value="Notsure"
                 />
-                <label class="form-check-label" for="faintingNotsure" i18n>
+                <label class="form-check-label" for="faintingNotsure">
                   Not Sure
                 </label>
               </div>
@@ -3189,7 +3019,7 @@
 
           <!-- Dizzy -->
           <div class="col-md-6">
-            <label for="dizzy" class="form-label" i18n
+            <label for="dizzy" class="form-label"
               >16. Dizziness, headaches, numbness, tingling, or memory
               loss</label
             >
@@ -3203,9 +3033,7 @@
                   id="dizzyYes"
                   value="Yes"
                 />
-                <label class="form-check-label" for="dizzyYes" i18n>
-                  Yes
-                </label>
+                <label class="form-check-label" for="dizzyYes"> Yes </label>
               </div>
               <div class="form-check">
                 <input
@@ -3216,7 +3044,7 @@
                   id="dizzyNo"
                   value="No"
                 />
-                <label class="form-check-label" for="dizzyNo" i18n> No </label>
+                <label class="form-check-label" for="dizzyNo"> No </label>
               </div>
               <div class="form-check">
                 <input
@@ -3227,7 +3055,7 @@
                   id="dizzyNotsure"
                   value="Notsure"
                 />
-                <label class="form-check-label" for="dizzyNotsure" i18n>
+                <label class="form-check-label" for="dizzyNotsure">
                   Not Sure
                 </label>
               </div>
@@ -3236,7 +3064,7 @@
 
           <!-- Weight Loss -->
           <div class="col-md-6">
-            <label for="weightLoss" class="form-label" i18n
+            <label for="weightLoss" class="form-label"
               >17. Unexplained weight loss</label
             >
             <div class="col-md-6">
@@ -3249,7 +3077,7 @@
                   id="weightLossYes"
                   value="Yes"
                 />
-                <label class="form-check-label" for="weightLossYes" i18n>
+                <label class="form-check-label" for="weightLossYes">
                   Yes
                 </label>
               </div>
@@ -3262,9 +3090,7 @@
                   id="weightLossNo"
                   value="No"
                 />
-                <label class="form-check-label" for="weightLossNo" i18n>
-                  No
-                </label>
+                <label class="form-check-label" for="weightLossNo"> No </label>
               </div>
               <div class="form-check">
                 <input
@@ -3275,7 +3101,7 @@
                   id="weightLossNotsure"
                   value="Notsure"
                 />
-                <label class="form-check-label" for="weightLossNotsure" i18n>
+                <label class="form-check-label" for="weightLossNotsure">
                   Not Sure
                 </label>
               </div>
@@ -3284,7 +3110,7 @@
 
           <!-- Stroke Paralysis -->
           <div class="col-md-6">
-            <label for="stroke" class="form-label" i18n
+            <label for="stroke" class="form-label"
               >18. Stroke, mini-stroke (TIA), paralysis, or weakness</label
             >
             <div class="col-md-6">
@@ -3297,9 +3123,7 @@
                   id="strokeYes"
                   value="Yes"
                 />
-                <label class="form-check-label" for="strokeYes" i18n>
-                  Yes
-                </label>
+                <label class="form-check-label" for="strokeYes"> Yes </label>
               </div>
               <div class="form-check">
                 <input
@@ -3310,7 +3134,7 @@
                   id="strokeNo"
                   value="No"
                 />
-                <label class="form-check-label" for="strokeNo" i18n> No </label>
+                <label class="form-check-label" for="strokeNo"> No </label>
               </div>
               <div class="form-check">
                 <input
@@ -3321,7 +3145,7 @@
                   id="strokeNotsure"
                   value="Notsure"
                 />
-                <label class="form-check-label" for="strokeNotsure" i18n>
+                <label class="form-check-label" for="strokeNotsure">
                   Not Sure
                 </label>
               </div>
@@ -3330,7 +3154,7 @@
 
           <!-- Limited use of arm hand Etc -->
           <div class="col-md-6">
-            <label for="useLimit" class="form-label" i18n
+            <label for="useLimit" class="form-label"
               >19. Missing or limited use of arm, hand, finger, leg, foot,
               toe</label
             >
@@ -3344,9 +3168,7 @@
                   id="useLimitYes"
                   value="Yes"
                 />
-                <label class="form-check-label" for="useLimitYes" i18n>
-                  Yes
-                </label>
+                <label class="form-check-label" for="useLimitYes"> Yes </label>
               </div>
               <div class="form-check">
                 <input
@@ -3357,9 +3179,7 @@
                   id="useLimitNo"
                   value="No"
                 />
-                <label class="form-check-label" for="useLimitNo" i18n>
-                  No
-                </label>
+                <label class="form-check-label" for="useLimitNo"> No </label>
               </div>
               <div class="form-check">
                 <input
@@ -3370,7 +3190,7 @@
                   id="useLimitNotsure"
                   value="Notsure"
                 />
-                <label class="form-check-label" for="useLimitNotsure" i18n>
+                <label class="form-check-label" for="useLimitNotsure">
                   Not Sure
                 </label>
               </div>
@@ -3378,7 +3198,7 @@
           </div>
           <!-- Neck  -->
           <div class="col-md-6">
-            <label for="neck" class="form-label" i18n
+            <label for="neck" class="form-label"
               >20. Neck or back problems</label
             >
             <div class="col-md-6">
@@ -3391,7 +3211,7 @@
                   id="neckYes"
                   value="Yes"
                 />
-                <label class="form-check-label" for="neckYes" i18n> Yes </label>
+                <label class="form-check-label" for="neckYes"> Yes </label>
               </div>
               <div class="form-check">
                 <input
@@ -3402,7 +3222,7 @@
                   id="neckNo"
                   value="No"
                 />
-                <label class="form-check-label" for="neckNo" i18n> No </label>
+                <label class="form-check-label" for="neckNo"> No </label>
               </div>
               <div class="form-check">
                 <input
@@ -3413,7 +3233,7 @@
                   id="neckNotsure"
                   value="Notsure"
                 />
-                <label class="form-check-label" for="neckNotsure" i18n>
+                <label class="form-check-label" for="neckNotsure">
                   Not Sure
                 </label>
               </div>
@@ -3423,7 +3243,7 @@
           <!-- Bone Muscle -->
 
           <div class="col-md-6">
-            <label for="bone" class="form-label" i18n
+            <label for="bone" class="form-label"
               >21. Bone, muscle, joint, or nerve problems</label
             >
             <div class="col-md-6">
@@ -3436,7 +3256,7 @@
                   id="boneYes"
                   value="Yes"
                 />
-                <label class="form-check-label" for="boneYes" i18n> Yes </label>
+                <label class="form-check-label" for="boneYes"> Yes </label>
               </div>
               <div class="form-check">
                 <input
@@ -3447,7 +3267,7 @@
                   id="boneNo"
                   value="No"
                 />
-                <label class="form-check-label" for="boneNo" i18n> No </label>
+                <label class="form-check-label" for="boneNo"> No </label>
               </div>
               <div class="form-check">
                 <input
@@ -3458,7 +3278,7 @@
                   id="boneNotsure"
                   value="Notsure"
                 />
-                <label class="form-check-label" for="boneNotsure" i18n>
+                <label class="form-check-label" for="boneNotsure">
                   Not Sure
                 </label>
               </div>
@@ -3468,7 +3288,7 @@
           <!-- Blood clot bleeding -->
 
           <div class="col-md-6">
-            <label for="blood" class="form-label" i18n
+            <label for="blood" class="form-label"
               >22. Blood clots or bleeding problems</label
             >
             <div class="col-md-6">
@@ -3481,9 +3301,7 @@
                   id="bloodYes"
                   value="Yes"
                 />
-                <label class="form-check-label" for="bloodYes" i18n>
-                  Yes
-                </label>
+                <label class="form-check-label" for="bloodYes"> Yes </label>
               </div>
               <div class="form-check">
                 <input
@@ -3494,7 +3312,7 @@
                   id="bloodNo"
                   value="No"
                 />
-                <label class="form-check-label" for="bloodNo" i18n> No </label>
+                <label class="form-check-label" for="bloodNo"> No </label>
               </div>
               <div class="form-check">
                 <input
@@ -3505,7 +3323,7 @@
                   id="bloodNotsure"
                   value="Notsure"
                 />
-                <label class="form-check-label" for="bloodNotsure" i18n>
+                <label class="form-check-label" for="bloodNotsure">
                   Not Sure
                 </label>
               </div>
@@ -3514,7 +3332,7 @@
 
           <!-- cancer -->
           <div class="col-md-6">
-            <label for="cancer" class="form-label" i18n>23. Cancer</label>
+            <label for="cancer" class="form-label">23. Cancer</label>
             <div class="col-md-6">
               <div class="form-check">
                 <input
@@ -3525,9 +3343,7 @@
                   id="cancerYes"
                   value="Yes"
                 />
-                <label class="form-check-label" for="cancerYes" i18n>
-                  Yes
-                </label>
+                <label class="form-check-label" for="cancerYes"> Yes </label>
               </div>
               <div class="form-check">
                 <input
@@ -3538,7 +3354,7 @@
                   id="cancerNo"
                   value="No"
                 />
-                <label class="form-check-label" for="cancerNo" i18n> No </label>
+                <label class="form-check-label" for="cancerNo"> No </label>
               </div>
               <div class="form-check">
                 <input
@@ -3549,7 +3365,7 @@
                   id="cancerNotsure"
                   value="Notsure"
                 />
-                <label class="form-check-label" for="cancerNotsure" i18n>
+                <label class="form-check-label" for="cancerNotsure">
                   Not Sure
                 </label>
               </div>
@@ -3558,7 +3374,7 @@
 
           <!-- chronic -->
           <div class="col-md-6">
-            <label for="chronic" class="form-label" i18n
+            <label for="chronic" class="form-label"
               >24. Chronic (long-term) infection or other chronic
               diseases</label
             >
@@ -3572,9 +3388,7 @@
                   id="chronicYes"
                   value="Yes"
                 />
-                <label class="form-check-label" for="chronicYes" i18n>
-                  Yes
-                </label>
+                <label class="form-check-label" for="chronicYes"> Yes </label>
               </div>
               <div class="form-check">
                 <input
@@ -3585,9 +3399,7 @@
                   id="chronicNo"
                   value="No"
                 />
-                <label class="form-check-label" for="chronicNo" i18n>
-                  No
-                </label>
+                <label class="form-check-label" for="chronicNo"> No </label>
               </div>
               <div class="form-check">
                 <input
@@ -3608,7 +3420,7 @@
           <!-- apnea -->
 
           <div class="col-md-6">
-            <label for="apnea" class="form-label" i18n
+            <label for="apnea" class="form-label"
               >25. Sleep disorders, pauses in breathing while asleep, daytime
               sleepiness, loud snoring</label
             >
@@ -3622,9 +3434,7 @@
                   id="apneaYes"
                   value="Yes"
                 />
-                <label class="form-check-label" for="apneaYes" i18n>
-                  Yes
-                </label>
+                <label class="form-check-label" for="apneaYes"> Yes </label>
               </div>
               <div class="form-check">
                 <input
@@ -3635,7 +3445,7 @@
                   id="apneaNo"
                   value="No"
                 />
-                <label class="form-check-label" for="apneaNo" i18n> No </label>
+                <label class="form-check-label" for="apneaNo"> No </label>
               </div>
               <div class="form-check">
                 <input
@@ -3646,7 +3456,7 @@
                   id="apneaNotsure"
                   value="Notsure"
                 />
-                <label class="form-check-label" for="apneaNotsure" i18n>
+                <label class="form-check-label" for="apneaNotsure">
                   Not Sure
                 </label>
               </div>
@@ -3655,7 +3465,7 @@
           <!-- Sleep Test -->
 
           <div class="col-md-6">
-            <label for="sleepTest" class="form-label" i18n
+            <label for="sleepTest" class="form-label"
               >26. Have you ever had a sleep test (e.g., sleep apnea)?</label
             >
             <div class="col-md-6">
@@ -3668,9 +3478,7 @@
                   id="sleepTestYes"
                   value="Yes"
                 />
-                <label class="form-check-label" for="sleepTestYes" i18n>
-                  Yes
-                </label>
+                <label class="form-check-label" for="sleepTestYes"> Yes </label>
               </div>
               <div class="form-check">
                 <input
@@ -3681,9 +3489,7 @@
                   id="sleepTestNo"
                   value="No"
                 />
-                <label class="form-check-label" for="sleepTestNo" i18n>
-                  No
-                </label>
+                <label class="form-check-label" for="sleepTestNo"> No </label>
               </div>
               <div class="form-check">
                 <input
@@ -3694,7 +3500,7 @@
                   id="sleepTestNotsure"
                   value="Notsure"
                 />
-                <label class="form-check-label" for="sleepTestNotsure" i18n>
+                <label class="form-check-label" for="sleepTestNotsure">
                   Not Sure
                 </label>
               </div>
@@ -3703,7 +3509,7 @@
 
           <!-- Night in hospital -->
           <div class="col-md-6">
-            <label for="hospitalNight" class="form-label" i18n
+            <label for="hospitalNight" class="form-label"
               >27. Have you ever spent a night in the hospital?</label
             >
             <div class="col-md-6">
@@ -3716,7 +3522,7 @@
                   id="hospitalNightYes"
                   value="Yes"
                 />
-                <label class="form-check-label" for="hospitalNightYes" i18n>
+                <label class="form-check-label" for="hospitalNightYes">
                   Yes
                 </label>
               </div>
@@ -3729,7 +3535,7 @@
                   id="hospitalNightNo"
                   value="No"
                 />
-                <label class="form-check-label" for="hospitalNightNo" i18n>
+                <label class="form-check-label" for="hospitalNightNo">
                   No
                 </label>
               </div>
@@ -3742,7 +3548,7 @@
                   id="hospitalNightNotsure"
                   value="Notsure"
                 />
-                <label class="form-check-label" for="hospitalNightNotsure" i18n>
+                <label class="form-check-label" for="hospitalNightNotsure">
                   Not Sure
                 </label>
               </div>
@@ -3752,7 +3558,7 @@
           <!-- Broken Bone -->
 
           <div class="col-md-6">
-            <label for="brokenBone" class="form-label" i18n
+            <label for="brokenBone" class="form-label"
               >28. Have you ever had a broken bone?
             </label>
             <div class="col-md-6">
@@ -3765,7 +3571,7 @@
                   id="brokenBoneYes"
                   value="Yes"
                 />
-                <label class="form-check-label" for="brokenBoneYes" i18n>
+                <label class="form-check-label" for="brokenBoneYes">
                   Yes
                 </label>
               </div>
@@ -3778,9 +3584,7 @@
                   id="brokenBoneNo"
                   value="No"
                 />
-                <label class="form-check-label" for="brokenBoneNo" i18n>
-                  No
-                </label>
+                <label class="form-check-label" for="brokenBoneNo"> No </label>
               </div>
               <div class="form-check">
                 <input
@@ -3791,7 +3595,7 @@
                   id="brokenBoneNotsure"
                   value="Notsure"
                 />
-                <label class="form-check-label" for="brokenBoneNotsure" i18n>
+                <label class="form-check-label" for="brokenBoneNotsure">
                   Not Sure
                 </label>
               </div>
@@ -3801,7 +3605,7 @@
           <!-- Tobacco -->
 
           <div class="col-md-6">
-            <label for="dTobacco" class="form-label" i18n
+            <label for="dTobacco" class="form-label"
               >29. Have you ever used or do you now use tobacco?
             </label>
             <div class="col-md-6">
@@ -3814,9 +3618,7 @@
                   id="dTobaccoYes"
                   value="Yes"
                 />
-                <label class="form-check-label" for="dTobaccoYes" i18n>
-                  Yes
-                </label>
+                <label class="form-check-label" for="dTobaccoYes"> Yes </label>
               </div>
               <div class="form-check">
                 <input
@@ -3827,9 +3629,7 @@
                   id="dTobaccoNo"
                   value="No"
                 />
-                <label class="form-check-label" for="dTobaccoNo" i18n>
-                  No
-                </label>
+                <label class="form-check-label" for="dTobaccoNo"> No </label>
               </div>
               <div class="form-check">
                 <input
@@ -3840,7 +3640,7 @@
                   id="dTobaccoNotsure"
                   value="Notsure"
                 />
-                <label class="form-check-label" for="dTobaccoNotsure" i18n>
+                <label class="form-check-label" for="dTobaccoNotsure">
                   Not Sure
                 </label>
               </div>
@@ -3849,7 +3649,7 @@
 
           <!-- Alcohol -->
           <div class="col-md-6">
-            <label for="dAlcohol" class="form-label" i18n
+            <label for="dAlcohol" class="form-label"
               >30. Do you currently drink alcohol?
             </label>
             <div class="col-md-6">
@@ -3862,9 +3662,7 @@
                   id="dAlcoholYes"
                   value="Yes"
                 />
-                <label class="form-check-label" for="dAlcoholYes" i18n>
-                  Yes
-                </label>
+                <label class="form-check-label" for="dAlcoholYes"> Yes </label>
               </div>
               <div class="form-check">
                 <input
@@ -3875,9 +3673,7 @@
                   id="dAlcoholNo"
                   value="No"
                 />
-                <label class="form-check-label" for="dAlcoholNo" i18n>
-                  No
-                </label>
+                <label class="form-check-label" for="dAlcoholNo"> No </label>
               </div>
               <div class="form-check">
                 <input
@@ -3888,7 +3684,7 @@
                   id="dAlcoholNotsure"
                   value="Notsure"
                 />
-                <label class="form-check-label" for="dAlcoholNotsure" i18n>
+                <label class="form-check-label" for="dAlcoholNotsure">
                   Not Sure
                 </label>
               </div>
@@ -3897,7 +3693,7 @@
 
           <!-- illegal -->
           <div class="col-md-6">
-            <label for="illegal" class="form-label" i18n
+            <label for="illegal" class="form-label"
               >31. Have you used an illegal substance within the past two years?
             </label>
             <div class="col-md-6">
@@ -3910,9 +3706,7 @@
                   id="illegalYes  "
                   value="Yes"
                 />
-                <label class="form-check-label" for="illegalYes" i18n>
-                  Yes
-                </label>
+                <label class="form-check-label" for="illegalYes"> Yes </label>
               </div>
               <div class="form-check">
                 <input
@@ -3923,9 +3717,7 @@
                   id="illegalNo"
                   value="No"
                 />
-                <label class="form-check-label" for="illegalNo" i18n>
-                  No
-                </label>
+                <label class="form-check-label" for="illegalNo"> No </label>
               </div>
               <div class="form-check">
                 <input
@@ -3936,7 +3728,7 @@
                   id="illegalNotsure"
                   value="Notsure"
                 />
-                <label class="form-check-label" for="illegalNotsure" i18n>
+                <label class="form-check-label" for="illegalNotsure">
                   Not Sure
                 </label>
               </div>
@@ -3945,7 +3737,7 @@
 
           <!-- DriverDrug -->
           <div class="col-md-6">
-            <label for="illegalDrug" class="form-label" i18n
+            <label for="illegalDrug" class="form-label"
               >32. Have you ever failed a drug test or been dependent on an
               illegal substance?
             </label>
@@ -3959,7 +3751,7 @@
                   id="illegalDrugYes  "
                   value="Yes"
                 />
-                <label class="form-check-label" for="illegalDrugYes" i18n>
+                <label class="form-check-label" for="illegalDrugYes">
                   Yes
                 </label>
               </div>
@@ -3972,9 +3764,7 @@
                   id="illegalDrugNo"
                   value="No"
                 />
-                <label class="form-check-label" for="illegalDrugNo" i18n>
-                  No
-                </label>
+                <label class="form-check-label" for="illegalDrugNo"> No </label>
               </div>
               <div class="form-check">
                 <input
@@ -3985,7 +3775,7 @@
                   id="illegalDrugNotsure"
                   value="Notsure"
                 />
-                <label class="form-check-label" for="illegalDrugNotsure" i18n>
+                <label class="form-check-label" for="illegalDrugNotsure">
                   Not Sure
                 </label>
               </div>
@@ -3998,7 +3788,7 @@
       <br />
       <!-- Other Health Condition -->
       <div class="col-md-12">
-        <label for="otherHealth" class="form-label" i18n
+        <label for="otherHealth" class="form-label"
           >Other health condition(s) not described above:
         </label>
       </div>
@@ -4012,9 +3802,7 @@
             id="otherHealthYes"
             value="Yes"
           />
-          <label class="form-check-label" for="otherHealthYes" i18n>
-            Yes
-          </label>
+          <label class="form-check-label" for="otherHealthYes"> Yes </label>
         </div>
         <div class="form-check">
           <input
@@ -4025,7 +3813,7 @@
             id="otherHealthNo"
             value="No"
           />
-          <label class="form-check-label" for="otherHealthNo" i18n> No </label>
+          <label class="form-check-label" for="otherHealthNo"> No </label>
         </div>
         <div class="form-check">
           <input
@@ -4036,14 +3824,14 @@
             id="otherHealthNotsure"
             value="Notsure"
           />
-          <label class="form-check-label" for="otherHealthNotsure" i18n>
+          <label class="form-check-label" for="otherHealthNotsure">
             Not Sure
           </label>
         </div>
       </div>
 
       <div class="col-12" *ngIf="patientMainModel.otherHealth == 'Yes'">
-        <label for="otherHealth" class="form-label" i18n
+        <label for="otherHealth" class="form-label"
           >Please describe below.</label
         >
         <textarea
@@ -4058,7 +3846,7 @@
       </div>
       <!-- Last Question -->
       <div class="col-md-12">
-        <label for="dComment" class="form-label" i18n
+        <label for="dComment" class="form-label"
           >Did you answer "yes" to any of questions 1-32? If so, please comment
           further on those health conditions below
         </label>
@@ -4073,7 +3861,7 @@
             id="dCommentYes"
             value="Yes"
           />
-          <label class="form-check-label" for="dCommentYes" i18n> Yes </label>
+          <label class="form-check-label" for="dCommentYes"> Yes </label>
         </div>
         <div class="form-check">
           <input
@@ -4084,7 +3872,7 @@
             id="dCommentNo"
             value="No"
           />
-          <label class="form-check-label" for="dCommentNo" i18n> No </label>
+          <label class="form-check-label" for="dCommentNo"> No </label>
         </div>
         <div class="form-check">
           <input
@@ -4095,16 +3883,14 @@
             id="dCommentNotsure"
             value="Notsure"
           />
-          <label class="form-check-label" for="dCommentNotsure" i18n>
+          <label class="form-check-label" for="dCommentNotsure">
             Not Sure
           </label>
         </div>
       </div>
 
       <div class="col-12" *ngIf="patientMainModel.dComment == 'Yes'">
-        <label for="dComment" class="form-label" i18n
-          >Please describe below.</label
-        >
+        <label for="dComment" class="form-label">Please describe below.</label>
         <textarea
           [(ngModel)]="patientMainModel.dCommentExplain"
           name="dCommentExplain"
@@ -4122,7 +3908,7 @@
     <!-- ===================================== -->
 
     <div class="col-12" *ngIf="patientMainModel.reasonForVisit == 'Covid'">
-      <label for="covidTesting" class="form-label" i18n>ARE YOU NEEDING</label>
+      <label for="covidTesting" class="form-label">ARE YOU NEEDING</label>
       <div class="form-check">
         <input
           class="form-check-input"
@@ -4132,7 +3918,7 @@
           id="RapidPCR"
           value="RapidPCR"
         />
-        <label class="form-check-label" for="RapidPCR" i18n>
+        <label class="form-check-label" for="RapidPCR">
           RAPID RT-PCR TEST FOR TRAVELING
         </label>
       </div>
@@ -4145,7 +3931,7 @@
           id="RapidAntigen"
           value="RapidAntigen"
         />
-        <label class="form-check-label" for="RapidAntigen" i18n>
+        <label class="form-check-label" for="RapidAntigen">
           RAPID ANTIGEN TEST
         </label>
       </div>
@@ -4156,7 +3942,7 @@
     >
       <div class="row">
         <div class="col-md-4">
-          <label for="cityOfBirth" class="form-label" i18n
+          <label for="cityOfBirth" class="form-label"
             >City or Town of Birth</label
           >
           <input
@@ -4174,14 +3960,13 @@
           <div
             class="invalid-feedback"
             *ngIf="patient.submitted && cityOfBirth.invalid"
-            i18n
           >
             City or Town of Birth is Required
           </div>
         </div>
         <!-- CityTownVillage -->
         <div class="col-md-4">
-          <label for="cityTownVillage" class="form-label" i18n
+          <label for="cityTownVillage" class="form-label"
             >City/Town/Village of Birth</label
           >
           <input
@@ -4195,7 +3980,7 @@
         </div>
         <!--  -->
         <div class="col-md-4">
-          <label for="countryOfBirth" class="form-label" i18n
+          <label for="countryOfBirth" class="form-label"
             >Country Of Birth</label
           >
           <input
@@ -4209,7 +3994,7 @@
         </div>
 
         <div class="col-md-4">
-          <label for="imgNumber" class="form-label" i18n
+          <label for="imgNumber" class="form-label"
             >Alien Registration Number (A-Number) (If any)</label
           >
           <input
@@ -4231,10 +4016,10 @@
             <!-- <div class="text-danger" *ngIf="imgNumber.errors?.required">
               Alien Registration Number is Required
             </div> -->
-            <div class="text-danger" *ngIf="imgNumber.errors?.minlength" i18n>
+            <div class="text-danger" *ngIf="imgNumber.errors?.minlength">
               Minimum 9 digits
             </div>
-            <div class="text-danger" *ngIf="imgNumber.errors?.pattern" i18n>
+            <div class="text-danger" *ngIf="imgNumber.errors?.pattern">
               Only digits are allowed
             </div>
           </div>
@@ -4242,7 +4027,7 @@
 
         <!-- USCIS Online Account Number -->
         <div class="col-md-4">
-          <label for="imgNumber" class="form-label" i18n
+          <label for="imgNumber" class="form-label"
             >USCIS Online Account Number (if any)</label
           >
           <input
@@ -4263,10 +4048,10 @@
             <!-- <div class="text-danger" *ngIf="uscisNumber.errors?.required">
               USCIS Number is Required
             </div> -->
-            <div class="text-danger" *ngIf="uscisNumber.errors?.minlength" i18n>
+            <div class="text-danger" *ngIf="uscisNumber.errors?.minlength">
               Minimum 12 digits
             </div>
-            <div class="text-danger" *ngIf="uscisNumber.errors?.pattern" i18n>
+            <div class="text-danger" *ngIf="uscisNumber.errors?.pattern">
               Only digits are allowed
             </div>
           </div>
@@ -4274,7 +4059,7 @@
       </div>
       <!-- Interpreter  -->
       <div class="col-md-12">
-        <label for="ssn" class="form-label" i18n
+        <label for="ssn" class="form-label"
           >I can read and understand English and have understood all the
           instructions in this form</label
         >
@@ -4287,9 +4072,7 @@
             id="interpreterYes"
             value="Yes"
           />
-          <label class="form-check-label" for="interpreterYes" i18n>
-            Yes
-          </label>
+          <label class="form-check-label" for="interpreterYes"> Yes </label>
         </div>
         <div class="form-check">
           <input
@@ -4300,20 +4083,20 @@
             id="interpreterNo"
             value="No"
           />
-          <label class="form-check-label" for="interpreterNo" i18n> No </label>
+          <label class="form-check-label" for="interpreterNo"> No </label>
         </div>
       </div>
       <br />
       <div class="col-md-12" *ngIf="patientMainModel.interpreter == 'No'">
         <h3>
-          <strong i18n>
+          <strong>
             Provide the following information about the interpreter, if you used
             one</strong
           >
         </h3>
         <div class="row">
           <div class="col-md-4">
-            <label for="drugsExplain" class="form-label" i18n>
+            <label for="drugsExplain" class="form-label">
               Interpreter's Given Name (First Name)
             </label>
             <input
@@ -4326,7 +4109,7 @@
             />
           </div>
           <div class="col-md-4">
-            <label for="drugsExplain" class="form-label" i18n>
+            <label for="drugsExplain" class="form-label">
               Interpreter's Family Name (Last Name)
             </label>
             <input
@@ -4339,7 +4122,7 @@
             />
           </div>
           <div class="col-md-4">
-            <label for="drugsExplain" class="form-label" i18n>
+            <label for="drugsExplain" class="form-label">
               Interpreter's Business or Organization Name (if any)
             </label>
             <input
@@ -4367,7 +4150,7 @@
     </div>
 
     <div class="col-12">
-      <button type="submit" class="btn btn-primary" i18n>Next</button>
+      <button type="submit" class="btn btn-primary">Next</button>
     </div>
   </form>
 </div>
