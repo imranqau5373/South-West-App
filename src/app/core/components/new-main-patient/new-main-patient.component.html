@@ -1995,6 +1995,7 @@
         </div>
       </div>
       <!--  -->
+      <br />
       <div class="form-check">
         <input
           class="form-check-input"
@@ -2012,6 +2013,22 @@
           schedule and pay for such ECG.
         </label>
       </div>
+      <br />
+      <div class="col-12">
+        <label for="stdYesExplain" class="form-label"
+          >EXPLAIN ‘YES’ ANSWERS IN THE BOX BELOW:</label
+        >
+        <textarea
+          [(ngModel)]="patientMainModel.stdYesExplain"
+          name="stdYesExplain"
+          #medicalProblemExplain="ngModel"
+          type="text"
+          class="form-control"
+          id="stdYesExplain"
+          rows="4"
+        ></textarea>
+      </div>
+
       <!--  -->
     </div>
 

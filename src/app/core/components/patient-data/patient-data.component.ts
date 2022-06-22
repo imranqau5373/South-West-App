@@ -307,7 +307,7 @@ export class PatientDataComponent implements OnInit {
       formData.append("stdTwoTesticle", this.patientMainModel.stdTwoTesticle)
       formData.append("stdTesticularSwelling", this.patientMainModel.stdTesticularSwelling)
       formData.append("stdECG", this.patientMainModel.stdECG)
-    
+      formData.append('stdYesExplain', this.patientMainModel.stdYesExplain)
     }
 
 
