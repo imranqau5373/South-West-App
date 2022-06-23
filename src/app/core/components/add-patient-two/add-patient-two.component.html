@@ -28,6 +28,19 @@
         id="emergencyLast"
       />
     </div>
+    <!--  -->
+    <div class="col-md-4">
+      <label for="emergencyRelation" class="form-label">Relationship</label>
+      <input
+        [(ngModel)]="patientTwoModel.emergencyRelation"
+        name="emergencyRelation"
+        #contactRelation="ngModel"
+        type="text"
+        class="form-control"
+        id="emergencyRelation"
+      />
+    </div>
+    <!--  -->
     <div class="col-md-4">
       <label for="emergencyPhone" class="form-label">Phone Number</label>
       <input
@@ -39,7 +52,8 @@
         id="emergencyPhone"
       />
     </div>
-    <div class="col-md-6">
+
+    <div class="col-md-12">
       <label for="medicalRecords" class="form-label"
         >CAN WE DISCLOSE YOUR MEDICAL RECORDS TO ANY ONE (eg FAMILY MEMBER )?
       </label>

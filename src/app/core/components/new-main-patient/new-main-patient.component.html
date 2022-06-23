@@ -943,19 +943,7 @@
       </div>
 
       <!--  -->
-      <div class="col-md-4" *ngIf="patientMainModel.stdHeadInjury == 'Yes'">
-        <label for="stdConcussion" class="form-label"
-          >When was your last concussion?
-        </label>
-        <input
-          [(ngModel)]="patientMainModel.stdConcussion"
-          name="stdConcussion"
-          #stdConcussionExplain="ngModel"
-          type="text"
-          class="form-control"
-          id="stdConcussion"
-        />
-      </div>
+
       <!--  -->
       <!--  -->
       <div class="col-12">
@@ -987,8 +975,10 @@
         </div>
       </div>
       <!--  -->
-      <div class="col-md-4" *ngIf="patientMainModel.stdMemoryLoss == 'Yes'">
-        <label for="stdMemoryLoss" class="form-label">How many times?</label>
+      <div class="col-md-4">
+        <label for="stdMemoryLoss" class="form-label"
+          >If yes, How many times?</label
+        >
         <input
           [(ngModel)]="patientMainModel.stdMemoryLossExplain"
           name="stdMemoryLossExplain"
@@ -998,7 +988,33 @@
           id="stdMemoryLossExplain"
         />
       </div>
-
+      <div class="col-md-4">
+        <label for="stdConcussion" class="form-label"
+          >When was your last concussion?
+        </label>
+        <input
+          [(ngModel)]="patientMainModel.stdConcussion"
+          name="stdConcussion"
+          #stdConcussionExplain="ngModel"
+          type="text"
+          class="form-control"
+          id="stdConcussion"
+        />
+      </div>
+      <!--  -->
+      <div class="col-md-4">
+        <label for="stdHowSevere" class="form-label"
+          >How severe was each one? (Explain below)
+        </label>
+        <input
+          [(ngModel)]="patientMainModel.stdHowSevere"
+          name="stdHowSevere"
+          #stdHowSevereExplain="ngModel"
+          type="text"
+          class="form-control"
+          id="stdHowSevere"
+        />
+      </div>
       <!--  -->
       <div class="col-12">
         <label for="stdSeizure" class="form-label"
@@ -1523,256 +1539,7 @@
         </div>
       </div>
       <!--  -->
-      <div class="col-12" *ngIf="patientMainModel.stdFracturedBone == 'Yes'">
-        <label for="stdFracturedBone" class="form-label"
-          >If yes, check appropriate box and explain below:</label
-        >
-        <div class="row">
-          <div class="form-check" class="col-1">
-            <input
-              class="form-check-input"
-              [(ngModel)]="patientMainModel.stdFracturedHead"
-              type="checkbox"
-              name="stdFracturedHead"
-              id="stdFracturedHead"
-              value="Head"
-            />
-            <label class="form-check-label" for="stdFracturedHead">
-              Head
-            </label>
-          </div>
-          <div class="form-check" class="col-1">
-            <input
-              class="form-check-input"
-              [(ngModel)]="patientMainModel.stdFracturedNeck"
-              type="checkbox"
-              name="stdFracturedNeck"
-              id="stdFracturedNeck"
-              value="Neck"
-            />
-            <label class="form-check-label" for="stdFracturedNeck">
-              Neck
-            </label>
-          </div>
-          <div class="form-check" class="col-1">
-            <input
-              class="form-check-input"
-              [(ngModel)]="patientMainModel.stdFracturedBack"
-              type="checkbox"
-              name="stdFracturedBack"
-              id="stdFracturedBack"
-              value="Back"
-            />
-            <label class="form-check-label" for="stdFracturedBack">
-              Back
-            </label>
-          </div>
-          <div class="form-check" class="col-1">
-            <input
-              class="form-check-input"
-              [(ngModel)]="patientMainModel.stdFracturedChest"
-              type="checkbox"
-              name="stdFracturedChest"
-              id="stdFracturedChest"
-              value="Chest"
-            />
-            <label class="form-check-label" for="stdFracturedChest">
-              Chest
-            </label>
-          </div>
-          <!--  -->
-          <div class="form-check" class="col-1">
-            <input
-              class="form-check-input"
-              [(ngModel)]="patientMainModel.stdFracturedShoulder"
-              type="checkbox"
-              name="stdFracturedShoulder"
-              id="stdFracturedShoulder"
-              value="Shoulder"
-            />
-            <label class="form-check-label" for="stdFracturedShoulder">
-              Shoulder
-            </label>
-          </div>
-        </div>
 
-        <!--  -->
-
-        <div class="row">
-          <div class="form-check" class="col-1">
-            <input
-              class="form-check-input"
-              [(ngModel)]="patientMainModel.stdFracturedUpperArm"
-              type="checkbox"
-              name="stdFracturedUpperArm"
-              id="stdFracturedUpperArm"
-              value="UpperArm"
-            />
-            <label class="form-check-label" for="stdFracturedUpperArm">
-              Upper Arm
-            </label>
-          </div>
-          <!--  -->
-          <div class="form-check" class="col-1">
-            <input
-              class="form-check-input"
-              [(ngModel)]="patientMainModel.stdFracturedElbow"
-              type="checkbox"
-              name="stdFracturedElbow"
-              id="stdFracturedElbow"
-              value="Elbow"
-            />
-            <label class="form-check-label" for="stdFracturedElbow">
-              Elbow
-            </label>
-          </div>
-          <!--  -->
-          <div class="form-check" class="col-1">
-            <input
-              class="form-check-input"
-              [(ngModel)]="patientMainModel.stdFracturedForearm"
-              type="checkbox"
-              name="stdFracturedForearm"
-              id="stdFracturedForearm"
-              value="Forearm"
-            />
-            <label class="form-check-label" for="stdFracturedForearm">
-              Forearm
-            </label>
-          </div>
-          <!--  -->
-          <div class="form-check" class="col-1">
-            <input
-              class="form-check-input"
-              [(ngModel)]="patientMainModel.stdFracturedWrist"
-              type="checkbox"
-              name="stdFracturedWrist"
-              id="stdFracturedWrist"
-              value="Wrist"
-            />
-            <label class="form-check-label" for="stdFracturedWrist">
-              Wrist
-            </label>
-          </div>
-          <!--  -->
-          <div class="form-check" class="col-1">
-            <input
-              class="form-check-input"
-              [(ngModel)]="patientMainModel.stdFracturedHand"
-              type="checkbox"
-              name="stdFracturedHand"
-              id="stdFracturedHand"
-              value="Hand"
-            />
-            <label class="form-check-label" for="stdFracturedHand">
-              Hand
-            </label>
-          </div>
-        </div>
-
-        <!--  -->
-
-        <div class="row">
-          <div class="form-check" class="col-1">
-            <input
-              class="form-check-input"
-              [(ngModel)]="patientMainModel.stdFracturedFinger"
-              type="checkbox"
-              name="stdFracturedFinger"
-              id="stdFracturedFinger"
-              value="Finger"
-            />
-            <label class="form-check-label" for="stdFracturedFinger">
-              Finger
-            </label>
-          </div>
-          <!--  -->
-          <div class="form-check" class="col-1">
-            <input
-              class="form-check-input"
-              [(ngModel)]="patientMainModel.stdFracturedFoot"
-              type="checkbox"
-              name="stdFracturedFoot"
-              id="stdFracturedFoot"
-              value="Foot"
-            />
-            <label class="form-check-label" for="stdFracturedFoot">
-              Foot
-            </label>
-          </div>
-          <!--  -->
-          <div class="form-check" class="col-1">
-            <input
-              class="form-check-input"
-              [(ngModel)]="patientMainModel.stdFracturedHip"
-              type="checkbox"
-              name="stdFracturedHip"
-              id="stdFracturedHip"
-              value="Hip"
-            />
-            <label class="form-check-label" for="stdFracturedHip"> Hip </label>
-          </div>
-          <!--  -->
-          <div class="form-check" class="col-1">
-            <input
-              class="form-check-input"
-              [(ngModel)]="patientMainModel.stdFracturedThigh"
-              type="checkbox"
-              name="stdFracturedThigh"
-              id="stdFracturedThigh"
-              value="Thigh"
-            />
-            <label class="form-check-label" for="stdFracturedThigh">
-              Thigh
-            </label>
-          </div>
-          <!--  -->
-          <div class="form-check" class="col-1">
-            <input
-              class="form-check-input"
-              [(ngModel)]="patientMainModel.stdFracturedKnee"
-              type="checkbox"
-              name="stdFracturedKnee"
-              id="stdFracturedKnee"
-              value="Knee"
-            />
-            <label class="form-check-label" for="stdFracturedKnee">
-              Knee
-            </label>
-          </div>
-        </div>
-
-        <!--  -->
-        <div class="row">
-          <div class="form-check" class="col-1">
-            <input
-              class="form-check-input"
-              [(ngModel)]="patientMainModel.stdFracturedShin"
-              type="checkbox"
-              name="stdFracturedShin"
-              id="stdFracturedShin"
-              value="Shin/calf"
-            />
-            <label class="form-check-label" for="stdFracturedShin">
-              Shin/Calf
-            </label>
-          </div>
-          <!--  -->
-          <div class="form-check" class="col-1">
-            <input
-              class="form-check-input"
-              [(ngModel)]="patientMainModel.stdFracturedAnkle"
-              type="checkbox"
-              name="stdFracturedAnkle"
-              id="stdFracturedAnkle"
-              value="Ankle/calf"
-            />
-            <label class="form-check-label" for="stdFracturedAnkle">
-              Ankle
-            </label>
-          </div>
-        </div>
-      </div>
       <!--  -->
       <div class="col-12">
         <label for="stdMusclePain" class="form-label"
@@ -1803,7 +1570,257 @@
         </div>
       </div>
       <!--  -->
+      <div class="col-12">
+        <label for="stdFracturedBone" class="form-label"
+          >If yes, check appropriate box and explain below:</label
+        >
+        <div class="row">
+          <div class="form-check" class="col-1">
+            <input
+              class="form-check-input"
+              [(ngModel)]="patientMainModel.stdFracturedHead"
+              type="checkbox"
+              name="stdFracturedHead"
+              id="stdFracturedHead"
+              value="Head"
+            />&nbsp;
+            <label class="form-check-label" for="stdFracturedHead">
+              Head
+            </label>
+          </div>
+          <div class="form-check" class="col-1">
+            <input
+              class="form-check-input"
+              [(ngModel)]="patientMainModel.stdFracturedNeck"
+              type="checkbox"
+              name="stdFracturedNeck"
+              id="stdFracturedNeck"
+              value="Neck"
+            />&nbsp;
+            <label class="form-check-label" for="stdFracturedNeck">
+              Neck
+            </label>
+          </div>
+          <div class="form-check" class="col-1">
+            <input
+              class="form-check-input"
+              [(ngModel)]="patientMainModel.stdFracturedBack"
+              type="checkbox"
+              name="stdFracturedBack"
+              id="stdFracturedBack"
+              value="Back"
+            />&nbsp;
+            <label class="form-check-label" for="stdFracturedBack">
+              Back
+            </label>
+          </div>
+          <div class="form-check" class="col-1">
+            <input
+              class="form-check-input"
+              [(ngModel)]="patientMainModel.stdFracturedChest"
+              type="checkbox"
+              name="stdFracturedChest"
+              id="stdFracturedChest"
+              value="Chest"
+            />&nbsp;
+            <label class="form-check-label" for="stdFracturedChest">
+              Chest
+            </label>
+          </div>
+          <!--  -->
+          <div class="form-check" class="col-1">
+            <input
+              class="form-check-input"
+              [(ngModel)]="patientMainModel.stdFracturedShoulder"
+              type="checkbox"
+              name="stdFracturedShoulder"
+              id="stdFracturedShoulder"
+              value="Shoulder"
+            />&nbsp;
+            <label class="form-check-label" for="stdFracturedShoulder">
+              Shoulder
+            </label>
+          </div>
+        </div>
 
+        <!--  -->
+
+        <div class="row">
+          <div class="form-check" class="col-1">
+            <input
+              class="form-check-input"
+              [(ngModel)]="patientMainModel.stdFracturedUpperArm"
+              type="checkbox"
+              name="stdFracturedUpperArm"
+              id="stdFracturedUpperArm"
+              value="UpperArm"
+            />&nbsp;
+            <label class="form-check-label" for="stdFracturedUpperArm">
+              Upperarm
+            </label>
+          </div>
+          <!--  -->
+          <div class="form-check" class="col-1">
+            <input
+              class="form-check-input"
+              [(ngModel)]="patientMainModel.stdFracturedElbow"
+              type="checkbox"
+              name="stdFracturedElbow"
+              id="stdFracturedElbow"
+              value="Elbow"
+            />&nbsp;
+            <label class="form-check-label" for="stdFracturedElbow">
+              Elbow
+            </label>
+          </div>
+          <!--  -->
+          <div class="form-check" class="col-1">
+            <input
+              class="form-check-input"
+              [(ngModel)]="patientMainModel.stdFracturedForearm"
+              type="checkbox"
+              name="stdFracturedForearm"
+              id="stdFracturedForearm"
+              value="Forearm"
+            />&nbsp;
+            <label class="form-check-label" for="stdFracturedForearm">
+              Forearm
+            </label>
+          </div>
+          <!--  -->
+          <div class="form-check" class="col-1">
+            <input
+              class="form-check-input"
+              [(ngModel)]="patientMainModel.stdFracturedWrist"
+              type="checkbox"
+              name="stdFracturedWrist"
+              id="stdFracturedWrist"
+              value="Wrist"
+            />&nbsp;
+            <label class="form-check-label" for="stdFracturedWrist">
+              Wrist
+            </label>
+          </div>
+          <!--  -->
+          <div class="form-check" class="col-1">
+            <input
+              class="form-check-input"
+              [(ngModel)]="patientMainModel.stdFracturedHand"
+              type="checkbox"
+              name="stdFracturedHand"
+              id="stdFracturedHand"
+              value="Hand"
+            />&nbsp;
+            <label class="form-check-label" for="stdFracturedHand">
+              Hand
+            </label>
+          </div>
+        </div>
+
+        <!--  -->
+
+        <div class="row">
+          <div class="form-check" class="col-1">
+            <input
+              class="form-check-input"
+              [(ngModel)]="patientMainModel.stdFracturedFinger"
+              type="checkbox"
+              name="stdFracturedFinger"
+              id="stdFracturedFinger"
+              value="Finger"
+            />&nbsp;
+            <label class="form-check-label" for="stdFracturedFinger">
+              Finger
+            </label>
+          </div>
+          <!--  -->
+          <div class="form-check" class="col-1">
+            <input
+              class="form-check-input"
+              [(ngModel)]="patientMainModel.stdFracturedFoot"
+              type="checkbox"
+              name="stdFracturedFoot"
+              id="stdFracturedFoot"
+              value="Foot"
+            />&nbsp;
+            <label class="form-check-label" for="stdFracturedFoot">
+              Foot
+            </label>
+          </div>
+          <!--  -->
+          <div class="form-check" class="col-1">
+            <input
+              class="form-check-input"
+              [(ngModel)]="patientMainModel.stdFracturedHip"
+              type="checkbox"
+              name="stdFracturedHip"
+              id="stdFracturedHip"
+              value="Hip"
+            />&nbsp;
+            <label class="form-check-label" for="stdFracturedHip"> Hip </label>
+          </div>
+          <!--  -->
+          <div class="form-check" class="col-1">
+            <input
+              class="form-check-input"
+              [(ngModel)]="patientMainModel.stdFracturedThigh"
+              type="checkbox"
+              name="stdFracturedThigh"
+              id="stdFracturedThigh"
+              value="Thigh"
+            />&nbsp;
+            <label class="form-check-label" for="stdFracturedThigh">
+              Thigh
+            </label>
+          </div>
+          <!--  -->
+          <div class="form-check" class="col-1">
+            <input
+              class="form-check-input"
+              [(ngModel)]="patientMainModel.stdFracturedKnee"
+              type="checkbox"
+              name="stdFracturedKnee"
+              id="stdFracturedKnee"
+              value="Knee"
+            />&nbsp;
+            <label class="form-check-label" for="stdFracturedKnee">
+              Knee
+            </label>
+          </div>
+        </div>
+
+        <!--  -->
+        <div class="row">
+          <div class="form-check" class="col-1">
+            <input
+              class="form-check-input"
+              [(ngModel)]="patientMainModel.stdFracturedShin"
+              type="checkbox"
+              name="stdFracturedShin"
+              id="stdFracturedShin"
+              value="Shin/calf"
+            />&nbsp;
+            <label class="form-check-label" for="stdFracturedShin">
+              Shin/Calf
+            </label>
+          </div>
+          <!--  -->
+          <div class="form-check" class="col-1">
+            <input
+              class="form-check-input"
+              [(ngModel)]="patientMainModel.stdFracturedAnkle"
+              type="checkbox"
+              name="stdFracturedAnkle"
+              id="stdFracturedAnkle"
+              value="Ankle/calf"
+            />&nbsp;
+            <label class="form-check-label" for="stdFracturedAnkle">
+              Ankle
+            </label>
+          </div>
+        </div>
+      </div>
+      <br />
       <!--  -->
       <div class="col-12">
         <label for="stdWeight" class="form-label"

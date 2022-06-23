@@ -121,7 +121,9 @@ export class PatientDataComponent implements OnInit {
   setFormDataPatientSecond(formData :FormData ){
     formData.append("emergencyName", this.patientOne.emergencyName);
     formData.append("emergencyLast", this.patientOne.emergencyLast);
+  
     formData.append("emergencyPhone", this.patientOne.emergencyPhone);
+    formData.append("emergencyRelation", this.patientOne.emergencyRelation)
     formData.append("medicalRecord", this.patientOne.medicalRecord);
     formData.append("contactFirstName", this.patientOne.contactFirstName);
     formData.append("contactLastName", this.patientOne.contactLastName);
@@ -308,6 +310,7 @@ export class PatientDataComponent implements OnInit {
       formData.append("stdTesticularSwelling", this.patientMainModel.stdTesticularSwelling)
       formData.append("stdECG", this.patientMainModel.stdECG)
       formData.append('stdYesExplain', this.patientMainModel.stdYesExplain)
+      formData.append('stdHowSevere', this.patientMainModel.stdHowSevere)
     }
 
 
