@@ -115,7 +115,36 @@ export class PatientDataComponent implements OnInit {
     formData.append("zipcodePharmacy", this.patientOne.zipcodePharmacy);
     formData.append("familyMedicialHistory", this.patientOne.familyMedicialHistory);
     formData.append("signatureImg", this.patientMainModel.signatureImg);
-
+    if (this.patientOne.smoke == 'Yes') {
+    formData.append('exSmoker', this.patientOne.exSmoker)
+    formData.append('lightSmoker', this.patientOne.lightSmoker)
+    formData.append('moderateSmoker', this.patientOne.moderateSmoker)
+    formData.append('heavySmoker', this.patientOne.heavySmoker)
+    formData.append('varyHeavySmoker', this.patientOne.varyHeavySmoker)
+     formData.append('electronicSmoker', this.patientOne.electronicSmoker)
+    }
+    if (this.patientOne.tobacco == 'Yes') {
+      formData.append('socialTbc', this.patientOne.socialTbc)
+       formData.append('lessThenAWeek', this.patientOne.lessThenAWeekTbc)
+        formData.append('oneCanAweekTbc', this.patientOne.oneCanAweekTbc)
+         formData.append('twoOrMoreTbc', this.patientOne.twoOrMoreTbc)
+          
+    }
+    if (this.patientOne.alcohol =='Yes') {
+      formData.append('oneDrinkADay', this.patientOne.oneDrinkADay)
+      formData.append('twoToThreeDrinksAWeek', this.patientOne.twoToThreeDrinksAWeek)
+      formData.append('fiveOrMoreDrinksAWeek', this.patientOne.fiveOrMoreDrinksAWeek)
+      formData.append('socialDrinker', this.patientOne.socialDrinker)
+    }
+    if (this.patientOne.drugs == 'Yes') {
+      formData.append('drugTHC',this.patientOne.drugTHC)
+      formData.append('drugCOC', this.patientOne.drugCOC)
+      formData.append('drugMET',this.patientOne.drugMET)
+      formData.append('drugOPI',this.patientOne.drugOPI)
+      formData.append('drugPCP',this.patientOne.drugPCP)
+      formData.append('drugAMP',this.patientOne.drugAMP)
+      formData.append('drugOther',this.patientOne.drugOther)
+    }
   }
 
   setFormDataPatientSecond(formData :FormData ){

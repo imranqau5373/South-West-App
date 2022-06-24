@@ -488,25 +488,25 @@
       <div class="form-check">
         <input
           class="form-check-input"
-          [(ngModel)]="patientOneModel.smokeExplain"
-          type="radio"
+          [(ngModel)]="patientOneModel.exSmoker"
+          type="checkbox"
           name="exSmoker"
           id="exSmoker"
           value="Ex-Smoker"
         />
-
+        &nbsp;
         <label class="form-check-label" for="exSmoker"> Ex-Smoker </label>
       </div>
       <div class="form-check">
         <input
           class="form-check-input"
-          [(ngModel)]="patientOneModel.smokeExplain"
-          type="radio"
+          [(ngModel)]="patientOneModel.lightSmoker"
+          type="checkbox"
           name="lightSmoker"
           id="lightSmoker"
           value="1-9 cigs/day"
         />
-
+        &nbsp;
         <label class="form-check-label" for="lightSmoker">
           Light Cigarette Smoker (1-9 cigs/day)
         </label>
@@ -514,13 +514,13 @@
       <div class="form-check">
         <input
           class="form-check-input"
-          [(ngModel)]="patientOneModel.smokeExplain"
-          type="radio"
+          [(ngModel)]="patientOneModel.moderateSmoker"
+          type="checkbox"
           name="moderateSmoker"
           id="moderateSmoker"
           value="10-19 cigs/day"
         />
-
+        &nbsp;
         <label class="form-check-label" for="moderateSmoker">
           Moderate Cigarette Smoker (10-19 cigs/day)</label
         >
@@ -528,13 +528,13 @@
       <div class="form-check">
         <input
           class="form-check-input"
-          [(ngModel)]="patientOneModel.smokeExplain"
-          type="radio"
+          [(ngModel)]="patientOneModel.heavySmoker"
+          type="checkbox"
           name="heavySmoker"
           id="heavySmoker"
           value="20-39 cigs/day"
         />
-
+        &nbsp;
         <label class="form-check-label" for="heavySmoker"
           >Heavy Cigarette Smoker (20-39 cigs/day)</label
         >
@@ -542,13 +542,13 @@
       <div class="form-check">
         <input
           class="form-check-input"
-          [(ngModel)]="patientOneModel.smokeExplain"
-          type="radio"
+          [(ngModel)]="patientOneModel.veryHeavySmoker"
+          type="checkbox"
           name="veryHeavySmoker"
           id="veryHeavySmoker"
           value="40+ cigs/day"
         />
-
+        &nbsp;
         <label class="form-check-label" for="veryHeavySmoker"
           >Very Heavy Cigarette Smoker (40+ cigs/day)</label
         >
@@ -556,13 +556,13 @@
       <div class="form-check">
         <input
           class="form-check-input"
-          [(ngModel)]="patientOneModel.smokeExplain"
-          type="radio"
+          [(ngModel)]="patientOneModel.electronicSmoker"
+          type="checkbox"
           name="electronicSmoker"
           id="electronicSmoker"
           value="Electronic"
         />
-
+        &nbsp;
         <label class="form-check-label" for="electronicSmoker"
           >Electronic Cigarette Smoker</label
         >
@@ -601,24 +601,25 @@
       <div class="form-check">
         <input
           class="form-check-input"
-          [(ngModel)]="patientOneModel.tobaccoExplain"
-          type="radio"
+          [(ngModel)]="patientOneModel.socialTbc"
+          type="checkbox"
           name="useSocially"
           id="useSocially"
           value="Social"
         />
+        &nbsp;
         <label class="form-check-label" for="useSocially"> Use Socially </label>
       </div>
       <div class="form-check">
         <input
           class="form-check-input"
-          [(ngModel)]="patientOneModel.tobaccoExplain"
-          type="radio"
+          [(ngModel)]="patientOneModel.lessThenAWeekTbc"
+          type="checkbox"
           name="lessThenAWeek"
           id="lessThenAWeek"
           value="Less than 1 can/week"
         />
-
+        &nbsp;
         <label class="form-check-label" for="lessThenAWeek">
           Less than one can a week
         </label>
@@ -626,13 +627,13 @@
       <div class="form-check">
         <input
           class="form-check-input"
-          [(ngModel)]="patientOneModel.tobaccoExplain"
-          type="radio"
+          [(ngModel)]="patientOneModel.oneCanAweekTbc"
+          type="checkbox"
           name="oneCanAweek"
           id="oneCanAweek"
           value="1/week"
         />
-
+        &nbsp;
         <label class="form-check-label" for="fiveOrMoreDrinksAWeek">
           One can a week</label
         >
@@ -640,13 +641,13 @@
       <div class="form-check">
         <input
           class="form-check-input"
-          [(ngModel)]="patientOneModel.tobaccoExplain"
-          type="radio"
+          [(ngModel)]="patientOneModel.twoOrMoreTbc"
+          type="checkbox"
           name="twoOrMore"
           id="twoOrMore"
           value="2+/week"
         />
-
+        &nbsp;
         <label class="form-check-label" for="twoOrMore"
           >Two or more cans a week</label
         >
@@ -685,12 +686,13 @@
       <div class="form-check">
         <input
           class="form-check-input"
-          [(ngModel)]="patientOneModel.alcoholExplain"
-          type="radio"
+          [(ngModel)]="patientOneModel.oneDrinkADay"
+          type="checkbox"
           name="oneDrinkADay"
           id="oneDrinkADay"
           value="1/day"
         />
+        &nbsp;
         <label class="form-check-label" for="oneDrinkADay">
           One drink a day
         </label>
@@ -698,13 +700,13 @@
       <div class="form-check">
         <input
           class="form-check-input"
-          [(ngModel)]="patientOneModel.alcoholExplain"
-          type="radio"
+          [(ngModel)]="patientOneModel.twoToThreeDrinksAWeek"
+          type="checkbox"
           name="twoToThreeDrinksAWeek"
           id="twoToThreeDrinksAWeek"
           value="2-3/week"
         />
-
+        &nbsp;
         <label class="form-check-label" for="twoToThreeDrinksAWeek">
           Two to three drinks a week
         </label>
@@ -712,13 +714,13 @@
       <div class="form-check">
         <input
           class="form-check-input"
-          [(ngModel)]="patientOneModel.alcoholExplain"
-          type="radio"
+          [(ngModel)]="patientOneModel.fiveOrMoreDrinksAWeek"
+          type="checkbox"
           name="fiveOrMoreDrinksAWeek"
           id="fiveOrMoreDrinksAWeek"
           value="5+"
         />
-
+        &nbsp;
         <label class="form-check-label" for="fiveOrMoreDrinksAWeek">
           Five or more drinks a week</label
         >
@@ -726,13 +728,13 @@
       <div class="form-check">
         <input
           class="form-check-input"
-          [(ngModel)]="patientOneModel.alcoholExplain"
-          type="radio"
+          [(ngModel)]="patientOneModel.socialDrinker"
+          type="checkbox"
           name="socialDrinker"
           id="socialDrinker"
           value="Social"
         />
-
+        &nbsp;
         <label class="form-check-label" for="socialDrinker"
           >Social drinker</label
         >
@@ -769,12 +771,13 @@
       <div class="form-check">
         <input
           class="form-check-input"
-          [(ngModel)]="patientOneModel.drugsExplain"
-          type="radio"
+          [(ngModel)]="patientOneModel.drugTHC"
+          type="checkbox"
           name="Marijuana (THC)"
           id="Marijuana (THC)"
           value="THC"
         />
+        &nbsp;
         <label class="form-check-label" for="Marijuana (THC)">
           Marijuana (THC)
         </label>
@@ -782,12 +785,13 @@
       <div class="form-check">
         <input
           class="form-check-input"
-          [(ngModel)]="patientOneModel.drugsExplain"
-          type="radio"
+          [(ngModel)]="patientOneModel.drugCOC"
+          type="checkbox"
           name="Cocaine (COC)"
           id="Cocaine (COC)"
           value="COC"
         />
+        &nbsp;
 
         <label class="form-check-label" for="Cocaine (COC)">
           Cocaine (COC)
@@ -796,12 +800,13 @@
       <div class="form-check">
         <input
           class="form-check-input"
-          [(ngModel)]="patientOneModel.drugsExplain"
-          type="radio"
+          [(ngModel)]="patientOneModel.drugMET"
+          type="checkbox"
           name="Methamphetamine (MET)"
           id="Methamphetamine (MET)"
           value="MET"
         />
+        &nbsp;
 
         <label class="form-check-label" for="Methamphetamine (MET)">
           Methamphetamine (MET)</label
@@ -810,12 +815,13 @@
       <div class="form-check">
         <input
           class="form-check-input"
-          [(ngModel)]="patientOneModel.drugsExplain"
-          type="radio"
+          [(ngModel)]="patientOneModel.drugOPI"
+          type="checkbox"
           name="Opiates (OPI)"
           id="Opiates (OPI)"
           value="OPI"
         />
+        &nbsp;
 
         <label class="form-check-label" for="Opiates (OPI)"
           >Opiates (OPI)</label
@@ -825,24 +831,26 @@
       <div class="form-check">
         <input
           class="form-check-input"
-          [(ngModel)]="patientOneModel.drugsExplain"
-          type="radio"
+          [(ngModel)]="patientOneModel.drugPCP"
+          type="checkbox"
           name="PCP (PCP)"
           id="PCP (PCP)"
           value="PCP"
         />
+        &nbsp;
 
         <label class="form-check-label" for="PCP (PCP)">PCP (PCP)</label>
       </div>
       <div class="form-check">
         <input
           class="form-check-input"
-          [(ngModel)]="patientOneModel.drugsExplain"
-          type="radio"
+          [(ngModel)]="patientOneModel.drugAMP"
+          type="checkbox"
           name="Amphetamines (AMP)"
           id="Amphetamines (AMP)"
           value="AMP"
         />
+        &nbsp;
         <label class="form-check-label" for="Amphetamines (AMP)">
           Amphetamines (AMP)
         </label>
@@ -850,12 +858,13 @@
       <div class="form-check">
         <input
           class="form-check-input"
-          [(ngModel)]="patientOneModel.drugsExplain"
-          type="radio"
+          [(ngModel)]="patientOneModel.drugOther"
+          type="checkbox"
           name="other"
           id="other"
           value="Other"
         />
+        &nbsp;
         <label class="form-check-label" for="other"> Other </label>
       </div>
     </div>
