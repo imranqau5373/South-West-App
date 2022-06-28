@@ -36,6 +36,9 @@ import {MatButtonModule} from '@angular/material/button'
 import {MatIconModule} from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
 import {MatTabsModule} from '@angular/material/tabs';
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
 import { CallbackUrlComponent } from './admin/components/callback-url/callback-url.component';
 @NgModule({
   declarations: [
@@ -61,6 +64,14 @@ import { CallbackUrlComponent } from './admin/components/callback-url/callback-u
     AppRoutingModule,
     SharedModule,
     BrowserAnimationsModule,
+     HttpClientModule,
+        TranslateModule.forRoot({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: HttpLoaderFactory,
+                deps: [HttpClient]
+            }
+        }),
     ToastrModule.forRoot({
       positionClass: 'toast-bottom-right'
     }),
@@ -116,3 +127,6 @@ import { CallbackUrlComponent } from './admin/components/callback-url/callback-u
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
+    return new TranslateHttpLoader(http);
+}

@@ -30,6 +30,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
 import {MatTabsModule} from '@angular/material/tabs';
 import { MatDialogModule } from "@angular/material/dialog";
+import {TranslateModule, TranslateService} from "@ngx-translate/core";
 @NgModule({
     imports: [
       FormsModule,
@@ -41,6 +42,7 @@ import { MatDialogModule } from "@angular/material/dialog";
       MatButtonModule,
       MatIconModule,
       MatCardModule,
+      TranslateModule,
       MatTabsModule,
       MatSidenavModule,
       MatListModule,

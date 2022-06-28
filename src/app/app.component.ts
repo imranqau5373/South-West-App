@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import {TranslateService} from "@ngx-translate/core";
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'patient-app';
+
+   constructor(public translate: TranslateService) {
+    translate.addLangs(['English', 'Spanish'])
+    translate.setDefaultLang('English');
+    const browserLang = translate.getBrowserLang();
+    translate.use(browserLang?.match(/English|Spanish/) ? browserLang : 'English');
+  }
 }
