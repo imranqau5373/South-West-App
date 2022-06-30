@@ -1,5 +1,5 @@
 <div class="container py-3">
-  <h1 class="display-6">New Patient Form</h1>
+  <h1 class="display-6">{{ "Page2.Label" | translate }}</h1>
   <br />
   <form
     #pageOne="ngForm"
@@ -7,7 +7,9 @@
     class="row g-3"
   >
     <div class="col-12">
-      <label for="inputAddress" class="form-label">Address</label>
+      <label for="inputAddress" class="form-label">{{
+        "Page2.Address" | translate
+      }}</label>
       <input
         [(ngModel)]="patientOneModel.inputAddress"
         name="inputAddress"
@@ -26,7 +28,9 @@
 
     <!-- APT -->
     <div class="col-md-4">
-      <label for="apt" class="form-label">APT/SUITE/FLOOR </label>
+      <label for="apt" class="form-label"
+        >{{ "Page2.APTLabel" | translate }}
+      </label>
     </div>
     <div class="col-md-4">
       <div class="form-check">
@@ -39,7 +43,9 @@
           value="Apartment"
           [checked]="true"
         />
-        <label class="form-check-label" for="aptApartment"> Apartment </label>
+        <label class="form-check-label" for="aptApartment">
+          {{ "Page2.APT" | translate }}
+        </label>
       </div>
       <div class="form-check">
         <input
@@ -50,7 +56,9 @@
           id="aptSuite"
           value="Suite"
         />
-        <label class="form-check-label" for="aptSuite"> Suite </label>
+        <label class="form-check-label" for="aptSuite">
+          {{ "Page2.ST" | translate }}
+        </label>
       </div>
       <div class="form-check">
         <input
@@ -61,11 +69,15 @@
           id="aptFloor"
           value="Floor"
         />
-        <label class="form-check-label" for="aptFloor"> Floor </label>
+        <label class="form-check-label" for="aptFloor">
+          {{ "Page2.Flr" | translate }}
+        </label>
       </div>
     </div>
     <div class="col-md-4" *ngIf="patientOneModel.apt">
-      <label for="aptNumber" class="form-label">Number</label>
+      <label for="aptNumber" class="form-label">{{
+        "Page2.APTNumber" | translate
+      }}</label>
       <input
         [(ngModel)]="patientOneModel.aptNumber"
         name="aptNumber"
@@ -88,9 +100,9 @@
         patientOneModel.insurance == 'No' && patientOneModel.adult == 'Yes'
       "
     >
-      <label for="idCardPicture" class="form-label"
-        >UPLOAD ID CARD PICTURE</label
-      >
+      <label for="idCardPicture" class="form-label">{{
+        "Page2.IDCard" | translate
+      }}</label>
       <input
         name="idCardPicture"
         [(ngModel)]="patientOneModel.idCardPicture"
@@ -106,12 +118,14 @@
         class="invalid-feedback"
         *ngIf="pageOne.submitted && idCardPicture.invalid"
       >
-        ID Card Picture is Required
+        {{ "Page2.IDErr" | translate }}
       </div>
     </div>
 
     <div class="col-md-4">
-      <label for="city" class="form-label">City</label>
+      <label for="city" class="form-label">{{
+        "Page2.City" | translate
+      }}</label>
       <input
         [(ngModel)]="patientOneModel.city"
         name="city"
@@ -122,7 +136,9 @@
       />
     </div>
     <div class="col-md-4">
-      <label for="race" class="form-label">Race</label>
+      <label for="race" class="form-label">{{
+        "Page2.Race" | translate
+      }}</label>
       <input
         [(ngModel)]="patientOneModel.race"
         name="race"
@@ -134,7 +150,9 @@
     </div>
 
     <div class="col-md-4">
-      <label for="state" class="form-label">State</label>
+      <label for="state" class="form-label">{{
+        "Page2.State" | translate
+      }}</label>
       <select
         class="form-select"
         [(ngModel)]="patientOneModel.state"
@@ -197,7 +215,9 @@
       </select>
     </div>
     <div class="col-md-4">
-      <label for="zipCode" class="form-label">Zip</label>
+      <label for="zipCode" class="form-label">{{
+        "Page2.Zip" | translate
+      }}</label>
       <input
         [(ngModel)]="patientOneModel.zipCode"
         name="zipCode"
@@ -210,7 +230,9 @@
     </div>
 
     <div class="col-md-6">
-      <label for="maritalStatus" class="form-label">Marital Status</label>
+      <label for="maritalStatus" class="form-label">{{
+        "Page2.MaritalStatus" | translate
+      }}</label>
       <select
         class="form-select"
         [(ngModel)]="patientOneModel.maritalStatus"
@@ -218,16 +240,18 @@
         #maritalStatus="ngModel"
         aria-label="Default select example"
       >
-        <option selected>Select</option>
-        <option value="Single">Single</option>
-        <option value="Married">Married</option>
-        <option value="Divorce">Divorce</option>
-        <option value="Widowed">Widowed</option>
+        <option selected>{{ "Page2.Select" | translate }}</option>
+        <option value="Single">{{ "Page2.Single" | translate }}</option>
+        <option value="Married">{{ "Page2.Married" | translate }}</option>
+        <option value="Divorce">{{ "Page2.Divorce" | translate }}</option>
+        <option value="Widowed">{{ "Page2.Widowed" | translate }}</option>
       </select>
     </div>
 
     <div class="col-md-6">
-      <label for="occupation" class="form-label">Occupation</label>
+      <label for="occupation" class="form-label">{{
+        "Page2.Occupation" | translate
+      }}</label>
       <input
         [(ngModel)]="patientOneModel.occupation"
         name="occupation"
@@ -238,7 +262,9 @@
       />
     </div>
     <div class="col-md-4">
-      <label for="mobilePhoneNo" class="form-label">Mobile Phone No</label>
+      <label for="mobilePhoneNo" class="form-label">{{
+        "Page2.MobileNumber" | translate
+      }}</label>
       <input
         [(ngModel)]="patientOneModel.mobilePhoneNo"
         name="mobilePhoneNo"
@@ -249,7 +275,9 @@
       />
     </div>
     <div class="col-md-4">
-      <label for="dayTimePhoneNo" class="form-label">DayTime Phone No</label>
+      <label for="dayTimePhoneNo" class="form-label">{{
+        "Page2.DayTimeNo" | translate
+      }}</label>
       <input
         [(ngModel)]="patientOneModel.dayTimePhoneNo"
         name="dayTimePhoneNo"
@@ -260,7 +288,7 @@
       />
     </div>
     <div class="col-md-4" *ngIf="patientOneModel.insurance == 'Yes'">
-      <label for="ssn" class="form-label">SSN</label>
+      <label for="ssn" class="form-label">{{ "Page2.SSN" | translate }}</label>
       <input
         [(ngModel)]="patientOneModel.ssn"
         name="ssn"
@@ -278,20 +306,20 @@
         *ngIf="pageOne.submitted && ssn.invalid"
       >
         <div class="text-danger" *ngIf="ssn.errors?.required">
-          SSN is required if you are using Health Insurance
+          {{ "Page2.SSNReq" | translate }}
         </div>
         <div class="text-danger" *ngIf="ssn.errors?.minlength">
-          Minimum 9 digits
+          {{ "Page2.SSNErr" | translate }}
         </div>
         <div class="text-danger" *ngIf="ssn.errors?.pattern">
-          Only digits are allowed
+          {{ "Page2.SSNErr1" | translate }}
         </div>
       </div>
     </div>
 
     <div class="col-md-6">
       <label for="ssn" class="form-label"
-        >HAVE YOU HAD ANY SURGERIES IN THE PAST?
+        >{{ "Page2.Surgery" | translate }}
       </label>
     </div>
     <div class="col-md-6">
@@ -304,7 +332,9 @@
           id="surgeryRadioYes"
           value="Yes"
         />
-        <label class="form-check-label" for="surgeryRadioYes"> Yes </label>
+        <label class="form-check-label" for="surgeryRadioYes">{{
+          "YesNo.Yes" | translate
+        }}</label>
       </div>
       <div class="form-check">
         <input
@@ -315,11 +345,15 @@
           id="surgeryRadioNo"
           value="No"
         />
-        <label class="form-check-label" for="surgeryRadioNo"> No </label>
+        <label class="form-check-label" for="surgeryRadioNo"
+          >{{ "YesNo.No" | translate }}
+        </label>
       </div>
     </div>
     <div class="col-12" *ngIf="patientOneModel.surgery == 'Yes'">
-      <label for="surgeryExplain" class="form-label">Explain</label>
+      <label for="surgeryExplain" class="form-label">{{
+        "Page2.SurgeryExp" | translate
+      }}</label>
       <input
         [(ngModel)]="patientOneModel.surgeryExplain"
         name="surgeryExplain"
@@ -331,7 +365,7 @@
     </div>
     <div class="col-md-6">
       <label for="ssn" class="form-label"
-        >ARE YOU ALLERGIC TO ANY MEDICATIONS?
+        >{{ "Page2.AlergicToMed" | translate }}
       </label>
     </div>
     <div class="col-md-6">
@@ -344,7 +378,9 @@
           id="alergicRadioYes"
           value="Yes"
         />
-        <label class="form-check-label" for="alergicRadioYes"> Yes </label>
+        <label class="form-check-label" for="alergicRadioYes">
+          {{ "YesNo.Yes" | translate }}
+        </label>
       </div>
       <div class="form-check">
         <input
@@ -355,11 +391,15 @@
           id="alergicRadioNo"
           value="No"
         />
-        <label class="form-check-label" for="alergicRadioNo"> No </label>
+        <label class="form-check-label" for="alergicRadioNo">
+          {{ "YesNo.No" | translate }}
+        </label>
       </div>
     </div>
     <div class="col-12" *ngIf="patientOneModel.alergic == 'Yes'">
-      <label for="alergicExplain" class="form-label">Explain</label>
+      <label for="alergicExplain" class="form-label">{{
+        "Page2.AlergicToMedExp" | translate
+      }}</label>
       <input
         [(ngModel)]="patientOneModel.alergicExplain"
         name="alergicExplain"
@@ -371,7 +411,7 @@
     </div>
     <div class="col-md-6">
       <label for="ssn" class="form-label"
-        >DO YOU HAVE ANY ONGOING MEDICAL PROBLEMS?
+        >{{ "Page2.MedicalProblem" | translate }}
       </label>
     </div>
     <div class="col-md-6">
@@ -384,7 +424,9 @@
           id="medicalProblemYes"
           value="Yes"
         />
-        <label class="form-check-label" for="medicalProblemYes"> Yes </label>
+        <label class="form-check-label" for="medicalProblemYes">
+          {{ "YesNo.Yes" | translate }}
+        </label>
       </div>
       <div class="form-check">
         <input
@@ -395,11 +437,15 @@
           id="medicalProblemNo"
           value="No"
         />
-        <label class="form-check-label" for="medicalProblemNo"> No </label>
+        <label class="form-check-label" for="medicalProblemNo">
+          {{ "YesNo.No" | translate }}
+        </label>
       </div>
     </div>
     <div class="col-12" *ngIf="patientOneModel.medicalProblem == 'Yes'">
-      <label for="medicalProblem" class="form-label">Explain</label>
+      <label for="medicalProblem" class="form-label">{{
+        "Page2.MedExp" | translate
+      }}</label>
       <input
         [(ngModel)]="patientOneModel.medicalProblemExplain"
         name="medicalProblemExplain"
@@ -418,14 +464,14 @@
       <div class="row">
         <div class="col-10">
           <label for="medicationList" class="form-label"
-            >List of Mediciations
+            >{{ "Page2.MedList" | translate }}
           </label>
         </div>
         <div class="col-2">
           <!-- <button class="btn btn-primary" (click)="open()">Add Medicine</button> -->
-          <a href="javascript:void(0)" (click)="open()" class="link-primary"
-            >Add Medicine</a
-          >
+          <a href="javascript:void(0)" (click)="open()" class="link-primary">{{
+            "Page2.AddMed" | translate
+          }}</a>
         </div>
       </div>
     </div>
@@ -434,9 +480,9 @@
         <thead>
           <tr>
             <th scope="col">#</th>
-            <th scope="col">Name</th>
-            <th scope="col">Potency</th>
-            <th scope="col">Usage</th>
+            <th scope="col">{{ "Page2.MedName" | translate }}</th>
+            <th scope="col">{{ "Page2.Potency" | translate }}</th>
+            <th scope="col">{{ "Page2.Usage" | translate }}</th>
           </tr>
         </thead>
         <tbody>
@@ -458,7 +504,9 @@
       </table>
     </div>
     <div class="col-md-4">
-      <label for="ssn" class="form-label">DO YOU SMOKE? </label>
+      <label for="ssn" class="form-label"
+        >{{ "Page2.Smoke" | translate }}
+      </label>
       <div class="form-check">
         <input
           class="form-check-input"
@@ -468,7 +516,9 @@
           id="smokeRadioYes"
           value="Yes"
         />
-        <label class="form-check-label" for="smokeRadioYes"> Yes </label>
+        <label class="form-check-label" for="smokeRadioYes">
+          {{ "YesNo.Yes" | translate }}
+        </label>
       </div>
       <div class="form-check">
         <input
@@ -479,11 +529,15 @@
           id="smokeRadioNo"
           value="No"
         />
-        <label class="form-check-label" for="smokeRadioNo"> No </label>
+        <label class="form-check-label" for="smokeRadioNo">
+          {{ "YesNo.No" | translate }}
+        </label>
       </div>
     </div>
     <div class="col-md-12" *ngIf="patientOneModel.smoke == 'Yes'">
-      <label for="smokeExplain" class="form-label">HOW MUCH: </label>
+      <label for="smokeExplain" class="form-label">{{
+        "Page2.SmokeHowMuch" | translate
+      }}</label>
 
       <div class="form-check">
         <input
@@ -570,7 +624,9 @@
     </div>
 
     <div class="col-md-12">
-      <label for="ssn" class="form-label">CHEW TOBACCO? </label>
+      <label for="ssn" class="form-label">{{
+        "Page2.Tobacco" | translate
+      }}</label>
       <div class="form-check">
         <input
           class="form-check-input"
@@ -580,7 +636,9 @@
           id="tobaccoRadioYes"
           value="Yes"
         />
-        <label class="form-check-label" for="tobaccoRadioYes"> Yes </label>
+        <label class="form-check-label" for="tobaccoRadioYes">
+          {{ "YesNo.Yes" | translate }}
+        </label>
       </div>
       <div class="form-check">
         <input
@@ -591,12 +649,16 @@
           id="tobaccoRadioNo"
           value="No"
         />
-        <label class="form-check-label" for="tobaccoRadioNo"> No </label>
+        <label class="form-check-label" for="tobaccoRadioNo">
+          {{ "YesNo.No" | translate }}
+        </label>
       </div>
     </div>
 
     <div class="col-md-12" *ngIf="patientOneModel.tobacco == 'Yes'">
-      <label for="tobaccoExplain" class="form-label">HOW MUCH: </label>
+      <label for="tobaccoExplain" class="form-label">{{
+        "Page2.TobaccoHowMuch" | translate
+      }}</label>
 
       <div class="form-check">
         <input
@@ -655,7 +717,9 @@
     </div>
 
     <div class="col-md-12">
-      <label for="ssn" class="form-label">DO YOU DRINK ALCOHOL?</label>
+      <label for="ssn" class="form-label">{{
+        "Page2.Alcohol" | translate
+      }}</label>
       <div class="form-check">
         <input
           class="form-check-input"
@@ -665,7 +729,9 @@
           id="alcoholRadioYes"
           value="Yes"
         />
-        <label class="form-check-label" for="alcoholRadioYes"> Yes </label>
+        <label class="form-check-label" for="alcoholRadioYes"
+          >{{ "YesNo.Yes" | translate }}
+        </label>
       </div>
       <div class="form-check">
         <input
@@ -676,12 +742,16 @@
           id="alcoholRadioNo"
           value="No"
         />
-        <label class="form-check-label" for="alcoholRadioNo"> No </label>
+        <label class="form-check-label" for="alcoholRadioNo">
+          {{ "YesNo.No" | translate }}
+        </label>
       </div>
     </div>
 
     <div class="col-md-12" *ngIf="patientOneModel.alcohol == 'Yes'">
-      <label for="alcoholExplain" class="form-label">HOW MUCH: </label>
+      <label for="alcoholExplain" class="form-label"
+        >{{ "Page2.HowMuchAL" | translate }}
+      </label>
 
       <div class="form-check">
         <input
@@ -742,7 +812,9 @@
     </div>
 
     <div class="col-md-4">
-      <label for="ssn" class="form-label">DO YOU USE DRUGS?</label>
+      <label for="ssn" class="form-label">{{
+        "Page2.Drugs" | translate
+      }}</label>
       <div class="form-check">
         <input
           class="form-check-input"
@@ -752,7 +824,9 @@
           id="drugsRadioYes"
           value="Yes"
         />
-        <label class="form-check-label" for="drugsRadioYes"> Yes </label>
+        <label class="form-check-label" for="drugsRadioYes">
+          {{ "YesNo.Yes" | translate }}
+        </label>
       </div>
       <div class="form-check">
         <input
@@ -763,11 +837,15 @@
           id="drugsRadioNo"
           value="No"
         />
-        <label class="form-check-label" for="drugsRadioNo"> No </label>
+        <label class="form-check-label" for="drugsRadioNo">
+          {{ "YesNo.No" | translate }}
+        </label>
       </div>
     </div>
     <div class="col-md-12" *ngIf="patientOneModel.drugs == 'Yes'">
-      <label for="drugsExplain" class="form-label">WHICH ONES: </label>
+      <label for="drugsExplain" class="form-label"
+        >{{ "Page2.WhichDrug" | translate }}
+      </label>
       <div class="form-check">
         <input
           class="form-check-input"
@@ -869,9 +947,9 @@
       </div>
     </div>
     <div class="col-12">
-      <label for="ssn" class="form-label"
-        >DID YOU HAVE YEARLY PHYSICAL THIS YEAR?</label
-      >
+      <label for="ssn" class="form-label">{{
+        "Page2.YearlyPhysical" | translate
+      }}</label>
       <div class="form-check">
         <input
           class="form-check-input"
@@ -881,7 +959,9 @@
           id="yearlyPhysicalRadioYes"
           value="Yes"
         />
-        <label class="form-check-label" for="yearlyPhysicalYes"> Yes </label>
+        <label class="form-check-label" for="yearlyPhysicalYes">
+          {{ "YesNo.Yes" | translate }}
+        </label>
       </div>
       <div class="form-check">
         <input
@@ -892,12 +972,14 @@
           id="yearlyPhysicalNo"
           value="No"
         />
-        <label class="form-check-label" for="yearlyPhysicalNo"> No </label>
+        <label class="form-check-label" for="yearlyPhysicalNo">
+          {{ "YesNo.No" | translate }}
+        </label>
       </div>
     </div>
     <div class="col-md-8" *ngIf="patientOneModel.yearlyPhysical == 'Yes'">
       <label for="yearlyPhysicalExplain" class="form-label"
-        >When was your last annual physical:
+        >{{ "Page2.LastYearlyPhysical" | translate }}
       </label>
       <input
         [(ngModel)]="patientOneModel.yearlyPhysicalExplain"
@@ -909,9 +991,9 @@
       />
     </div>
     <div class="col-12">
-      <label for="ssn" class="form-label"
-        >HAVE YOU BEEN EXPOSED TO COVID?</label
-      >
+      <label for="ssn" class="form-label">{{
+        "Page2.Covid" | translate
+      }}</label>
       <div class="form-check">
         <input
           class="form-check-input"
@@ -921,7 +1003,9 @@
           id="covidRadioYes"
           value="Yes"
         />
-        <label class="form-check-label" for="covidRadioYes"> Yes </label>
+        <label class="form-check-label" for="covidRadioYes">
+          {{ "YesNo.Yes" | translate }}
+        </label>
       </div>
       <div class="form-check">
         <input
@@ -932,13 +1016,15 @@
           id="covidRadioNo"
           value="No"
         />
-        <label class="form-check-label" for="covidRadioNo"> No </label>
+        <label class="form-check-label" for="covidRadioNo">
+          {{ "YesNo.No" | translate }}
+        </label>
       </div>
     </div>
     <div class="col-12">
-      <label for="covidSymptons" class="form-label"
-        >ARE YOU HAVING COVID 19 SYMPTOMS?</label
-      >
+      <label for="covidSymptons" class="form-label">{{
+        "Page2.CovidSymptoms" | translate
+      }}</label>
       <div class="form-check">
         <input
           class="form-check-input"
@@ -948,7 +1034,9 @@
           id="covidSymptonsYes"
           value="Yes"
         />
-        <label class="form-check-label" for="vaccinationsYes"> Yes </label>
+        <label class="form-check-label" for="vaccinationsYes">
+          {{ "YesNo.Yes" | translate }}
+        </label>
       </div>
       <div class="form-check">
         <input
@@ -959,13 +1047,15 @@
           id="covidSymptonsNo"
           value="No"
         />
-        <label class="form-check-label" for="covidSymptonsNo"> No </label>
+        <label class="form-check-label" for="covidSymptonsNo">
+          {{ "YesNo.No" | translate }}
+        </label>
       </div>
     </div>
     <div class="col-12">
-      <label for="ssn" class="form-label"
-        >DO YOU HAVE ANY COUGH , CONGESTION OR SORE THROAT?</label
-      >
+      <label for="ssn" class="form-label">{{
+        "Page2.Cough" | translate
+      }}</label>
       <div class="form-check">
         <input
           class="form-check-input"
@@ -975,7 +1065,9 @@
           id="congestionRadioYes"
           value="Yes"
         />
-        <label class="form-check-label" for="congestionRadioYes"> Yes </label>
+        <label class="form-check-label" for="congestionRadioYes">
+          {{ "YesNo.Yes" | translate }}
+        </label>
       </div>
       <div class="form-check">
         <input
@@ -986,13 +1078,15 @@
           id="congestionRadioNo"
           value="No"
         />
-        <label class="form-check-label" for="congestionRadioNo"> No </label>
+        <label class="form-check-label" for="congestionRadioNo">
+          {{ "YesNo.No" | translate }}
+        </label>
       </div>
     </div>
     <div class="col-12">
-      <label for="ssn" class="form-label"
-        >ARE YOU HAVING SHORTNESS OF BREATH?</label
-      >
+      <label for="ssn" class="form-label">{{
+        "Page2.BreathShortness" | translate
+      }}</label>
       <div class="form-check">
         <input
           class="form-check-input"
@@ -1002,7 +1096,9 @@
           id="breathRadioYes"
           value="Yes"
         />
-        <label class="form-check-label" for="breathRadioYes"> Yes </label>
+        <label class="form-check-label" for="breathRadioYes">
+          {{ "YesNo.Yes" | translate }}
+        </label>
       </div>
       <div class="form-check">
         <input
@@ -1013,11 +1109,15 @@
           id="breathRadioNo"
           value="No"
         />
-        <label class="form-check-label" for="breathRadioNo"> No </label>
+        <label class="form-check-label" for="breathRadioNo">
+          {{ "YesNo.No" | translate }}
+        </label>
       </div>
     </div>
     <div class="col-12">
-      <label for="ssn" class="form-label">DO YOU HAVE FEVER?</label>
+      <label for="ssn" class="form-label">{{
+        "Page2.Fever" | translate
+      }}</label>
       <div class="form-check">
         <input
           class="form-check-input"
@@ -1027,7 +1127,9 @@
           id="feverRadioYes"
           value="Yes"
         />
-        <label class="form-check-label" for="feverRadioYes"> Yes </label>
+        <label class="form-check-label" for="feverRadioYes">
+          {{ "YesNo.Yes" | translate }}
+        </label>
       </div>
       <div class="form-check">
         <input
@@ -1038,11 +1140,15 @@
           id="feverRadioNo"
           value="No"
         />
-        <label class="form-check-label" for="feverRadioNo"> No </label>
+        <label class="form-check-label" for="feverRadioNo">
+          {{ "YesNo.No" | translate }}
+        </label>
       </div>
     </div>
     <div class="col-12">
-      <label for="headche" class="form-label">DO YOU HAVE HEADACHE?</label>
+      <label for="headche" class="form-label">{{
+        "Page2.Headache" | translate
+      }}</label>
       <div class="form-check">
         <input
           class="form-check-input"
@@ -1052,7 +1158,9 @@
           id="headcheRadioYes"
           value="Yes"
         />
-        <label class="form-check-label" for="headcheRadioYes"> Yes </label>
+        <label class="form-check-label" for="headcheRadioYes">
+          {{ "YesNo.Yes" | translate }}
+        </label>
       </div>
       <div class="form-check">
         <input
@@ -1063,11 +1171,15 @@
           id="headcheRadioNo"
           value="No"
         />
-        <label class="form-check-label" for="headcheRadioNo"> No </label>
+        <label class="form-check-label" for="headcheRadioNo">
+          {{ "YesNo.No" | translate }}</label
+        >
       </div>
     </div>
     <div class="col-12">
-      <label for="vomiting" class="form-label">DO YOU HAVE VOMITING?</label>
+      <label for="vomiting" class="form-label">{{
+        "Page2.Vomit" | translate
+      }}</label>
       <div class="form-check">
         <input
           class="form-check-input"
@@ -1077,7 +1189,9 @@
           id="vomitingRadioYes"
           value="Yes"
         />
-        <label class="form-check-label" for="vomitingRadioYes"> Yes </label>
+        <label class="form-check-label" for="vomitingRadioYes">
+          {{ "YesNo.Yes" | translate }}
+        </label>
       </div>
       <div class="form-check">
         <input
@@ -1088,11 +1202,15 @@
           id="vomitingRadioNo"
           value="No"
         />
-        <label class="form-check-label" for="vomitingRadioNo"> No </label>
+        <label class="form-check-label" for="vomitingRadioNo">
+          {{ "YesNo.No" | translate }}
+        </label>
       </div>
     </div>
     <div class="col-12">
-      <label for="bodyache" class="form-label">DO YOU HAVE BODYACHE?</label>
+      <label for="bodyache" class="form-label">{{
+        "Page2.Bodyache" | translate
+      }}</label>
       <div class="form-check">
         <input
           class="form-check-input"
@@ -1102,7 +1220,9 @@
           id="bodyacheRadioYes"
           value="Yes"
         />
-        <label class="form-check-label" for="bodyacheRadioYes"> Yes </label>
+        <label class="form-check-label" for="bodyacheRadioYes">{{
+          "YesNo.Yes" | translate
+        }}</label>
       </div>
       <div class="form-check">
         <input
@@ -1113,13 +1233,15 @@
           id="bodyacheRadioNo"
           value="No"
         />
-        <label class="form-check-label" for="bodyacheRadioNo"> No </label>
+        <label class="form-check-label" for="bodyacheRadioNo">
+          {{ "YesNo.No" | translate }}
+        </label>
       </div>
     </div>
     <div class="col-12">
-      <label for="pharmacyName" class="form-label"
-        >NAME OF YOUR PHARMACY:</label
-      >
+      <label for="pharmacyName" class="form-label">{{
+        "Page2.PharmacyName" | translate
+      }}</label>
       <input
         [(ngModel)]="patientOneModel.pharmacyName"
         name="pharmacyName"
@@ -1130,9 +1252,9 @@
       />
     </div>
     <div class="col-12">
-      <label for="streetPharmacy" class="form-label"
-        >STREET OF PHARMACY :</label
-      >
+      <label for="streetPharmacy" class="form-label">{{
+        "Page2.Street" | translate
+      }}</label>
       <input
         [(ngModel)]="patientOneModel.streetPharmacy"
         name="streetPharmacy"
@@ -1143,9 +1265,9 @@
       />
     </div>
     <div class="col-12">
-      <label for="crossIntersectin" class="form-label"
-        >CROSS INTERSECTION:</label
-      >
+      <label for="crossIntersectin" class="form-label">{{
+        "Page2.CrossIntersection" | translate
+      }}</label>
       <input
         [(ngModel)]="patientOneModel.crossIntersectin"
         name="crossIntersectin"
@@ -1156,9 +1278,9 @@
       />
     </div>
     <div class="col-12">
-      <label for="zipcodePharmacy" class="form-label"
-        >ZIP CODE OF PHARMACY:</label
-      >
+      <label for="zipcodePharmacy" class="form-label">{{
+        "Page2.PharmacyZip" | translate
+      }}</label>
       <input
         [(ngModel)]="patientOneModel.zipcodePharmacy"
         name="zipcodePharmacy"
@@ -1169,9 +1291,9 @@
       />
     </div>
     <div class="col-12">
-      <label for="familyMedicialHistory" class="form-label"
-        >FAMILY MEDICIAL HISTORY:</label
-      >
+      <label for="familyMedicialHistory" class="form-label">{{
+        "Page2.FamilyHistory" | translate
+      }}</label>
       <input
         [(ngModel)]="patientOneModel.familyMedicialHistory"
         name="familyMedicialHistory"
@@ -1182,7 +1304,9 @@
       />
     </div>
     <div class="col-md-4">
-      <button type="submit" class="btn btn-primary">Next</button>
+      <button type="submit" class="btn btn-primary">
+        {{ "Button.Next" | translate }}
+      </button>
     </div>
     <!--  -->
     <div class="col-md-4">
@@ -1191,7 +1315,7 @@
         role="alert"
         *ngIf="pageOne.submitted && pageOne.form.invalid"
       >
-        Review all missing fields before proceeding
+        {{ "Page2.MissingFields" | translate }}
       </div>
     </div>
     <!--  -->
