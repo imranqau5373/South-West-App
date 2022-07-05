@@ -6,6 +6,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import { AddMediciationComponent } from 'src/app/shared/dialogs/add-mediciation/add-mediciation.component';
 import { PatientService } from 'src/app/shared/service/patient-service';
 import { environment } from 'src/environments/environment';
+import { MyserviceService } from 'src/app/shared/service/myservice.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -22,7 +24,8 @@ export class GetAllNewpatientsComponent implements OnInit {
   columndefs : any[] = ['firstName','lastName','email','dateOfBirth','insurance', 'createdDate', 'downloadFiles'];
   dtOptions: DataTables.Settings = {};
   constructor(private patientService : PatientService,
-    private matDialog: MatDialog) {
+    private matDialog: MatDialog ,private myService:MyserviceService,
+  private _router: Router ) {
    }
 
 
@@ -152,6 +155,9 @@ export class GetAllNewpatientsComponent implements OnInit {
     this.matDialog.open(AddMediciationComponent,dialogConfig);
   }
 
-
+logout(){
+    localStorage.removeItem('token');
+    this._router.navigate(['login']);
+  }
 
 }

@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { SignaturePadModule } from 'angular2-signaturepad';
@@ -40,11 +40,18 @@ import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import { CallbackUrlComponent } from './admin/components/callback-url/callback-url.component';
+import { RegisterComponent } from './login/register/register.component';
+import { LoginComponent } from './login/login/login.component';
+import { AuthGuard } from './shared/service/auth.guard';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
+    FormsModule,
+    ReactiveFormsModule,
     BrowserModule,
     MatMenuModule,
     MatButtonModule,
@@ -110,7 +117,7 @@ import { CallbackUrlComponent } from './admin/components/callback-url/callback-u
       },
       {
         path:'admin/all-new-patients',
-        component : GetAllNewpatientsComponent
+        component : GetAllNewpatientsComponent, canActivate:[AuthGuard]
       },
       {
         path:'admin/all-existing-patients',
@@ -120,6 +127,14 @@ import { CallbackUrlComponent } from './admin/components/callback-url/callback-u
         path:'admin/callback-url/:token',
         component : CallbackUrlComponent
       },
+      {
+        path: 'login',
+        component: LoginComponent
+      },
+      {
+        path: 'register',
+        component: RegisterComponent
+      }
 
     ])
   ],
