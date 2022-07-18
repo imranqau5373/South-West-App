@@ -16,8 +16,11 @@ export class AddPatientOneComponent implements OnInit {
   patientOneModel : any = {};
   @Output()
   submitFirst = new EventEmitter<any>();
+  @Output()
+  backToFirst = new EventEmitter<any>();
   showValue : boolean = true;
   medicineList = Array();
+  patientMainModel : any ={}
   constructor(    private router: Router,private modalService: NgbModal,
     private matDialog: MatDialog) { }
 
@@ -41,7 +44,9 @@ export class AddPatientOneComponent implements OnInit {
     this.patientOneModel.bodyache = "No";
     this.patientOneModel.apt = "Apartment";  
   }
-
+ back() {
+     this.backToFirst.emit(this.patientOneModel);
+ }
   nextClick(){
     this.router.navigate(['/add-patient-two']);
   }

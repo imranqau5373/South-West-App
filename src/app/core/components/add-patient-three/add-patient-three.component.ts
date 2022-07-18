@@ -23,6 +23,8 @@ export class AddPatientThreeComponent implements OnInit {
   };
   @Output()
   submitThird = new EventEmitter<any>();
+   @Output()
+  backToThird = new EventEmitter<any>();
   constructor(private patientService : PatientService,
     private toastService : PatientToastService) { }
 
@@ -30,6 +32,10 @@ export class AddPatientThreeComponent implements OnInit {
     this.patientThreeModel.isAgree = true;
   }
   
+  back() {
+    debugger
+    this.backToThird.emit(this.patientThreeModel);
+  }
 
   submitThree(){
     if (this.isSignature == false)  {

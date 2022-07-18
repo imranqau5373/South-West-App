@@ -1,11 +1,15 @@
 <div class="container py-3">
-  <h1 class="display-6">{{ "Page2.Label" | translate }}</h1>
-  <br />
   <form
     #pageOne="ngForm"
     (ngSubmit)="pageOne.form.valid && submitOne(pageOne)"
     class="row g-3"
   >
+    <div class="col-12">
+      <button class="btn btn-primary" (click)="back()">
+        {{ "Button.BackToPrev" | translate }}
+      </button>
+    </div>
+    <!--  <h2 class="display-6">{{ "Page2.Label" | translate }}</h2> -->
     <div class="col-12">
       <label for="inputAddress" class="form-label">{{
         "Page2.Address" | translate

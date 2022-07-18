@@ -1,7 +1,9 @@
 <div class="container py-3">
   <form #pageTwo="ngForm" (ngSubmit)="submitTwo(pageTwo)" class="row g-3">
     <div class="col-12">
-      <a href="/add-patient-one">{{ "Button.BackToPrev" | translate }}</a>
+      <button class="btn btn-primary" (click)="back()">
+        {{ "Button.BackToPrev" | translate }}
+      </button>
     </div>
     <div class="col-12">
       <label for="emergencyContact" class="form-label">{{

@@ -12,14 +12,17 @@ export class AddPatientTwoComponent implements OnInit {
   patientTwoModel : any = {};
   @Output()
   submitSecond = new EventEmitter<any>();
-
-
+  @Output()
+  backToSecond = new EventEmitter<any>();
+  
   constructor(    private router: Router ) { }
 
   ngOnInit(): void {
     this.patientTwoModel.medicalRecord = "No";
   }
-
+  back() {
+    this.backToSecond.emit(this.patientTwoModel);
+  }
   nextClick(){
     this.router.navigate(['/add-patient-three']);
   }

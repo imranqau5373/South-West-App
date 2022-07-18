@@ -7,18 +7,21 @@
 <app-add-patient-one
   [patientOneModel]="patientOne"
   (submitFirst)="firstPageSelected($event)"
+  (backToFirst)="backToPrev($event)"
   *ngIf="firstPage"
 ></app-add-patient-one>
 
 <app-add-patient-two
-  [patientTwoModel]="patientOne"
+  [patientTwoModel]="patientTwo"
   (submitSecond)="secondPageSubmit($event)"
+  (backToSecond)="backToPrevSecond($event)"
   *ngIf="secondPage"
 ></app-add-patient-two>
 
 <app-add-patient-three
   [patientThreeModel]="patientMainModel"
   (submitThird)="thirdPageSubmit($event)"
+  (backToThird)="backToPrevThird($event)"
   *ngIf="thirdPage"
 ></app-add-patient-three>
 
