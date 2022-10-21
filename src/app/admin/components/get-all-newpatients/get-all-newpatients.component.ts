@@ -55,6 +55,14 @@ export class GetAllNewpatientsComponent implements OnInit {
         else{
           result[i].filePath = null;
         }
+        // Consent 
+        if(result[i].consentPath && result[i].consentPath != null){
+          result[i].consentPath = environment.apiUrl+result[i].consentPath.replace('./public/','/') ;
+        }
+        else{
+          result[i].consentPath = null;
+        }
+        //insurance
         if(result[i].insuranceFilePath && result[i].insuranceFilePath != null){
           result[i].insuranceFilePath = environment.apiUrl+result[i].insuranceFilePath.replace('./public/','/') ;
          // result[i].cashSuperBillFilePath = null;
@@ -106,12 +114,12 @@ export class GetAllNewpatientsComponent implements OnInit {
           result[i].schoolFilePath = null;
         }
       /*  */
-        if(result[i].adult == "No"){
+      /*   if(result[i].adult == "No"){
           result[i].consentPath = environment.apiUrl+result[i].consentPath.replace('./public/','/') ;
         }
         else{
           result[i].consentPath = null;
-        }
+        } */
       }
       this.patients = result;
       this.dataSource = new MatTableDataSource(this.patients);
@@ -133,14 +141,14 @@ export class GetAllNewpatientsComponent implements OnInit {
     this.dataSource.filter = search.toLowerCase().trim();
   }
   
-  downloadConsent(filePath : any){
-    if(filePath == null){
+  downloadConsent(consentPath : any){
+    if(consentPath == null){
       alert('Patient Age is great than 18.');
       return;
     }
     else{
       window.open( 
-        filePath, "_blank");
+        consentPath, "_blank");
     }
   }
 

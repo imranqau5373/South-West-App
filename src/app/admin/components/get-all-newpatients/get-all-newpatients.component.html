@@ -52,9 +52,9 @@
           (click)="downloadFile(patient.filePath)"
           class="link-primary"
           >Patient
-        </a>
+        </a>|
         <a
-          *ngIf="patient.adult == 'Yes'"
+          *ngIf="patient.adult == 'No'"
           href="javascript:void(0)"
           (click)="downloadConsent(patient.consentPath)"
           class="link-primary"
