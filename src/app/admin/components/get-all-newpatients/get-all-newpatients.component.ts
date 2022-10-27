@@ -8,6 +8,8 @@ import { PatientService } from 'src/app/shared/service/patient-service';
 import { environment } from 'src/environments/environment';
 import { MyserviceService } from 'src/app/shared/service/myservice.service';
 import { Router } from '@angular/router';
+import * as _ from 'lodash';
+import { result } from 'lodash';
 
 
 @Component({
@@ -21,7 +23,7 @@ export class GetAllNewpatientsComponent implements OnInit {
   dataSource : any;
   @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
   @ViewChild(MatSort) sort: MatSort | undefined;
-  columndefs : any[] = ['firstName','lastName','email','dateOfBirth','insurance', 'createdDate', 'downloadFiles'];
+  columndefs : any[] = ['firstName','lastName','email','dateOfBirth','gender','insurance', 'createdDate', 'downloadFiles'];
   dtOptions: DataTables.Settings = {};
   constructor(private patientService : PatientService,
     private matDialog: MatDialog ,private myService:MyserviceService,
@@ -122,7 +124,7 @@ export class GetAllNewpatientsComponent implements OnInit {
         } */
       }
       this.patients = result;
-      this.dataSource = new MatTableDataSource(this.patients);
+      this.dataSource = new MatTableDataSource(result);
       this.dataSource.paginator = this.paginator;
     });
   }
@@ -141,6 +143,38 @@ export class GetAllNewpatientsComponent implements OnInit {
     this.dataSource.filter = search.toLowerCase().trim();
   }
   
+ /* Filter by Insurance */
+ onChange($event:any) {
+  if($event.value.toLowerCase() == "all") {
+    this.dataSource = new MatTableDataSource(this.patients)
+  }
+  else {
+    let filteredData = _.filter(this.patients, (item)=> {
+      return item.insurance.toLowerCase() == $event.value.toLowerCase()
+    })
+    this.dataSource = new MatTableDataSource(filteredData)
+  }
+ 
+ 
+  }
+
+ /*  */
+ /* Filter Gender */
+ onChangeGender($event:any) {
+  if($event.value.toLowerCase() == "all") {
+    this.dataSource = new MatTableDataSource(this.patients)
+  }
+  else {
+    let filteredData = _.filter(this.patients, (item)=> {
+      return item.gender.toLowerCase() == $event.value.toLowerCase()
+    })
+    this.dataSource = new MatTableDataSource(filteredData)
+  }
+ 
+ 
+  }
+
+
   downloadConsent(consentPath : any){
     if(consentPath == null){
       alert('Patient Age is great than 18.');

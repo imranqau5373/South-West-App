@@ -17,6 +17,8 @@ import { MatNativeDateModule } from "@angular/material/core";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MatPaginatorModule } from "@angular/material/paginator";
 import { CallbackUrlComponent } from './components/callback-url/callback-url.component';
+import { MatSelectModule } from "@angular/material/select";
+import { MatSortModule } from "@angular/material/sort";
 @NgModule({
     imports: [
       FormsModule,
@@ -25,6 +27,8 @@ import { CallbackUrlComponent } from './components/callback-url/callback-url.com
       DataTablesModule,
       MatTableModule,
       MatInputModule,
+      MatSelectModule,
+      MatSortModule,
       MatListModule,
       MatDatepickerModule,
       MatNativeDateModule,

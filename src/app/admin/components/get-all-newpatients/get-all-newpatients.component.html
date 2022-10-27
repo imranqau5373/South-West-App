@@ -12,27 +12,61 @@
 
   <br />
 
-  <mat-form-field>
-    <mat-label>Search Patients</mat-label>
-    <input matInput #input (keyup)="searchPatient(input.value)" />
-  </mat-form-field>
+ 
 
-  <mat-table class="mat-elevation-z8" [dataSource]="dataSource">
+  <!-- Filter -->
+
+  <div class="search-container row" >
+    <span class="text-primary">Filters</span>
+    <mat-form-field class="col-sm-2">
+      <mat-label>Search Patients</mat-label>
+      <input matInput #input (keyup)="searchPatient(input.value)" />
+    </mat-form-field>
+   
+    <mat-form-field  class="col-sm-2">
+      <mat-label> Gender</mat-label>
+      <mat-select (selectionChange)="onChangeGender($event)">
+        <mat-option value="All">All</mat-option>
+        <mat-option value="Male">Male</mat-option>
+        <mat-option value="Female">Female</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field  class="col-sm-2">
+      <mat-label>Insurance</mat-label>
+      <mat-select (selectionChange)="onChange($event)">
+        <mat-option value="All">All</mat-option>
+        <mat-option value="Yes">Yes</mat-option>
+        <mat-option value="No">No</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    
+
+
+  </div>
+  <!--  -->
+
+  <mat-table class="mat-elevation-z8" matSort [dataSource]="dataSource">
     <ng-container matColumnDef="firstName">
-      <mat-header-cell *matHeaderCellDef>First Name</mat-header-cell>
+      <mat-header-cell mat-sort-header *matHeaderCellDef>First Name</mat-header-cell>
       <mat-cell *matCellDef="let patient">{{ patient.firstName }}</mat-cell>
     </ng-container>
     <ng-container matColumnDef="lastName">
-      <mat-header-cell *matHeaderCellDef>Last Name</mat-header-cell>
+      <mat-header-cell mat-sort-header *matHeaderCellDef>Last Name</mat-header-cell>
       <mat-cell *matCellDef="let patient">{{ patient.lastName }}</mat-cell>
     </ng-container>
     <ng-container matColumnDef="email">
-      <mat-header-cell *matHeaderCellDef>Email</mat-header-cell>
-      <mat-cell *matCellDef="let patient">{{ patient.email }}</mat-cell>
+      <mat-header-cell mat-sort-header *matHeaderCellDef>Email</mat-header-cell>
+      <mat-cell  *matCellDef="let patient">{{ patient.email }}</mat-cell>
     </ng-container>
     <ng-container matColumnDef="dateOfBirth">
       <mat-header-cell *matHeaderCellDef>Date Of Birth</mat-header-cell>
       <mat-cell *matCellDef="let patient">{{ patient.dateOfBirth }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="gender">
+      <mat-header-cell *matHeaderCellDef>Gender</mat-header-cell>
+      <mat-cell *matCellDef="let patient">{{ patient.gender }}</mat-cell>
     </ng-container>
     <ng-container matColumnDef="insurance">
       <mat-header-cell *matHeaderCellDef>Insurance</mat-header-cell>
