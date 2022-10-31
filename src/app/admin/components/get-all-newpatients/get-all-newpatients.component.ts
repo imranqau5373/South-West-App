@@ -10,12 +10,14 @@ import { MyserviceService } from 'src/app/shared/service/myservice.service';
 import { Router } from '@angular/router';
 import * as _ from 'lodash';
 import { result } from 'lodash';
+import { DatePipe } from '@angular/common';
 
 
 @Component({
   selector: 'app-get-all-newpatients',
   templateUrl: './get-all-newpatients.component.html',
-  styleUrls: ['./get-all-newpatients.component.css']
+  styleUrls: ['./get-all-newpatients.component.css'],
+  providers: [DatePipe],
 })
 export class GetAllNewpatientsComponent implements OnInit {
   patients: any;
@@ -27,7 +29,7 @@ export class GetAllNewpatientsComponent implements OnInit {
   dtOptions: DataTables.Settings = {};
   constructor(private patientService : PatientService,
     private matDialog: MatDialog ,private myService:MyserviceService,
-  private _router: Router ) {
+  private _router: Router, public datepipe: DatePipe ) {
    }
 
 
@@ -126,6 +128,10 @@ export class GetAllNewpatientsComponent implements OnInit {
       this.patients = result;
       this.dataSource = new MatTableDataSource(result);
       this.dataSource.paginator = this.paginator;
+      /* Filter by DOB */
+      this.dataSource.filterPredicate = (result:any, filter: string) =>
+      !filter || result.dateOfBirth.includes(filter);
+
     });
   }
 
@@ -167,6 +173,7 @@ export class GetAllNewpatientsComponent implements OnInit {
   else {
     let filteredData = _.filter(this.patients, (item)=> {
       return item.gender.toLowerCase() == $event.value.toLowerCase()
+      
     })
     this.dataSource = new MatTableDataSource(filteredData)
   }
@@ -174,6 +181,16 @@ export class GetAllNewpatientsComponent implements OnInit {
  
   }
 
+  /*  */
+  filterDOB(filterValue: any, event:any) {
+    debugger;
+
+    if (event.value != undefined) {
+      filterValue = this.datepipe.transform(filterValue, 'MM/dd/yyyy');
+      console.log(filterValue);
+    }
+    this.dataSource.filter = filterValue.trim();
+  }
 
   downloadConsent(consentPath : any){
     if(consentPath == null){

@@ -41,7 +41,18 @@
       </mat-select>
     </mat-form-field>
 
+<!-- DOB filter -->
+    <mat-form-field class="col-sm-2">
+      <input
+        matInput
+        [matDatepicker]="dp1"
+        (dateInput)="filterDOB($event.target.value, $event)"
+        placeholder="Filter DOB"
+      />
+      <mat-datepicker-toggle matSuffix [for]="dp1"></mat-datepicker-toggle>
     
+      <mat-datepicker #dp1></mat-datepicker>
+    </mat-form-field>
 
 
   </div>
