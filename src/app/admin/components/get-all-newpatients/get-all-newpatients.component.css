@@ -10,3 +10,24 @@ a {
 .example-spacer {
     flex: 1 1 auto;
 }
+table {
+    width: 100%;
+  }
+  
+  /* .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  } */
+ .container1 {
+    width: 30%;
+ } 
+ .container2 {
+    width: 30%;
+ } 
+  form{
+    padding-bottom: 20px;
+  }
+  .primary{
+    background: orange;
+    color: white;
+  }

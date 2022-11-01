@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 import * as _ from 'lodash';
 import { result } from 'lodash';
 import { DatePipe } from '@angular/common';
-
+import {FormControl, FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-get-all-newpatients',
@@ -23,6 +23,22 @@ export class GetAllNewpatientsComponent implements OnInit {
   patients: any;
   title = 'datatables';
   dataSource : any;
+
+/* Date Range */
+ pipe! : DatePipe
+filterForm :any = new FormGroup({
+  fromDate : new FormControl(),
+  toDate : new FormControl(),
+});
+get fromDate() {
+  return this.filterForm.get('fromDate').value;
+}
+get toDate() {
+  return this.filterForm.get('toDate').value;
+}  
+/*  */
+
+
   @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
   @ViewChild(MatSort) sort: MatSort | undefined;
   columndefs : any[] = ['firstName','lastName','email','dateOfBirth','gender','insurance', 'createdDate', 'downloadFiles'];
@@ -31,9 +47,7 @@ export class GetAllNewpatientsComponent implements OnInit {
     private matDialog: MatDialog ,private myService:MyserviceService,
   private _router: Router, public datepipe: DatePipe ) {
    }
-
-
-
+   
   ngOnInit(): void {
     this.dtOptions = {
       pagingType: 'full_numbers',
@@ -127,11 +141,7 @@ export class GetAllNewpatientsComponent implements OnInit {
       }
       this.patients = result;
       this.dataSource = new MatTableDataSource(result);
-      this.dataSource.paginator = this.paginator;
-      /* Filter by DOB */
-      this.dataSource.filterPredicate = (result:any, filter: string) =>
-      !filter || result.dateOfBirth.includes(filter);
-
+      this.dataSource.paginator = this.paginator; 
     });
   }
 
@@ -160,11 +170,7 @@ export class GetAllNewpatientsComponent implements OnInit {
     })
     this.dataSource = new MatTableDataSource(filteredData)
   }
- 
- 
-  }
-
- /*  */
+ }
  /* Filter Gender */
  onChangeGender($event:any) {
   if($event.value.toLowerCase() == "all") {
@@ -181,17 +187,27 @@ export class GetAllNewpatientsComponent implements OnInit {
  
   }
 
-  /*  */
-  filterDOB(filterValue: any, event:any) {
-    debugger;
-
-    if (event.value != undefined) {
+  /* DOB Filter */
+   filterDOB(filterValue: any, event:any) {
+   if (event.value != undefined) {
+    this.dataSource.filterPredicate = (result:any, filter: any) => 
+    !filter || result.dateOfBirth.includes(filter); 
       filterValue = this.datepipe.transform(filterValue, 'MM/dd/yyyy');
-      console.log(filterValue);
     }
     this.dataSource.filter = filterValue.trim();
-  }
+  } 
 
+  // Date range
+   applyFilter() {
+    this.pipe = new DatePipe('en');
+    this.dataSource.filterPredicate = (result:any, filter:any) => {
+      if (this.fromDate && this.toDate) {
+        return new Date (result.createdDate) >= this.fromDate && new Date(result.createdDate)  <= this.toDate;
+      }
+      return true;
+    };  
+    this.dataSource.filter = '' + Math.random();
+}  
   downloadConsent(consentPath : any){
     if(consentPath == null){
       alert('Patient Age is great than 18.');

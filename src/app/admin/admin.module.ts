@@ -1,6 +1,6 @@
 import { NgModule } from "@angular/core";
 import { RouterModule } from "@angular/router";
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { CommonModule, DatePipe } from "@angular/common";
 import { BrowserModule } from "@angular/platform-browser";
 import { SwNavbarComponent } from "../core/components/nav-bar/sw-navbar.component";
@@ -19,10 +19,13 @@ import { MatPaginatorModule } from "@angular/material/paginator";
 import { CallbackUrlComponent } from './components/callback-url/callback-url.component';
 import { MatSelectModule } from "@angular/material/select";
 import { MatSortModule } from "@angular/material/sort";
+import { MatButtonModule } from "@angular/material/button";
 @NgModule({
     imports: [
       FormsModule,
+      ReactiveFormsModule,
       CommonModule,
+      MatButtonModule,
       BrowserModule, 
       DataTablesModule,
       MatTableModule,
