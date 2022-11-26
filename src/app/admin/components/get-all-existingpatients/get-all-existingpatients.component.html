@@ -1,35 +1,144 @@
 <div class="container py-3">
-    <h2>List of All Existings Patients Records</h2>
-    <br>
-    <table datatable [dtOptions]="dtOptions" class="row-border hover">
-      <thead>
-        <tr>
-          <th>First Name</th>
-          <th>Last Name</th>
-          <th>Email</th>
-          <th>Date of Birth</th>
-          <th>Insurace</th>
-          <th>Download Files</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let patient of patients">
-          <td>{{ patient.firstName }}</td>
-          <td>{{ patient.lastName }}</td>
-          <td>{{ patient.email }}</td>
-          <td>{{ patient.dateOfBirth }}</td>
-          <td>{{ patient.insurance }}</td>
-          <td><a href="javascript:void(0)"  (click)="downloadFile(patient.filePath)"  class="link-primary">Patient</a> | 
-            <a href="javascript:void(0)" (click)="downloadConsent(patient.consentPath)" class="link-primary">Consent</a> |
-            <a *ngIf="patient.insurance == 'Yes'" href="javascript:void(0)" (click)="downloadFile(patient.insuranceFilePath)" class="link-primary">Insurance</a>  
-            <a *ngIf="patient.insurance == 'No'" href="javascript:void(0)" (click)="downloadFile(patient.cashSuperBillFilePath)" class="link-primary">Cash</a> |
-            <a href="javascript:void(0)" (click)="downloadFile(patient.doctorFormPath)" class="link-primary">Doctor</a>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+  <div class="text-right col-md-11">
+    <h2>List of All Existing Patients Records</h2>
   </div>
+<mat-form-field>
+  <mat-label>Filter</mat-label>
+  <input matInput (keyup)="searchPatient(input.value)" placeholder="Patient" #input>
+</mat-form-field>
+
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource" matSort>
+
+    <ng-container matColumnDef="firstName">
+      <mat-header-cell mat-sort-header *matHeaderCellDef>First Name</mat-header-cell>
+      <mat-cell *matCellDef="let patient">{{ patient.firstName }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="lastName">
+      <mat-header-cell mat-sort-header *matHeaderCellDef>Last Name</mat-header-cell>
+      <mat-cell *matCellDef="let patient">{{ patient.lastName }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="email">
+      <mat-header-cell mat-sort-header *matHeaderCellDef>Email</mat-header-cell>
+      <mat-cell  *matCellDef="let patient">{{ patient.email }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="dateOfBirth">
+      <mat-header-cell *matHeaderCellDef>Date Of Birth</mat-header-cell>
+      <mat-cell *matCellDef="let patient">{{ patient.dateOfBirth }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="gender">
+      <mat-header-cell *matHeaderCellDef>Gender</mat-header-cell>
+      <mat-cell *matCellDef="let patient">{{ patient.gender }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="insurance">
+      <mat-header-cell *matHeaderCellDef>Insurance</mat-header-cell>
+      <mat-cell *matCellDef="let patient">{{ patient.insurance }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="createdDate">
+      <mat-header-cell *matHeaderCellDef>Date</mat-header-cell>
+      <mat-cell *matCellDef="let patient">{{ patient.createdDate }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="downloadFiles">
+      <mat-header-cell *matHeaderCellDef>Download Files</mat-header-cell>
+      <mat-cell *matCellDef="let patient">
+
+        <a
+          href="javascript:void(0)"
+          (click)="downloadFile(patient.filePath)"
+          class="link-primary"
+          >Patient
+        </a>|
+        <a
+          *ngIf="patient.adult == 'No'"
+          href="javascript:void(0)"
+          (click)="downloadConsent(patient.consentPath)"
+          class="link-primary"
+          >Consent</a
+        >|
+        <a
+          *ngIf="
+            patient.insurance == 'Yes' &&
+            patient.reasonForVisit !== 'Immigration'
+          "
+          href="javascript:void(0)"
+          (click)="downloadFile(patient.insuranceFilePath)"
+          class="link-primary"
+          >Insurance</a
+        >
+        <!--  -->
+        <a
+          *ngIf="patient.reasonForVisit == 'Immigration'"
+          href="javascript:void(0)"
+          (click)="downloadFile(patient.imigrationFilePath)"
+          class="link-primary"
+          >Immigration</a
+        >
+
+        <!-- Dot Physical -->
+        <a
+          *ngIf="patient.reasonForVisit == 'dotPhysical'"
+          href="javascript:void(0)"
+          (click)="downloadFile(patient.medicalExaminationFilePath)"
+          class="link-primary"
+          >Medical</a
+        >
+        <!--  -->
+        <a
+          *ngIf="patient.reasonForVisit == 'dotPhysical'"
+          href="javascript:void(0)"
+          (click)="downloadFile(patient.medicalCertificateFilePath)"
+          class="link-primary"
+          >Medical Cert</a
+        >
+      
+        <a
+          *ngIf="
+            patient.insurance == 'No' &&
+            patient.reasonForVisit !== 'Immigration' &&
+            patient.reasonForVisit !== 'dotPhysical'
+          "
+          href="javascript:void(0)"
+          (click)="downloadFile(patient.cashSuperBillFilePath)"
+          class="link-primary"
+          >Cash</a
+        >|
+        <!-- covid -->
+        <a
+          *ngIf="patient.covidTesting == 'RapidAntigen'"
+          href="javascript:void(0)"
+          (click)="downloadFile(patient.covidFilePath)"
+          class="link-primary"
+          >Covid Report</a
+        >
+        <!-- Sportphysical -->
+        <a
+          *ngIf="patient.reasonForVisit == 'schoolPhysical'"
+          href="javascript:void(0)"
+          (click)="downloadFile(patient.schoolFilePath)"
+          class="link-primary"
+          >Sports Physical Report</a
+        >
+        <!--  -->
+        <a
+          href="javascript:void(0)"
+          (click)="downloadFile(patient.doctorFormPath)"
+          class="link-primary"
+          >Doctor</a
+        >
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="columndefs"> </mat-header-row>
+    <mat-row *matRowDef="let row; columns: columndefs"> </mat-row>
+ </table>
+  <mat-paginator
+    [length]="patients.length"
+    [pageSize]="10"
+    [pageSizeOptions]="[1, 5, 10, 25, 100]"
+    showFirstLastButtons
+  >
+  </mat-paginator>
+</div>
   
-  
-    
-    

@@ -1,8 +1,11 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild} from '@angular/core';
 import { debug } from 'console';
 import { PatientService } from 'src/app/shared/service/patient-service';
 import { environment } from 'src/environments/environment';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 
 @Component({
   selector: 'app-get-all-existingpatients',
@@ -12,6 +15,13 @@ import { environment } from 'src/environments/environment';
 export class GetAllExistingpatientsComponent implements OnInit {
   patients: any;
   title = 'datatables';
+  dataSource: any;
+
+
+
+  @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
+  @ViewChild(MatSort) sort: MatSort | undefined;
+  columndefs : any[] = ['firstName','lastName','email','dateOfBirth','gender','insurance', 'downloadFiles'];
   dtOptions: DataTables.Settings = {};
   constructor(private patientService : PatientService) { }
 
@@ -19,12 +29,17 @@ export class GetAllExistingpatientsComponent implements OnInit {
     //this.getAllExistingPatients();
     this.dtOptions = {
       pagingType: 'full_numbers',
-      pageLength: 5,
+      pageLength: 10,
       processing: true
     };
   
     this.getAllExistingPatients();
 
+  }
+
+  ngAfterViewInit(){
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
   }
 
   getAllExistingPatients(){
@@ -51,8 +66,16 @@ export class GetAllExistingpatientsComponent implements OnInit {
         else{
           result[i].consentPath = null;
         }
+        if(result[i].doctorFormPath && result[i].doctorFormPath != null){
+          result[i].doctorFormPath = environment.apiUrl+result[i].doctorFormPath.replace('./public/','/') ;
+        }
+        else{
+          result[i].doctorFormPath = null;
+        }
       }
       this.patients = result;
+      this.dataSource = new MatTableDataSource(result);
+      this.dataSource.paginator = this.paginator; 
     });
   }
 
@@ -73,6 +96,13 @@ export class GetAllExistingpatientsComponent implements OnInit {
       window.open( 
         filePath, "_blank");
     }
+  }
+  searchPatient(search:any){
+    debugger;
+    this.dataSource.filter = search.toLowerCase().trim();
+  }
+  logout () {
+
   }
 
 }
