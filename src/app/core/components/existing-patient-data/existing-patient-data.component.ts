@@ -191,6 +191,19 @@ export class ExistingPatientDataComponent implements OnInit {
       formData.append("dComment", this.patientMainModel.dComment)
       formData.append("dCommentExplain", this.patientMainModel.dCommentExplain)
     }
+
+    if(this.patientMainModel.reasonForVisit == "Immigration"){
+      formData.append("cityOfBirth", this.patientMainModel.cityOfBirth);
+      formData.append("countryOfBirth", this.patientMainModel.countryOfBirth);
+      formData.append("imgNumber", this.patientMainModel.imgNumber);
+      formData.append("uscisNumber", this.patientMainModel.uscisNumber);
+      formData.append("interpreter", this.patientMainModel.interpreter);
+      formData.append("interpreterFName", this.patientMainModel.interpreterFName)
+      formData.append("interpreterLName", this.patientMainModel.interpreterLName)
+      formData.append("interpreterBusiness", this.patientMainModel.interpreterBusiness)
+      formData.append("cityTownVillage", this.patientMainModel.cityTownVillage)
+
+    }
     // else{
     //   formData.append("idCardPicturePath", this.patientOneModel.idCardPicture.name+'-'+Date.now());
     //   formData.append("idCardPictureName", this.patientOneModel.idCardPicture.name); 
@@ -241,9 +254,7 @@ export class ExistingPatientDataComponent implements OnInit {
     formData.append("breathShortness", this.patientOneModel.breathShortness);
     formData.append("vaccinations", this.patientOneModel.vaccinations);
     formData.append("covidSymptons", this.patientOneModel.covidSymptons);
-    formData.append("covidTesting", this.patientOneModel.covidTesting);
     formData.append("signatureImg", this.patientOneModel.signatureImg);
-
   }
 
 

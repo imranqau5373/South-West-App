@@ -209,6 +209,9 @@
           <option value="schoolPhysical">
             {{ "ReasonForVisit.Sport" | translate }}
           </option>
+          <option value="Immigration">
+            {{ "ReasonForVisit.Immigration" | translate }}
+          </option>
           <option value="dotPhysical">
             {{ "ReasonForVisit.DotPhysical" | translate }}
           </option>
@@ -1921,6 +1924,211 @@ class="col-md-12"
 </div>
 
 <!--  -->
+
+<!-- Reason For Visit -->
+<div
+class="col-12"
+*ngIf="patientMainModel.reasonForVisit == 'Immigration'"
+>
+<div class="row">
+  <div class="col-md-4">
+    <label for="cityOfBirth" class="form-label">{{
+      "Immigration.City" | translate
+    }}</label>
+    <input
+      [(ngModel)]="patientMainModel.cityOfBirth"
+      name="cityOfBirth"
+      #cityOfBirth="ngModel"
+      type="text"
+      class="form-control"
+      id="cityOfBirth"
+      required
+      [ngClass]="{
+        'is-invalid': patient.submitted && cityOfBirth.invalid
+      }"
+    />
+    <div
+      class="invalid-feedback"
+      *ngIf="patient.submitted && cityOfBirth.invalid"
+    >
+      {{ "Immigration.CityReq" | translate }}
+    </div>
+  </div>
+  <!-- CityTownVillage -->
+  <div class="col-md-4">
+    <label for="cityTownVillage" class="form-label">{{
+      "Immigration.CityTownvill" | translate
+    }}</label>
+    <input
+      [(ngModel)]="patientMainModel.cityTownVillage"
+      name="cityTownVillage"
+      #countryOfBirth="ngModel"
+      type="text"
+      class="form-control"
+      id="cityTownVillage"
+    />
+  </div>
+  <!--  -->
+  <div class="col-md-4">
+    <label for="countryOfBirth" class="form-label">{{
+      "Immigration.Country" | translate
+    }}</label>
+    <input
+      [(ngModel)]="patientMainModel.countryOfBirth"
+      name="countryOfBirth"
+      #countryOfBirth="ngModel"
+      type="text"
+      class="form-control"
+      id="countryOfBirth"
+    />
+  </div>
+
+  <div class="col-md-4">
+    <label for="imgNumber" class="form-label">{{
+      "Immigration.A-Num" | translate
+    }}</label>
+    <input
+      [(ngModel)]="patientMainModel.imgNumber"
+      name="imgNumber"
+      #imgNumber="ngModel"
+      minlength="9"
+      maxlength="9"
+      pattern="^[0-9]*$"
+      type="text"
+      class="form-control"
+      id="imgNumber"
+      [ngClass]="{ 'is-invalid': patient.submitted && imgNumber.invalid }"
+    />
+    <div
+      class="invalid-feedback"
+      *ngIf="patient.submitted && imgNumber.invalid"
+    >
+      <!-- <div class="text-danger" *ngIf="imgNumber.errors?.required">
+        Alien Registration Number is Required
+      </div> -->
+      <div class="text-danger" *ngIf="imgNumber.errors?.minlength">
+        {{ "Immigration.A-NumErr" | translate }}
+      </div>
+      <div class="text-danger" *ngIf="imgNumber.errors?.pattern">
+        {{ "Immigration.A-NumErr1" | translate }}
+      </div>
+    </div>
+  </div>
+
+  <!-- USCIS Online Account Number -->
+  <div class="col-md-4">
+    <label for="imgNumber" class="form-label">{{
+      "Immigration.USCIS" | translate
+    }}</label>
+    <input
+      [(ngModel)]="patientMainModel.uscisNumber"
+      name="uscisNumber"
+      #uscisNumber="ngModel"
+      type="text"
+      class="form-control"
+      id="uscisNumber"
+      minlength="12"
+      maxlength="12"
+      pattern="^[0-9]*$"
+    />
+    <div
+      class="form-control-feedback"
+      *ngIf="patient.submitted && uscisNumber.invalid"
+    >
+      <!-- <div class="text-danger" *ngIf="uscisNumber.errors?.required">
+        USCIS Number is Required
+      </div> -->
+      <div class="text-danger" *ngIf="uscisNumber.errors?.minlength">
+        {{ "Immigration.USCISErr" | translate }}
+      </div>
+      <div class="text-danger" *ngIf="uscisNumber.errors?.pattern">
+        {{ "Immigration.USCISErr1" | translate }}
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Interpreter  -->
+<div class="col-md-12">
+  <label for="ssn" class="form-label">
+    {{ "Immigration.ReadEnglish" | translate }}</label
+  >
+  <div class="form-check">
+    <input
+      class="form-check-input"
+      [(ngModel)]="patientMainModel.interpreter"
+      type="radio"
+      name="interpreter"
+      id="interpreterYes"
+      value="Yes"
+    />
+    <label class="form-check-label" for="interpreterYes">
+      {{ "YesNo.Yes" | translate }}
+    </label>
+  </div>
+  <div class="form-check">
+    <input
+      class="form-check-input"
+      [(ngModel)]="patientMainModel.interpreter"
+      type="radio"
+      name="interpreter"
+      id="interpreterNo"
+      value="No"
+    />
+    <label class="form-check-label" for="interpreterNo"
+      >{{ "YesNo.No" | translate }}
+    </label>
+  </div>
+</div>
+<br />
+<div class="col-md-12" *ngIf="patientMainModel.interpreter == 'No'">
+  <h3>
+    <strong> {{ "Immigration.InterpreterLabel" | translate }}</strong>
+  </h3>
+  <div class="row">
+    <div class="col-md-4">
+      <label for="drugsExplain" class="form-label">
+        {{ "Immigration.FirstName" | translate }}
+      </label>
+      <input
+        [(ngModel)]="patientMainModel.interpreterFName"
+        name="interpreterFName"
+        #drugsExplain="ngModel"
+        type="text"
+        class="form-control"
+        id="interpreterFName"
+      />
+    </div>
+    <div class="col-md-4">
+      <label for="drugsExplain" class="form-label">
+        {{ "Immigration.LastName" | translate }}
+      </label>
+      <input
+        [(ngModel)]="patientMainModel.interpreterLName"
+        name="interpreterLName"
+        #drugsExplain="ngModel"
+        type="text"
+        class="form-control"
+        id="interpreterLName"
+      />
+    </div>
+    <div class="col-md-4">
+      <label for="drugsExplain" class="form-label">
+        {{ "Immigration.OrganizationName" | translate }}
+      </label>
+      <input
+        [(ngModel)]="patientMainModel.interpreterBusiness"
+        name="interpreterBusiness"
+        #drugsExplain="ngModel"
+        type="text"
+        class="form-control"
+        id="interpreterBusiness"
+      />
+    </div>
+  </div>
+</div>
+</div>
+
+
 
     <!-- ====== Reason of Visit Dot Physical====== -->
 
@@ -4044,21 +4252,51 @@ class="col-md-12"
 
     <!-- ===================================== -->
 
-      <div class="col-12" *ngIf="patientMainModel.reasonForVisit == 'Covid'">
+    <div class="col-12" *ngIf="patientMainModel.reasonForVisit == 'Covid'">
+      <label for="covidTesting" class="form-label">ARE YOU NEEDING</label>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          [(ngModel)]="patientMainModel.covidTesting"
+          type="radio"
+          name="covidTesting"
+          id="RapidPCR"
+          value="RapidPCR"
+        />
+        <label class="form-check-label" for="RapidPCR">
+          RAPID RT-PCR TEST FOR TRAVELING
+        </label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          [(ngModel)]="patientMainModel.covidTesting"
+          type="radio"
+          name="covidTesting"
+          id="RapidAntigen"
+          value="RapidAntigen"
+        />
+        <label class="form-check-label" for="RapidAntigen">
+          RAPID ANTIGEN TEST
+        </label>
+      </div>
+    </div>
+
+      <!-- <div class="col-12" *ngIf="patientMainModel.reasonForVisit == 'Covid'">
         <label for="covidTesting" class="form-label">ARE YOU NEEDING</label>
         <div class="form-check">
-            <input class="form-check-input" [(ngModel)]="patientMainModel.covidTesting" type="radio" name="covidTesting" id="pcrTesting" value="RapidPCR">
+            <input class="form-check-input" [(ngModel)]="patientMainModel.covidTesting" type="radio" name="covidTesting" id="RapidPCR" value="RapidPCR">
             <label class="form-check-label" for="vaccinationsYes">
               RAPID  RT-PCR TEST FOR TRAVELING  
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" [(ngModel)]="patientMainModel.covidTesting" type="radio" name="covidTesting" id="antigenTesting" value="RapidAntigen">
+            <input class="form-check-input" [(ngModel)]="patientMainModel.covidTesting" type="radio" name="covidTesting" id="RapidAntigen" value="RapidAntigen">
             <label class="form-check-label" for="covidSymptonsNo">
               RAPID ANTIGEN TEST  
             </label>
           </div>
-      </div>
+      </div> -->
       <div class="col-12">
         <button type="submit" class="btn btn-primary">Next</button>
       </div>

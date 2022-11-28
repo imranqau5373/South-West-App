@@ -72,6 +72,12 @@ export class GetAllExistingpatientsComponent implements OnInit {
         else{
           result[i].doctorFormPath = null;
         }
+        if(result[i].imigrationFilePath && result[i].imigrationFilePath != null){
+          result[i].imigrationFilePath = environment.apiUrl+result[i].imigrationFilePath.replace('./public/','/') ;
+        }
+        else{
+          result[i].imigrationFilePath = null;
+        }
         /* Medical Examination */
        if(result[i].medicalExaminationFilePath && result[i].medicalExaminationFilePath != null){
         result[i].medicalExaminationFilePath = environment.apiUrl+result[i].medicalExaminationFilePath.replace('./public/','/') ;
