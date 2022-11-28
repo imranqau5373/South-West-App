@@ -72,6 +72,34 @@ export class GetAllExistingpatientsComponent implements OnInit {
         else{
           result[i].doctorFormPath = null;
         }
+        /* Medical Examination */
+       if(result[i].medicalExaminationFilePath && result[i].medicalExaminationFilePath != null){
+        result[i].medicalExaminationFilePath = environment.apiUrl+result[i].medicalExaminationFilePath.replace('./public/','/') ;
+      }
+      else{
+        result[i].medicalExaminationFilePath = null;
+      }
+    /* Medical Certificate */
+    if(result[i].medicalCertificateFilePath && result[i].medicalCertificateFilePath != null){
+        result[i].medicalCertificateFilePath = environment.apiUrl+result[i].medicalCertificateFilePath.replace('./public/','/') ;
+      }
+      else{
+        result[i].medicalCertificateFilePath = null;
+      }
+    /* Covid */
+     if(result[i].covidFilePath && result[i].covidFilePath != null){
+        result[i].covidFilePath = environment.apiUrl+result[i].covidFilePath.replace('./public/','/') ;
+      }
+      else{
+        result[i].covidFilePath = null;
+      }
+        /*  Sport*/
+       if(result[i].schoolFilePath && result[i].schoolFilePath != null){
+        result[i].schoolFilePath = environment.apiUrl+result[i].schoolFilePath.replace('./public/','/') ;
+      }
+      else{
+        result[i].schoolFilePath = null;
+      }
       }
       this.patients = result;
       this.dataSource = new MatTableDataSource(result);

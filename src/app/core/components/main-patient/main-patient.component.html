@@ -206,6 +206,12 @@
           <option selected>Select</option>
           <option value="Covid">Covid</option>
           <option value="CovidConsultation">Covid Test Consultation</option>
+          <option value="schoolPhysical">
+            {{ "ReasonForVisit.Sport" | translate }}
+          </option>
+          <option value="dotPhysical">
+            {{ "ReasonForVisit.DotPhysical" | translate }}
+          </option>
           <option value="Consultation / Medicine Refill">Consultation /Medicine Refill</option>
           <option value="Other">Other</option>
         </select>
@@ -219,6 +225,3825 @@
         <input [(ngModel)]="patientMainModel.reasonForVisitOther" name="reasonForVisitOther" #reasonForVisitOther="ngModel"
         type="text" class="form-control" id="reasonForVisitOther">
       </div>
+<!--  -->
+<!-- ====== Reason of Visit School Physical====== -->
+<div
+class="col-md-12"
+*ngIf="patientMainModel.reasonForVisit == 'schoolPhysical'"
+>
+<!--  <h1 class="display-6">Student School Info</h1>
+<br /> -->
+<div class="row">
+  <div class="col-md-4">
+    <label for="grade" class="form-label">{{
+      "SportPhysical.Grade" | translate
+    }}</label>
+    <input
+      [(ngModel)]="patientMainModel.grade"
+      name="garde"
+      #countryOfBirth="ngModel"
+      type="text"
+      class="form-control"
+      id="grade"
+    />
+  </div>
+  <div class="col-md-4">
+    <label for="school" class="form-label">{{
+      "SportPhysical.School" | translate
+    }}</label>
+    <input
+      [(ngModel)]="patientMainModel.school"
+      name="school"
+      #countryOfBirth="ngModel"
+      type="text"
+      class="form-control"
+      id="school"
+    />
+  </div>
+</div>
+<!-- Student Questions  -->
+<div class="col-12">
+  <label for="stdIllness" class="form-label">{{
+    "SportPhysical.Illness" | translate
+  }}</label>
+  <div class="form-check">
+    <input
+      class="form-check-input"
+      [(ngModel)]="patientMainModel.stdIllness"
+      type="radio"
+      name="stdIllness"
+      id="stdIllnessYes"
+      value="Yes"
+    />
+    <label class="form-check-label" for="stdIllnessYes">
+      {{ "YesNo.Yes" | translate }}
+    </label>
+  </div>
+  <div class="form-check">
+    <input
+      class="form-check-input"
+      [(ngModel)]="patientMainModel.stdIllness"
+      type="radio"
+      name="stdIllness"
+      id="stdIllnessNo"
+      value="No"
+    />
+    <label class="form-check-label" for="stdIllnessNo">
+      {{ "YesNo.No" | translate }}
+    </label>
+  </div>
+</div>
+<!--  -->
+<div class="col-12">
+  <label for="stdHospitalized" class="form-label">{{
+    "SportPhysical.Hospitalized" | translate
+  }}</label>
+  <div class="form-check">
+    <input
+      class="form-check-input"
+      [(ngModel)]="patientMainModel.stdHospitalized"
+      type="radio"
+      name="stdHospitalized"
+      id="stdHospitalizedYes"
+      value="Yes"
+    />
+    <label class="form-check-label" for="stdHospitalizedYes"
+      >{{ "YesNo.Yes" | translate }}
+    </label>
+  </div>
+  <div class="form-check">
+    <input
+      class="form-check-input"
+      [(ngModel)]="patientMainModel.stdHospitalized"
+      type="radio"
+      name="stdHospitalized"
+      id="stdHospitalizedNo"
+      value="No"
+    />
+    <label class="form-check-label" for="stdHospitalizedNo">
+      {{ "YesNo.No" | translate }}
+    </label>
+  </div>
+</div>
+<!--  -->
+<div class="col-12">
+  <label for="stdSurgery" class="form-label">{{
+    "SportPhysical.Surgery" | translate
+  }}</label>
+  <div class="form-check">
+    <input
+      class="form-check-input"
+      [(ngModel)]="patientMainModel.stdSurgery"
+      type="radio"
+      name="stdSurgery"
+      id="stdSurgeryYes"
+      value="Yes"
+    />
+    <label class="form-check-label" for="stdSurgeryYes">{{
+      "YesNo.Yes" | translate
+    }}</label>
+  </div>
+  <div class="form-check">
+    <input
+      class="form-check-input"
+      [(ngModel)]="patientMainModel.stdSurgery"
+      type="radio"
+      name="stdSurgery"
+      id="stdSurgeryNo"
+      value="No"
+    />
+    <label class="form-check-label" for="stdSurgeryNo">
+      {{ "YesNo.No" | translate }}
+    </label>
+  </div>
+</div>
+<!--  -->
+<div class="col-12">
+  <label for="stdHeartTest" class="form-label">{{
+    "SportPhysical.HeartTest" | translate
+  }}</label>
+  <div class="form-check">
+    <input
+      class="form-check-input"
+      [(ngModel)]="patientMainModel.stdHeartTest"
+      type="radio"
+      name="stdHeartTest"
+      id="stdHeartTestYes"
+      value="Yes"
+    />
+    <label class="form-check-label" for="stdHeartTestYes">
+      {{ "YesNo.Yes" | translate }}
+    </label>
+  </div>
+  <div class="form-check">
+    <input
+      class="form-check-input"
+      [(ngModel)]="patientMainModel.stdHeartTest"
+      type="radio"
+      name="stdHeartTest"
+      id="stdHeartTestNo"
+      value="No"
+    />
+    <label class="form-check-label" for="stdHeartTestNo">
+      {{ "YesNo.No" | translate }}</label
+    >
+  </div>
+</div>
+<!--  -->
+<div class="col-12">
+  <label for="stdPassedOutEx" class="form-label">{{
+    "SportPhysical.Passed" | translate
+  }}</label>
+  <div class="form-check">
+    <input
+      class="form-check-input"
+      [(ngModel)]="patientMainModel.stdPassedOutEx"
+      type="radio"
+      name="stdPassedOutEx"
+      id="stdPassedOutExYes"
+      value="Yes"
+    />
+    <label class="form-check-label" for="stdPassedOutExYes">
+      {{ "YesNo.Yes" | translate }}
+    </label>
+  </div>
+  <div class="form-check">
+    <input
+      class="form-check-input"
+      [(ngModel)]="patientMainModel.stdPassedOutEx"
+      type="radio"
+      name="stdPassedOutEx"
+      id="stdPassedOutExNo"
+      value="No"
+    />
+    <label class="form-check-label" for="stdPassedOutExNo">
+      {{ "YesNo.No" | translate }}
+    </label>
+  </div>
+</div>
+<!--  -->
+<div class="col-12">
+  <label for="stdChestPainEx" class="form-label">{{
+    "SportPhysical.ChestPain" | translate
+  }}</label>
+  <div class="form-check">
+    <input
+      class="form-check-input"
+      [(ngModel)]="patientMainModel.stdChestPainEx"
+      type="radio"
+      name="stdChestPainEx"
+      id="stdChestPainExYes"
+      value="Yes"
+    />
+    <label class="form-check-label" for="stdChestPainExYes">
+      {{ "YesNo.Yes" | translate }}</label
+    >
+  </div>
+  <div class="form-check">
+    <input
+      class="form-check-input"
+      [(ngModel)]="patientMainModel.stdChestPainEx"
+      type="radio"
+      name="stdChestPainEx"
+      id="stdChestPainExNo"
+      value="No"
+    />
+    <label class="form-check-label" for="stdChestPainExNo">
+      {{ "YesNo.No" | translate }}
+    </label>
+  </div>
+</div>
+<!--  -->
+<div class="col-12">
+  <label for="stdTiredQuicklyEx" class="form-label">{{
+    "SportPhysical.TiredQuickly" | translate
+  }}</label>
+  <div class="form-check">
+    <input
+      class="form-check-input"
+      [(ngModel)]="patientMainModel.stdTiredQuicklyEx"
+      type="radio"
+      name="stdTiredQuicklyEx"
+      id="stdTiredQuicklyExYes"
+      value="Yes"
+    />
+    <label class="form-check-label" for="stdTiredQuicklyExYes">
+      {{ "YesNo.Yes" | translate }}
+    </label>
+  </div>
+  <div class="form-check">
+    <input
+      class="form-check-input"
+      [(ngModel)]="patientMainModel.stdTiredQuicklyEx"
+      type="radio"
+      name="stdTiredQuicklyEx"
+      id="stdTiredQuicklyExNo"
+      value="No"
+    />
+    <label class="form-check-label" for="stdTiredQuicklyExNo">
+      {{ "YesNo.No" | translate }}
+    </label>
+  </div>
+</div>
+<!--  -->
+<div class="col-12">
+  <label for="stdSkipHeartbeatEx" class="form-label">{{
+    "SportPhysical.SkippedHeartbeat" | translate
+  }}</label>
+  <div class="form-check">
+    <input
+      class="form-check-input"
+      [(ngModel)]="patientMainModel.stdSkipHeartbeatEx"
+      type="radio"
+      name="stdSkipHeartbeatEx"
+      id="stdSkipHeartbeatExYes"
+      value="Yes"
+    />
+    <label class="form-check-label" for="stdSkipHeartbeatExYes">
+      {{ "YesNo.Yes" | translate }}
+    </label>
+  </div>
+  <div class="form-check">
+    <input
+      class="form-check-input"
+      [(ngModel)]="patientMainModel.stdSkipHeartbeatEx"
+      type="radio"
+      name="stdSkipHeartbeatEx"
+      id="stdSkipHeartbeatExNo"
+      value="No"
+    />
+    <label class="form-check-label" for="stdSkipHeartbeatExNo">
+      {{ "YesNo.No" | translate }}
+    </label>
+  </div>
+</div>
+<!--  -->
+<div class="col-12">
+  <label for="stdHighBlood" class="form-label">{{
+    "SportPhysical.HighBlood" | translate
+  }}</label>
+  <div class="form-check">
+    <input
+      class="form-check-input"
+      [(ngModel)]="patientMainModel.stdHighBlood"
+      type="radio"
+      name="stdHighBlood"
+      id="stdHighBloodYes"
+      value="Yes"
+    />
+    <label class="form-check-label" for="stdHighBloodYes">
+      {{ "YesNo.Yes" | translate }}
+    </label>
+  </div>
+  <div class="form-check">
+    <input
+      class="form-check-input"
+      [(ngModel)]="patientMainModel.stdHighBlood"
+      type="radio"
+      name="stdHighBlood"
+      id="stdHighBloodNo"
+      value="No"
+    />
+    <label class="form-check-label" for="stdHighBloodNo">
+      {{ "YesNo.No" | translate }}
+    </label>
+  </div>
+</div>
+<!--  -->
+<div class="col-12">
+  <label for="stdHeartMurmur" class="form-label">{{
+    "SportPhysical.Murmur" | translate
+  }}</label>
+  <div class="form-check">
+    <input
+      class="form-check-input"
+      [(ngModel)]="patientMainModel.stdHeartMurmur"
+      type="radio"
+      name="stdHeartMurmur"
+      id="stdHeartMurmurYes"
+      value="Yes"
+    />
+    <label class="form-check-label" for="stdHeartMurmurYes">
+      {{ "YesNo.Yes" | translate }}
+    </label>
+  </div>
+  <div class="form-check">
+    <input
+      class="form-check-input"
+      [(ngModel)]="patientMainModel.stdHeartMurmur"
+      type="radio"
+      name="stdHeartMurmur"
+      id="stdHeartMurmurNo"
+      value="No"
+    />
+    <label class="form-check-label" for="stdHeartMurmurNo">
+      {{ "YesNo.No" | translate }}
+    </label>
+  </div>
+</div>
+<!--  -->
+<div class="col-12">
+  <label for="stdHeartProblemDeath" class="form-label">{{
+    "SportPhysical.FamilyMember" | translate
+  }}</label>
+  <div class="form-check">
+    <input
+      class="form-check-input"
+      [(ngModel)]="patientMainModel.stdHeartProblemDeath"
+      type="radio"
+      name="stdHeartProblemDeath"
+      id="stdHeartProblemDeathYes"
+      value="Yes"
+    />
+    <label class="form-check-label" for="stdHeartProblemDeathYes">
+      {{ "YesNo.Yes" | translate }}
+    </label>
+  </div>
+  <div class="form-check">
+    <input
+      class="form-check-input"
+      [(ngModel)]="patientMainModel.stdHeartProblemDeath"
+      type="radio"
+      name="stdHeartProblemDeath"
+      id="stdHeartProblemDeathNo"
+      value="No"
+    />
+    <label class="form-check-label" for="stdHeartProblemDeathNo">
+      {{ "YesNo.No" | translate }}
+    </label>
+  </div>
+</div>
+<!--  -->
+<div class="col-12">
+  <label for="stdFamilyHeartProblem" class="form-label">{{
+    "SportPhysical.FamilyMemberDied" | translate
+  }}</label>
+  <div class="form-check">
+    <input
+      class="form-check-input"
+      [(ngModel)]="patientMainModel.stdFamilyHeartProblem"
+      type="radio"
+      name="stdFamilyHeartProblem"
+      id="stdFamilyHeartProblemYes"
+      value="Yes"
+    />
+    <label class="form-check-label" for="stdFamilyHeartProblemYes">
+      {{ "YesNo.Yes" | translate }}
+    </label>
+  </div>
+  <div class="form-check">
+    <input
+      class="form-check-input"
+      [(ngModel)]="patientMainModel.stdFamilyHeartProblem"
+      type="radio"
+      name="stdFamilyHeartProblem"
+      id="stdFamilyHeartProblemNo"
+      value="No"
+    />
+    <label class="form-check-label" for="stdFamilyHeartProblemNo">
+      {{ "YesNo.No" | translate }}
+    </label>
+  </div>
+</div>
+<!--  -->
+<div class="col-12">
+  <label for="stdViralInfection" class="form-label">{{
+    "SportPhysical.ViralInfection" | translate
+  }}</label>
+  <div class="form-check">
+    <input
+      class="form-check-input"
+      [(ngModel)]="patientMainModel.stdViralInfection"
+      type="radio"
+      name="stdViralInfection"
+      id="stdViralInfectionYes"
+      value="Yes"
+    />
+    <label class="form-check-label" for="stdViralInfectionYes">
+      {{ "YesNo.Yes" | translate }}
+    </label>
+  </div>
+  <div class="form-check">
+    <input
+      class="form-check-input"
+      [(ngModel)]="patientMainModel.stdViralInfection"
+      type="radio"
+      name="stdViralInfection"
+      id="stdViralInfectionNo"
+      value="No"
+    />
+    <label class="form-check-label" for="stdViralInfectionNo">
+      {{ "YesNo.No" | translate }}
+    </label>
+  </div>
+</div>
+<!--  -->
+<div class="col-12">
+  <label for="stdDenied" class="form-label">{{
+    "SportPhysical.Denied" | translate
+  }}</label>
+  <div class="form-check">
+    <input
+      class="form-check-input"
+      [(ngModel)]="patientMainModel.stdDenied"
+      type="radio"
+      name="stdDenied"
+      id="stdDeniedYes"
+      value="Yes"
+    />
+    <label class="form-check-label" for="stdDeniedYes">
+      {{ "YesNo.Yes" | translate }}
+    </label>
+  </div>
+  <div class="form-check">
+    <input
+      class="form-check-input"
+      [(ngModel)]="patientMainModel.stdDenied"
+      type="radio"
+      name="stdDenied"
+      id="stdDeniedNo"
+      value="No"
+    />
+    <label class="form-check-label" for="stdDeniedNo">
+      {{ "YesNo.No" | translate }}
+    </label>
+  </div>
+</div>
+<!--  -->
+<div class="col-12">
+  <label for="stdHeadInjury" class="form-label">{{
+    "SportPhysical.HeadInjury" | translate
+  }}</label>
+  <div class="form-check">
+    <input
+      class="form-check-input"
+      [(ngModel)]="patientMainModel.stdHeadInjury"
+      type="radio"
+      name="stdHeadInjury"
+      id="stdHeadInjuryYes"
+      value="Yes"
+    />
+    <label class="form-check-label" for="stdHeadInjuryYes">
+      {{ "YesNo.Yes" | translate }}
+    </label>
+  </div>
+  <div class="form-check">
+    <input
+      class="form-check-input"
+      [(ngModel)]="patientMainModel.stdHeadInjury"
+      type="radio"
+      name="stdHeadInjury"
+      id="stdHeadInjuryNo"
+      value="No"
+    />
+    <label class="form-check-label" for="stdHeadInjuryNo">
+      {{ "YesNo.No" | translate }}
+    </label>
+  </div>
+</div>
+
+<!--  -->
+
+<!--  -->
+<!--  -->
+<div class="col-12">
+  <label for="stdMemoryLoss" class="form-label">{{
+    "SportPhysical.MemoryLoss" | translate
+  }}</label>
+  <div class="form-check">
+    <input
+      class="form-check-input"
+      [(ngModel)]="patientMainModel.stdMemoryLoss"
+      type="radio"
+      name="stdMemoryLoss"
+      id="stdMemoryLossYes"
+      value="Yes"
+    />
+    <label class="form-check-label" for="stdMemoryLossYes">
+      {{ "YesNo.Yes" | translate }}
+    </label>
+  </div>
+  <div class="form-check">
+    <input
+      class="form-check-input"
+      [(ngModel)]="patientMainModel.stdMemoryLoss"
+      type="radio"
+      name="stdMemoryLoss"
+      id="stdMemoryLossNo"
+      value="No"
+    />
+    <label class="form-check-label" for="stdMemoryLossNo">
+      {{ "YesNo.No" | translate }}
+    </label>
+  </div>
+</div>
+<!--  -->
+<div class="col-md-4">
+  <label for="stdMemoryLoss" class="form-label">{{
+    "SportPhysical.MemoryLossExplain" | translate
+  }}</label>
+  <input
+    [(ngModel)]="patientMainModel.stdMemoryLossExplain"
+    name="stdMemoryLossExplain"
+    #stdMemoryLossExplain="ngModel"
+    type="text"
+    class="form-control"
+    id="stdMemoryLossExplain"
+  />
+</div>
+<div class="col-md-4">
+  <label for="stdConcussion" class="form-label"
+    >{{ "SportPhysical.LastConcussion" | translate }}
+  </label>
+  <input
+    [(ngModel)]="patientMainModel.stdConcussion"
+    name="stdConcussion"
+    #stdConcussionExplain="ngModel"
+    type="text"
+    class="form-control"
+    id="stdConcussion"
+  />
+</div>
+<!--  -->
+<div class="col-md-4">
+  <label for="stdHowSevere" class="form-label"
+    >{{ "SportPhysical.HowSevere" | translate }}
+  </label>
+  <input
+    [(ngModel)]="patientMainModel.stdHowSevere"
+    name="stdHowSevere"
+    #stdHowSevereExplain="ngModel"
+    type="text"
+    class="form-control"
+    id="stdHowSevere"
+  />
+</div>
+<!--  -->
+<div class="col-12">
+  <label for="stdSeizure" class="form-label">{{
+    "SportPhysical.Seizure" | translate
+  }}</label>
+  <div class="form-check">
+    <input
+      class="form-check-input"
+      [(ngModel)]="patientMainModel.stdSeizure"
+      type="radio"
+      name="stdSeizure"
+      id="stdSeizureYes"
+      value="Yes"
+    />
+    <label class="form-check-label" for="stdSeizureYes">
+      {{ "YesNo.Yes" | translate }}
+    </label>
+  </div>
+  <div class="form-check">
+    <input
+      class="form-check-input"
+      [(ngModel)]="patientMainModel.stdSeizure"
+      type="radio"
+      name="stdSeizure"
+      id="stdSeizureNo"
+      value="No"
+    />
+    <label class="form-check-label" for="stdSeizureNo">
+      {{ "YesNo.No" | translate }}
+    </label>
+  </div>
+</div>
+<!--  -->
+<div class="col-12">
+  <label for="stdHeadache" class="form-label">{{
+    "SportPhysical.Headache" | translate
+  }}</label>
+  <div class="form-check">
+    <input
+      class="form-check-input"
+      [(ngModel)]="patientMainModel.stdHeadache"
+      type="radio"
+      name="stdHeadache"
+      id="stdHeadacheYes"
+      value="Yes"
+    />
+    <label class="form-check-label" for="stdHeadacheYes">
+      {{ "YesNo.Yes" | translate }}</label
+    >
+  </div>
+  <div class="form-check">
+    <input
+      class="form-check-input"
+      [(ngModel)]="patientMainModel.stdHeadache"
+      type="radio"
+      name="stdHeadache"
+      id="stdHeadacheNo"
+      value="No"
+    />
+    <label class="form-check-label" for="stdHeadacheNo"
+      >{{ "YesNo.No" | translate }}
+    </label>
+  </div>
+</div>
+<!--  -->
+<div class="col-12">
+  <label for="stdNumbness" class="form-label">{{
+    "SportPhysical.Numbness" | translate
+  }}</label>
+  <div class="form-check">
+    <input
+      class="form-check-input"
+      [(ngModel)]="patientMainModel.stdNumbness"
+      type="radio"
+      name="stdNumbness"
+      id="stdNumbnessYes"
+      value="Yes"
+    />
+    <label class="form-check-label" for="stdNumbnessYes">
+      {{ "YesNo.Yes" | translate }}
+    </label>
+  </div>
+  <div class="form-check">
+    <input
+      class="form-check-input"
+      [(ngModel)]="patientMainModel.stdNumbness"
+      type="radio"
+      name="stdNumbness"
+      id="stdNumbnessNo"
+      value="No"
+    />
+    <label class="form-check-label" for="stdNumbnessNo">
+      {{ "YesNo.No" | translate }}
+    </label>
+  </div>
+</div>
+<!--  -->
+<div class="col-12">
+  <label for="stdPinchedNerve" class="form-label">{{
+    "SportPhysical.PinchedNerve" | translate
+  }}</label>
+  <div class="form-check">
+    <input
+      class="form-check-input"
+      [(ngModel)]="patientMainModel.stdPinchedNerve"
+      type="radio"
+      name="stdPinchedNerve"
+      id="stdPinchedNerveYes"
+      value="Yes"
+    />
+    <label class="form-check-label" for="stdPinchedNerveYes">
+      {{ "YesNo.Yes" | translate }}
+    </label>
+  </div>
+  <div class="form-check">
+    <input
+      class="form-check-input"
+      [(ngModel)]="patientMainModel.stdPinchedNerve"
+      type="radio"
+      name="stdPinchedNerve"
+      id="stdPinchedNerveNo"
+      value="No"
+    />
+    <label class="form-check-label" for="stdPinchedNerveNo">
+      {{ "YesNo.No" | translate }}</label
+    >
+  </div>
+</div>
+<!--  -->
+<div class="col-12">
+  <label for="stdMissingOrgan" class="form-label">{{
+    "SportPhysical.MissingOrgan" | translate
+  }}</label>
+  <div class="form-check">
+    <input
+      class="form-check-input"
+      [(ngModel)]="patientMainModel.stdMissingOrgan"
+      type="radio"
+      name="stdMissingOrgan"
+      id="stdMissingOrganYes"
+      value="Yes"
+    />
+    <label class="form-check-label" for="stdMissingOrganYes">
+      {{ "YesNo.Yes" | translate }}
+    </label>
+  </div>
+  <div class="form-check">
+    <input
+      class="form-check-input"
+      [(ngModel)]="patientMainModel.stdMissingOrgan"
+      type="radio"
+      name="stdMissingOrgan"
+      id="stdMissingOrganNo"
+      value="No"
+    />
+    <label class="form-check-label" for="stdMissingOrganNo">
+      {{ "YesNo.No" | translate }}
+    </label>
+  </div>
+</div>
+
+<!--  -->
+<div class="col-12">
+  <label for="stdUnderDrCare" class="form-label">{{
+    "SportPhysical.UnderDrCare" | translate
+  }}</label>
+  <div class="form-check">
+    <input
+      class="form-check-input"
+      [(ngModel)]="patientMainModel.stdUnderDrCare"
+      type="radio"
+      name="stdUnderDrCare"
+      id="stdUnderDrCareYes"
+      value="Yes"
+    />
+    <label class="form-check-label" for="stdUnderDrCareYes">
+      {{ "YesNo.Yes" | translate }}
+    </label>
+  </div>
+  <div class="form-check">
+    <input
+      class="form-check-input"
+      [(ngModel)]="patientMainModel.stdUnderDrCare"
+      type="radio"
+      name="stdUnderDrCare"
+      id="stdUnderDrCareNo"
+      value="No"
+    />
+    <label class="form-check-label" for="stdUnderDrCareNo">
+      {{ "YesNo.No" | translate }}
+    </label>
+  </div>
+</div>
+
+<!--  -->
+<div class="col-12">
+  <label for="stdTakingMed" class="form-label">{{
+    "SportPhysical.TakingMed" | translate
+  }}</label>
+  <div class="form-check">
+    <input
+      class="form-check-input"
+      [(ngModel)]="patientMainModel.stdTakingMed"
+      type="radio"
+      name="stdTakingMed"
+      id="stdTakingMedYes"
+      value="Yes"
+    />
+    <label class="form-check-label" for="stdTakingMedYes">
+      {{ "YesNo.Yes" | translate }}
+    </label>
+  </div>
+  <div class="form-check">
+    <input
+      class="form-check-input"
+      [(ngModel)]="patientMainModel.stdTakingMed"
+      type="radio"
+      name="stdTakingMed"
+      id="stdTakingMedNo"
+      value="No"
+    />
+    <label class="form-check-label" for="stdTakingMedNo">
+      {{ "YesNo.No" | translate }}
+    </label>
+  </div>
+</div>
+<!--  -->
+<div class="col-12">
+  <label for="stdAlergic" class="form-label">{{
+    "SportPhysical.Alergy" | translate
+  }}</label>
+  <div class="form-check">
+    <input
+      class="form-check-input"
+      [(ngModel)]="patientMainModel.stdAlergic"
+      type="radio"
+      name="stdAlergic"
+      id="stdAlergicYes"
+      value="Yes"
+    />
+    <label class="form-check-label" for="stdAlergicYes">
+      {{ "YesNo.Yes" | translate }}
+    </label>
+  </div>
+  <div class="form-check">
+    <input
+      class="form-check-input"
+      [(ngModel)]="patientMainModel.stdAlergic"
+      type="radio"
+      name="stdAlergic"
+      id="stdAlergicNo"
+      value="No"
+    />
+    <label class="form-check-label" for="stdAlergicNo">
+      {{ "YesNo.No" | translate }}
+    </label>
+  </div>
+</div>
+<!--  -->
+
+<div class="col-12">
+  <label for="stdDizzy" class="form-label">{{
+    "SportPhysical.Dizzy" | translate
+  }}</label>
+  <div class="form-check">
+    <input
+      class="form-check-input"
+      [(ngModel)]="patientMainModel.stdDizzy"
+      type="radio"
+      name="stdDizzy"
+      id="stdDizzyYes"
+      value="Yes"
+    />
+    <label class="form-check-label" for="stdDizzyYes">
+      {{ "YesNo.Yes" | translate }}
+    </label>
+  </div>
+  <div class="form-check">
+    <input
+      class="form-check-input"
+      [(ngModel)]="patientMainModel.stdDizzy"
+      type="radio"
+      name="stdDizzy"
+      id="stdDizzyNo"
+      value="No"
+    />
+    <label class="form-check-label" for="stdDizzyNo">
+      {{ "YesNo.No" | translate }}</label
+    >
+  </div>
+</div>
+<!--  -->
+<div class="col-12">
+  <label for="stdSkinProblem" class="form-label">
+    {{ "SportPhysical.SkinProblem" | translate }}</label
+  >
+  <div class="form-check">
+    <input
+      class="form-check-input"
+      [(ngModel)]="patientMainModel.stdSkinProblem"
+      type="radio"
+      name="stdSkinProblem"
+      id="stdSkinProblemYes"
+      value="Yes"
+    />
+    <label class="form-check-label" for="stdSkinProblemYes">
+      {{ "YesNo.Yes" | translate }}
+    </label>
+  </div>
+  <div class="form-check">
+    <input
+      class="form-check-input"
+      [(ngModel)]="patientMainModel.stdSkinProblem"
+      type="radio"
+      name="stdSkinProblem"
+      id="stdSkinProblemNo"
+      value="No"
+    />
+    <label class="form-check-label" for="stdSkinProblemNo">
+      {{ "YesNo.No" | translate }}
+    </label>
+  </div>
+</div>
+<!--  -->
+<div class="col-12">
+  <label for="stdIllnessInHeat" class="form-label">{{
+    "SportPhysical.HeatIllness" | translate
+  }}</label>
+  <div class="form-check">
+    <input
+      class="form-check-input"
+      [(ngModel)]="patientMainModel.stdIllnessInHeat"
+      type="radio"
+      name="stdIllnessInHeat"
+      id="stdIllnessInHeatYes"
+      value="Yes"
+    />
+    <label class="form-check-label" for="stdIllnessInHeatYes">
+      {{ "YesNo.Yes" | translate }}
+    </label>
+  </div>
+  <div class="form-check">
+    <input
+      class="form-check-input"
+      [(ngModel)]="patientMainModel.stdIllnessInHeat"
+      type="radio"
+      name="stdIllnessInHeat"
+      id="stdIllnessInHeatNo"
+      value="No"
+    />
+    <label class="form-check-label" for="stdIllnessInHeatNo">
+      {{ "YesNo.No" | translate }}
+    </label>
+  </div>
+</div>
+<!--  -->
+<div class="col-12">
+  <label for="stdEyeProblem" class="form-label">{{
+    "SportPhysical.EyeProblem" | translate
+  }}</label>
+  <div class="form-check">
+    <input
+      class="form-check-input"
+      [(ngModel)]="patientMainModel.stdEyeProblem"
+      type="radio"
+      name="stdEyeProblem"
+      id="stdEyeProblemYes"
+      value="Yes"
+    />
+    <label class="form-check-label" for="stdEyeProblemYes">
+      {{ "YesNo.Yes" | translate }}
+    </label>
+  </div>
+  <div class="form-check">
+    <input
+      class="form-check-input"
+      [(ngModel)]="patientMainModel.stdEyeProblem"
+      type="radio"
+      name="stdEyeProblem"
+      id="stdEyeProblemNo"
+      value="No"
+    />
+    <label class="form-check-label" for="stdEyeProblemNo">
+      {{ "YesNo.No" | translate }}
+    </label>
+  </div>
+</div>
+<!--  -->
+<div class="col-12">
+  <label for="stdBreathness" class="form-label">{{
+    "SportPhysical.ShortBreath" | translate
+  }}</label>
+  <div class="form-check">
+    <input
+      class="form-check-input"
+      [(ngModel)]="patientMainModel.stdBreathness"
+      type="radio"
+      name="stdBreathness"
+      id="stdBreathnessYes"
+      value="Yes"
+    />
+    <label class="form-check-label" for="stdBreathnessYes">
+      {{ "YesNo.Yes" | translate }}
+    </label>
+  </div>
+  <div class="form-check">
+    <input
+      class="form-check-input"
+      [(ngModel)]="patientMainModel.stdBreathness"
+      type="radio"
+      name="stdBreathness"
+      id="stdBreathnessNo"
+      value="No"
+    />
+    <label class="form-check-label" for="stdBreathnessNo">
+      {{ "YesNo.No" | translate }}
+    </label>
+  </div>
+</div>
+
+<!--  -->
+<div class="col-12">
+  <label for="stdAsthma" class="form-label">{{
+    "SportPhysical.Asthma" | translate
+  }}</label>
+  <div class="form-check">
+    <input
+      class="form-check-input"
+      [(ngModel)]="patientMainModel.stdAsthma"
+      type="radio"
+      name="stdAsthma"
+      id="stdAsthmaYes"
+      value="Yes"
+    />
+    <label class="form-check-label" for="stdAsthmaYes">
+      {{ "YesNo.Yes" | translate }}
+    </label>
+  </div>
+  <div class="form-check">
+    <input
+      class="form-check-input"
+      [(ngModel)]="patientMainModel.stdAsthma"
+      type="radio"
+      name="stdAsthma"
+      id="stdAsthmaNo"
+      value="No"
+    />
+    <label class="form-check-label" for="stdAsthmaNo">
+      {{ "YesNo.No" | translate }}
+    </label>
+  </div>
+</div>
+<!--  -->
+<div class="col-12">
+  <label for="stdSeasonalAlergy" class="form-label">{{
+    "SportPhysical.SeasonalAlergy" | translate
+  }}</label>
+  <div class="form-check">
+    <input
+      class="form-check-input"
+      [(ngModel)]="patientMainModel.stdSeasonalAlergy"
+      type="radio"
+      name="stdSeasonalAlergy"
+      id="stdSeasonalAlergyYes"
+      value="Yes"
+    />
+    <label class="form-check-label" for="stdSeasonalAlergyYes">
+      {{ "YesNo.Yes" | translate }}
+    </label>
+  </div>
+  <div class="form-check">
+    <input
+      class="form-check-input"
+      [(ngModel)]="patientMainModel.stdSeasonalAlergy"
+      type="radio"
+      name="stdSeasonalAlergy"
+      id="stdSeasonalAlergyNo"
+      value="No"
+    />
+    <label class="form-check-label" for="stdSeasonalAlergyNo">
+      {{ "YesNo.No" | translate }}
+    </label>
+  </div>
+</div>
+<!--  -->
+<div class="col-12">
+  <label for="stdProtective" class="form-label">{{
+    "SportPhysical.Protective" | translate
+  }}</label>
+  <div class="form-check">
+    <input
+      class="form-check-input"
+      [(ngModel)]="patientMainModel.stdProtective"
+      type="radio"
+      name="stdProtective"
+      id="stdProtectiveYes"
+      value="Yes"
+    />
+    <label class="form-check-label" for="stdProtectiveYes">
+      {{ "YesNo.Yes" | translate }}
+    </label>
+  </div>
+  <div class="form-check">
+    <input
+      class="form-check-input"
+      [(ngModel)]="patientMainModel.stdProtective"
+      type="radio"
+      name="stdProtective"
+      id="stdProtectiveNo"
+      value="No"
+    />
+    <label class="form-check-label" for="stdProtectiveNo">
+      {{ "YesNo.No" | translate }}
+    </label>
+  </div>
+</div>
+<!--  -->
+<div class="col-12">
+  <label for="stdInjurySwelling" class="form-label">{{
+    "SportPhysical.InjurySwelling" | translate
+  }}</label>
+  <div class="form-check">
+    <input
+      class="form-check-input"
+      [(ngModel)]="patientMainModel.stdInjurySwelling"
+      type="radio"
+      name="stdInjurySwelling"
+      id="stdInjurySwellingYes"
+      value="Yes"
+    />
+    <label class="form-check-label" for="stdInjurySwellingYes">
+      {{ "YesNo.Yes" | translate }}
+    </label>
+  </div>
+  <div class="form-check">
+    <input
+      class="form-check-input"
+      [(ngModel)]="patientMainModel.stdInjurySwelling"
+      type="radio"
+      name="stdInjurySwelling"
+      id="stdInjurySwellingNo"
+      value="No"
+    />
+    <label class="form-check-label" for="stdInjurySwellingNo">
+      {{ "YesNo.No" | translate }}
+    </label>
+  </div>
+</div>
+<!--  -->
+<div class="col-12">
+  <label for="stdFracturedBone" class="form-label">{{
+    "SportPhysical.FracturedBone" | translate
+  }}</label>
+  <div class="form-check">
+    <input
+      class="form-check-input"
+      [(ngModel)]="patientMainModel.stdFracturedBone"
+      type="radio"
+      name="stdFracturedBone"
+      id="stdFracturedBoneYes"
+      value="Yes"
+    />
+    <label class="form-check-label" for="stdFracturedBoneYes">
+      {{ "YesNo.Yes" | translate }}
+    </label>
+  </div>
+  <div class="form-check">
+    <input
+      class="form-check-input"
+      [(ngModel)]="patientMainModel.stdFracturedBone"
+      type="radio"
+      name="stdFracturedBone"
+      id="stdFracturedBoneNo"
+      value="No"
+    />
+    <label class="form-check-label" for="stdFracturedBoneNo">
+      {{ "YesNo.No" | translate }}
+    </label>
+  </div>
+</div>
+<!--  -->
+
+<!--  -->
+<div class="col-12">
+  <label for="stdMusclePain" class="form-label">{{
+    "SportPhysical.BoneSwell" | translate
+  }}</label>
+  <div class="form-check">
+    <input
+      class="form-check-input"
+      [(ngModel)]="patientMainModel.stdMusclePain"
+      type="radio"
+      name="stdMusclePain"
+      id="stdMusclePainYes"
+      value="Yes"
+    />
+    <label class="form-check-label" for="stdMusclePainYes">
+      {{ "YesNo.Yes" | translate }}</label
+    >
+  </div>
+  <div class="form-check">
+    <input
+      class="form-check-input"
+      [(ngModel)]="patientMainModel.stdMusclePain"
+      type="radio"
+      name="stdMusclePain"
+      id="stdMusclePainNo"
+      value="No"
+    />
+    <label class="form-check-label" for="stdMusclePainNo">
+      {{ "YesNo.No" | translate }}
+    </label>
+  </div>
+</div>
+<!--  -->
+<div class="col-12">
+  <label for="stdFracturedBone" class="form-label">{{
+    "SportPhysical.Checkbox" | translate
+  }}</label>
+  <div class="row">
+    <div class="form-check" class="col-1">
+      <input
+        class="form-check-input"
+        [(ngModel)]="patientMainModel.stdFracturedHead"
+        type="checkbox"
+        name="stdFracturedHead"
+        id="stdFracturedHead"
+        value="Head"
+      />&nbsp;
+      <label class="form-check-label" for="stdFracturedHead">
+        {{ "SportPhysical.Head" | translate }}
+      </label>
+    </div>
+    <div class="form-check" class="col-1">
+      <input
+        class="form-check-input"
+        [(ngModel)]="patientMainModel.stdFracturedNeck"
+        type="checkbox"
+        name="stdFracturedNeck"
+        id="stdFracturedNeck"
+        value="Neck"
+      />&nbsp;
+      <label class="form-check-label" for="stdFracturedNeck">
+        {{ "SportPhysical.Neck" | translate }}
+      </label>
+    </div>
+    <div class="form-check" class="col-1">
+      <input
+        class="form-check-input"
+        [(ngModel)]="patientMainModel.stdFracturedBack"
+        type="checkbox"
+        name="stdFracturedBack"
+        id="stdFracturedBack"
+        value="Back"
+      />&nbsp;
+      <label class="form-check-label" for="stdFracturedBack">
+        {{ "SportPhysical.Back" | translate }}
+      </label>
+    </div>
+    <div class="form-check" class="col-1">
+      <input
+        class="form-check-input"
+        [(ngModel)]="patientMainModel.stdFracturedChest"
+        type="checkbox"
+        name="stdFracturedChest"
+        id="stdFracturedChest"
+        value="Chest"
+      />&nbsp;
+      <label class="form-check-label" for="stdFracturedChest">
+        {{ "SportPhysical.Chest" | translate }}
+      </label>
+    </div>
+    <!--  -->
+    <div class="form-check" class="col-1">
+      <input
+        class="form-check-input"
+        [(ngModel)]="patientMainModel.stdFracturedShoulder"
+        type="checkbox"
+        name="stdFracturedShoulder"
+        id="stdFracturedShoulder"
+        value="Shoulder"
+      />&nbsp;
+      <label class="form-check-label" for="stdFracturedShoulder">
+        {{ "SportPhysical.Shoulder" | translate }}
+      </label>
+    </div>
+  </div>
+
+  <!--  -->
+
+  <div class="row">
+    <div class="form-check" class="col-1">
+      <input
+        class="form-check-input"
+        [(ngModel)]="patientMainModel.stdFracturedUpperArm"
+        type="checkbox"
+        name="stdFracturedUpperArm"
+        id="stdFracturedUpperArm"
+        value="UpperArm"
+      />&nbsp;
+      <label class="form-check-label" for="stdFracturedUpperArm">
+        {{ "SportPhysical.Upperarm" | translate }}
+      </label>
+    </div>
+    <!--  -->
+    <div class="form-check" class="col-1">
+      <input
+        class="form-check-input"
+        [(ngModel)]="patientMainModel.stdFracturedElbow"
+        type="checkbox"
+        name="stdFracturedElbow"
+        id="stdFracturedElbow"
+        value="Elbow"
+      />&nbsp;
+      <label class="form-check-label" for="stdFracturedElbow">
+        {{ "SportPhysical.Elbow" | translate }}
+      </label>
+    </div>
+    <!--  -->
+    <div class="form-check" class="col-1">
+      <input
+        class="form-check-input"
+        [(ngModel)]="patientMainModel.stdFracturedForearm"
+        type="checkbox"
+        name="stdFracturedForearm"
+        id="stdFracturedForearm"
+        value="Forearm"
+      />&nbsp;
+      <label class="form-check-label" for="stdFracturedForearm">
+        {{ "SportPhysical.Forearm" | translate }}
+      </label>
+    </div>
+    <!--  -->
+    <div class="form-check" class="col-1">
+      <input
+        class="form-check-input"
+        [(ngModel)]="patientMainModel.stdFracturedWrist"
+        type="checkbox"
+        name="stdFracturedWrist"
+        id="stdFracturedWrist"
+        value="Wrist"
+      />&nbsp;
+      <label class="form-check-label" for="stdFracturedWrist">
+        {{ "SportPhysical.Wrist" | translate }}
+      </label>
+    </div>
+    <!--  -->
+    <div class="form-check" class="col-1">
+      <input
+        class="form-check-input"
+        [(ngModel)]="patientMainModel.stdFracturedHand"
+        type="checkbox"
+        name="stdFracturedHand"
+        id="stdFracturedHand"
+        value="Hand"
+      />&nbsp;
+      <label class="form-check-label" for="stdFracturedHand">
+        {{ "SportPhysical.Hand" | translate }}
+      </label>
+    </div>
+  </div>
+
+  <!--  -->
+
+  <div class="row">
+    <div class="form-check" class="col-1">
+      <input
+        class="form-check-input"
+        [(ngModel)]="patientMainModel.stdFracturedFinger"
+        type="checkbox"
+        name="stdFracturedFinger"
+        id="stdFracturedFinger"
+        value="Finger"
+      />&nbsp;
+      <label class="form-check-label" for="stdFracturedFinger">
+        {{ "SportPhysical.Finger" | translate }}
+      </label>
+    </div>
+    <!--  -->
+    <div class="form-check" class="col-1">
+      <input
+        class="form-check-input"
+        [(ngModel)]="patientMainModel.stdFracturedFoot"
+        type="checkbox"
+        name="stdFracturedFoot"
+        id="stdFracturedFoot"
+        value="Foot"
+      />&nbsp;
+      <label class="form-check-label" for="stdFracturedFoot">
+        {{ "SportPhysical.Foot" | translate }}
+      </label>
+    </div>
+    <!--  -->
+    <div class="form-check" class="col-1">
+      <input
+        class="form-check-input"
+        [(ngModel)]="patientMainModel.stdFracturedHip"
+        type="checkbox"
+        name="stdFracturedHip"
+        id="stdFracturedHip"
+        value="Hip"
+      />&nbsp;
+      <label class="form-check-label" for="stdFracturedHip">
+        {{ "SportPhysical.Hip" | translate }}
+      </label>
+    </div>
+    <!--  -->
+    <div class="form-check" class="col-1">
+      <input
+        class="form-check-input"
+        [(ngModel)]="patientMainModel.stdFracturedThigh"
+        type="checkbox"
+        name="stdFracturedThigh"
+        id="stdFracturedThigh"
+        value="Thigh"
+      />&nbsp;
+      <label class="form-check-label" for="stdFracturedThigh">
+        {{ "SportPhysical.Thigh" | translate }}
+      </label>
+    </div>
+    <!--  -->
+    <div class="form-check" class="col-1">
+      <input
+        class="form-check-input"
+        [(ngModel)]="patientMainModel.stdFracturedKnee"
+        type="checkbox"
+        name="stdFracturedKnee"
+        id="stdFracturedKnee"
+        value="Knee"
+      />&nbsp;
+      <label class="form-check-label" for="stdFracturedKnee">
+        {{ "SportPhysical.Knee" | translate }}
+      </label>
+    </div>
+  </div>
+
+  <!--  -->
+  <div class="row">
+    <div class="form-check" class="col-1">
+      <input
+        class="form-check-input"
+        [(ngModel)]="patientMainModel.stdFracturedShin"
+        type="checkbox"
+        name="stdFracturedShin"
+        id="stdFracturedShin"
+        value="Shin/calf"
+      />&nbsp;
+      <label class="form-check-label" for="stdFracturedShin">
+        {{ "SportPhysical.Shin" | translate }}
+      </label>
+    </div>
+    <!--  -->
+    <div class="form-check" class="col-1">
+      <input
+        class="form-check-input"
+        [(ngModel)]="patientMainModel.stdFracturedAnkle"
+        type="checkbox"
+        name="stdFracturedAnkle"
+        id="stdFracturedAnkle"
+        value="Ankle/calf"
+      />&nbsp;
+      <label class="form-check-label" for="stdFracturedAnkle">
+        {{ "SportPhysical.Ankle" | translate }}
+      </label>
+    </div>
+  </div>
+</div>
+<br />
+<!--  -->
+<div class="col-12">
+  <label for="stdWeight" class="form-label">
+    {{ "SportPhysical.Weigh" | translate }}
+  </label>
+  <div class="form-check">
+    <input
+      class="form-check-input"
+      [(ngModel)]="patientMainModel.stdWeight"
+      type="radio"
+      name="stdWeight"
+      id="stdWeightYes"
+      value="Yes"
+    />
+    <label class="form-check-label" for="stdWeightYes">
+      {{ "YesNo.Yes" | translate }}
+    </label>
+  </div>
+  <div class="form-check">
+    <input
+      class="form-check-input"
+      [(ngModel)]="patientMainModel.stdWeight"
+      type="radio"
+      name="stdWeight"
+      id="stdWeightNo"
+      value="No"
+    />
+    <label class="form-check-label" for="stdWeightNo">
+      {{ "YesNo.No" | translate }}
+    </label>
+  </div>
+</div>
+<!--  -->
+<div class="col-12">
+  <label for="stdStress" class="form-label">
+    {{ "SportPhysical.Stress" | translate }}</label
+  >
+  <div class="form-check">
+    <input
+      class="form-check-input"
+      [(ngModel)]="patientMainModel.stdStress"
+      type="radio"
+      name="stdStress"
+      id="stdStressYes"
+      value="Yes"
+    />
+    <label class="form-check-label" for="stdStressYes">
+      {{ "YesNo.Yes" | translate }}
+    </label>
+  </div>
+  <div class="form-check">
+    <input
+      class="form-check-input"
+      [(ngModel)]="patientMainModel.stdStress"
+      type="radio"
+      name="stdStress"
+      id="stdStressNo"
+      value="No"
+    />
+    <label class="form-check-label" for="stdStressNo">
+      {{ "YesNo.No" | translate }}
+    </label>
+  </div>
+</div>
+<!--  -->
+<div class="col-12">
+  <label for="stdSickleCell" class="form-label">
+    {{ "SportPhysical.SickleCell" | translate }}</label
+  >
+  <div class="form-check">
+    <input
+      class="form-check-input"
+      [(ngModel)]="patientMainModel.stdSickleCell"
+      type="radio"
+      name="stdSickleCell"
+      id="stdSickleCellYes"
+      value="Yes"
+    />
+    <label class="form-check-label" for="stdSickleCellYes">
+      {{ "YesNo.Yes" | translate }}
+    </label>
+  </div>
+  <div class="form-check">
+    <input
+      class="form-check-input"
+      [(ngModel)]="patientMainModel.stdSickleCell"
+      type="radio"
+      name="stdSickleCell"
+      id="stdSickleCellNo"
+      value="No"
+    />
+    <label class="form-check-label" for="stdSickleCellNo">
+      {{ "YesNo.No" | translate }}
+    </label>
+  </div>
+</div>
+<!--  -->
+<div class="col-md-12" *ngIf="patientMainModel.gender == 'Female'">
+  <div class="col-md-4">
+    <label for="stdFirstMenstrual" class="form-label">
+      {{ "SportPhysical.FirstMenstrual" | translate }}</label
+    >
+    <input
+      [(ngModel)]="patientMainModel.stdFirstMenstrual"
+      name="stdFirstMenstrual"
+      #stdFirstMenstrual="ngModel"
+      type="text"
+      class="form-control"
+      id="stdFirstMenstrual"
+    />
+  </div>
+  <!--  -->
+  <div class="col-md-4">
+    <label for="stdRecentMenstrual" class="form-label">
+      {{ "SportPhysical.RecentMenstrual" | translate }}</label
+    >
+    <input
+      [(ngModel)]="patientMainModel.stdRecentMenstrual"
+      name="stdRecentMenstrual"
+      #stdRecentMenstrual="ngModel"
+      type="text"
+      class="form-control"
+      id="stdRecentMenstrual"
+    />
+  </div>
+  <!--  -->
+  <div class="col-md-4">
+    <label for="stdMenstrualTime" class="form-label">
+      {{ "SportPhysical.MenstrualTime" | translate }}</label
+    >
+    <input
+      [(ngModel)]="patientMainModel.stdMenstrualTime"
+      name="stdMenstrualTime"
+      #stdMenstrualTime="ngModel"
+      type="text"
+      class="form-control"
+      id="stdMenstrualTime"
+    />
+  </div>
+  <!--  -->
+  <div class="col-md-4">
+    <label for="stdLastYearPeriods" class="form-label">
+      {{ "SportPhysical.LastYearPeriods" | translate }}</label
+    >
+    <input
+      [(ngModel)]="patientMainModel.stdLastYearPeriods"
+      name="stdLastYearPeriods"
+      #stdLastYearPeriods="ngModel"
+      type="text"
+      class="form-control"
+      id="stdLastYearPeriods"
+    />
+  </div>
+  <!--  -->
+  <div class="col-md-4">
+    <label for="stdLongestPeriodTime" class="form-label">{{
+      "SportPhysical.LongestTime" | translate
+    }}</label>
+    <input
+      [(ngModel)]="patientMainModel.stdLongestPeriodTime"
+      name="stdLongestPeriodTime"
+      #stdLongestPeriodTime="ngModel"
+      type="text"
+      class="form-control"
+      id="stdLongestPeriodTime"
+    />
+  </div>
+</div>
+<!--  -->
+<div class="col-md-12" *ngIf="patientMainModel.gender == 'Male'">
+  <div class="row">
+    <div class="col-md-6">
+      <label for="stdTwoTesticle" class="form-label">{{
+        "SportPhysical.TwoTesticle" | translate
+      }}</label>
+      <input
+        [(ngModel)]="patientMainModel.stdTwoTesticle"
+        name="stdTwoTesticle"
+        #stdTwoTesticle="ngModel"
+        type="text"
+        class="form-control"
+        id="stdTwoTesticle"
+      />
+    </div>
+    <!--  -->
+    <div class="col-md-6">
+      <label for="stdTesticularSwelling" class="form-label">{{
+        "SportPhysical.TesticularSwelling" | translate
+      }}</label>
+      <input
+        [(ngModel)]="patientMainModel.stdTesticularSwelling"
+        name="stdTesticularSwelling"
+        #stdTesticularSwelling="ngModel"
+        type="text"
+        class="form-control"
+        id="stdTesticularSwelling"
+      />
+    </div>
+  </div>
+</div>
+<!--  -->
+<br />
+<div class="form-check">
+  <input
+    class="form-check-input"
+    [(ngModel)]="patientMainModel.stdECG"
+    type="checkbox"
+    name="stdECG"
+    id="stdECG"
+    value="ECG"
+  />
+  <label class="form-check-label" for="stdECG">
+    {{ "SportPhysical.ECG" | translate }}
+  </label>
+</div>
+<br />
+<div class="col-12">
+  <label for="stdYesExplain" class="form-label">{{
+    "SportPhysical.Explain" | translate
+  }}</label>
+  <textarea
+    [(ngModel)]="patientMainModel.stdYesExplain"
+    name="stdYesExplain"
+    #medicalProblemExplain="ngModel"
+    type="text"
+    class="form-control"
+    id="stdYesExplain"
+    rows="4"
+  ></textarea>
+</div>
+
+<!--  -->
+</div>
+
+<!--  -->
+
+    <!-- ====== Reason of Visit Dot Physical====== -->
+
+    <div
+      class="col-md-12"
+      *ngIf="patientMainModel.reasonForVisit == 'dotPhysical'"
+    >
+      <h1 class="display-6">{{ "DotPhysical.Label" | translate }}</h1>
+      <br />
+      <div class="row">
+        <div class="col-md-4">
+          <label for="driverLicenseNumber" class="form-label">{{
+            "DotPhysical.DriverLicenseNum" | translate
+          }}</label>
+          <input
+            [(ngModel)]="patientMainModel.driverLicenseNumber"
+            name="driverLicenseNumber"
+            #countryOfBirth="ngModel"
+            type="text"
+            class="form-control"
+            id="driverLicenseNumber"
+          />
+        </div>
+        <div class="col-md-4">
+          <label for="licenseState" class="form-label">
+            {{ "DotPhysical.State" | translate }}
+          </label>
+          <select
+            class="form-select"
+            [(ngModel)]="patientMainModel.licenseState"
+            name="licenseState"
+            id="licenseState"
+            #state="ngModel"
+          >
+            <option value="" selected="selected">Select a State</option>
+            <option value="AL">Alabama</option>
+            <option value="AK">Alaska</option>
+            <option value="AZ">Arizona</option>
+            <option value="AR">Arkansas</option>
+            <option value="CA">California</option>
+            <option value="CO">Colorado</option>
+            <option value="CT">Connecticut</option>
+            <option value="DE">Delaware</option>
+            <option value="DC">District Of Columbia</option>
+            <option value="FL">Florida</option>
+            <option value="GA">Georgia</option>
+            <option value="HI">Hawaii</option>
+            <option value="ID">Idaho</option>
+            <option value="IL">Illinois</option>
+            <option value="IN">Indiana</option>
+            <option value="IA">Iowa</option>
+            <option value="KS">Kansas</option>
+            <option value="KY">Kentucky</option>
+            <option value="LA">Louisiana</option>
+            <option value="ME">Maine</option>
+            <option value="MD">Maryland</option>
+            <option value="MA">Massachusetts</option>
+            <option value="MI">Michigan</option>
+            <option value="MN">Minnesota</option>
+            <option value="MS">Mississippi</option>
+            <option value="MO">Missouri</option>
+            <option value="MT">Montana</option>
+            <option value="NE">Nebraska</option>
+            <option value="NV">Nevada</option>
+            <option value="NH">New Hampshire</option>
+            <option value="NJ">New Jersey</option>
+            <option value="NM">New Mexico</option>
+            <option value="NY">New York</option>
+            <option value="NC">North Carolina</option>
+            <option value="ND">North Dakota</option>
+            <option value="OH">Ohio</option>
+            <option value="OK">Oklahoma</option>
+            <option value="OR">Oregon</option>
+            <option value="PA">Pennsylvania</option>
+            <option value="RI">Rhode Island</option>
+            <option value="SC">South Carolina</option>
+            <option value="SD">South Dakota</option>
+            <option value="TN">Tennessee</option>
+            <option value="TX">Texas</option>
+            <option value="UT">Utah</option>
+            <option value="VT">Vermont</option>
+            <option value="VA">Virginia</option>
+            <option value="WA">Washington</option>
+            <option value="WV">West Virginia</option>
+            <option value="WI">Wisconsin</option>
+            <option value="WY">Wyoming</option>
+          </select>
+        </div>
+        <div class="col-md-4">
+          <label for="driverIdVerifiedBy" class="form-label">{{
+            "DotPhysical.VerifiedBy" | translate
+          }}</label>
+          <input
+            [(ngModel)]="patientMainModel.driverIdVerifiedBy"
+            name="driverIdVerifiedBy"
+            #countryOfBirth="ngModel"
+            type="text"
+            class="form-control"
+            id="driverIdVerifiedBy"
+          />
+        </div>
+        <div class="col-md-4">
+          <label for="driverPhone" class="form-label">{{
+            "DotPhysical.Phone" | translate
+          }}</label>
+          <input
+            [(ngModel)]="patientMainModel.driverPhone"
+            name="driverPhone"
+            #countryOfBirth="ngModel"
+            type="text"
+            class="form-control"
+            id="driverPhone"
+          />
+        </div>
+      </div>
+      <!--  -->
+      <!-- State1 -->
+      <div class="col-md-4">
+        <label for="state" class="form-label">{{
+          "Page2.State" | translate
+        }}</label>
+        <select
+          class="form-select"
+          [(ngModel)]="patientMainModel.state"
+          name="state"
+          id="state"
+          #state="ngModel"
+        >
+          <option value="" selected="selected">Select a State</option>
+          <option value="AL">Alabama</option>
+          <option value="AK">Alaska</option>
+          <option value="AZ">Arizona</option>
+          <option value="AR">Arkansas</option>
+          <option value="CA">California</option>
+          <option value="CO">Colorado</option>
+          <option value="CT">Connecticut</option>
+          <option value="DE">Delaware</option>
+          <option value="DC">District Of Columbia</option>
+          <option value="FL">Florida</option>
+          <option value="GA">Georgia</option>
+          <option value="HI">Hawaii</option>
+          <option value="ID">Idaho</option>
+          <option value="IL">Illinois</option>
+          <option value="IN">Indiana</option>
+          <option value="IA">Iowa</option>
+          <option value="KS">Kansas</option>
+          <option value="KY">Kentucky</option>
+          <option value="LA">Louisiana</option>
+          <option value="ME">Maine</option>
+          <option value="MD">Maryland</option>
+          <option value="MA">Massachusetts</option>
+          <option value="MI">Michigan</option>
+          <option value="MN">Minnesota</option>
+          <option value="MS">Mississippi</option>
+          <option value="MO">Missouri</option>
+          <option value="MT">Montana</option>
+          <option value="NE">Nebraska</option>
+          <option value="NV">Nevada</option>
+          <option value="NH">New Hampshire</option>
+          <option value="NJ">New Jersey</option>
+          <option value="NM">New Mexico</option>
+          <option value="NY">New York</option>
+          <option value="NC">North Carolina</option>
+          <option value="ND">North Dakota</option>
+          <option value="OH">Ohio</option>
+          <option value="OK">Oklahoma</option>
+          <option value="OR">Oregon</option>
+          <option value="PA">Pennsylvania</option>
+          <option value="RI">Rhode Island</option>
+          <option value="SC">South Carolina</option>
+          <option value="SD">South Dakota</option>
+          <option value="TN">Tennessee</option>
+          <option value="TX">Texas</option>
+          <option value="UT">Utah</option>
+          <option value="VT">Vermont</option>
+          <option value="VA">Virginia</option>
+          <option value="WA">Washington</option>
+          <option value="WV">West Virginia</option>
+          <option value="WI">Wisconsin</option>
+          <option value="WY">Wyoming</option>
+        </select>
+      
+      </div>
+      <!--  -->
+
+      <div class="col-md-6">
+        <label for="clpCdl" class="form-label"
+          >{{ "DotPhysical.CLP" | translate }}
+        </label>
+      </div>
+      <div class="col-md-6">
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.clpCdl"
+            type="radio"
+            name="clpCdl"
+            id="clpCdlYes"
+            value="Yes"
+          />
+          <label class="form-check-label" for="clpCdlYes"
+            >{{ "YesNo.Yes" | translate }}
+          </label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.clpCdl"
+            type="radio"
+            name="clpCdl"
+            id="clpCdlNo"
+            value="No"
+          />
+          <label class="form-check-label" for="clpCdlNo">
+            {{ "YesNo.No" | translate }}
+          </label>
+        </div>
+      </div>
+      <!--  -->
+      <div class="col-md-6">
+        <label for="clpCdl" class="form-label"
+          >{{ "DotPhysical.USDOT" | translate }}
+        </label>
+      </div>
+
+      <div class="col-md-6">
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.usdotFmcsa"
+            type="radio"
+            name="usdotFmcsa"
+            id="usdotFmcsaYes"
+            value="Yes"
+          />
+          <label class="form-check-label" for="usdotFmcsaYes">
+            {{ "YesNo.Yes" | translate }}
+          </label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.usdotFmcsa"
+            type="radio"
+            name="usdotFmcsa"
+            id="usdotFmcsaNo"
+            value="No"
+          />
+          <label class="form-check-label" for="usdotFmcsaNo">
+            {{ "YesNo.No" | translate }}
+          </label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.usdotFmcsa"
+            type="radio"
+            name="usdotFmcsa"
+            id="usdotFmcsaNot"
+            value="Notsure"
+          />
+          <label class="form-check-label" for="usdotFmcsaNot">
+            {{ "YesNo.Notsure" | translate }}
+          </label>
+        </div>
+      </div>
+
+      <br />
+      <!-- Driver Health info -->
+
+      <h1 class="display-6">{{ "DotPhysical.Label1" | translate }}</h1>
+      <div class="col-md-12">
+        <label for="driverSurgery" class="form-label"
+          >{{ "DotPhysical.Surgery" | translate }}
+        </label>
+      </div>
+      <div class="col-md-6">
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.driverSurgery"
+            type="radio"
+            name="driverSurgery"
+            id="driverSurgeryYes"
+            value="Yes"
+          />
+          <label class="form-check-label" for="driverSurgeryYes"
+            >{{ "YesNo.Yes" | translate }}
+          </label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.driverSurgery"
+            type="radio"
+            name="driverSurgery"
+            id="driverSurgeryNo"
+            value="No"
+          />
+          <label class="form-check-label" for="driverSurgeryNo">
+            {{ "YesNo.No" | translate }}
+          </label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.driverSurgery"
+            type="radio"
+            name="driverSurgery"
+            id="driverSurgeryNotsure"
+            value="Notsure"
+          />
+          <label class="form-check-label" for="driverSurgeryNotsure">
+            {{ "YesNo.Notsure" | translate }}
+          </label>
+        </div>
+      </div>
+
+      <div class="col-12" *ngIf="patientMainModel.driverSurgery == 'Yes'">
+        <label for="driverSurgery" class="form-label">{{
+          "DotPhysical.SurgeryExplain" | translate
+        }}</label>
+        <textarea
+          [(ngModel)]="patientMainModel.driverSurgeryExplain"
+          name="driverSurgeryExplain"
+          #medicalProblemExplain="ngModel"
+          type="text"
+          class="form-control"
+          id="driverSurgeryExplain"
+          rows="4"
+        ></textarea>
+      </div>
+      <!--  ======================== -->
+      <div class="col-md-12">
+        <label for="driverMedicine" class="form-label"
+          >{{ "DotPhysical.TakingMed" | translate }}
+        </label>
+      </div>
+      <div class="col-md-6">
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.driverMedicine"
+            type="radio"
+            name="driverMedicine"
+            id="driverMedicineYes"
+            value="Yes"
+          />
+          <label class="form-check-label" for="driverMedicineYes">{{
+            "YesNo.Yes" | translate
+          }}</label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.driverMedicine"
+            type="radio"
+            name="driverMedicine"
+            id="driverMedicineNo"
+            value="No"
+          />
+          <label class="form-check-label" for="driverMedicineNo">{{
+            "YesNo.No" | translate
+          }}</label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.driverMedicine"
+            type="radio"
+            name="driverMedicine"
+            id="driverMedicineNotsure"
+            value="Notsure"
+          />
+          <label class="form-check-label" for="driverMedicineNotsure">
+            {{ "YesNo.Notsure" | translate }}
+          </label>
+        </div>
+      </div>
+      <div class="col-12" *ngIf="patientMainModel.driverMedicine == 'Yes'">
+        <label for="driverMedicine" class="form-label">{{
+          "DotPhysical.MedExplain" | translate
+        }}</label>
+        <textarea
+          [(ngModel)]="patientMainModel.driverMedicineExplain"
+          name="driverMedicineExplain"
+          #medicalProblemExplain="ngModel"
+          type="text"
+          class="form-control"
+          id="driverMedicineExplain"
+          rows="4"
+        ></textarea>
+      </div>
+      <br />
+      <!-- Driver Health Part Two-->
+      <h1 class="display-6">{{ "DotPhysical.Label2" | translate }}</h1>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <label for="head" class="form-label"
+              >{{ "DotPhysical.Injury" | translate }}
+            </label>
+            <div class="col-md-6">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.head"
+                  type="radio"
+                  name="head"
+                  id="headYes"
+                  value="Yes"
+                />
+                <label class="form-check-label" for="headYes">
+                  {{ "YesNo.Yes" | translate }}
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.head"
+                  type="radio"
+                  name="head"
+                  id="headNo"
+                  value="No"
+                />
+                <label class="form-check-label" for="headNo">
+                  {{ "YesNo.No" | translate }}
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.head"
+                  type="radio"
+                  name="head"
+                  id="headNotsure"
+                  value="Notsure"
+                />
+                <label class="form-check-label" for="headNotsure">
+                  {{ "YesNo.Notsure" | translate }}
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Seizures -->
+          <div class="col-md-6">
+            <label for="seizures" class="form-label"
+              >{{ "DotPhysical.Seizure" | translate }}
+            </label>
+            <div class="col-md-6">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.seizures"
+                  type="radio"
+                  name="seizures"
+                  id="seizuresYes"
+                  value="Yes"
+                />
+                <label class="form-check-label" for="seizuresYes">
+                  {{ "YesNo.Yes" | translate }}
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.seizures"
+                  type="radio"
+                  name="seizures"
+                  id="seizuresNo"
+                  value="No"
+                />
+                <label class="form-check-label" for="seizuresNo">
+                  {{ "YesNo.No" | translate }}
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.seizures"
+                  type="radio"
+                  name="seizures"
+                  id="seizuresNotsure"
+                  value="Notsure"
+                />
+                <label class="form-check-label" for="seizuresNotsure">
+                  {{ "YesNo.Notsure" | translate }}
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!--  -->
+          <div class="col-md-6">
+            <label for="eye" class="form-label"
+              >{{ "DotPhysical.Eye" | translate }}
+            </label>
+            <div class="col-md-6">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.eye"
+                  type="radio"
+                  name="eye"
+                  id="eyeYes"
+                  value="Yes"
+                />
+                <label class="form-check-label" for="eyeYes">
+                  {{ "YesNo.Yes" | translate }}
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.eye"
+                  type="radio"
+                  name="eye"
+                  id="eyeNo"
+                  value="No"
+                />
+                <label class="form-check-label" for="eyeNo">
+                  {{ "YesNo.No" | translate }}
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.eye"
+                  type="radio"
+                  name="eye"
+                  id="eyeNotsure"
+                  value="Notsure"
+                />
+                <label class="form-check-label" for="eyeNotsure">
+                  {{ "YesNo.Notsure" | translate }}
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Ear -->
+          <div class="col-md-6">
+            <label for="ear" class="form-label"
+              >{{ "DotPhysical.Ear" | translate }}
+            </label>
+            <div class="col-md-6">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.ear"
+                  type="radio"
+                  name="ear"
+                  id="earYes"
+                  value="Yes"
+                />
+                <label class="form-check-label" for="earYes">
+                  {{ "YesNo.Yes" | translate }}
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.ear"
+                  type="radio"
+                  name="ear"
+                  id="earNo"
+                  value="No"
+                />
+                <label class="form-check-label" for="earNo">
+                  {{ "YesNo.No" | translate }}
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.ear"
+                  type="radio"
+                  name="ear"
+                  id="earNotsure"
+                  value="Notsure"
+                />
+                <label class="form-check-label" for="earNotsure">
+                  {{ "YesNo.Notsure" | translate }}
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Heart -->
+          <div class="col-md-6">
+            <label for="ear" class="form-label"
+              >{{ "DotPhysical.Heart" | translate }}
+            </label>
+            <div class="col-md-6">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.heart"
+                  type="radio"
+                  name="heart"
+                  id="heartYes"
+                  value="Yes"
+                />
+                <label class="form-check-label" for="heartYes">
+                  {{ "YesNo.Yes" | translate }}
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.heart"
+                  type="radio"
+                  name="heart"
+                  id="heartNo"
+                  value="No"
+                />
+                <label class="form-check-label" for="heartNo">
+                  {{ "YesNo.No" | translate }}
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.heart"
+                  type="radio"
+                  name="heart"
+                  id="heartNotsure"
+                  value="Notsure"
+                />
+                <label class="form-check-label" for="heartNotsure">
+                  {{ "YesNo.Notsure" | translate }}
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pace Stent -->
+          <div class="col-md-6">
+            <label for="pace" class="form-label"
+              >{{ "DotPhysical.Pace" | translate }}
+            </label>
+            <div class="col-md-6">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.pace"
+                  type="radio"
+                  name="pace"
+                  id="paceYes"
+                  value="Yes"
+                />
+                <label class="form-check-label" for="paceYes">
+                  {{ "YesNo.Yes" | translate }}
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.pace"
+                  type="radio"
+                  name="pace"
+                  id="paceNo"
+                  value="No"
+                />
+                <label class="form-check-label" for="paceNo">
+                  {{ "YesNo.No" | translate }}
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.pace"
+                  type="radio"
+                  name="pace"
+                  id="paceNotsure"
+                  value="Notsure"
+                />
+                <label class="form-check-label" for="paceNotsure">
+                  {{ "YesNo.Notsure" | translate }}
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- High Blood Presure -->
+          <div class="col-md-6">
+            <label for="pace" class="form-label"
+              >{{ "DotPhysical.HighBlood" | translate }}
+            </label>
+            <div class="col-md-6">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.highBlood"
+                  type="radio"
+                  name="highBlood"
+                  id="highBloodYes"
+                  value="Yes"
+                />
+                <label class="form-check-label" for="highBloodYes">
+                  {{ "YesNo.Yes" | translate }}
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.highBlood"
+                  type="radio"
+                  name="highBlood"
+                  id="highBloodNo"
+                  value="No"
+                />
+                <label class="form-check-label" for="highBloodNo">
+                  {{ "YesNo.No" | translate }}
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.highBlood"
+                  type="radio"
+                  name="highBlood"
+                  id="highBloodNotsure"
+                  value="Notsure"
+                />
+                <label class="form-check-label" for="highBloodNotsure">
+                  {{ "YesNo.Notsure" | translate }}
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- High cholestrol -->
+          <div class="col-md-6">
+            <label for="pace" class="form-label"
+              >{{ "DotPhysical.HighCholestrol" | translate }}
+            </label>
+            <div class="col-md-6">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.highCholestrol"
+                  type="radio"
+                  name="highCholestrol"
+                  id="highCholestrolYes"
+                  value="Yes"
+                />
+                <label class="form-check-label" for="highCholestrolYes">
+                  {{ "YesNo.Yes" | translate }}
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.highCholestrol"
+                  type="radio"
+                  name="highCholestrol"
+                  id="highCholestrolNo"
+                  value="No"
+                />
+                <label class="form-check-label" for="highCholestrolNo">
+                  {{ "YesNo.No" | translate }}
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.highCholestrol"
+                  type="radio"
+                  name="highCholestrol"
+                  id="highCholestrolNotsure"
+                  value="Notsure"
+                />
+                <label class="form-check-label" for="highCholestrolNotsure">
+                  {{ "YesNo.Notsure" | translate }}
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Breath -->
+          <div class="col-md-6">
+            <label for="breath" class="form-label"
+              >{{ "DotPhysical.Chronic" | translate }}
+            </label>
+            <div class="col-md-6">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.breath"
+                  type="radio"
+                  name="breath"
+                  id="breathYes"
+                  value="Yes"
+                />
+                <label class="form-check-label" for="breathYes"
+                  >{{ "YesNo.Yes" | translate }}
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.breath"
+                  type="radio"
+                  name="breath"
+                  id="breathNo"
+                  value="No"
+                />
+                <label class="form-check-label" for="breathNo">
+                  {{ "YesNo.No" | translate }}
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.breath"
+                  type="radio"
+                  name="breath"
+                  id="breathNotsure"
+                  value="Notsure"
+                />
+                <label class="form-check-label" for="breathNotsure">
+                  {{ "YesNo.Notsure" | translate }}
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Lung  -->
+          <div class="col-md-6">
+            <label for="lung" class="form-label"
+              >{{ "DotPhysical.Lung" | translate }}
+            </label>
+            <div class="col-md-6">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.lung"
+                  type="radio"
+                  name="lung"
+                  id="lungYes"
+                  value="Yes"
+                />
+                <label class="form-check-label" for="lungYes"
+                  >{{ "YesNo.Yes" | translate }}
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.lung"
+                  type="radio"
+                  name="lung"
+                  id="lungNo"
+                  value="No"
+                />
+                <label class="form-check-label" for="lungNo"
+                  >{{ "YesNo.No" | translate }}
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.lung"
+                  type="radio"
+                  name="lung"
+                  id="lungNotsure"
+                  value="Notsure"
+                />
+                <label class="form-check-label" for="lungNotsure">
+                  {{ "YesNo.Notsure" | translate }}
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Kidney  -->
+
+          <div class="col-md-6">
+            <label for="kidney" class="form-label"
+              >{{ "DotPhysical.Kidney" | translate }}
+            </label>
+            <div class="col-md-6">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.kidney"
+                  type="radio"
+                  name="kidney"
+                  id="kidneyYes"
+                  value="Yes"
+                />
+                <label class="form-check-label" for="kidneyYes">
+                  {{ "YesNo.Yes" | translate }}
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.kidney"
+                  type="radio"
+                  name="kidney"
+                  id="kidneyNo"
+                  value="No"
+                />
+                <label class="form-check-label" for="kidneyNo">
+                  {{ "YesNo.No" | translate }}
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.kidney"
+                  type="radio"
+                  name="kidney"
+                  id="kidneyNotsure"
+                  value="Notsure"
+                />
+                <label class="form-check-label" for="kidneyNotsure">
+                  {{ "YesNo.Notsure" | translate }}
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Stomach -->
+          <div class="col-md-6">
+            <label for="stomach" class="form-label"
+              >{{ "DotPhysical.Stomach" | translate }}
+            </label>
+            <div class="col-md-6">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.stomach"
+                  type="radio"
+                  name="stomach"
+                  id="stomachYes"
+                  value="Yes"
+                />
+                <label class="form-check-label" for="stomachYes">
+                  {{ "YesNo.Yes" | translate }}
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.stomach"
+                  type="radio"
+                  name="stomach"
+                  id="stomachNo"
+                  value="No"
+                />
+                <label class="form-check-label" for="stomachNo">
+                  {{ "YesNo.No" | translate }}
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.stomach"
+                  type="radio"
+                  name="stomach"
+                  id="stomachNotsure"
+                  value="Notsure"
+                />
+                <label class="form-check-label" for="stomachNotsure">
+                  {{ "YesNo.Notsure" | translate }}
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Blood Sugar -->
+          <div class="col-md-6">
+            <label for="bloodSugar" class="form-label"
+              >{{ "DotPhysical.Sugar" | translate }}
+            </label>
+            <div class="col-md-6">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.bloodSugar"
+                  type="radio"
+                  name="bloodSugar"
+                  id="bloodSugarYes"
+                  value="Yes"
+                />
+                <label class="form-check-label" for="bloodSugarYes">
+                  {{ "YesNo.Yes" | translate }}
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.bloodSugar"
+                  type="radio"
+                  name="bloodSugar"
+                  id="bloodSugarNo"
+                  value="No"
+                />
+                <label class="form-check-label" for="bloodSugarNo">
+                  {{ "YesNo.No" | translate }}
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.bloodSugar"
+                  type="radio"
+                  name="bloodSugar"
+                  id="bloodSugarNotsure"
+                  value="Notsure"
+                />
+                <label class="form-check-label" for="bloodSugarNotsure">
+                  {{ "YesNo.Notsure" | translate }}
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Insulin -->
+          <div class="col-md-6">
+            <label for="insulin" class="form-label"
+              >{{ "DotPhysical.Insulin" | translate }}
+            </label>
+            <div class="col-md-6">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.insulin"
+                  type="radio"
+                  name="insulin"
+                  id="insulinYes"
+                  value="Yes"
+                />
+                <label class="form-check-label" for="insulinYes">
+                  {{ "YesNo.Yes" | translate }}
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.insulin"
+                  type="radio"
+                  name="insulin"
+                  id="insulinNo"
+                  value="No"
+                />
+                <label class="form-check-label" for="insulinNo">
+                  {{ "YesNo.No" | translate }}
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.insulin"
+                  type="radio"
+                  name="insulin"
+                  id="insulinNotsure"
+                  value="Notsure"
+                />
+                <label class="form-check-label" for="insulinNotsure">
+                  {{ "YesNo.Notsure" | translate }}
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mental Health  -->
+          <div class="col-md-6">
+            <label for="mentalHealth" class="form-label">{{
+              "DotPhysical.MentalHealth" | translate
+            }}</label>
+            <div class="col-md-6">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.mentalHealth"
+                  type="radio"
+                  name="mentalHealth"
+                  id="mentalHealthYes"
+                  value="Yes"
+                />
+                <label class="form-check-label" for="mentalHealthYes">
+                  {{ "YesNo.Yes" | translate }}
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.mentalHealth"
+                  type="radio"
+                  name="mentalHealth"
+                  id="mentalHealthNo"
+                  value="No"
+                />
+                <label class="form-check-label" for="mentalHealthNo">
+                  {{ "YesNo.No" | translate }}
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.mentalHealth"
+                  type="radio"
+                  name="mentalHealth"
+                  id="mentalHealthNotsure"
+                  value="Notsure"
+                />
+                <label class="form-check-label" for="mentalHealthNotsure">
+                  {{ "YesNo.Notsure" | translate }}
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Fainting -->
+          <div class="col-md-6">
+            <label for="fainting" class="form-label">{{
+              "DotPhysical.Fainting" | translate
+            }}</label>
+            <div class="col-md-6">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.fainting"
+                  type="radio"
+                  name="fainting"
+                  id="faintingYes"
+                  value="Yes"
+                />
+                <label class="form-check-label" for="faintingYes">
+                  {{ "YesNo.Yes" | translate }}
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.fainting"
+                  type="radio"
+                  name="fainting"
+                  id="faintingNo"
+                  value="No"
+                />
+                <label class="form-check-label" for="faintingNo">
+                  {{ "YesNo.No" | translate }}
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.fainting"
+                  type="radio"
+                  name="fainting"
+                  id="faintingNotsure"
+                  value="Notsure"
+                />
+                <label class="form-check-label" for="faintingNotsure">
+                  {{ "YesNo.Notsure" | translate }}
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- ===== -->
+
+          <!-- Dizzy -->
+          <div class="col-md-6">
+            <label for="dizzy" class="form-label">{{
+              "DotPhysical.Dizzy" | translate
+            }}</label>
+            <div class="col-md-6">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.dizzy"
+                  type="radio"
+                  name="dizzy"
+                  id="dizzyYes"
+                  value="Yes"
+                />
+                <label class="form-check-label" for="dizzyYes">
+                  {{ "YesNo.Yes" | translate }}
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.dizzy"
+                  type="radio"
+                  name="dizzy"
+                  id="dizzyNo"
+                  value="No"
+                />
+                <label class="form-check-label" for="dizzyNo">
+                  {{ "YesNo.No" | translate }}
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.dizzy"
+                  type="radio"
+                  name="dizzy"
+                  id="dizzyNotsure"
+                  value="Notsure"
+                />
+                <label class="form-check-label" for="dizzyNotsure">
+                  {{ "YesNo.Notsure" | translate }}
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Weight Loss -->
+          <div class="col-md-6">
+            <label for="weightLoss" class="form-label">{{
+              "DotPhysical.WeightLoss" | translate
+            }}</label>
+            <div class="col-md-6">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.weightLoss"
+                  type="radio"
+                  name="weightLoss"
+                  id="weightLossYes"
+                  value="Yes"
+                />
+                <label class="form-check-label" for="weightLossYes">
+                  {{ "YesNo.Yes" | translate }}
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.weightLoss"
+                  type="radio"
+                  name="weightLoss"
+                  id="weightLossNo"
+                  value="No"
+                />
+                <label class="form-check-label" for="weightLossNo">
+                  {{ "YesNo.No" | translate }}
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.weightLoss"
+                  type="radio"
+                  name="weightLoss"
+                  id="weightLossNotsure"
+                  value="Notsure"
+                />
+                <label class="form-check-label" for="weightLossNotsure">
+                  {{ "YesNo.Notsure" | translate }}
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Stroke Paralysis -->
+          <div class="col-md-6">
+            <label for="stroke" class="form-label">{{
+              "DotPhysical.Stroke" | translate
+            }}</label>
+            <div class="col-md-6">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.stroke"
+                  type="radio"
+                  name="stroke"
+                  id="strokeYes"
+                  value="Yes"
+                />
+                <label class="form-check-label" for="strokeYes"
+                  >{{ "YesNo.Yes" | translate }}
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.stroke"
+                  type="radio"
+                  name="stroke"
+                  id="strokeNo"
+                  value="No"
+                />
+                <label class="form-check-label" for="strokeNo">
+                  {{ "YesNo.No" | translate }}
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.stroke"
+                  type="radio"
+                  name="stroke"
+                  id="strokeNotsure"
+                  value="Notsure"
+                />
+                <label class="form-check-label" for="strokeNotsure">
+                  {{ "YesNo.Notsure" | translate }}
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Limited use of arm hand Etc -->
+          <div class="col-md-6">
+            <label for="useLimit" class="form-label">{{
+              "DotPhysical.LimitedUse" | translate
+            }}</label>
+            <div class="col-md-6">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.useLimit"
+                  type="radio"
+                  name="useLimit"
+                  id="useLimitYes"
+                  value="Yes"
+                />
+                <label class="form-check-label" for="useLimitYes">
+                  {{ "YesNo.Yes" | translate }}
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.useLimit"
+                  type="radio"
+                  name="useLimit"
+                  id="useLimitNo"
+                  value="No"
+                />
+                <label class="form-check-label" for="useLimitNo">
+                  {{ "YesNo.No" | translate }}
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.useLimit"
+                  type="radio"
+                  name="useLimit"
+                  id="useLimitNotsure"
+                  value="Notsure"
+                />
+                <label class="form-check-label" for="useLimitNotsure">
+                  {{ "YesNo.Notsure" | translate }}
+                </label>
+              </div>
+            </div>
+          </div>
+          <!-- Neck  -->
+          <div class="col-md-6">
+            <label for="neck" class="form-label">{{
+              "DotPhysical.Neck" | translate
+            }}</label>
+            <div class="col-md-6">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.neck"
+                  type="radio"
+                  name="neck"
+                  id="neckYes"
+                  value="Yes"
+                />
+                <label class="form-check-label" for="neckYes">
+                  {{ "YesNo.Yes" | translate }}
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.neck"
+                  type="radio"
+                  name="neck"
+                  id="neckNo"
+                  value="No"
+                />
+                <label class="form-check-label" for="neckNo">
+                  {{ "YesNo.No" | translate }}
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.neck"
+                  type="radio"
+                  name="neck"
+                  id="neckNotsure"
+                  value="Notsure"
+                />
+                <label class="form-check-label" for="neckNotsure">
+                  {{ "YesNo.Notsure" | translate }}
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bone Muscle -->
+
+          <div class="col-md-6">
+            <label for="bone" class="form-label">{{
+              "DotPhysical.Bone" | translate
+            }}</label>
+            <div class="col-md-6">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.bone"
+                  type="radio"
+                  name="bone"
+                  id="boneYes"
+                  value="Yes"
+                />
+                <label class="form-check-label" for="boneYes">
+                  {{ "YesNo.Yes" | translate }}
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.bone"
+                  type="radio"
+                  name="bone"
+                  id="boneNo"
+                  value="No"
+                />
+                <label class="form-check-label" for="boneNo">
+                  {{ "YesNo.No" | translate }}
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.bone"
+                  type="radio"
+                  name="bone"
+                  id="boneNotsure"
+                  value="Notsure"
+                />
+                <label class="form-check-label" for="boneNotsure">
+                  {{ "YesNo.Notsure" | translate }}
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Blood clot bleeding -->
+
+          <div class="col-md-6">
+            <label for="blood" class="form-label">{{
+              "DotPhysical.BloodClot" | translate
+            }}</label>
+            <div class="col-md-6">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.blood"
+                  type="radio"
+                  name="blood"
+                  id="bloodYes"
+                  value="Yes"
+                />
+                <label class="form-check-label" for="bloodYes">
+                  {{ "YesNo.Yes" | translate }}
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.blood"
+                  type="radio"
+                  name="blood"
+                  id="bloodNo"
+                  value="No"
+                />
+                <label class="form-check-label" for="bloodNo">
+                  {{ "YesNo.No" | translate }}
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.blood"
+                  type="radio"
+                  name="blood"
+                  id="bloodNotsure"
+                  value="Notsure"
+                />
+                <label class="form-check-label" for="bloodNotsure">
+                  {{ "YesNo.Notsure" | translate }}
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- cancer -->
+          <div class="col-md-6">
+            <label for="cancer" class="form-label">{{
+              "DotPhysical.Cancer" | translate
+            }}</label>
+            <div class="col-md-6">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.cancer"
+                  type="radio"
+                  name="cancer"
+                  id="cancerYes"
+                  value="Yes"
+                />
+                <label class="form-check-label" for="cancerYes">
+                  {{ "YesNo.Yes" | translate }}
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.cancer"
+                  type="radio"
+                  name="cancer"
+                  id="cancerNo"
+                  value="No"
+                />
+                <label class="form-check-label" for="cancerNo">
+                  {{ "YesNo.No" | translate }}
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.cancer"
+                  type="radio"
+                  name="cancer"
+                  id="cancerNotsure"
+                  value="Notsure"
+                />
+                <label class="form-check-label" for="cancerNotsure">
+                  {{ "YesNo.Notsure" | translate }}
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- chronic -->
+          <div class="col-md-6">
+            <label for="chronic" class="form-label">{{
+              "DotPhysical.Infection" | translate
+            }}</label>
+            <div class="col-md-6">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.chronic"
+                  type="radio"
+                  name="chronic"
+                  id="chronicYes"
+                  value="Yes"
+                />
+                <label class="form-check-label" for="chronicYes">
+                  {{ "YesNo.Yes" | translate }}
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.chronic"
+                  type="radio"
+                  name="chronic"
+                  id="chronicNo"
+                  value="No"
+                />
+                <label class="form-check-label" for="chronicNo">
+                  {{ "YesNo.No" | translate }}
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.chronic"
+                  type="radio"
+                  name="chronic"
+                  id="chronicNotsure"
+                  value="Notsure"
+                />
+                <label class="form-check-label" for="chronicNotsure">
+                  {{ "YesNo.Notsure" | translate }}
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- apnea -->
+
+          <div class="col-md-6">
+            <label for="apnea" class="form-label">{{
+              "DotPhysical.SleepDisorder" | translate
+            }}</label>
+            <div class="col-md-6">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.apnea"
+                  type="radio"
+                  name="apnea"
+                  id="apneaYes"
+                  value="Yes"
+                />
+                <label class="form-check-label" for="apneaYes">
+                  {{ "YesNo.Yes" | translate }}
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.apnea"
+                  type="radio"
+                  name="apnea"
+                  id="apneaNo"
+                  value="No"
+                />
+                <label class="form-check-label" for="apneaNo">
+                  {{ "YesNo.No" | translate }}
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.apnea"
+                  type="radio"
+                  name="apnea"
+                  id="apneaNotsure"
+                  value="Notsure"
+                />
+                <label class="form-check-label" for="apneaNotsure">
+                  {{ "YesNo.Notsure" | translate }}
+                </label>
+              </div>
+            </div>
+          </div>
+          <!-- Sleep Test -->
+
+          <div class="col-md-6">
+            <label for="sleepTest" class="form-label">{{
+              "DotPhysical.Apnea" | translate
+            }}</label>
+            <div class="col-md-6">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.sleepTest"
+                  type="radio"
+                  name="sleepTest"
+                  id="sleepTestYes"
+                  value="Yes"
+                />
+                <label class="form-check-label" for="sleepTestYes"
+                  >{{ "YesNo.Yes" | translate }}
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.sleepTest"
+                  type="radio"
+                  name="sleepTest"
+                  id="sleepTestNo"
+                  value="No"
+                />
+                <label class="form-check-label" for="sleepTestNo">
+                  {{ "YesNo.No" | translate }}
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.sleepTest"
+                  type="radio"
+                  name="sleepTest"
+                  id="sleepTestNotsure"
+                  value="Notsure"
+                />
+                <label class="form-check-label" for="sleepTestNotsure">
+                  {{ "YesNo.Notsure" | translate }}
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Night in hospital -->
+          <div class="col-md-6">
+            <label for="hospitalNight" class="form-label">{{
+              "DotPhysical.NightHospital" | translate
+            }}</label>
+            <div class="col-md-6">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.hospitalNight"
+                  type="radio"
+                  name="hospitalNight"
+                  id="hospitalNightYes"
+                  value="Yes"
+                />
+                <label class="form-check-label" for="hospitalNightYes">
+                  {{ "YesNo.Yes" | translate }}
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.hospitalNight"
+                  type="radio"
+                  name="hospitalNight"
+                  id="hospitalNightNo"
+                  value="No"
+                />
+                <label class="form-check-label" for="hospitalNightNo">
+                  {{ "YesNo.No" | translate }}
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.hospitalNight"
+                  type="radio"
+                  name="hospitalNight"
+                  id="hospitalNightNotsure"
+                  value="Notsure"
+                />
+                <label class="form-check-label" for="hospitalNightNotsure">
+                  {{ "YesNo.Notsure" | translate }}
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Broken Bone -->
+
+          <div class="col-md-6">
+            <label for="brokenBone" class="form-label"
+              >{{ "DotPhysical.BrokenBone" | translate }}
+            </label>
+            <div class="col-md-6">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.brokenBone"
+                  type="radio"
+                  name="brokenBone"
+                  id="brokenBoneYes"
+                  value="Yes"
+                />
+                <label class="form-check-label" for="brokenBoneYes">
+                  {{ "YesNo.Yes" | translate }}
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.brokenBone"
+                  type="radio"
+                  name="brokenBone"
+                  id="brokenBoneNo"
+                  value="No"
+                />
+                <label class="form-check-label" for="brokenBoneNo">
+                  {{ "YesNo.No" | translate }}
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.brokenBone"
+                  type="radio"
+                  name="brokenBone"
+                  id="brokenBoneNotsure"
+                  value="Notsure"
+                />
+                <label class="form-check-label" for="brokenBoneNotsure">
+                  {{ "YesNo.Notsure" | translate }}
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tobacco -->
+
+          <div class="col-md-6">
+            <label for="dTobacco" class="form-label"
+              >{{ "DotPhysical.Tobacco" | translate }}
+            </label>
+            <div class="col-md-6">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.dTobacco"
+                  type="radio"
+                  name="dTobacco"
+                  id="dTobaccoYes"
+                  value="Yes"
+                />
+                <label class="form-check-label" for="dTobaccoYes">
+                  {{ "YesNo.Yes" | translate }}
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.dTobacco"
+                  type="radio"
+                  name="dTobacco"
+                  id="dTobaccoNo"
+                  value="No"
+                />
+                <label class="form-check-label" for="dTobaccoNo">
+                  {{ "YesNo.No" | translate }}
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.dTobacco"
+                  type="radio"
+                  name="dTobacco"
+                  id="dTobaccoNotsure"
+                  value="Notsure"
+                />
+                <label class="form-check-label" for="dTobaccoNotsure">
+                  {{ "YesNo.Notsure" | translate }}
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Alcohol -->
+          <div class="col-md-6">
+            <label for="dAlcohol" class="form-label"
+              >{{ "DotPhysical.Alcohol" | translate }}
+            </label>
+            <div class="col-md-6">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.dAlcohol"
+                  type="radio"
+                  name="dAlcohol"
+                  id="dAlcoholYes"
+                  value="Yes"
+                />
+                <label class="form-check-label" for="dAlcoholYes">
+                  {{ "YesNo.Yes" | translate }}
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.dAlcohol"
+                  type="radio"
+                  name="dAlcohol"
+                  id="dAlcoholNo"
+                  value="No"
+                />
+                <label class="form-check-label" for="dAlcoholNo">
+                  {{ "YesNo.No" | translate }}
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.dAlcohol"
+                  type="radio"
+                  name="dAlcohol"
+                  id="dAlcoholNotsure"
+                  value="Notsure"
+                />
+                <label class="form-check-label" for="dAlcoholNotsure">
+                  {{ "YesNo.Notsure" | translate }}
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- illegal -->
+          <div class="col-md-6">
+            <label for="illegal" class="form-label"
+              >{{ "DotPhysical.Illegal" | translate }}
+            </label>
+            <div class="col-md-6">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.illegal"
+                  type="radio"
+                  name="illegal"
+                  id="illegalYes  "
+                  value="Yes"
+                />
+                <label class="form-check-label" for="illegalYes">
+                  {{ "YesNo.Yes" | translate }}
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.illegal"
+                  type="radio"
+                  name="illegal"
+                  id="illegalNo"
+                  value="No"
+                />
+                <label class="form-check-label" for="illegalNo">
+                  {{ "YesNo.No" | translate }}
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.illegal"
+                  type="radio"
+                  name="illegal"
+                  id="illegalNotsure"
+                  value="Notsure"
+                />
+                <label class="form-check-label" for="illegalNotsure">
+                  {{ "YesNo.Notsure" | translate }}
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- DriverDrug -->
+          <div class="col-md-6">
+            <label for="illegalDrug" class="form-label"
+              >{{ "DotPhysical.Drug" | translate }}
+            </label>
+            <div class="col-md-6">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.illegalDrug"
+                  type="radio"
+                  name="illegalDrug"
+                  id="illegalDrugYes  "
+                  value="Yes"
+                />
+                <label class="form-check-label" for="illegalDrugYes">
+                  {{ "YesNo.Yes" | translate }}
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.illegalDrug"
+                  type="radio"
+                  name="illegalDrug"
+                  id="illegalDrugNo"
+                  value="No"
+                />
+                <label class="form-check-label" for="illegalDrugNo">
+                  {{ "YesNo.No" | translate }}
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [(ngModel)]="patientMainModel.illegalDrug"
+                  type="radio"
+                  name="illegalDrug"
+                  id="illegalDrugNotsure"
+                  value="Notsure"
+                />
+                <label class="form-check-label" for="illegalDrugNotsure">
+                  {{ "YesNo.Notsure" | translate }}
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- End of Driver Health Two -->
+      <br />
+      <!-- Other Health Condition -->
+      <div class="col-md-12">
+        <label for="otherHealth" class="form-label"
+          >{{ "DotPhysical.OtherHealth" | translate }}
+        </label>
+      </div>
+      <div class="col-md-6">
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.otherHealth"
+            type="radio"
+            name="otherHealth"
+            id="otherHealthYes"
+            value="Yes"
+          />
+          <label class="form-check-label" for="otherHealthYes"
+            >{{ "YesNo.Yes" | translate }}
+          </label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.otherHealth"
+            type="radio"
+            name="otherHealth"
+            id="otherHealthNo"
+            value="No"
+          />
+          <label class="form-check-label" for="otherHealthNo">
+            {{ "YesNo.No" | translate }}
+          </label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.otherHealth"
+            type="radio"
+            name="otherHealth"
+            id="otherHealthNotsure"
+            value="Notsure"
+          />
+          <label class="form-check-label" for="otherHealthNotsure">
+            {{ "YesNo.Notsure" | translate }}
+          </label>
+        </div>
+      </div>
+
+      <div class="col-12" *ngIf="patientMainModel.otherHealth == 'Yes'">
+        <label for="otherHealth" class="form-label">{{
+          "DotPhysical.Explain1" | translate
+        }}</label>
+        <textarea
+          [(ngModel)]="patientMainModel.otherHealthExplain"
+          name="otherHealthExplain"
+          #medicalProblemExplain="ngModel"
+          type="text"
+          class="form-control"
+          id="otherHealthExplain"
+          rows="4"
+        ></textarea>
+      </div>
+      <!-- Last Question -->
+      <div class="col-md-12">
+        <label for="dComment" class="form-label"
+          >{{ "DotPhysical.YesAnswerLabel" | translate }}
+        </label>
+      </div>
+      <div class="col-md-6">
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.dComment"
+            type="radio"
+            name="dComment"
+            id="dCommentYes"
+            value="Yes"
+          />
+          <label class="form-check-label" for="dCommentYes">
+            {{ "YesNo.Yes" | translate }}
+          </label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.dComment"
+            type="radio"
+            name="dComment"
+            id="dCommentNo"
+            value="No"
+          />
+          <label class="form-check-label" for="dCommentNo">{{
+            "YesNo.No" | translate
+          }}</label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            [(ngModel)]="patientMainModel.dComment"
+            type="radio"
+            name="dComment"
+            id="dCommentNotsure"
+            value="Notsure"
+          />
+          <label class="form-check-label" for="dCommentNotsure">
+            {{ "YesNo.Notsure" | translate }}
+          </label>
+        </div>
+      </div>
+
+      <div class="col-12" *ngIf="patientMainModel.dComment == 'Yes'">
+        <label for="dComment" class="form-label">{{
+          "DotPhysical.Explain2" | translate
+        }}</label>
+        <textarea
+          [(ngModel)]="patientMainModel.dCommentExplain"
+          name="dCommentExplain"
+          #medicalProblemExplain="ngModel"
+          type="text"
+          class="form-control"
+          id="dCommentExplain"
+          rows="4"
+        ></textarea>
+      </div>
+
+      <!--  -->
+    </div>
+
+    <!-- ===================================== -->
+
       <div class="col-12" *ngIf="patientMainModel.reasonForVisit == 'Covid'">
         <label for="covidTesting" class="form-label">ARE YOU NEEDING</label>
         <div class="form-check">

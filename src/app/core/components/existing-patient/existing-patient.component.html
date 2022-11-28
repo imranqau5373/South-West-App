@@ -34,7 +34,7 @@
         <input [(ngModel)]="patientOneModel.zipCode" name="zipCode" #zipCode="ngModel"
         type="text" class="form-control" id="zipCode">
       </div>
-      <div class="col-md-4">
+      <div class="col-md-4" *ngIf = "patientOneModel.insurance == 'Yes'">
         <label for="ssn" class="form-label">SSN</label>
         <input [(ngModel)]="patientOneModel.ssn" name="ssn" #ssn="ngModel" 
         type="text" class="form-control" id="ssn"  minlength="9" maxlength="9" pattern="^[0-9]*$" required>
