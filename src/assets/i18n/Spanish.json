@@ -317,6 +317,23 @@
     },
      "Finish" : {
         "Thankyou" : "Gracias por enviar su registro médico."
+    },
+    "Existing" : {
+        "addressChange" : "¿HA CAMBIADO SU DIRECCIÓN O NÚMERO DE TELÉFONO DESDE SU ÚLTIMA VISITA?",
+        "address": "Dirección",
+        "phone": "Número de teléfono",
+        "zip": "Código postal",
+        "covidSymptoms": "¿TIENES SÍNTOMAS DE COVID 19?",
+        "covidExposed" : "¿TIENE SI ESTUVO EXPUESTO AL COVID 19 EN LOS ÚLTIMOS 10 DÍAS?",
+        "fever": "¿TIENES FIEBRE?",
+        "runnyNose": "¿TIENE DOLOR O PICAZÓN EN LA GARGANTA, TOS O CONGESTIÓN, MOQUEO NARIZ?",
+        "breathShortness": "¿TIENES FALTA DE AIRE?",
+        "vaccination": "¿HAS COMPLETADO TUS VACUNAS CONTRA EL COVID 19?",
+        "headache": "¿TIENES DOLOR DE CABEZA?",
+        "vomit": "¿TIENES VÓMITOS?",
+        "bodyache" : "¿TIENES DOLOR DE CUERPO?",
+        "IDCard" : "CARGAR FOTO DE LA TARJETA DE IDENTIFICACIÓN",
+        "IDCardReq":"SE REQUIERE FOTO DE LA TARJETA DE IDENTIFICACIÓN"
     }
 
 }

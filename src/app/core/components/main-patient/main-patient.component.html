@@ -3,91 +3,109 @@
     <br>
     <form #patient="ngForm" (ngSubmit)="patient.form.valid && submit(patient)" class="row g-3">
       <div class="col-md-4">
-        <label for="firstName" class="form-label">First Name</label>
+        <label for="firstName" class="form-label">{{
+          "Page1.FirstName" | translate
+        }}</label>
         <input [(ngModel)]="patientMainModel.firstName" name="firstName" #firstName="ngModel" 
         type="text" class="form-control" id="firstName" required
         [ngClass]="{ 'is-invalid': patient.submitted && firstName.invalid}" >
         <div class="invalid-feedback" *ngIf="patient.submitted && firstName.invalid">
-          First Name is Required
+          {{ "Page1.FirstNameReq" | translate }}
         </div>
       </div>
       <div class="col-md-4">
-        <label for="middleName" class="form-label">Middle Name</label>
+        <label for="middleName" class="form-label">{{
+          "Page1.MiddleName" | translate
+        }}</label>
         <input [(ngModel)]="patientMainModel.middleName" name="middleName" #middleName="ngModel" 
         type="text" class="form-control" id="middleName">
       </div>
       <div class="col-md-4">
-        <label for="lastName" class="form-label">Last Name</label>
+        <label for="lastName" class="form-label">{{
+          "Page1.LastName" | translate
+        }}</label>
         <input [(ngModel)]="patientMainModel.lastName" name="lastName" #lastName="ngModel" 
         type="text" class="form-control" id="lastName" required
         [ngClass]="{ 'is-invalid': patient.submitted && lastName.invalid}" >
         <div class="invalid-feedback" *ngIf="patient.submitted && lastName.invalid">
-          Last Name is Required
+          {{ "Page1.LastNameReq" | translate }}
         </div>
       </div>
       <div class="col-md-6">
-        <label for="email" class="form-label">Email</label>
+        <label for="email" class="form-label">{{
+          "Page1.Email" | translate
+        }}</label>
         <input [(ngModel)]="patientMainModel.email" name="email" #email="ngModel"
         type="email" class="form-control" id="email"
         [ngClass]="{ 'is-invalid': patient.submitted && email.invalid}"
          required>
         <div class="invalid-feedback" *ngIf="patient.submitted && email.invalid">
-          Email is Required
+          {{ "Page1.EmailReq" | translate }}
         </div>
       </div>
       <div class="col-md-6">
-        <label for="dateOfBirth" class="form-label">Date of Birth</label>
+        <label for="dateOfBirth" class="form-label">{{
+          "Page1.Dob" | translate
+        }}</label>
         <input [(ngModel)]="patientMainModel.dateOfBirth" name="dateOfBirth" (change)="dateChange($event)" #dateOfBirth="ngModel" 
         type="date" class="form-control" id="dateOfBirth" required
         [ngClass]="{ 'is-invalid': patient.submitted && dateOfBirth.invalid}">
         <div class="invalid-feedback" *ngIf="patient.submitted && dateOfBirth.invalid">
-          Date of Birth is Required
+          {{ "Page1.DobReq" | translate }}
         </div>
       </div>
       <div class="col-4" *ngIf="patientMainModel.adult == 'No'"  >
-        <label for="guardianIdCardPicture" class="form-label">Upload Guardian ID Card Picture</label>
+        <label for="guardianIdCardPicture" class="form-label">{{
+          "Page1.GuardianID" | translate
+        }}</label>
         <input name="guardianIdCardPicture" [(ngModel)]="patientMainModel.guardianIdCardPicture"
         type="file" class="form-control" #guardianIdCardPicture="ngModel" id="guardianIdCardPicture" (change)="onChangeGuardianCardPic($event)" required
         [ngClass]="{ 'is-invalid': patient.submitted && guardianIdCardPicture.invalid}"
         accept=".jpg,.jpeg,.png">
         <div class="invalid-feedback" *ngIf="patient.submitted && guardianIdCardPicture.invalid">
-          Guardian ID Card Picture is Required
+          {{ "Page1.GuardianIDReq" | translate }}
         </div>
 
       </div>
       <div class="col-4" *ngIf="patientMainModel.adult == 'No'" >
-        <label for="guardianName" class="form-label">Guardian Name</label>
+        <label for="guardianName" class="form-label">{{
+          "Page1.GuardianName" | translate
+        }}</label>
         <input [(ngModel)]="patientMainModel.guardianName" name="guardianName" #guardianName="ngModel"
         type="text" class="form-control" id="guardianName" required
         [ngClass]="{ 'is-invalid': patient.submitted && guardianName.invalid}">
         <div class="invalid-feedback" *ngIf="patient.submitted && guardianName.invalid">
-          Guardian Name is Required
+          {{ "Page1.GuardianNameReq" | translate }}
         </div>
       </div>
       <div class="col-4" *ngIf="patientMainModel.adult == 'No'" >
         
-        <label for="guardianName" class="form-label">Relationship With Patient</label>
+        <label for="guardianName" class="form-label">{{
+          "Page1.Relationship" | translate
+        }}</label>
         <input [(ngModel)]="patientMainModel.guardianRelation" name="guardianRelation" #guardianRelation="ngModel"
         type="text" class="form-control" id="guardianRelation" required
         [ngClass]="{ 'is-invalid': patient.submitted && guardianRelation.invalid}">
         <div class="invalid-feedback" *ngIf="patient.submitted && guardianRelation.invalid">
-          Relationship With Patient is Required
+          {{ "Page1.RelationshipReq" | translate }}
         </div>
       </div>
       <div class="col-6">
-        <label for="ssn" class="form-label">Gender </label>
+        <label for="ssn" class="form-label">{{ "Page1.Gender" | translate }} </label>
       </div>
       <div class="col-12">
         <div class="form-check">
           <input class="form-check-input"  type="radio" name="gender" id="genderRadioMale" value="Male" [(ngModel)]="patientMainModel.gender">
           <label class="form-check-label" for="genderRadioMale">
-            Male
+            {{ "Page1.Male" | translate }}
           </label>
         </div>
         <div class="form-check">
           <input class="form-check-input" type="radio" name="gender" id="genderRadioFemale" value="Female" [(ngModel)]="patientMainModel.gender">
           <label class="form-check-label" for="genderRadioFemale">
-            Female
+            {{
+              "Page1.Female" | translate
+            }}
           </label>
         </div>
       </div>
@@ -97,18 +115,20 @@
         type="date" class="form-control" id="ProstateExamDate">
       </div>
       <div class="col-md-6" *ngIf="patientMainModel.gender == 'Female' && isFemaleAge">
-        <label for="firstName" class="form-label"> When was approximately your last mammogram ?</label>
+        <label for="firstName" class="form-label">  {{ "Page1.LastMammo" | translate }}</label>
         <input [(ngModel)]="patientMainModel.lastMammogram" name="lastMammogram" #lastMammogram="ngModel" 
         type="text" class="form-control" id="lastMammogram">
       </div>
       <div class="col-md-6" *ngIf="patientMainModel.gender == 'Female' && isFemaleAge">
-        <label for="lastmenstrualPeriod" class="form-label">When was your last menstrual period</label>
+        <label for="lastmenstrualPeriod" class="form-label">{{
+          "Page1.LastMenstrual" | translate
+        }}</label>
         <select class="form-select" [(ngModel)]="patientMainModel.lastmenstrualPeriod" name="lastmenstrualPeriod" required
         (change)= "changeLastmenstrualPeriod($event)" #lastmenstrualPeriod="ngModel">
           <option selected>Select</option>
           <option value="Date">Date</option>
-          <option value="Menopause">I am in Menopause</option>
-          <option value="NA">Not Applicable</option>
+          <option value="Menopause">{{ "Page1.Menopause" | translate }}</option>
+          <option value="NA">{{ "Page1.NotApplicable" | translate }}</option>
         </select>
       </div>
       <div class="col-md-6" *ngIf="patientMainModel.lastmenstrualPeriod == 'Date' && patientMainModel.gender == 'Female'">
@@ -117,95 +137,109 @@
         type="date" class="form-control" id="periodDate">
       </div>
       <div class="col-12" *ngIf="patientMainModel.gender == 'Female' && isFemaleAge">
-        <label for="insurance" class="form-label">Are you Breast Feeding/Lactating?</label>
+        <label for="insurance" class="form-label">{{
+          "Page1.BreastFeeding" | translate
+        }}</label>
         <div class="form-check">
             <input class="form-check-input" [(ngModel)]="patientMainModel.breastFeeding" type="radio" name="breastFeeding" id="breastFeedingYes" value="Yes">
             <label class="form-check-label" for="breastFeedingYes">
-              Yes
+              {{ "YesNo.Yes" | translate }}
             </label>
           </div>
           <div class="form-check">
             <input class="form-check-input" [(ngModel)]="patientMainModel.breastFeeding" type="radio" name="breastFeeding" id="breastFeedingNo" value="No">
             <label class="form-check-label" for="breastFeedingNo">
-              No
+              {{ "YesNo.No" | translate }}
             </label>
           </div>
       </div>
       <div class="col-6" *ngIf="patientMainModel.gender == 'Female' && isFemaleAge">
-        <label for="insurance" class="form-label">Are you Pregnant?</label>
+        <label for="insurance" class="form-label">{{ "Page1.Pregnant" | translate }}</label>
         <div class="form-check">
             <input class="form-check-input" [(ngModel)]="patientMainModel.pregnant" type="radio" name="pregnant" id="pregnantYes" value="Yes">
             <label class="form-check-label" for="pregnantYes">
-              Yes
+              {{ "YesNo.Yes" | translate }}
             </label>
           </div>
           <div class="form-check">
             <input class="form-check-input" [(ngModel)]="patientMainModel.pregnant" type="radio" name="pregnant" id="pregnantNo" value="No">
             <label class="form-check-label" for="pregnantNo">
-              No
+              {{
+                "YesNo.No" | translate
+              }}
             </label>
           </div>
       </div>
       <div class="col-6" *ngIf="patientMainModel.pregnant == 'Yes'">
-        <label for="pregnantMonths" class="form-label"> How many months</label>
+        <label for="pregnantMonths" class="form-label">  {{ "Page1.PregnantYes" | translate }}</label>
         <input [(ngModel)]="patientMainModel.pregnantMonths" name="pregnantMonths" #pregnantMonths="ngModel"
         type="text" class="form-control" id="pregnantMonths">
       </div>
       <div class="col-12">
-        <label for="insurance" class="form-label">DO YOU HAVE INSURANCE?</label>
+        <label for="insurance" class="form-label">{{
+          "Page1.Insurance" | translate
+        }}</label>
         <div class="form-check">
             <input class="form-check-input" [(ngModel)]="patientMainModel.insurance" type="radio" name="insurance" id="insuranceYes" value="Yes">
             <label class="form-check-label" for="insuranceYes">
-              Yes
+              {{ "YesNo.Yes" | translate }}
             </label>
           </div>
           <div class="form-check">
             <input class="form-check-input" [(ngModel)]="patientMainModel.insurance" type="radio" name="insurance" id="insuranceNo" value="No">
             <label class="form-check-label" for="insuranceNo">
-              No
+              {{ "YesNo.No" | translate }}
             </label>
           </div>
       </div>
       <div class="col-4" *ngIf="patientMainModel.insurance == 'Yes'" >
-        <label for="insuranceFront" class="form-label">UPLOAD FRONT PICITURE OF INSURANCE CARD</label>
+        <label for="insuranceFront" class="form-label">{{
+          "Page1.InsuranceFrontID" | translate
+        }}</label>
         <input name="insuranceFront" [(ngModel)]="patientMainModel.insuranceFront"  #insuranceFront="ngModel" required 
         type="file" class="form-control" id="insuranceFront" (change)="onChangeInsFrontPic($event)"
         [ngClass]="{ 'is-invalid': patient.submitted && insuranceFront.invalid}"
         accept=".jpg,.jpeg,.png">
         <div class="invalid-feedback" *ngIf="patient.submitted && insuranceFront.invalid">
-          Front Piciture Of Insurance Card is Required
+          {{ "Page1.InsuranceFrontIDReq" | translate }}
         </div>
       </div>
       <div class="col-4" *ngIf="patientMainModel.insurance == 'Yes'" >
-        <label for="insuranceBack" class="form-label">UPLOAD BACK PICITURE OF INSURANCE CARD</label>
+        <label for="insuranceBack" class="form-label">{{
+          "Page1.InsuranceBackID" | translate
+        }}</label>
         <input name="insuranceBack" [(ngModel)]="patientMainModel.insuranceBack"  #insuranceBack="ngModel" required
         type="file" class="form-control" id="insuranceBack" (change)="onChangeInsBacktPic($event)"
         [ngClass]="{ 'is-invalid': patient.submitted && insuranceBack.invalid}"
         accept=".jpg,.jpeg,.png">
         <div class="invalid-feedback" *ngIf="patient.submitted && insuranceBack.invalid">
-          Back Piciture Of Insurance Card is Required
+          {{ "Page1.InsuranceBackIDReq" | translate }}
         </div>
       </div>
       <div class="col-4" *ngIf="patientMainModel.insurance == 'Yes' && patientMainModel.adult == 'Yes'" >
-        <label for="idCardPicture" class="form-label">UPLOAD ID CARD PICTURE</label>
+        <label for="idCardPicture" class="form-label">{{
+          "Page1.IDCard" | translate
+        }}</label>
         <input name="idCardPicture" [(ngModel)]="patientMainModel.idCardPicture"  #idCardPicture="ngModel" required
         type="file" class="form-control" id="idCardPicture" (change)="onChangeIdCardPic($event)"
         [ngClass]="{ 'is-invalid': patient.submitted && idCardPicture.invalid}"
         accept=".jpg,.jpeg,.png">
         <div class="invalid-feedback" *ngIf="patient.submitted && idCardPicture.invalid">
-          ID Card Piciture is Required
+          {{ "Page1.IDCardReq" | translate }}
         </div>
       </div>
 
       <div class="col-md-6">
-        <label for="reasonForVisit" class="form-label">Reason for Visit</label>
+        <label for="reasonForVisit" class="form-label">{{
+          "ReasonForVisit.label" | translate
+        }}</label>
         <select class="form-select" [(ngModel)]="patientMainModel.reasonForVisit" name="reasonForVisit" required
         (change)= "changeReasonForVisit($event)" #reasonForVisit="ngModel" aria-label="Default select example"
         [ngClass]="{ 'is-invalid': patient.submitted && reasonForVisit.invalid}">
 
-          <option selected>Select</option>
-          <option value="Covid">Covid</option>
-          <option value="CovidConsultation">Covid Test Consultation</option>
+          <option selected>{{ "ReasonForVisit.Select" | translate }}</option>
+          <option value="Covid">{{ "ReasonForVisit.Covid" | translate }}</option>
+          <option value="CovidConsultation"> {{ "ReasonForVisit.CovidTest" | translate }}</option>
           <option value="schoolPhysical">
             {{ "ReasonForVisit.Sport" | translate }}
           </option>
@@ -215,16 +249,18 @@
           <option value="dotPhysical">
             {{ "ReasonForVisit.DotPhysical" | translate }}
           </option>
-          <option value="Consultation / Medicine Refill">Consultation /Medicine Refill</option>
-          <option value="Other">Other</option>
+          <option value="Consultation / Medicine Refill">{{ "ReasonForVisit.Consultation" | translate }}</option>
+          <option value="Other">{{ "ReasonForVisit.Other" | translate }}</option>
         </select>
         <div class="invalid-feedback" *ngIf="patient.submitted && reasonForVisit.invalid">
-          Reason for Visit is Required
+          {{ "ReasonForVisit.Error" | translate }}
         </div>
       </div>
 
       <div class="col-md-6" *ngIf="patientMainModel.reasonForVisit == 'Other'" >
-        <label for="idCardPicture" class="form-label">Explain</label>
+        <label for="idCardPicture" class="form-label">{{
+          "ReasonForVisit.Explain" | translate
+        }}</label>
         <input [(ngModel)]="patientMainModel.reasonForVisitOther" name="reasonForVisitOther" #reasonForVisitOther="ngModel"
         type="text" class="form-control" id="reasonForVisitOther">
       </div>

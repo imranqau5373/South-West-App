@@ -38,11 +38,11 @@
     "Yes" : "Yes",
     "No": "No",
     "InsuranceFrontID": "UPLOAD FRONT PICTURE OF INSURANCE CARD",
-    "InsuranceFrontIDReq": "",
+    "InsuranceFrontIDReq": "FRONT PICTURE OF INSURANCE CARD IS REQUIRED",
     "InsuranceBackID": "UPLOAD BACK PICTURE OF INSURANCE CARD",
-    "InsuranceBackIDReq": "",
+    "InsuranceBackIDReq": "BACK PICTURE OF INSURANCE CARD IS REQUIRED",
     "IDCard": "UPLOAD ID CARD PICTURE",
-    "IDCardReq": ""
+    "IDCardReq": "ID CARD PICTURE IS REQUIRED"
 
     },
     "ReasonForVisit" : {
@@ -319,5 +319,22 @@
     },
     "Finish" : {
         "Thankyou" : "Thank you to submit your medical record."
+    },
+    "Existing" : {
+        "addressChange" : "HAS YOUR ADDRESS OR PHONE NUMBER CHANGED SINCE YOUR LAST VISIT?",
+        "address": "Address",
+        "phone": "Phone Number",
+        "zip": "ZipCode",
+        "covidSymptoms": "ARE YOU HAVING COVID 19 SYMPTOMS?",
+        "covidExposed" : "DO YOU HAVE IF YOU WERE EXPOSED TO COVID 19 WITHIN LAST 10 DAYS?",
+        "fever": "DO YOU HAVE FEVER?",
+        "runnyNose": "DO YOU HAVE SORE OR ITCHY THROAT, COUGH OR CONGESTION, RUNNY NOSE?",
+        "breathShortness": "ARE YOU HAVING SHORTNESS OF BREATH?",
+        "vaccination": "HAVE YOU COMPLETED YOUR COVID 19 VACCINATIONS?",
+        "headache": "DO YOU HAVE HEADCHE?",
+        "vomit": "DO YOU HAVE VOMITING?",
+        "bodyache" : "DO YOU HAVE BODYACHE?",
+        "IDCard" : "UPLOAD ID CARD PICTURE",
+        "IDCardReq":"ID CARD PICTURE IS REQUIRED"
     }
 }

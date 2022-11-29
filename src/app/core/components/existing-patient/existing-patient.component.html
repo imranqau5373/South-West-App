@@ -3,34 +3,42 @@
     <br>
     <form #patient="ngForm" (ngSubmit)="patient.form.valid && submit(patient)" class="row g-3" *ngIf="!finishPage">
     <div class="col-md-6">
-        <label for="addressChange" class="form-label">HAS YOUR ADDRESS OR PHONE NUMBER CHANGED SINCE YOUR LAST VISIT? </label>
+        <label for="addressChange" class="form-label">{{
+          "Existing.addressChange" | translate
+        }} </label>
     </div>
     <div class="col-md-6">
         <div class="form-check">
             <input class="form-check-input" [(ngModel)]="patientOneModel.addressChange" type="radio" name="addressChange" id="addressChangeYes" value="Yes">
             <label class="form-check-label" for="addressChangeYes">
-                Yes
+              {{ "YesNo.Yes" | translate }}
             </label>
             </div>
             <div class="form-check">
             <input class="form-check-input" [(ngModel)]="patientOneModel.addressChange" type="radio" name="addressChange" id="addressChangeNo" value="No">
             <label class="form-check-label" for="addressChangeNo">
-                No
+              {{ "YesNo.No" | translate }}
             </label>
         </div>
       </div>
     <div class="col-4" *ngIf="patientOneModel.addressChange == 'Yes'" >
-    <label for="address" class="form-label">Address</label>
+    <label for="address" class="form-label">{{
+      "Existing.address" | translate
+    }}</label>
     <input [(ngModel)]="patientOneModel.address" name="address" #address="ngModel"
     type="text" class="form-control" id="address">
     </div>
     <div class="col-4" *ngIf="patientOneModel.addressChange == 'Yes'" >
-        <label for="phoneNumber" class="form-label">Phone Number</label>
+        <label for="phoneNumber" class="form-label">{{
+          "Existing.phone" | translate
+        }}</label>
         <input [(ngModel)]="patientOneModel.phoneNumber" name="phoneNumber" #phoneNumber="ngModel"
         type="number" class="form-control" id="phoneNumber">
     </div>
       <div class="col-md-4" *ngIf="patientOneModel.addressChange == 'Yes'">
-        <label for="zipCode" class="form-label">ZipCode</label>
+        <label for="zipCode" class="form-label">{{
+          "Existing.zip" | translate
+        }}</label>
         <input [(ngModel)]="patientOneModel.zipCode" name="zipCode" #zipCode="ngModel"
         type="text" class="form-control" id="zipCode">
       </div>
@@ -45,146 +53,167 @@
         </div>
       </div>
       <div class="col-12">
-        <label for="covidSymptons" class="form-label">ARE YOU HAVING COVID 19 SYMPTOMS?</label>
+        <label for="covidSymptons" class="form-label">{{
+          "Existing.covidSymptoms" | translate
+        }}</label>
         <div class="form-check">
             <input class="form-check-input" [(ngModel)]="patientOneModel.covidSymptons" type="radio" name="covidSymptons" id="covidSymptonsYes" value="Yes">
             <label class="form-check-label" for="vaccinationsYes">
-              Yes
+              {{ "YesNo.Yes" | translate }}
             </label>
           </div>
           <div class="form-check">
             <input class="form-check-input" [(ngModel)]="patientOneModel.covidSymptons" type="radio" name="covidSymptons" id="covidSymptonsNo" value="No">
             <label class="form-check-label" for="covidSymptonsNo">
-              No
+              {{ "YesNo.No" | translate }}
             </label>
           </div>
       </div>
       <div class="col-12">
-        <label for="ssn" class="form-label">DO YOU HAVE IF YOU WERE EXPOSED TO COVID 19 WITHIN LAST 10 DAYS?</label>
+        <label for="ssn" class="form-label">{{
+          "Existing.covidExposed" | translate
+        }}</label>
         <div class="form-check">
             <input class="form-check-input" [(ngModel)]="patientOneModel.covid" type="radio" name="covid" id="covidRadioYes" value="Yes">
             <label class="form-check-label" for="covidRadioYes">
-              Yes
+              {{ "YesNo.Yes" | translate }}
             </label>
           </div>
           <div class="form-check">
             <input class="form-check-input" [(ngModel)]="patientOneModel.covid" type="radio" name="covid" id="covidRadioNo" value="No">
             <label class="form-check-label" for="covidRadioNo">
-              No
+              {{ "YesNo.No" | translate }}
             </label>
           </div>
       </div>
       <div class="col-12">
-        <label for="ssn" class="form-label">DO YOU HAVE FEVER?</label>
+        <label for="ssn" class="form-label">{{
+          "Existing.fever" | translate
+        }}</label>
         <div class="form-check">
             <input class="form-check-input" [(ngModel)]="patientOneModel.fever" type="radio" name="fever" id="feverRadioYes" value="Yes">
             <label class="form-check-label" for="feverRadioYes">
-              Yes
+              {{ "YesNo.Yes" | translate }}
             </label>
           </div>
           <div class="form-check">
             <input class="form-check-input" [(ngModel)]="patientOneModel.fever" type="radio" name="fever" id="feverRadioNo" value="No">
             <label class="form-check-label" for="feverRadioNo">
-              No
+              {{ "YesNo.No" | translate }}
             </label>
           </div>
       </div>
       <div class="col-12">
-        <label for="ssn" class="form-label">DO YOU HAVE SORE OR ITCHY  THROAT, COUGH OR CONGESTION, RUNNY NOSE?</label>
+        <label for="ssn" class="form-label">{{
+          "Existing.runnyNose" | translate
+        }}</label>
         <div class="form-check">
             <input class="form-check-input" [(ngModel)]="patientOneModel.coughCongestion" type="radio" name="coughCongestion" id="congestionRadioYes" value="Yes">
             <label class="form-check-label" for="congestionRadioYes">
-              Yes
+              {{ "YesNo.Yes" | translate }}
             </label>
           </div>
           <div class="form-check">
             <input class="form-check-input" [(ngModel)]="patientOneModel.coughCongestion" type="radio" name="coughCongestion" id="congestionRadioNo" value="No">
             <label class="form-check-label" for="congestionRadioNo">
-              No
+              {{ "YesNo.No" | translate }}
             </label>
           </div>
       </div>
       <div class="col-12">
-        <label for="ssn" class="form-label">ARE YOU HAVING SHORTNESS OF BREATH?</label>
+        <label for="ssn" class="form-label">{{
+          "Existing.breathShortness" | translate
+        }}</label>
         <div class="form-check">
             <input class="form-check-input" [(ngModel)]="patientOneModel.breathShortness" type="radio" name="breathShortness" id="breathRadioYes" value="Yes">
             <label class="form-check-label" for="breathRadioYes">
-              Yes
+              {{ "YesNo.Yes" | translate }}
             </label>
           </div>
           <div class="form-check">
             <input class="form-check-input" [(ngModel)]="patientOneModel.breathShortness" type="radio" name="breathShortness" id="breathRadioNo" value="No">
             <label class="form-check-label" for="breathRadioNo">
-              No
+              {{ "YesNo.No" | translate }}
             </label>
           </div>
       </div>
       <div class="col-12">
-        <label for="vaccinations" class="form-label">HAVE YOU COMPLETED YOUR COVID 19 VACCINATIONS?</label>
+        <label for="vaccinations" class="form-label">{{
+          "Existing.vaccination" | translate
+        }}</label>
         <div class="form-check">
             <input class="form-check-input" [(ngModel)]="patientOneModel.vaccinations" type="radio" name="vaccinations" id="vaccinationsYes" value="Yes">
             <label class="form-check-label" for="vaccinationsYes">
-              Yes
+              {{ "YesNo.Yes" | translate }}
             </label>
           </div>
           <div class="form-check">
             <input class="form-check-input" [(ngModel)]="patientOneModel.vaccinations" type="radio" name="vaccinations" id="vaccinationsNo" value="No">
             <label class="form-check-label" for="vaccinationsNo">
-              No
+              {{ "YesNo.No" | translate }}
             </label>
           </div>
       </div>
       <div class="col-12">
-        <label for="headche" class="form-label">DO YOU HAVE HEADCHE?</label>
+        <label for="headche" class="form-label">{{
+          "Existing.headache" | translate
+        }}</label>
         <div class="form-check">
             <input class="form-check-input" [(ngModel)]="patientOneModel.headche" type="radio" name="headche" id="headcheRadioYes" value="Yes">
             <label class="form-check-label" for="headcheRadioYes">
-              Yes
+              {{ "YesNo.Yes" | translate }}
             </label>
           </div>
           <div class="form-check">
             <input class="form-check-input" [(ngModel)]="patientOneModel.headche" type="radio" name="headche" id="headcheRadioNo" value="No">
             <label class="form-check-label" for="headcheRadioNo">
-              No
+              {{ "YesNo.No" | translate }}
             </label>
           </div>
       </div>
       <div class="col-12">
-        <label for="vomiting" class="form-label">DO YOU HAVE VOMITING?</label>
+        <label for="vomiting" class="form-label">{{
+          "Existing.vomit" | translate
+        }}</label>
         <div class="form-check">
             <input class="form-check-input" [(ngModel)]="patientOneModel.vomiting" type="radio" name="vomiting" id="vomitingRadioYes" value="Yes">
             <label class="form-check-label" for="vomitingRadioYes">
-              Yes
+              {{ "YesNo.Yes" | translate }}
             </label>
           </div>
           <div class="form-check">
             <input class="form-check-input" [(ngModel)]="patientOneModel.vomiting" type="radio" name="vomiting" id="vomitingRadioNo" value="No">
             <label class="form-check-label" for="vomitingRadioNo">
-              No
+            {{ "YesNo.No" | translate }}
             </label>
           </div>
       </div>
       <div class="col-12">
-        <label for="bodyache" class="form-label">DO YOU HAVE BODYACHE?</label>
+        <label for="bodyache" class="form-label">{{
+          "Existing.bodyache" | translate
+        }}</label>
         <div class="form-check">
             <input class="form-check-input" [(ngModel)]="patientOneModel.bodyache" type="radio" name="bodyache" id="bodyacheRadioYes" value="Yes">
             <label class="form-check-label" for="bodyacheRadioYes">
-              Yes
+              {{ "YesNo.Yes" | translate }}
             </label>
           </div>
           <div class="form-check">
             <input class="form-check-input" [(ngModel)]="patientOneModel.bodyache" type="radio" name="bodyache" id="bodyacheRadioNo" value="No">
             <label class="form-check-label" for="bodyacheRadioNo">
-              No
+              {{ "YesNo.No" | translate }}
             </label>
           </div>
       </div>
 
       <div class="col-4" *ngIf="patientOneModel.insurance == 'No' && patientOneModel.adult == 'Yes'" >
-        <label for="idCardPicture" class="form-label">UPLOAD ID CARD PICTURE</label>
+        <label for="idCardPicture" class="form-label">{{
+          "Existing.IDCard" | translate
+        }}  </label>
         <input name="idCardPicture"
-        type="file" class="form-control" id="idCardPicture" (change)="onChangeIdCardPic($event)">
+        type="file" class="form-control" id="idCardPicture" (change)="onChangeIdCardPic($event)" required>
       </div>
+      
       <div class="col-10">
         <label for="visitReason" class="form-label">Patient Signature</label>
         <div class="signature-container">
@@ -194,16 +223,16 @@
       <div class="col-12">
         <div class="row">
           <div class="col-2">
-            <button type="button" class="btn btn-primary" (click)="clearSignature()">Clear signature</button>
+            <button type="button" class="btn btn-primary" (click)="clearSignature()">{{"Button.ClearSign" | translate}}</button>
           </div>
           <div class="col-2">
-            <button type="button"  class="btn btn-primary" (click)="savePad()">Save signature</button>
+            <button type="button"  class="btn btn-primary" (click)="savePad()">{{"Button.SaveSign" | translate}}</button>
           </div>
         </div>
       </div>
 
       <div class="col-12">
-        <button type="submit" class="btn btn-primary">Finish</button>
+        <button type="submit" class="btn btn-primary">{{"Button.Finish" | translate}}</button>
       </div>
     </form>
 
