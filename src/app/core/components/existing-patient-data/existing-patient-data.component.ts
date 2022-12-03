@@ -46,7 +46,8 @@ export class ExistingPatientDataComponent implements OnInit {
     formData.append("firstName", this.patientMainModel.firstName);
     formData.append("middleName", this.patientMainModel.middleName);
     formData.append("lastName", this.patientMainModel.lastName);
-    formData.append("dateOfBirth", this.patientMainModel.dateOfBirth);
+    formData.append("createdDate",  new Date().toLocaleDateString('en-us', { year: 'numeric', month: '2-digit', day: '2-digit' } ));
+    formData.append("dateOfBirth", new Date(this.patientMainModel.dateOfBirth).toLocaleDateString('en-us', { year: 'numeric', month: '2-digit', day: '2-digit' }) );
     formData.append("reasonForVisit", this.patientMainModel.reasonForVisit);
     formData.append("adult", this.patientMainModel.adult);
     formData.append("insurance", this.patientMainModel.insurance);
@@ -191,7 +192,7 @@ export class ExistingPatientDataComponent implements OnInit {
       formData.append("dComment", this.patientMainModel.dComment)
       formData.append("dCommentExplain", this.patientMainModel.dCommentExplain)
     }
-
+    
     if(this.patientMainModel.reasonForVisit == "Immigration"){
       formData.append("cityOfBirth", this.patientMainModel.cityOfBirth);
       formData.append("countryOfBirth", this.patientMainModel.countryOfBirth);
@@ -219,6 +220,9 @@ export class ExistingPatientDataComponent implements OnInit {
     if(this.patientMainModel.reasonForVisit == "Covid"){
       formData.append("covidTesting", this.patientMainModel.covidTesting);
     }
+    if(this.patientMainModel.reasonForVisit == "CovidConsultation"){
+      formData.append("covidConsultation", this.patientMainModel.covidConsultation);
+    }
     else if(this.patientMainModel.Other == "Other"){
       formData.append("reasonForVisitOther", this.patientMainModel.reasonForVisitOther);
     }
@@ -241,7 +245,9 @@ export class ExistingPatientDataComponent implements OnInit {
       formData.append("phoneNumber",this.patientOneModel.phoneNumber);
     }
   }
+/*  */
 
+/*  */
   otherFields(formData : FormData){
     formData.append("zipCode", this.patientOneModel.zipCode);
     formData.append('ssn', this.patientOneModel.ssn)

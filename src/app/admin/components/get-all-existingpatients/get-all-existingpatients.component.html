@@ -2,10 +2,87 @@
   <div class="text-right col-md-11">
     <h2>List of All Existing Patients Records</h2>
   </div>
-<mat-form-field>
-  <mat-label>Filter</mat-label>
-  <input matInput (keyup)="searchPatient(input.value)" placeholder="Patient" #input>
-</mat-form-field>
+  <!-- Filter -->
+  <span class="text-primary">Filters</span>
+  <div class="row col-md-9">
+    <div class="search-container col-md-3 d-inline p-2" >
+      <mat-form-field >
+         <mat-label>Search Patients</mat-label>
+         <input matInput #input (keyup)="searchPatient(input.value)" />
+       </mat-form-field>
+    </div>
+   <!-- Gender filter -->
+     <div class="search-container col-md-3 d-inline p-2" >
+       <mat-form-field  class=" ">
+         <mat-label> Gender</mat-label>
+         <mat-select (selectionChange)="onChangeGender($event)">
+          <mat-option value="All">All</mat-option>
+           <mat-option value="Male">Male</mat-option>
+           <mat-option value="Female">Female</mat-option>
+         </mat-select>
+       </mat-form-field>
+     </div>
+      <!-- Insurance filter -->
+     <div class="search-container col-md-3 d-inline p-2" >
+       <mat-form-field  class=" ">
+         <mat-label>Insurance</mat-label>
+         <mat-select (selectionChange)="onChange($event)">
+          <mat-option value="All">All</mat-option>
+           <mat-option value="Yes">Yes</mat-option>
+           <mat-option value="No">No</mat-option>
+         </mat-select>
+       </mat-form-field>
+     </div>
+
+    <!-- DOB filter -->
+    <div class="search-container col-md-3 d-inline p-2" >
+      <mat-form-field>
+        <input
+          matInput
+          [matDatepicker]="dp1"
+          (dateInput)="filterDOB($event.target.value, $event)"
+          placeholder="Filter DOB"
+        />
+        <mat-datepicker-toggle matSuffix [for]="dp1"></mat-datepicker-toggle>
+      
+        <mat-datepicker #dp1></mat-datepicker>
+      </mat-form-field>
+    </div>
+ </div>  
+
+<!-- Date Range filter -->
+  <span class="text-primary">Date Range Filter</span>
+   <form class="date-block" [formGroup]="filterForm" >
+   
+      <div class="date-block__list d-inline ">
+        <mat-form-field>
+          <input matInput 
+            [matDatepicker]="fromDate" 
+            placeholder="From Date" 
+            formControlName="fromDate">
+          <mat-datepicker-toggle matSuffix [for]="fromDate"></mat-datepicker-toggle>
+          <mat-datepicker #fromDate></mat-datepicker>
+        </mat-form-field>
+      </div>
+
+      <div class="date-block__list d-inline p-2">
+        <mat-form-field>
+          <input matInput 
+            [matDatepicker]="toDate" 
+            placeholder="To Date" 
+            formControlName="toDate">
+          <mat-datepicker-toggle matSuffix [for]="toDate"></mat-datepicker-toggle>
+          <mat-datepicker #toDate></mat-datepicker>
+        </mat-form-field>
+      </div>
+
+      <div class=" d-inline p-2">
+        <button  mat-button  class="btn-primary" (click)="applyFilter()">Submit</button>
+      </div>
+  </form>
+ 
+
+  <!--  -->
 
 <div class="mat-elevation-z8">
   <table mat-table [dataSource]="dataSource" matSort>

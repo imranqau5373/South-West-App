@@ -121,7 +121,7 @@ import { AuthGuard } from './shared/service/auth.guard';
       },
       {
         path:'admin/all-existing-patients',
-        component : GetAllExistingpatientsComponent
+        component : GetAllExistingpatientsComponent, canActivate:[AuthGuard]
       },
       {
         path:'admin/callback-url/:token',

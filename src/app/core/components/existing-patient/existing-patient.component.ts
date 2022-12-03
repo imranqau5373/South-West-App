@@ -68,6 +68,7 @@ export class ExistingPatientComponent implements OnInit {
 
   
   submit($patient:any){
+    this.savePad()
     this.submitExisting.emit(this.patientOneModel);
     //if(this.patientOneModel.idCardPicture && this.patientOneModel.idCardPicture.name && this.patientOneModel.idCardPicture.name.length > 0){
       // const formData = new FormData();
@@ -125,7 +126,7 @@ export class ExistingPatientComponent implements OnInit {
     formData.append("adult", this.patientOneModel.adult);
     formData.append("witnessName", this.patientOneModel.witnessName);
     formData.append("guardianName", this.patientOneModel.guardianName);
-    //formData.append("signatureImg", this.signatureImg);
+    formData.append("signatureImg", this.patientOneModel.signatureImg);
 
   }
 
@@ -147,12 +148,13 @@ export class ExistingPatientComponent implements OnInit {
   }
 
   savePad() {
-    const base64Data = this.signaturePad.toDataURL();
+    const base64Data = this.signaturePad.toDataURL('image/png', 0.5);
     this.patientOneModel.signatureImg = base64Data;
   }
 
   saveParentPad() {
-    const base64Data = this.signaturePad.toDataURL();
+    const base64Data = this.signaturePad.toDataURL('image/png', 0.5);
+   // const base64Data = this.signaturePad.toDataURL();
   }
 
 }
